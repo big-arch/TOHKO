@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог брендов и моделей колготок — ДЕНЬЕ</title>
+  <meta name="description" content="Поиск по мировым брендам и моделям колготок: DEN, страна, сегмент, инклюзивные размеры, мужские, медицинские и экологичные серии. Подробные биографии и официальные источники.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css"><link rel="stylesheet" href="portal.css">
+</head>
+<body>
+  <a class="portal-skip" href="#content">Перейти к содержимому</a><div class="portal-topline">Глобальный каталог · Проверенные модели · Архивные записи отмечены отдельно</div>
+  <header class="portal-header"><div class="portal-nav-shell"><a class="portal-logo" href="index.html">ДЕНЬЕ <small>Энциклопедия</small></a><nav class="portal-nav" id="portal-nav" aria-label="Основная навигация"><a href="index.html">Главная</a><a class="active" href="brands.html">Бренды и модели</a><a href="lookbook.html">Фотогалерея</a><a href="men.html">Мужчинам</a><a href="history.html">История</a><a href="leggings.html">Легинсы</a><a href="business.html">Бизнес</a><a href="guide.html">Гид и DEN</a></nav><a class="portal-nav-action" href="#catalog">Найти модель</a><button class="portal-menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="portal-nav" data-nav-toggle><span></span><span></span></button></div></header>
+  <main id="content">
+    <section class="portal-page-hero"><div class="portal-container"><p class="portal-eyebrow">Мировой справочник</p><h1>Бренды и модели.<br>С фактами и источниками.</h1><p>Ищите по названию компании или модели, сегменту, плотности и статусу данных. Откройте карточку бренда для подробной истории, хронологии и технических таблиц.</p><div class="portal-page-meta"><span class="portal-chip"><strong data-brand-count>36</strong>&nbsp;компаний</span><span class="portal-chip"><strong data-model-count>80</strong>&nbsp;моделей</span><span class="portal-chip">Обновлено в ноябре 2026</span></div></div></section>
+
+    <section class="portal-section" id="catalog"><div class="portal-container">
+      <div class="portal-filter-panel">
+        <div class="portal-filter-top">
+          <label class="portal-field">Поиск по бренду или модели<input id="brand-search" type="search" placeholder="Например, Wolford или 50 DEN" autocomplete="off"></label>
+          <label class="portal-field">Сегмент<select id="brand-segment"><option value="all">Все сегменты</option><option>Премиум</option><option>Повседневные</option><option>Инклюзивные</option><option>Инновационные</option><option>Экологичные</option><option>Мужские</option><option>Медицинские</option><option>Архив</option></select></label>
+          <label class="portal-field">Плотность<select id="brand-den"><option value="all">Любой DEN</option><option value="5-20">От 5 до 20 DEN</option><option value="21-50">От 21 до 50 DEN</option><option value="51-100">От 51 до 100 DEN</option><option value="101-300">Свыше 100 DEN</option></select></label>
+          <label class="portal-field">Статус данных<select id="brand-status"><option value="all">Все статусы</option><option value="active">Актуальный каталог</option><option value="medical">Медицинская серия</option><option value="retail">Розничные источники</option><option value="limited">Часть данных недоступна</option><option value="archive">Архив</option></select></label>
+        </div>
+        <div class="portal-filter-bottom"><span class="portal-filter-count" id="brand-filter-count" aria-live="polite"></span><div><label class="portal-field" style="display:inline-flex;align-items:center;gap:8px;">Сортировка <select id="brand-sort" style="min-height:40px;"><option value="name">По названию</option><option value="models">По числу моделей</option></select></label> <button class="portal-reset" id="brand-reset" type="button">Сбросить фильтры</button></div></div>
+      </div>
+      <div class="portal-catalog-grid" id="brand-catalog-grid"></div>
+      <div class="portal-empty" id="brand-empty" hidden><h2>Ничего не найдено</h2><p>Попробуйте удалить часть названия или изменить диапазон плотности.</p><button class="portal-button portal-button-primary" type="button" onclick="document.getElementById('brand-reset').click()">Показать весь каталог</button></div>
+      <div class="portal-source-note"><strong>Как читать каталог.</strong> Число DEN указывается только при наличии источника. Медицинские серии сортируются по назначению и компрессионному классу, а не по обычной плотности. Доступность цвета, размера и доставка в конкретную страну требуют проверки на сайте производителя.</div>
+    </div></section>
+
+    <section class="portal-section portal-section-soft" id="brand-comparison" hidden><div class="portal-container"><div class="portal-section-head"><div><p class="portal-eyebrow">Сравнение без выдуманных баллов</p><h2>Бренды рядом по фактам</h2></div><p>Сравниваются только происхождение, назначение, статус данных и опубликованные модели. Никаких рейтингов без независимых испытаний.</p></div><div class="portal-comparison-wrap" id="comparison-table"></div></div></section>
+  </main>
+
+  <div class="portal-compare-tray" id="compare-tray"><span>Сравнение: <strong id="compare-count">0 из 3</strong></span><button class="portal-button portal-button-primary" id="compare-open" type="button">Сравнить выбранные</button><button class="portal-button portal-button-light" id="compare-clear" type="button">Очистить</button></div>
+  <footer class="portal-footer"><div class="portal-container portal-footer-grid"><div><h2>ДЕНЬЕ</h2><p>Независимая энциклопедия колготок, брендов и текстильных технологий.</p></div><div><h3>Каталог</h3><a href="brand.html?brand=wolford">Wolford</a><a href="brand.html?brand=falke">Falke</a><a href="brand.html?brand=snag">Snag</a><a href="brand.html?brand=activskin">Activskin</a></div><div><h3>Портал</h3><a href="lookbook.html">Фотогалерея</a><a href="men.html">Мужчинам</a><a href="guide.html">Гид и DEN</a></div><div><h3>Документы</h3><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия использования</a></div></div><div class="portal-container portal-footer-bottom"><span>© 2026 ДЕНЬЕ</span><span>Не является офертой или гарантией наличия</span><a href="index.html">На главную</a></div></footer>
+  <script src="data/brands.js"></script><script src="portal.js"></script><script src="motion.js"></script>
+</body>
+</html>
