@@ -208,6 +208,8 @@
     const count = document.getElementById('search-count');
     const results = document.getElementById('search-results');
     const pages = [
+      ['Капрон, нейлон и полиамид','Материалы, волокна, эластан и состав колготок','nylon.html','Гид'],
+      ['Источники и авторы','Проверка истории брендов, фотографии и логотипы','sources.html','Раздел'],
       ['Бренды и модели','Каталог компаний, плотностей и источников','brands.html','Раздел'],
       ['Легинсы, тайтсы и колготки','Отличия, GSM, спорт и мужской крой','leggings.html','Гид'],
       ['Люди и деньги в индустрии','Бизнес-кейсы, выручка и бизнес-модели','business.html','Бизнес'],
@@ -246,7 +248,7 @@
       const model = document.getElementById('suggest-model').value.trim();
       const url = document.getElementById('suggest-url').value.trim();
       const note = document.getElementById('suggest-note').value.trim();
-      const text = `# Предложение для каталога ДЕНЬЕ\n\nБренд: ${name}\nМодель: ${model || 'Не указана'}\nИсточник: ${url}\nПримечание: ${note || 'Нет'}\n\nПредложение подготовлено локально и не отправлено автоматически.`;
+      const text = `# Предложение для каталога ТОНКО\n\nБренд: ${name}\nМодель: ${model || 'Не указана'}\nИсточник: ${url}\nПримечание: ${note || 'Нет'}\n\nПредложение подготовлено локально и не отправлено автоматически.`;
       document.getElementById('suggest-result').hidden = false;
       document.getElementById('suggest-preview').textContent = text;
       const download = document.getElementById('suggest-download');

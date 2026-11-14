@@ -13,3 +13,54 @@ window.PHOTO_DATA = [
   { id:'washed', category:'products', image:'assets/images/washed-hosiery.jpg', title:'После бережной стирки', alt:'Разноцветные колготки и чулки после стирки', caption:'Стопка выстиранных чулочно-носочных изделий разных цветов.', author:'Tc terencec', license:'CC BY-SA 3.0', licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/', source:'https://commons.wikimedia.org/wiki/File:Washed_Hosiery_Pile.jpg' },
   { id:'ladder', category:'products', image:'assets/images/ladder-detail.jpg', title:'Анатомия затяжки', alt:'Длинная стрелка на телесных колготках около лодыжки', caption:'Стрелка на тонких колготках как пример повреждения петель.', author:'Jessica Tang', license:'CC BY-SA 3.0', licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/', source:'https://commons.wikimedia.org/wiki/File:Pantyhose_Run.jpg' }
 ];
+
+window.PHOTO_DATA = [
+  {
+    "id": "sheer-editorial",
+    "category": "women",
+    "image": "assets/images/sheer-editorial.jpg",
+    "title": "Прозрачность крупным планом",
+    "alt": "Крупный план чёрных полупрозрачных колготок и ботинок на светлом фоне",
+    "caption": "Полупрозрачное полотно в повседневном образе. Бренд изделия и DEN не установлены. Размер уменьшен; в превью применяется кадрирование.",
+    "author": "Alexander Mass",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "source": "https://www.pexels.com/photo/a-woman-in-black-tights-and-a-black-dress-27869769/"
+  },
+  {
+    "id": "tights-monochrome",
+    "category": "products",
+    "image": "assets/images/tights-monochrome.jpg",
+    "title": "Петли и стрелки",
+    "alt": "Чёрно-белый крупный план колготок со стрелками и чёрных ботинок",
+    "caption": "Повреждённое полотно в уличной стилизации. Снимок показывает распущенные петли, а не качество конкретного бренда. Размер уменьшен; в превью применяется кадрирование.",
+    "author": "arwin waworuntu",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "source": "https://www.pexels.com/photo/edgy-fashion-statement-with-leather-boots-and-tights-33620742/"
+  },
+  {
+    "id": "lace-studio",
+    "category": "women",
+    "image": "assets/images/lace-studio.jpg",
+    "title": "Кружевной рисунок в студии",
+    "alt": "Модель в боди и чёрных колготках с кружевным узором на светлом фоне",
+    "caption": "Контраст ажурного узора и открытых участков полотна. Бренд изделия не установлен. Размер уменьшен; в превью применяется кадрирование.",
+    "author": "Vika Glitter",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "source": "https://www.pexels.com/photo/sensual-woman-in-tight-bodysuit-6965961/"
+  },
+  {
+    "id": "leggings-movement",
+    "category": "leggings",
+    "image": "assets/images/leggings-movement.jpg",
+    "title": "Легинсы в движении",
+    "alt": "Женщина в чёрных спортивных легинсах делает растяжку в светлой студии",
+    "caption": "Легинсы без стопы во время упражнения. Бренд, состав и уровень поддержки не установлены. Размер уменьшен; в превью применяется кадрирование.",
+    "author": "Polina Tankilevitch",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "source": "https://www.pexels.com/photo/woman-in-black-sports-bra-and-leggings-doing-leg-exercise-6516185/"
+  }
+].concat(window.PHOTO_DATA);

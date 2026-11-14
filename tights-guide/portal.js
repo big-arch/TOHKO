@@ -1,10 +1,13 @@
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+window.portalReduceMotion = reducedMotion.matches;
+reducedMotion.addEventListener('change', event => { window.portalReduceMotion = event.matches; });
 const portal$ = (selector, root = document) => root.querySelector(selector);
 const portal$$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const brands = window.BRAND_DATA || [];
 const photos = window.PHOTO_DATA || [];
 const denLabel = (den) => !den ? 'DEN не заявлен' : den[0] === den[1] ? `${den[0]} DEN` : `${den[0]}–${den[1]} DEN`;
-const statusLabel = { active: 'Актуальный каталог', archive: 'Архив', retail: 'Розничные источники', limited: 'Часть данных недоступна', medical: 'Медицинская серия' };
-const categoryLabel = { women: 'Женская мода', men: 'Мужчины', unisex: 'Унисекс', products: 'Предмет и фактура' };
+const statusLabel = { active: 'Каталог производителя', archive: 'Архив', retail: 'Розничные источники', limited: 'Часть данных недоступна', medical: 'Медицинская серия' };
+const categoryLabel = { women: 'Женская мода', men: 'Мужчины', unisex: 'Унисекс', products: 'Предмет и фактура', leggings: 'Легинсы' };
 
 function portalToast(message) {
   let toast = portal$('#portal-toast');
@@ -54,7 +57,7 @@ function initPortalNavigation() {
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && open) close(true);
   });
-  mobile.addEventListener('change', syncInert);
+  mobile.addEventListener('change', () => close());
   syncInert();
 }
 
@@ -207,14 +210,14 @@ function initBrandDetail() {
   const root = portal$('[data-brand-detail]');
   if (!root) return;
   const slug = new URLSearchParams(location.search).get('brand');
-  const item = brands.find((entry) => entry.slug === slug) || brands[0];
-  if (!item) return;
-  document.title = `${item.name}: история компании и модели — ДЕНЬЕ`;
+  const item = brands.find((entry) => entry.slug === slug);
+  if (!item) { root.innerHTML = '<section class="portal-section"><div class="portal-container"><h1>Бренд не найден</h1><p>Проверьте ссылку или выберите компанию в каталоге.</p><a class="portal-button portal-button-primary" href="brands.html">Открыть каталог</a></div></section>'; document.title = 'Бренд не найден — ТОНКО'; return; }
+  document.title = `${item.name}: история компании и модели — ТОНКО`;
   portal$('#brand-title').textContent = item.name;
   portal$('#brand-title-breadcrumb').textContent = item.name;
   portal$('#brand-summary').textContent = item.summary;
   portal$('#brand-country').textContent = item.country;
-  portal$('#brand-founded').textContent = item.founded || 'В источниках';
+  portal$('#brand-founded').textContent = item.founded || 'Не подтверждено';
   portal$('#brand-segment-value').textContent = item.segment;
   portal$('#brand-status-value').textContent = statusLabel[item.status];
   portal$('#brand-tags').innerHTML = item.tags.map((tag) => `<span class="portal-chip">${tag}</span>`).join('');
@@ -222,7 +225,7 @@ function initBrandDetail() {
   portal$('#brand-bio').innerHTML = item.bio.map((paragraph) => `<p>${paragraph}</p>`).join('');
   portal$('#brand-milestones').innerHTML = item.milestones.length ? item.milestones.map(([year, text]) => `<div class="portal-timeline-item"><strong>${year}</strong><span>${text}</span></div>`).join('') : '<p>Подробная хронология не опубликована в проверенных источниках. Основные факты приведены в истории выше.</p>';
   portal$('#brand-model-count').textContent = `${item.models.length} ${item.models.length === 1 ? 'модель' : 'моделей'}`;
-  portal$('#brand-models').innerHTML = item.models.length ? item.models.map((entry) => `<tr><td><a target="_blank" rel="noopener" href="${entry.url}">${entry.name} <i class="ph ph-arrow-square-out" aria-hidden="true"></i></a></td><td><span class="portal-den">${denLabel(entry.den)}</span></td><td>${entry.use}</td><td>${entry.features}${entry.sourceType === 'retail' ? '<br><span class="portal-chip">Розничное подтверждение</span>' : ''}</td></tr>`).join('') : '<tr><td colspan="4">Текущие модели не подтверждены. Мы не переносим старые названия в актуальный каталог без действующего источника.</td></tr>';
+  portal$('#brand-models').innerHTML = item.models.length ? item.models.map((entry) => `<tr><td><a target="_blank" rel="noopener" href="${entry.url}">${entry.name} <i class="ph ph-arrow-square-out" aria-hidden="true"></i></a></td><td><span class="portal-den">${denLabel(entry.den)}</span></td><td>${entry.use}</td><td>${entry.features}${entry.sourceType === 'retail' ? '<br><span class="portal-chip">Розничное подтверждение</span>' : entry.sourceType === 'archive' ? '<br><span class="portal-chip">Архивный документ</span>' : ''}</td></tr>`).join('') : '<tr><td colspan="4">Текущие модели не подтверждены. Мы не переносим старые названия в актуальный каталог без действующего источника.</td></tr>';
   const related = brands.filter((entry) => entry.segment === item.segment && entry.slug !== item.slug).slice(0,4);
   portal$('#brand-related').innerHTML = related.map((entry) => `<a href="${brandLink(entry)}">${entry.name}</a>`).join('');
 }
@@ -241,10 +244,12 @@ function initPhotoGallery() {
     if (closing) return;
     closing = true;
     if (!window.portalReduceMotion && dialog.animate) {
-      await dialog.animate([
+      const animation = dialog.animate([
         { opacity: 1, transform: 'translateY(0) scale(1)' },
         { opacity: 0, transform: 'translateY(24px) scale(.98)' }
-      ], { duration: 220, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'forwards' }).finished.catch(() => {});
+      ], { duration: 220, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'forwards' });
+      await animation.finished.catch(() => {});
+      animation.cancel();
     }
     lightbox.classList.remove('active');
     lightbox.setAttribute('aria-hidden', 'true');

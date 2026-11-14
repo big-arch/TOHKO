@@ -1,0 +1,122 @@
+{
+  "wolford": {
+    "path": "assets/brands/wolford.svg",
+    "source": "https://company.wolford.com/",
+    "asset": "https://company.wolford.com/wp-content/uploads/2019/11/Wolford_Logo.svg",
+    "dark": false
+  },
+  "falke": {
+    "path": "assets/brands/falke.svg",
+    "source": "https://www.falke.com/uk_en/about-us/history/",
+    "asset": "https://www.falke.com/uk_en/bcb672ff83e28baf0b4b026bdef3c133f515dbcc/assets/base/staticImages/falke_logo.svg",
+    "dark": false
+  },
+  "calzedonia": {
+    "path": "assets/brands/calzedonia.svg",
+    "source": "https://www.calzedonia.com/us/women/tights_and_stockings/",
+    "asset": "https://www.calzedonia.com/on/demandware.static/-/Library-Sites-CalzedoniaContentLibrary/en_US/Calzedonia_logo.svg",
+    "dark": false
+  },
+  "philippe-matignon": {
+    "path": "assets/brands/philippe-matignon.png",
+    "source": "https://www.philippematignon.it/",
+    "asset": "https://www.philippematignon.it/cdn/shop/files/Logo_PM.png?v=1733348748&width=500",
+    "dark": false
+  },
+  "cecilia-de-rafael": {
+    "path": "assets/brands/cecilia-de-rafael.svg",
+    "source": "https://ceciliaderafael.com/en",
+    "asset": "https://ceciliaderafael.com/images/logo.svg",
+    "dark": false
+  },
+  "gabriella": {
+    "path": "assets/brands/gabriella.svg",
+    "source": "https://www.gabriella.pl/",
+    "asset": "https://www.gabriella.pl/cdn/shop/files/Gabriella.svg?height=20&v=1764325113",
+    "dark": false
+  },
+  "noq-knittex": {
+    "path": "assets/brands/noq-knittex.svg",
+    "source": "https://noq.com.pl/kategoria-produktu/kobieta/rajstopy/",
+    "asset": "https://noq.com.pl/app/uploads/2025/10/logo-noq.svg",
+    "dark": false
+  },
+  "spanx": {
+    "path": "assets/brands/spanx.svg",
+    "source": "https://spanx.com/collections/hosiery",
+    "asset": "https://spanx.bynder.com/transform/1b58afb9-5a1b-4c55-a3e5-052dd62c67a7/Logo",
+    "dark": false
+  },
+  "snag": {
+    "path": "assets/brands/snag.png",
+    "source": "https://snagtights.com/pages/size-guide-tights",
+    "asset": "https://snagtights.com/cdn/shop/files/Snag-Logo-White-Outline.png?v=1722942063&width=600",
+    "dark": true
+  },
+  "swedish-stockings": {
+    "path": "assets/brands/swedish-stockings.svg",
+    "source": "https://swedishstockings.com/pages/about-us",
+    "asset": "https://cdn.shopify.com/s/files/1/0078/3128/9969/files/logotype_single_black.svg?v=1781772520",
+    "dark": false
+  },
+  "minimi": {
+    "path": "assets/brands/minimi.svg",
+    "source": "https://minimicalze.com/",
+    "asset": "https://minimicalze.com/local/templates/minimi/img/logo-dark.svg",
+    "dark": false
+  },
+  "activskin": {
+    "path": "assets/brands/activskin.jpg",
+    "source": "https://www.activskin.com/",
+    "asset": "https://www.activskin.com/product_images/Activskin_New_Web_Banner_654px_X_106px.jpg",
+    "dark": false
+  },
+  "sigvaris": {
+    "path": "assets/brands/sigvaris.svg",
+    "source": "https://www.sigvaris.com/en-ch/catalog/product-styles/pantyhose",
+    "asset": "https://www.sigvaris.com/globalassets/_div/sig9000_sigvaris_group_160th_logo_dual_horizontal_darkblue_rgb.svg?ref=FD8B1C8BB4",
+    "dark": false
+  },
+  "medi": {
+    "path": "assets/brands/medi.svg",
+    "source": "https://www.medi.de/en/products/compression-stockings/treating-veins/",
+    "asset": "https://sf.medi.de/style-1-17-16/Images/medi-logo.svg",
+    "dark": false
+  },
+  "juzo": {
+    "path": "assets/brands/juzo.svg",
+    "source": "https://www.juzo.com/en/products/compression-garments/venous-therapy/juzo-soft",
+    "asset": "https://www.juzo.com/_Resources/Static/Packages/Juzo.NodeTypes/Images/Frontend/Juzo_Logo_RGB.svg?bust=facd6b93",
+    "dark": false
+  },
+  "solidea": {
+    "path": "assets/brands/solidea.svg",
+    "source": "https://www.solidea.com/en/cat/tights/fashion-tights",
+    "asset": "https://www.solidea.com//images/logo.svg",
+    "dark": false
+  },
+  "pretty-polly": {
+    "path": "assets/brands/pretty-polly.png",
+    "source": "https://www.prettypolly.co.uk/",
+    "asset": "https://www.prettypolly.co.uk/media/logo/stores/10/pp-logo_1.png",
+    "dark": false
+  },
+  "sisi": {
+    "path": "assets/brands/sisi.png",
+    "source": "https://www.goldenladycompany.com/en/brand/sisi",
+    "asset": "https://www.goldenladycompany.com/sites/default/files/brand/2021-11/sisi.png",
+    "dark": false
+  },
+  "golden-lady": {
+    "path": "assets/brands/golden-lady.png",
+    "source": "https://www.goldenladycompany.com/en/brand/golden-lady",
+    "asset": "https://www.goldenladycompany.com/sites/default/files/brand/2021-11/golden-lady.png",
+    "dark": false
+  },
+  "omsa": {
+    "path": "assets/brands/omsa.png",
+    "source": "https://www.goldenladycompany.com/en/brand/omsa",
+    "asset": "https://www.goldenladycompany.com/sites/default/files/brand/2021-11/omsa_0.png",
+    "dark": false
+  }
+}

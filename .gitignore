@@ -1,3 +1,7 @@
 kimi-conversation-*.md
 kimi-conversation-*.tmp
 kimi-context-mod/
+
+.cache/
+qa/*.png
+node_modules/
