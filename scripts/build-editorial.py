@@ -147,7 +147,8 @@ page('sources.html','Источники и фотографии','Источни
 history=S/'history.html';text=history.read_text(encoding='utf-8')
 historic=[('glamory','Современная мужская модель Glamory. Иллюстрация сегодняшнего ассортимента, не исторический костюм.'),('wolford-3','Современный тонкий трикотаж Wolford. Иллюстрация материала, не фотография разработки 1935 года.'),('golden-history','Архивная фотография Golden Lady из истории компании. Не иллюстрация военного производства DuPont.'),('conte-waist','Современный пример растяжения верхней части изделия из подборки проекта.'),('patterns','Современные фантазийные узоры из подборки проекта. Не архив 1960-х.'),('swedish-rib','Современная коллекция Swedish Stockings: цвет и фактура.')]
 counter=iter(historic)
-text=re.sub(r'<figure\b[^>]*>.*?</figure>',lambda match:photo(*(next(counter))),text,flags=re.S)
+# The separately generated brand archive owns its figures. Only replace legacy chronology photos.
+text=re.sub(r'<figure\b(?![^>]*class="[^"]*\bexperience-photo\b)[^>]*>.*?</figure>',lambda match:photo(*(next(counter))),text,flags=re.S)
 history.write_text(text,encoding='utf-8')
 for filename,id,caption in [('atlas.html','toe','Мысок и фактура: деталь изделия из подборки проекта.'),('nylon.html','wolford-3','Полиамидный трикотаж в современной модели Wolford Individual 10.')]:
  f=S/filename;t=f.read_text(encoding='utf-8')
@@ -170,7 +171,7 @@ for f in S.glob('*.html'):
  t=t.replace('href="brands.html">Бренды и модели','href="brands.html">Бренды').replace('href="lookbook.html">Фотогалерея','href="lookbook.html">Галерея').replace('href="business.html">Бизнес','href="business.html">Индустрия')
  f.write_text(t,encoding='utf-8')
 
-(S/'data/photos.js').write_text('window.PHOTO_DATA = '+json.dumps([m for m in M.values() if m['category']!='business'],ensure_ascii=False,indent=2)+';\n',encoding='utf-8')
+(S/'data/photos.js').write_text('window.PHOTO_DATA = '+json.dumps([m for m in M.values() if m['category'] not in ('business','archive')],ensure_ascii=False,indent=2)+';\n',encoding='utf-8')
 # Legacy search uses this array; the new gallery reads the same manifest directly.
 t=(S/'tools.js').read_text(encoding='utf-8').replace("['Энциклопедия DEN','Плотность, материалы, размеры и уход'","['Как выбрать: мастерская','Подбор пары, сравнение DEN, викторина, конструкция и уход'")
 t=t.replace('Люди и деньги в индустрии','Люди и экономика индустрии')

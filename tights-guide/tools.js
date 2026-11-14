@@ -208,6 +208,8 @@
     const count = document.getElementById('search-count');
     const results = document.getElementById('search-results');
     const pages = [
+      ['Журнал ТОНКО','Свет, рисунки, конструкция, производство и история; маршруты чтения','journal.html','Журнал'],
+      ['Под лупой','Увеличение фотографий, блеск, кружево и сравнение фактур','textures.html','Интерактив'],
       ['Капрон, нейлон и полиамид','Материалы, волокна, эластан и состав колготок','nylon.html','Гид'],
       ['Источники и авторы','Проверка истории брендов, фотографии и логотипы','sources.html','Раздел'],
       ['Бренды и модели','Каталог компаний, плотностей и источников','brands.html','Раздел'],
@@ -220,6 +222,7 @@
       ['Фетиш: психология и психофизиология','Восприятие, ассоциации, интерес и расстройство, согласие и отношения','fetish.html','18+']
     ];
     const entries = [
+      ...(window.TONKO_JOURNAL || []).map(s=>({title:s.title,text:s.description+' '+s.short+' '+s.theme,url:s.url,kind:'Журнал'})),
       ...pages.map(([title,text,url,kind]) => ({title,text,url,kind})),
       ...brands.map((item) => ({title:item.name,text:`${item.summary} ${item.models.map((model) => model.name).join(' ')}`,url:`brand.html?brand=${item.slug}`,kind:'Бренд'})),
       ...business.map((item) => ({title:`${item.name} · ${item.company}`,text:`${item.story} ${item.figure}`,url:`business.html#profile-${item.id}`,kind:'Бизнес'})),

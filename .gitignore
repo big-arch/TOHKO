@@ -5,3 +5,5 @@ kimi-context-mod/
 .cache/
 qa/*.png
 node_modules/
+__pycache__/
+*.pyc

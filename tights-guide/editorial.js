@@ -9,11 +9,21 @@
   async function gallery() {
     const grid=$('#editorial-gallery'); if(!grid)return;
     const dialog=$('#editorial-lightbox'), full=$('#editorial-full-image');
-    let media=[],shown=[],current=0,opener=null;
+    let media=[],shown=[],current=0,opener=null,activeFilter='all';
+    let saved=new Set();
+    try{const raw=JSON.parse(localStorage.getItem('tonko-photo-shelf-v1')||'[]');if(Array.isArray(raw))saved=new Set(raw.filter(x=>typeof x==='string'));}catch{}
+    const status=document.createElement('p');status.className='photo-save-status';status.setAttribute('role','status');$('.gallery-toolbar').append(status);
+    const detailIds=new Set(['wolford-3','noq-lace','calzedonia-glitter','cdr-gloss','gabriella-arctic']);
+    const savePhoto=id=>{
+      const next=new Set(saved);next.has(id)?next.delete(id):next.add(id);
+      try{localStorage.setItem('tonko-photo-shelf-v1',JSON.stringify([...next]));saved=next;status.textContent=next.has(id)?'Фотография сохранена в этом браузере.':'Фотография удалена из вашей подборки.';return true;}
+      catch{status.textContent='Браузер запретил сохранение. Фотографии по-прежнему можно смотреть.';const note=$('#editorial-photo-credit');if(dialog.open)note.textContent='Браузер запретил сохранение. Закройте просмотр, чтобы продолжить.';return false;}
+    };
     try {
       const response=await fetch('data/editorial-media.json');
       if(!response.ok)throw new Error('media');
-      media=(await response.json()).filter(p=>p.category!=='business');
+      media=(await response.json()).filter(p=>!['business','archive'].includes(p.category));
+      saved=new Set([...saved].filter(id=>media.some(p=>p.id===id)));
     } catch {
       grid.innerHTML='<p>Не удалось загрузить подборку. <button type="button" id="retry-gallery">Попробовать ещё раз</button></p>';
       $('#retry-gallery').onclick=gallery;return;
@@ -29,12 +39,19 @@
       $('#editorial-photo-number').textContent=`${current+1} / ${shown.length}`;
       const source=$('#editorial-photo-source');source.href=p.origin==='user'?'sources.html#photography':p.source;
       source.textContent=p.origin==='user'?'О происхождении подборки ↗':'Открыть источник ↗';
+      let save=$('#lightbox-save');
+      if(!save){save=document.createElement('button');save.type='button';save.id='lightbox-save';save.className='gallery-save';$('.lightbox-info').append(save);save.addEventListener('click',()=>{const id=shown[current]?.id;if(!id||!savePhoto(id))return;if(activeFilter==='saved'){dialog.close();render(activeFilter);}else{render(activeFilter);update();}});}
+      save.textContent=saved.has(p.id)?'Сохранено ✓':'Сохранить фотографию';save.setAttribute('aria-pressed',String(saved.has(p.id)));
+      let detail=$('#lightbox-detail');if(!detail){detail=document.createElement('a');detail.id='lightbox-detail';detail.className='photo-detail-link';detail.textContent='Рассмотреть под лупой ↗';$('.lightbox-info').append(detail);}detail.hidden=!detailIds.has(p.id);detail.href='textures.html?photo='+encodeURIComponent(p.id);
     };
     const change=(step)=>{current=(current+step+shown.length)%shown.length;update();};
     const render=filter=>{
-      shown=filter==='all'?media:media.filter(p=>p.category===filter);
-      grid.innerHTML=shown.map((p,i)=>`<article class="gallery-item" id="photo-${esc(p.id)}"><button class="gallery-open" type="button" data-photo-index="${i}" aria-label="Открыть: ${esc(p.title)}"><img src="${esc(p.image)}" alt="${esc(p.alt)}" width="${p.width}" height="${p.height}" loading="lazy" class="${['packaging','texture'].includes(p.category)||p.id==='wolford-4'?'contain':''}"></button><h2>${esc(p.title)}</h2><p>${esc(p.origin==='user'?'Пример из подборки':p.author)}</p></article>`).join('');
+      activeFilter=filter;shown=filter==='all'?media:media.filter(p=>filter==='saved'?saved.has(p.id):p.category===filter);
+      grid.innerHTML=shown.map((p,i)=>`<article class="gallery-item" id="photo-${esc(p.id)}"><button class="gallery-open" type="button" data-photo-index="${i}" aria-label="Открыть: ${esc(p.title)}"><img src="${esc(p.image)}" alt="${esc(p.alt)}" width="${p.width}" height="${p.height}" loading="lazy" class="${['packaging','texture'].includes(p.category)||p.id==='wolford-4'?'contain':''}"></button><h2>${esc(p.title)}</h2><p>${esc(p.origin==='user'?'Пример из подборки':p.author)}</p><button type="button" class="gallery-save" data-save-photo="${esc(p.id)}" aria-label="${saved.has(p.id)?'Убрать из подборки':'Сохранить фотографию'}: ${esc(p.title)}" aria-pressed="${saved.has(p.id)}">${saved.has(p.id)?'Сохранено ✓':'Сохранить'}</button></article>`).join('');
       $('#gallery-count').textContent=`Фотографий: ${shown.length}`;$('#gallery-empty').hidden=shown.length>0;
+      const savedCount=$('#photo-saved-count');if(savedCount)savedCount.textContent=saved.size;
+      $('#gallery-empty').textContent=filter==='saved'?'В вашей подборке пока нет фотографий. Откройте коллекцию и нажмите «Сохранить» под понравившимся кадром.':'В этой подборке пока нет фотографий.';
+      grid.querySelectorAll('[data-save-photo]').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.savePhoto;if(savePhoto(id)){render(activeFilter);(grid.querySelector(`[data-save-photo="${CSS.escape(id)}"]`)||$('[data-gallery-filter="saved"]'))?.focus({preventScroll:true});}}));
       grid.querySelectorAll('[data-photo-index]').forEach(b=>b.addEventListener('click',()=>{
         current=Number(b.dataset.photoIndex);opener=b;update();dialog.showModal();document.body.classList.add('editorial-modal-open');
       }));
@@ -49,7 +66,7 @@
     $('[data-photo-prev]').onclick=()=>change(-1);$('[data-photo-next]').onclick=()=>change(1);
     $('.lightbox-close').onclick=()=>dialog.close();
     dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
-    dialog.addEventListener('close',()=>{document.body.classList.remove('editorial-modal-open');opener?.focus();});
+    dialog.addEventListener('close',()=>{document.body.classList.remove('editorial-modal-open');(opener?.isConnected?opener:document.querySelector(`[data-gallery-filter="${CSS.escape(activeFilter)}"]`))?.focus({preventScroll:true});});
     dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();change(-1);}if(e.key==='ArrowRight'){e.preventDefault();change(1);}});
   }
   gallery();

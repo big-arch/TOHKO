@@ -3,6 +3,20 @@
   const source = (title, url, supports) => ({ title, url, supports });
   const groupHistory = source('Golden Lady Company: история группы', 'https://www.goldenladycompany.com/en/companys-history', '1966: основание; 1987: приобретение SISI; 1992: приобретение Omsa; 2003: приобретение Filodoro и Philippe Matignon.');
   const research = {
+    'cecilia-de-rafael': {
+      founded:'1977',
+      firstParagraph:'Cecilia de Rafael связывает начало своей истории с Барселоной и 1977 годом. На официальной странице About основание описано как семейная история, а современная коллекция соединена с темами ремесла, материала и итальянского производства. Юбилейная линия 1977–2027 в оформлении сайта не означает, что на дату проверки, 15 ноября 2026 года, уже прошло пятьдесят полных лет.',
+      milestones:[['1977','Начало истории бренда в Барселоне']],
+      historySources:[source('Cecilia de Rafael: About','https://ceciliaderafael.com/en/about','1977 год и Барселона; юбилейная подача 1977–2027.')],
+      historyNote:'Дата основания сверена с собственным рассказом компании. Юбилейная кампания отделена от календарной даты проверки.'
+    },
+    gabriella: {
+      founded:'1996',
+      firstParagraph:'Gabriella основана в 1996 году. На официальной странице O nas компания описывает себя как семейное предприятие с производством в Лодзи, на улице Brukowa. Производственные объёмы и масштаб оборудования, приведённые на сайте, являются собственными заявлениями компании и не заменяют независимую проверку.',
+      milestones:[['1996','Основание семейной компании']],
+      historySources:[source('Gabriella: O nas','https://www.gabriella.pl/pages/o-nas','Основание в 1996 году, семейная компания, производство в Лодзи.')],
+      historyNote:'Основание и место производства сверены с официальной страницей компании.'
+    },
     wolford: {
       founded: '1950 · марка',
       historySources: [source('Wolford: Company Profile', 'https://company.wolford.com/wp-content/uploads/IR/WolfordCompanyProfile.pdf', 'Wolff & Co. KG: 1949; регистрация марки Wolford: 1950; основатели Reinhold Wolff и Walter Palmers.'),source('Wolford: Our History','https://www.wolford.com/en-gb/our-history.html','Компания использует 1950 как год основания бренда.'),source('Wolford: Pure 50, 2014','https://company.wolford.com/wp-content/uploads/2014/02/FINAL_Factsheet_140718_EN.pdf','Архивный документ о технологии Pure 50; не свидетельство текущего наличия.')],
