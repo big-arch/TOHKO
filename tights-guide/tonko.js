@@ -28,7 +28,9 @@
   if(register) register.innerHTML=data.map(b=>`<article><h2><a href="brand.html?brand=${escape(b.slug)}">${escape(b.name)} ↗</a></h2><p>${b.historyReviewed?`Сверено ${b.historyChecked}. ${escape(b.historyNote)}`:'Историческая хронология пока не подтверждена. Каталожная справка сохранена без добавления предполагаемых дат.'}</p>${sourceList(b)}</article>`).join('');
 
   const photoRegister=document.querySelector('#photo-register');
-  if(photoRegister) photoRegister.innerHTML=(window.PHOTO_DATA||[]).map(p=>`<li><a href="${escape(p.source)}" target="_blank" rel="noopener">${escape(p.title)}</a><small>${escape(p.author)} · <a href="${escape(p.licenseUrl)}">${escape(p.license)}</a>. Уменьшение размера и кадрирование при отображении.</small></li>`).join('');
+  if(photoRegister) fetch('data/editorial-media.json').then(r=>{if(!r.ok)throw new Error('media');return r.json();}).then(media=>{
+    photoRegister.innerHTML=media.map(p=>`<li><a href="${escape(p.origin==='user'?p.image:p.source)}" target="_blank" rel="noopener">${escape(p.title)}</a><small>${escape(p.author)} · ${escape(p.license)}. ${p.width} × ${p.height} px. ${p.origin==='user'?'Предоставлено владельцем проекта; исходная публикация не установлена.':'Ссылка ведёт на публикацию источника.'}</small></li>`).join('');
+  }).catch(()=>{photoRegister.textContent='Реестр фото временно недоступен. Попробуйте обновить страницу.';});
 
   fetch('data/logo-sources.json').then(r=>{if(!r.ok)throw new Error('Logo manifest unavailable');return r.json();}).then(logos=>{
     const insertLogo=(host,slug)=>{
