@@ -8,7 +8,8 @@
   const $ = id => document.getElementById(id);
   const key = 'tonko-video-shelf-v1';
   const ids = new Set(videos.map(v => v.id));
-  const languages = { ru: 'На русском', en: 'На английском', none: 'Без речи' };
+  const languages = { ru: 'На русском', en: 'На английском', none: 'Без речи', original: 'Язык оригинала' };
+  const provider = video => video.provider === 'vimeo' ? 'vimeo' : 'youtube';
   const buttons = [...document.querySelectorAll('[data-video-topic]')];
   const cards = [...document.querySelectorAll('[data-video-card]')];
   const readSaved = () => {
@@ -21,16 +22,19 @@
   let saved = readSaved();
   let topic = 'all', savedOnly = false, current = videos[0], shown = [...videos];
   let playing = false, player = null, playerSession = 0, playerTimer = 0, apiPromise = null;
+  let vimeoPromise = null;
   const params = new URLSearchParams(location.search);
   if (buttons.some(b => b.dataset.videoTopic === params.get('topic'))) topic = params.get('topic');
   savedOnly = params.get('saved') === '1';
   $('video-search').value = params.get('q') || '';
   if (languages[params.get('language')]) $('video-language').value = params.get('language');
+  if (['youtube', 'vimeo'].includes(params.get('provider'))) $('video-provider').value = params.get('provider');
   current = videos.find(v => v.id === params.get('video')) || current;
 
   function updateURL() {
     const url = new URL(location.href);
     const values = { topic: topic === 'all' ? '' : topic, saved: savedOnly ? '1' : '', q: $('video-search').value.trim(), language: $('video-language').value === 'all' ? '' : $('video-language').value };
+    values.provider = $('video-provider').value === 'all' ? '' : $('video-provider').value;
     for (const [name, value] of Object.entries(values)) value ? url.searchParams.set(name, value) : url.searchParams.delete(name);
     history.replaceState(null, '', url);
   }
@@ -40,6 +44,7 @@
     const language = $('video-language').value;
     shown = videos.filter(v => (topic === 'all' || v.topics.includes(topic)) &&
       (!savedOnly || saved.has(v.id)) && (language === 'all' || v.language === language) &&
+      ($('video-provider').value === 'all' || provider(v) === $('video-provider').value) &&
       normal([v.title, v.originalTitle, v.description, v.author].join(' ')).includes(query));
     const visible = new Set(shown.map(v => v.id));
     for (const card of cards) card.hidden = !visible.has(card.dataset.videoCard);
@@ -60,10 +65,46 @@
     if (update) updateURL();
   }
 
-  function playbackStatus(message = '', retry = false) {
+  function playbackStatus(message = '', retry = false, alternative = false) {
     $('video-playback-status').textContent = message;
     $('video-playback-status').hidden = !message;
     $('video-retry').hidden = !retry;
+    $('video-alternative').hidden = !alternative || provider(current) !== 'youtube';
+  }
+
+  function loadVimeoAPI() {
+    if (window.Vimeo?.Player) return Promise.resolve(window.Vimeo);
+    if (vimeoPromise) return vimeoPromise;
+    vimeoPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      const fail = () => { clearTimeout(timer); script.remove(); reject(new Error('Vimeo API unavailable')); };
+      const timer = setTimeout(fail, 18000);
+      script.src = 'https://player.vimeo.com/api/player.js'; script.async = true;
+      script.onload = () => { clearTimeout(timer); window.Vimeo?.Player ? resolve(window.Vimeo) : fail(); };
+      script.onerror = fail; document.head.append(script);
+    }).catch(error => { vimeoPromise = null; throw error; });
+    return vimeoPromise;
+  }
+
+  function observeVimeo(frame, session) {
+    const active = () => playing && session === playerSession;
+    const status = (text = '', retry = false) => {
+      if (!active()) return;
+      clearTimeout(playerTimer); $('video-screen').setAttribute('aria-busy', 'false');
+      playbackStatus(text, retry);
+    };
+    playerTimer = setTimeout(() => status('Плеер загружается дольше обычного. Можно подождать или повторить запуск.', true), 25000);
+    loadVimeoAPI().then(Vimeo => {
+      if (!active()) return;
+      const instance = new Vimeo.Player(frame); player = instance;
+      instance.on('play', () => status());
+      instance.on('ended', () => status('Видео закончилось. Можно выбрать следующее из подборки.'));
+      instance.on('error', () => status('Vimeo не смог запустить видео. Проверьте сообщение в плеере или повторите запуск.', true));
+      return instance.ready().then(() => {
+        if (!active()) return;
+        return instance.play().catch(() => status('Нажмите ▶ внутри плеера, чтобы начать просмотр.'));
+      });
+    }).catch(() => status('Используйте кнопки внутри плеера Vimeo. Если он не загрузился, повторите запуск.', true));
   }
 
   // Load the official API only after a play click. The iframe also works if the API fails.
@@ -97,7 +138,7 @@
     playerTimer = setTimeout(() => {
       if (!active()) return;
       $('video-screen').setAttribute('aria-busy', 'false');
-      playbackStatus('Плеер долго загружается. Если видео не появилось, повторите запуск или выберите другое.', true);
+      playbackStatus('Плеер долго загружается. Если видео не появилось, повторите запуск или выберите другое.', true, true);
     }, 18000);
     loadPlayerAPI().then(YT => {
       if (!active()) return;
@@ -139,21 +180,21 @@
             150: 'YouTube не разрешил запуск видео. Причина указана внутри плеера. Можно повторить запуск или выбрать другое видео.',
             153: 'YouTube не смог подтвердить адрес этой страницы. Попробуйте обновить её или выберите другое видео.'
           };
-          playbackStatus(errors[event.data] || 'Не удалось запустить видео. Посмотрите сообщение YouTube в плеере или повторите запуск.', ![2, 100].includes(event.data));
+          playbackStatus(errors[event.data] || 'Не удалось запустить видео. Посмотрите сообщение YouTube в плеере или повторите запуск.', ![2, 100].includes(event.data), true);
         }
       } });
     }).catch(() => {
       if (!active()) return;
       clearTimeout(playerTimer);
       $('video-screen').setAttribute('aria-busy', 'false');
-      playbackStatus('Используйте кнопки внутри плеера. Если он не загрузился, повторите запуск.', true);
+      playbackStatus('Используйте кнопки внутри плеера. Если он не загрузился, повторите запуск.', true, true);
     });
   }
 
   function poster() {
     ++playerSession; // Ignore late API callbacks after another selection or closing.
     clearTimeout(playerTimer);
-    if (player) { try { player.destroy(); } catch { /* The iframe may already be detached. */ } }
+    if (player) { try { Promise.resolve(player.destroy()).catch(() => {}); } catch { /* The iframe may already be detached. */ } }
     player = null;
     const screen = $('video-screen');
     screen.replaceChildren(); // Removing the iframe stops audio, playback and its network session.
@@ -162,7 +203,7 @@
     playbackStatus();
     const image = document.createElement('img');
     image.src = current.thumbnail; image.alt = current.originalTitle;
-    image.width = 480; image.height = 360;
+    image.width = current.thumbnailWidth || 480; image.height = current.thumbnailHeight || 360;
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'video-start'; button.dataset.videoPlay = current.id;
     button.innerHTML = '<span aria-hidden="true">▶</span><span>Смотреть на сайте</span>';
@@ -179,18 +220,27 @@
     $('video-current-author').textContent = video.author + ' ↗';
     $('video-current-author').href = video.authorUrl;
     $('video-original').href = video.url;
+    const isVimeo = provider(video) === 'vimeo';
+    const name = isVimeo ? 'Vimeo' : 'YouTube';
+    $('video-original').textContent = `Оригинал на ${name} ↗`;
+    $('video-viewing-note').textContent = isVimeo ? 'Vimeo · Просмотр на ТОНКО' : 'Встроенный YouTube · Сервис может запросить вход';
+    $('video-connection-note').textContent = `После нажатия загружается плеер ${name}. Звук, субтитры и полный экран управляются внутри него.`;
+    $('video-screen').classList.toggle('is-portrait', isVimeo);
     $('video-share-link').hidden = true;
     $('video-status').textContent = '';
     poster();
     if (play) {
       const frame = document.createElement('iframe');
-      const embed = new URL(`https://www.youtube-nocookie.com/embed/${video.id}`);
+      const embed = new URL(isVimeo ? `https://player.vimeo.com/video/${video.providerId}` : `https://www.youtube-nocookie.com/embed/${video.id}`);
       embed.searchParams.set('autoplay', '1');
       embed.searchParams.set('playsinline', '1');
-      embed.searchParams.set('rel', '0');
-      embed.searchParams.set('enablejsapi', '1');
-      embed.searchParams.set('origin', location.origin);
-      frame.id = 'tonko-youtube-player';
+      if (isVimeo) embed.searchParams.set('dnt', '1');
+      else {
+        embed.searchParams.set('rel', '0');
+        embed.searchParams.set('enablejsapi', '1');
+        embed.searchParams.set('origin', location.origin);
+      }
+      frame.id = 'tonko-video-player';
       frame.src = embed.href;
       frame.title = `${video.originalTitle} · ${video.author}`;
       frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
@@ -201,7 +251,7 @@
       playing = true;
       $('video-screen').setAttribute('aria-busy', 'true');
       playbackStatus('Загружаем плеер…');
-      observePlayer(frame, playerSession);
+      isVimeo ? observeVimeo(frame, playerSession) : observePlayer(frame, playerSession);
       if (!scroll) frame.focus({ preventScroll: true });
       const url = new URL(location.href); url.searchParams.set('video', video.id);
       history.replaceState(null, '', url);
@@ -241,11 +291,16 @@
   $('video-saved').addEventListener('click', () => { savedOnly = !savedOnly; filter(); });
   $('video-search').addEventListener('input', () => filter());
   $('video-language').addEventListener('change', () => filter());
+  $('video-provider').addEventListener('change', () => filter());
   $('video-reset').addEventListener('click', () => {
-    topic = 'all'; savedOnly = false; $('video-search').value = ''; $('video-language').value = 'all'; filter(); $('video-search').focus();
+    topic = 'all'; savedOnly = false; $('video-search').value = ''; $('video-language').value = 'all'; $('video-provider').value = 'all'; filter(); $('video-search').focus();
   });
   $('video-stop').addEventListener('click', () => { poster(); $('video-screen').querySelector('button').focus(); });
   $('video-retry').addEventListener('click', () => selectVideo(current, true));
+  $('video-alternative').addEventListener('click', () => {
+    topic = 'all'; savedOnly = false; $('video-search').value = ''; $('video-language').value = 'all'; $('video-provider').value = 'vimeo';
+    filter(); if (shown.length) selectVideo(shown[0], true);
+  });
   $('video-next').addEventListener('click', () => {
     if (!shown.length) return;
     const index = shown.findIndex(v => v.id === current.id);

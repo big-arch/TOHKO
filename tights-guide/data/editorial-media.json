@@ -1,41 +1,41 @@
 [
   {
-    "id": "wolford-1",
-    "url": "https://us.wolford.com/dw/image/v2/BKQM_PRD/on/demandware.static/-/Sites-master-catalog/default/dw9e677caa/2023/18382_7005_100_001_B_X_B2BL.jpg?sw=1440&q=100&strip=false",
-    "source": "https://us.wolford.com/en-us/individual-10-tights-18382.7005.L.html",
-    "author": "Wolford",
-    "title": "Individual 10 · силуэт",
-    "category": "sheer",
-    "image": "assets/editorial/wolford-1.jpg",
-    "width": 1440,
-    "height": 1920,
-    "license": "Материал правообладателя",
-    "licenseUrl": "https://us.wolford.com/en-us/individual-10-tights-18382.7005.L.html",
-    "alt": "Individual 10 · силуэт",
-    "caption": "Individual 10 · силуэт. Фотография из указанной публикации Wolford.",
+    "id": "campaign-red",
+    "image": "assets/editorial/campaign-red.jpg",
+    "title": "Чёрный рисунок на красном",
+    "category": "pattern",
+    "author": "Подборка владельца ТОНКО",
+    "source": "sources.html#photography",
+    "license": "Изображение предоставлено владельцем проекта; автор и исходная публикация не установлены",
+    "licenseUrl": "sources.html#photography",
+    "width": 1200,
+    "height": 960,
+    "origin": "user",
+    "alt": "Три пары чёрных колготок с имитацией чулок, сеткой и узорами на красном фоне",
+    "caption": "Горошек, сетка и маленькие звёзды. Контраст прозрачного полотна и плотного чёрного участка создаёт эффект чулок. Кадр из присланной подборки; бренд и авторство не приписываются без подтверждения.",
     "responsive": [
       {
-        "src": "assets/responsive/wolford-1-320.webp",
+        "src": "assets/responsive/campaign-red-320.webp",
         "width": 320,
-        "bytes": 5742
+        "bytes": 10022
       },
       {
-        "src": "assets/responsive/wolford-1-640.webp",
+        "src": "assets/responsive/campaign-red-640.webp",
         "width": 640,
-        "bytes": 13200
+        "bytes": 27858
       },
       {
-        "src": "assets/responsive/wolford-1-960.webp",
+        "src": "assets/responsive/campaign-red-960.webp",
         "width": 960,
-        "bytes": 24450
+        "bytes": 61876
       },
       {
-        "src": "assets/responsive/wolford-1-1440.webp",
-        "width": 1440,
-        "bytes": 43606
+        "src": "assets/responsive/campaign-red-1200.webp",
+        "width": 1200,
+        "bytes": 101692
       }
     ],
-    "srcset": "assets/responsive/wolford-1-320.webp 320w, assets/responsive/wolford-1-640.webp 640w, assets/responsive/wolford-1-960.webp 960w, assets/responsive/wolford-1-1440.webp 1440w"
+    "srcset": "assets/responsive/campaign-red-320.webp 320w, assets/responsive/campaign-red-640.webp 640w, assets/responsive/campaign-red-960.webp 960w, assets/responsive/campaign-red-1200.webp 1200w"
   },
   {
     "id": "tezenis",
@@ -76,6 +76,115 @@
     "srcset": "assets/responsive/tezenis-320.webp 320w, assets/responsive/tezenis-640.webp 640w, assets/responsive/tezenis-960.webp 960w, assets/responsive/tezenis-1440.webp 1440w"
   },
   {
+    "id": "noq-lace",
+    "image": "assets/editorial/noq-lace.webp",
+    "title": "Чёрное кружево Secret",
+    "alt": "Кружевной рисунок на чёрных колготках NOQ Secret",
+    "caption": "Чёрное кружево Secret · официальная публикация NOQ by Knittex.",
+    "width": 1068,
+    "height": 1602,
+    "category": "pattern",
+    "author": "NOQ by Knittex",
+    "source": "https://noq.com.pl/produkt/rajstopy-damskie-secret-z-delikatnym-wzorem-kwiatow/",
+    "url": "https://noq.com.pl/app/uploads/2026/09/secren-nero-1-kopia-lbox-1068x1602-F7EEED.webp",
+    "license": "Авторские права правообладателя; свободная лицензия не заявлена",
+    "licenseUrl": "https://noq.com.pl/produkt/rajstopy-damskie-secret-z-delikatnym-wzorem-kwiatow/",
+    "responsive": [
+      {
+        "src": "assets/responsive/noq-lace-320.webp",
+        "width": 320,
+        "bytes": 20916
+      },
+      {
+        "src": "assets/responsive/noq-lace-640.webp",
+        "width": 640,
+        "bytes": 56032
+      },
+      {
+        "src": "assets/responsive/noq-lace-960.webp",
+        "width": 960,
+        "bytes": 95160
+      },
+      {
+        "src": "assets/responsive/noq-lace-1068.webp",
+        "width": 1068,
+        "bytes": 105728
+      }
+    ],
+    "srcset": "assets/responsive/noq-lace-320.webp 320w, assets/responsive/noq-lace-640.webp 640w, assets/responsive/noq-lace-960.webp 960w, assets/responsive/noq-lace-1068.webp 1068w"
+  },
+  {
+    "id": "calzedonia-glitter",
+    "image": "assets/editorial/calzedonia-glitter.jpg",
+    "title": "Блеск как рисунок",
+    "alt": "Колготки Calzedonia Rainy Glitter из каталога марки",
+    "caption": "Блеск как рисунок · официальная публикация Calzedonia.",
+    "width": 1200,
+    "height": 1680,
+    "category": "pattern",
+    "author": "Calzedonia",
+    "source": "https://www.calzedonia.com/us/product/rainy_glitter_tights-MODC2258.html?dwvar_MODC2258_Z_COL_COLL=182F",
+    "url": "https://www.calzedonia.com/dw/image/v2/BJHW_PRD/on/demandware.static/-/Sites-CAL_EC_COM/default/dwb07c8880/images/MODC2258182F-M.jpg?sfrm=jpeg&sw=1200",
+    "license": "Авторские права правообладателя; свободная лицензия не заявлена",
+    "licenseUrl": "https://www.calzedonia.com/us/product/rainy_glitter_tights-MODC2258.html?dwvar_MODC2258_Z_COL_COLL=182F",
+    "responsive": [
+      {
+        "src": "assets/responsive/calzedonia-glitter-320.webp",
+        "width": 320,
+        "bytes": 12336
+      },
+      {
+        "src": "assets/responsive/calzedonia-glitter-640.webp",
+        "width": 640,
+        "bytes": 40548
+      },
+      {
+        "src": "assets/responsive/calzedonia-glitter-960.webp",
+        "width": 960,
+        "bytes": 85020
+      },
+      {
+        "src": "assets/responsive/calzedonia-glitter-1200.webp",
+        "width": 1200,
+        "bytes": 132440
+      }
+    ],
+    "srcset": "assets/responsive/calzedonia-glitter-320.webp 320w, assets/responsive/calzedonia-glitter-640.webp 640w, assets/responsive/calzedonia-glitter-960.webp 960w, assets/responsive/calzedonia-glitter-1200.webp 1200w"
+  },
+  {
+    "id": "cdr-gloss",
+    "image": "assets/editorial/cdr-gloss.jpg",
+    "title": "Свет на тонком полотне",
+    "alt": "Блестящие колготки Cecilia de Rafael Eterno Super Lucido 10",
+    "caption": "Свет на тонком полотне · официальная публикация Cecilia de Rafael.",
+    "width": 832,
+    "height": 1248,
+    "category": "sheer",
+    "author": "Cecilia de Rafael",
+    "source": "https://ceciliaderafael.com/en",
+    "url": "https://ceciliaderafael.com/images/products/eterno-superlucido-10/1q_look_total.jpg",
+    "license": "Авторские права правообладателя; свободная лицензия не заявлена",
+    "licenseUrl": "https://ceciliaderafael.com/en",
+    "responsive": [
+      {
+        "src": "assets/responsive/cdr-gloss-320.webp",
+        "width": 320,
+        "bytes": 8748
+      },
+      {
+        "src": "assets/responsive/cdr-gloss-640.webp",
+        "width": 640,
+        "bytes": 22728
+      },
+      {
+        "src": "assets/responsive/cdr-gloss-832.webp",
+        "width": 832,
+        "bytes": 34052
+      }
+    ],
+    "srcset": "assets/responsive/cdr-gloss-320.webp 320w, assets/responsive/cdr-gloss-640.webp 640w, assets/responsive/cdr-gloss-832.webp 832w"
+  },
+  {
     "id": "swedish-lace",
     "url": "https://swedishstockings.com/cdn/shop/files/113059901-rosa-lace-tights-ivory-swedish-stockings-2_296c281e-203e-413c-bf37-3b0884e34416.jpg?v=1783435154",
     "source": "https://swedishstockings.com/pages/about-us",
@@ -112,6 +221,95 @@
       }
     ],
     "srcset": "assets/responsive/swedish-lace-320.webp 320w, assets/responsive/swedish-lace-640.webp 640w, assets/responsive/swedish-lace-960.webp 960w, assets/responsive/swedish-lace-986.webp 986w"
+  },
+  {
+    "id": "patterns",
+    "image": "assets/editorial/patterns.webp",
+    "title": "Цвет и фантазийные узоры",
+    "category": "pattern",
+    "author": "Подборка проекта",
+    "source": "https://www.google.com/search?udm=2&q=%D0%BA%D0%BE%D0%BB%D0%B3%D0%BE%D1%82%D0%BA%D0%B8",
+    "license": "Изображение предоставлено владельцем проекта; авторство не установлено",
+    "licenseUrl": "sources.html#photography",
+    "width": 480,
+    "height": 320,
+    "origin": "user",
+    "alt": "Цвет и фантазийные узоры",
+    "caption": "Цвет и фантазийные узоры. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/patterns-320.webp",
+        "width": 320,
+        "bytes": 15980
+      },
+      {
+        "src": "assets/responsive/patterns-480.webp",
+        "width": 480,
+        "bytes": 25206
+      }
+    ],
+    "srcset": "assets/responsive/patterns-320.webp 320w, assets/responsive/patterns-480.webp 480w"
+  },
+  {
+    "id": "dots",
+    "image": "assets/editorial/dots.webp",
+    "title": "Горошек и прозрачность",
+    "category": "pattern",
+    "author": "Подборка проекта",
+    "source": "https://www.google.com/search?udm=2&q=%D0%BA%D0%BE%D0%BB%D0%B3%D0%BE%D1%82%D0%BA%D0%B8",
+    "license": "Изображение предоставлено владельцем проекта; авторство не установлено",
+    "licenseUrl": "sources.html#photography",
+    "width": 240,
+    "height": 320,
+    "origin": "user",
+    "alt": "Горошек и прозрачность",
+    "caption": "Горошек и прозрачность. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/dots-240.webp",
+        "width": 240,
+        "bytes": 7224
+      }
+    ],
+    "srcset": "assets/responsive/dots-240.webp 240w"
+  },
+  {
+    "id": "wolford-1",
+    "url": "https://us.wolford.com/dw/image/v2/BKQM_PRD/on/demandware.static/-/Sites-master-catalog/default/dw9e677caa/2023/18382_7005_100_001_B_X_B2BL.jpg?sw=1440&q=100&strip=false",
+    "source": "https://us.wolford.com/en-us/individual-10-tights-18382.7005.L.html",
+    "author": "Wolford",
+    "title": "Individual 10 · силуэт",
+    "category": "sheer",
+    "image": "assets/editorial/wolford-1.jpg",
+    "width": 1440,
+    "height": 1920,
+    "license": "Материал правообладателя",
+    "licenseUrl": "https://us.wolford.com/en-us/individual-10-tights-18382.7005.L.html",
+    "alt": "Individual 10 · силуэт",
+    "caption": "Individual 10 · силуэт. Фотография из указанной публикации Wolford.",
+    "responsive": [
+      {
+        "src": "assets/responsive/wolford-1-320.webp",
+        "width": 320,
+        "bytes": 5742
+      },
+      {
+        "src": "assets/responsive/wolford-1-640.webp",
+        "width": 640,
+        "bytes": 13200
+      },
+      {
+        "src": "assets/responsive/wolford-1-960.webp",
+        "width": 960,
+        "bytes": 24450
+      },
+      {
+        "src": "assets/responsive/wolford-1-1440.webp",
+        "width": 1440,
+        "bytes": 43606
+      }
+    ],
+    "srcset": "assets/responsive/wolford-1-320.webp 320w, assets/responsive/wolford-1-640.webp 640w, assets/responsive/wolford-1-960.webp 960w, assets/responsive/wolford-1-1440.webp 1440w"
   },
   {
     "id": "tummy",
@@ -190,29 +388,6 @@
     "srcset": "assets/responsive/swedish-rib-320.webp 320w, assets/responsive/swedish-rib-640.webp 640w, assets/responsive/swedish-rib-960.webp 960w, assets/responsive/swedish-rib-1440.webp 1440w"
   },
   {
-    "id": "dots",
-    "image": "assets/editorial/dots.webp",
-    "title": "Горошек и прозрачность",
-    "category": "pattern",
-    "author": "Подборка проекта",
-    "source": "https://www.google.com/search?udm=2&q=%D0%BA%D0%BE%D0%BB%D0%B3%D0%BE%D1%82%D0%BA%D0%B8",
-    "license": "Изображение предоставлено владельцем проекта; авторство не установлено",
-    "licenseUrl": "sources.html#photography",
-    "width": 240,
-    "height": 320,
-    "origin": "user",
-    "alt": "Горошек и прозрачность",
-    "caption": "Горошек и прозрачность. Пример из присланной подборки; бренд не приписывается без источника.",
-    "responsive": [
-      {
-        "src": "assets/responsive/dots-240.webp",
-        "width": 240,
-        "bytes": 7224
-      }
-    ],
-    "srcset": "assets/responsive/dots-240.webp 240w"
-  },
-  {
     "id": "wolford-5",
     "url": "https://us.wolford.com/dw/image/v2/BKQM_PRD/on/demandware.static/-/Sites-master-catalog/default/dwdcb361a1/2023/18382_7005_100_005_B_X_B2BL.jpg?sw=1440&q=100&strip=false",
     "source": "https://us.wolford.com/en-us/individual-10-tights-18382.7005.L.html",
@@ -249,34 +424,6 @@
       }
     ],
     "srcset": "assets/responsive/wolford-5-320.webp 320w, assets/responsive/wolford-5-640.webp 640w, assets/responsive/wolford-5-960.webp 960w, assets/responsive/wolford-5-1440.webp 1440w"
-  },
-  {
-    "id": "patterns",
-    "image": "assets/editorial/patterns.webp",
-    "title": "Цвет и фантазийные узоры",
-    "category": "pattern",
-    "author": "Подборка проекта",
-    "source": "https://www.google.com/search?udm=2&q=%D0%BA%D0%BE%D0%BB%D0%B3%D0%BE%D1%82%D0%BA%D0%B8",
-    "license": "Изображение предоставлено владельцем проекта; авторство не установлено",
-    "licenseUrl": "sources.html#photography",
-    "width": 480,
-    "height": 320,
-    "origin": "user",
-    "alt": "Цвет и фантазийные узоры",
-    "caption": "Цвет и фантазийные узоры. Пример из присланной подборки; бренд не приписывается без источника.",
-    "responsive": [
-      {
-        "src": "assets/responsive/patterns-320.webp",
-        "width": 320,
-        "bytes": 15980
-      },
-      {
-        "src": "assets/responsive/patterns-480.webp",
-        "width": 480,
-        "bytes": 25206
-      }
-    ],
-    "srcset": "assets/responsive/patterns-320.webp 320w, assets/responsive/patterns-480.webp 480w"
   },
   {
     "id": "men-tailoring",
@@ -1038,77 +1185,6 @@
     "srcset": "assets/responsive/sara-blakely-320.webp 320w, assets/responsive/sara-blakely-640.webp 640w, assets/responsive/sara-blakely-800.webp 800w"
   },
   {
-    "id": "calzedonia-glitter",
-    "image": "assets/editorial/calzedonia-glitter.jpg",
-    "title": "Блеск как рисунок",
-    "alt": "Колготки Calzedonia Rainy Glitter из каталога марки",
-    "caption": "Блеск как рисунок · официальная публикация Calzedonia.",
-    "width": 1200,
-    "height": 1680,
-    "category": "pattern",
-    "author": "Calzedonia",
-    "source": "https://www.calzedonia.com/us/product/rainy_glitter_tights-MODC2258.html?dwvar_MODC2258_Z_COL_COLL=182F",
-    "url": "https://www.calzedonia.com/dw/image/v2/BJHW_PRD/on/demandware.static/-/Sites-CAL_EC_COM/default/dwb07c8880/images/MODC2258182F-M.jpg?sfrm=jpeg&sw=1200",
-    "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://www.calzedonia.com/us/product/rainy_glitter_tights-MODC2258.html?dwvar_MODC2258_Z_COL_COLL=182F",
-    "responsive": [
-      {
-        "src": "assets/responsive/calzedonia-glitter-320.webp",
-        "width": 320,
-        "bytes": 12336
-      },
-      {
-        "src": "assets/responsive/calzedonia-glitter-640.webp",
-        "width": 640,
-        "bytes": 40548
-      },
-      {
-        "src": "assets/responsive/calzedonia-glitter-960.webp",
-        "width": 960,
-        "bytes": 85020
-      },
-      {
-        "src": "assets/responsive/calzedonia-glitter-1200.webp",
-        "width": 1200,
-        "bytes": 132440
-      }
-    ],
-    "srcset": "assets/responsive/calzedonia-glitter-320.webp 320w, assets/responsive/calzedonia-glitter-640.webp 640w, assets/responsive/calzedonia-glitter-960.webp 960w, assets/responsive/calzedonia-glitter-1200.webp 1200w"
-  },
-  {
-    "id": "cdr-gloss",
-    "image": "assets/editorial/cdr-gloss.jpg",
-    "title": "Свет на тонком полотне",
-    "alt": "Блестящие колготки Cecilia de Rafael Eterno Super Lucido 10",
-    "caption": "Свет на тонком полотне · официальная публикация Cecilia de Rafael.",
-    "width": 832,
-    "height": 1248,
-    "category": "sheer",
-    "author": "Cecilia de Rafael",
-    "source": "https://ceciliaderafael.com/en",
-    "url": "https://ceciliaderafael.com/images/products/eterno-superlucido-10/1q_look_total.jpg",
-    "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://ceciliaderafael.com/en",
-    "responsive": [
-      {
-        "src": "assets/responsive/cdr-gloss-320.webp",
-        "width": 320,
-        "bytes": 8748
-      },
-      {
-        "src": "assets/responsive/cdr-gloss-640.webp",
-        "width": 640,
-        "bytes": 22728
-      },
-      {
-        "src": "assets/responsive/cdr-gloss-832.webp",
-        "width": 832,
-        "bytes": 34052
-      }
-    ],
-    "srcset": "assets/responsive/cdr-gloss-320.webp 320w, assets/responsive/cdr-gloss-640.webp 640w, assets/responsive/cdr-gloss-832.webp 832w"
-  },
-  {
     "id": "falke-first",
     "image": "assets/editorial/falke-first.jpg",
     "title": "Первое поколение FALKE",
@@ -1297,44 +1373,6 @@
       }
     ],
     "srcset": "assets/responsive/noq-cocoa-320.webp 320w, assets/responsive/noq-cocoa-640.webp 640w, assets/responsive/noq-cocoa-960.webp 960w, assets/responsive/noq-cocoa-1068.webp 1068w"
-  },
-  {
-    "id": "noq-lace",
-    "image": "assets/editorial/noq-lace.webp",
-    "title": "Чёрное кружево Secret",
-    "alt": "Кружевной рисунок на чёрных колготках NOQ Secret",
-    "caption": "Чёрное кружево Secret · официальная публикация NOQ by Knittex.",
-    "width": 1068,
-    "height": 1602,
-    "category": "pattern",
-    "author": "NOQ by Knittex",
-    "source": "https://noq.com.pl/produkt/rajstopy-damskie-secret-z-delikatnym-wzorem-kwiatow/",
-    "url": "https://noq.com.pl/app/uploads/2026/09/secren-nero-1-kopia-lbox-1068x1602-F7EEED.webp",
-    "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://noq.com.pl/produkt/rajstopy-damskie-secret-z-delikatnym-wzorem-kwiatow/",
-    "responsive": [
-      {
-        "src": "assets/responsive/noq-lace-320.webp",
-        "width": 320,
-        "bytes": 20916
-      },
-      {
-        "src": "assets/responsive/noq-lace-640.webp",
-        "width": 640,
-        "bytes": 56032
-      },
-      {
-        "src": "assets/responsive/noq-lace-960.webp",
-        "width": 960,
-        "bytes": 95160
-      },
-      {
-        "src": "assets/responsive/noq-lace-1068.webp",
-        "width": 1068,
-        "bytes": 105728
-      }
-    ],
-    "srcset": "assets/responsive/noq-lace-320.webp 320w, assets/responsive/noq-lace-640.webp 640w, assets/responsive/noq-lace-960.webp 960w, assets/responsive/noq-lace-1068.webp 1068w"
   },
   {
     "id": "omsa-studio",

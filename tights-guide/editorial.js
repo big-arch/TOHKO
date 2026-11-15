@@ -60,6 +60,16 @@
     const initial=new URLSearchParams(location.search).get('filter');
     let selected=filters.find(b=>b.dataset.galleryFilter===initial)||filters[0];
     press(filters,selected);render(selected.dataset.galleryFilter);
+    $$('[data-feature-photo]').forEach(link=>link.addEventListener('click',event=>{
+      const id=link.dataset.featurePhoto;
+      if(!media.some(p=>p.id===id))return;
+      event.preventDefault();
+      if(!shown.some(p=>p.id===id)){
+        const all=filters.find(b=>b.dataset.galleryFilter==='all');press(filters,all);render('all');
+        const url=new URL(location.href);url.searchParams.delete('filter');history.replaceState(null,'',url);
+      }
+      current=shown.findIndex(p=>p.id===id);opener=link;update();dialog.showModal();document.body.classList.add('editorial-modal-open');
+    }));
     const linked=media.find(p=>location.hash===`#photo-${p.id}`);
     if(linked){const index=shown.findIndex(p=>p.id===linked.id);if(index>=0)grid.querySelector(`[data-photo-index="${index}"]`)?.click();}
     filters.forEach(b=>b.addEventListener('click',()=>{press(filters,b);render(b.dataset.galleryFilter);const url=new URL(location.href);b.dataset.galleryFilter==='all'?url.searchParams.delete('filter'):url.searchParams.set('filter',b.dataset.galleryFilter);history.replaceState(null,'',url);}));

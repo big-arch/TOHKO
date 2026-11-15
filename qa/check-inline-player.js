@@ -34,16 +34,16 @@ async (page) => {
   try {
     const p = await create();
     const requests = [];
-    p.on('request', r => { if (/youtube|googlevideo|ytimg/.test(r.url())) requests.push(r.url()); });
+    p.on('request', r => { if (/^https:\/\/(?:[^/]+\.)?(?:youtube(?:-nocookie)?\.com|googlevideo\.com|ytimg\.com)\//.test(r.url())) requests.push(r.url()); });
     await p.route('https://www.youtube.com/iframe_api', r => r.fulfill({contentType:'application/javascript',body:mock}));
-    await p.goto(base+'videos.html', {waitUntil:'networkidle'});
+    await p.goto(base+'videos.html?provider=youtube&video=8ruf9D3Cu4c', {waitUntil:'networkidle'});
     check(requests.length === 0, 'No YouTube connections before a play click');
     check(await p.locator('.video-watch-button:visible').count() === 11, 'All 11 cards offer Watch on site');
     check(!(await p.locator('#video-original').isVisible()), 'Original link is in collapsed source details');
-    await p.locator('.video-watch-button').nth(1).click(); await countPlayers(p, 1);
+    await p.locator('.video-watch-button:visible').nth(1).click(); await countPlayers(p, 1);
     const src = await p.locator('#video-screen iframe').evaluate(frame => {const url=new URL(frame.src);return {pathname:url.pathname,enablejsapi:url.searchParams.get('enablejsapi'),origin:url.searchParams.get('origin')};});
     check(src.pathname.endsWith('/gkbMiMVNwyg'), 'Card plays the selected video');
-    check(p.url().startsWith(base+'videos.html?video=') && p.context().pages().length === 1, 'Watching stays on TONKO without a new tab');
+    check(p.url().startsWith(base+'videos.html?') && p.url().includes('video=gkbMiMVNwyg') && p.context().pages().length === 1, 'Watching stays on TONKO without a new tab');
     check(src.enablejsapi === '1' && src.origin === 'http://127.0.0.1:4185', 'Embed identifies the site and enables the official API');
     check(await p.locator('#video-screen iframe').getAttribute('allowfullscreen') !== null && await p.locator('#video-screen iframe').getAttribute('referrerpolicy') === 'strict-origin-when-cross-origin', 'Native fullscreen and Referer policy are enabled');
     await emit(p, 'onStateChange', 1);
@@ -70,22 +70,22 @@ async (page) => {
     check((await p.locator('#video-screen iframe').getAttribute('src')).includes('QpApOq2Q0l8'), 'Next respects the selected topic');
     await p.locator('#video-next').click(); await countPlayers(p,4);
     check((await p.locator('#video-screen iframe').getAttribute('src')).includes('tSa26mVW5gM') && await p.locator('#video-screen iframe').count() === 1, 'Next replaces playback without leaving the page');
-    await p.goto(base+'videos.html?video=tSa26mVW5gM', {waitUntil:'networkidle'});
+    await p.goto(base+'videos.html?video=tSa26mVW5gM&provider=youtube', {waitUntil:'networkidle'});
     check(await p.locator('#video-screen iframe').count() === 0 && await p.locator('#video-screen button').getAttribute('data-video-play') === 'tSa26mVW5gM', 'Shared link selects a video without unsolicited autoplay');
     await p.setViewportSize({width:320,height:740});
-    await p.locator('.video-watch-button').first().click(); await countPlayers(p,1);
+    await p.locator('.video-watch-button:visible').first().click(); await countPlayers(p,1);
     const bounds = await p.locator('#video-screen').boundingBox();
     check(bounds.width >= 200 && bounds.height >= 200 && await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth), '320px layout fits the player without horizontal scrolling');
     await p.locator('#video-stop').click();
     await p.locator('#video-library').scrollIntoViewIfNeeded();
     await p.screenshot({path:'C:/Users/big-a/Documents/Codex_мои_программы/TOHKO/qa/player-mobile-cards.png'});
-    await p.setViewportSize({width:1365,height:900}); await p.goto(base+'videos.html', {waitUntil:'networkidle'});
+    await p.setViewportSize({width:1365,height:900}); await p.goto(base+'videos.html?provider=youtube&video=8ruf9D3Cu4c', {waitUntil:'networkidle'});
     await p.screenshot({path:'C:/Users/big-a/Documents/Codex_мои_программы/TOHKO/qa/player-desktop.png'});
 
     const race = await create();
     const gate = new Promise(resolve => {release=resolve;});
     await race.route('https://www.youtube.com/iframe_api', async r => {await gate; await r.fulfill({contentType:'application/javascript',body:mock});});
-    await race.goto(base+'videos.html', {waitUntil:'networkidle'});
+    await race.goto(base+'videos.html?provider=youtube&video=8ruf9D3Cu4c', {waitUntil:'networkidle'});
     await race.locator('#video-screen button').click(); await race.locator('#video-stop').click();
     release(); await race.waitForFunction(()=>!!window.YT?.Player);
     check(await race.locator('iframe').count() === 0 && await race.evaluate(()=>window.__players.length===0), 'Closing during SDK loading never resurrects playback');
@@ -94,7 +94,7 @@ async (page) => {
 
     const unavailable = await create();
     await unavailable.route('https://www.youtube.com/iframe_api', r => r.abort('failed'));
-    await unavailable.goto(base+'videos.html', {waitUntil:'networkidle'});
+    await unavailable.goto(base+'videos.html?provider=youtube&video=8ruf9D3Cu4c', {waitUntil:'networkidle'});
     await unavailable.locator('#video-screen button').click();
     await unavailable.waitForFunction(()=>document.querySelector('#video-playback-status').textContent.includes('Используйте кнопки'));
     check(await unavailable.locator('#video-screen iframe').count()===1 && await unavailable.locator('#video-retry').isVisible(), 'API failure preserves the native iframe and offers retry');
@@ -102,14 +102,14 @@ async (page) => {
     const slow = await create();
     await slow.addInitScript(()=>{window.__silentReady=true;});
     await slow.route('https://www.youtube.com/iframe_api', r => r.fulfill({contentType:'application/javascript',body:mock}));
-    await slow.goto(base+'videos.html', {waitUntil:'networkidle'}); await slow.clock.install();
+    await slow.goto(base+'videos.html?provider=youtube&video=8ruf9D3Cu4c', {waitUntil:'networkidle'}); await slow.clock.install();
     await slow.locator('#video-screen button').click(); await countPlayers(slow,1); await slow.clock.fastForward(19000);
     check((await slow.locator('#video-playback-status').innerText()).includes('долго загружается') && await slow.locator('#video-retry').isVisible(), 'A stalled iframe gets a recoverable loading message');
     await slow.locator('#video-stop').click(); await slow.clock.fastForward(20000);
     check(!(await slow.locator('#video-playback-status').isVisible()), 'Closing clears outstanding loading timers');
 
     const plain = await create({javaScriptEnabled:false});
-    await plain.goto(base+'videos.html'); await plain.locator('.video-card .video-source summary').first().click();
+    await plain.goto(base+'videos.html?provider=youtube&video=8ruf9D3Cu4c'); await plain.locator('.video-card .video-source summary').first().click();
     check(await plain.locator('.video-card .video-source a').nth(1).isVisible() && await plain.locator('iframe').count()===0, 'Source links remain available without JavaScript');
     check(errors.length===0, 'No uncaught page errors in all scenarios');
     return {passed:checks.length,checks};

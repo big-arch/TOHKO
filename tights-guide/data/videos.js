@@ -1,5 +1,71 @@
 window.TONKO_VIDEOS = [
   {
+    "id": "vimeo-1100274499",
+    "provider": "vimeo",
+    "providerId": "1100274499",
+    "title": "Люди, которые создают колготки",
+    "originalTitle": "Journey of a Thread Episode 1",
+    "description": "Знакомство с Илеаной, итальянским производителем и партнёром Swedish Stockings. Первая часть серии Journey of a Thread.",
+    "topics": [
+      "making"
+    ],
+    "language": "original",
+    "kind": "Фильм бренда",
+    "author": "Swedish Stockings",
+    "authorUrl": "https://swedishstockings.com/blogs/journal/journey-of-a-thread",
+    "url": "https://vimeo.com/1100274499",
+    "thumbnail": "assets/video/vimeo-1100274499.jpg",
+    "thumbnailSource": "https://i.vimeocdn.com/video/2035437824-c15b11214b81a689b63e0b0c398fb768134d011024fdc21460e848ee3321fcbd-d_960?region=us",
+    "thumbnailWidth": 960,
+    "thumbnailHeight": 1707,
+    "duration": 56,
+    "checked": "2026-11-16"
+  },
+  {
+    "id": "vimeo-1102160026",
+    "provider": "vimeo",
+    "providerId": "1102160026",
+    "title": "От нити к готовой форме",
+    "originalTitle": "Journey of a Thread Episode 2",
+    "description": "Вторая часть Journey of a Thread: вязальные машины, полотно и швейные операции на производстве колготок.",
+    "topics": [
+      "making"
+    ],
+    "language": "original",
+    "kind": "Фильм бренда",
+    "author": "Swedish Stockings",
+    "authorUrl": "https://swedishstockings.com/blogs/journal/journey-of-a-thread",
+    "url": "https://vimeo.com/1102160026",
+    "thumbnail": "assets/video/vimeo-1102160026.jpg",
+    "thumbnailSource": "https://i.vimeocdn.com/video/2037824978-1e0c9a0dc999d92975710af15c7e7fd55434bc300b341007bf2fbbc216ae6f47-d_960?region=us",
+    "thumbnailWidth": 960,
+    "thumbnailHeight": 1707,
+    "duration": 70,
+    "checked": "2026-11-16"
+  },
+  {
+    "id": "vimeo-1104089394",
+    "provider": "vimeo",
+    "providerId": "1104089394",
+    "title": "Как колготки получают цвет",
+    "originalTitle": "Journey of a Thread Episode 3",
+    "description": "Третья часть Journey of a Thread посвящена окрашиванию и завершению производства. Фильм Swedish Stockings.",
+    "topics": [
+      "making"
+    ],
+    "language": "original",
+    "kind": "Фильм бренда",
+    "author": "Swedish Stockings",
+    "authorUrl": "https://swedishstockings.com/blogs/journal/journey-of-a-thread",
+    "url": "https://vimeo.com/1104089394",
+    "thumbnail": "assets/video/vimeo-1104089394.jpg",
+    "thumbnailSource": "https://i.vimeocdn.com/video/2040266146-c4494c290de68e0d5d5b74478066a9e873751feceb4edaaf3b68d23c4bbb5e46-d_960?region=us",
+    "thumbnailWidth": 960,
+    "thumbnailHeight": 1707,
+    "duration": 69,
+    "checked": "2026-11-16"
+  },
+  {
     "id": "8ruf9D3Cu4c",
     "title": "Как сочетать колготки с одеждой",
     "originalTitle": "HOW TO STYLE TIGHTS",
