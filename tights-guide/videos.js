@@ -20,7 +20,7 @@
   const normal = text => text.toLocaleLowerCase('ru').replaceAll('ё', 'е');
   let saved = readSaved();
   let topic = 'all', savedOnly = false, current = videos[0], shown = [...videos];
-  let playing = false;
+  let playing = false, player = null, playerSession = 0, playerTimer = 0, apiPromise = null;
   const params = new URLSearchParams(location.search);
   if (buttons.some(b => b.dataset.videoTopic === params.get('topic'))) topic = params.get('topic');
   savedOnly = params.get('saved') === '1';
@@ -60,17 +60,113 @@
     if (update) updateURL();
   }
 
+  function playbackStatus(message = '', retry = false) {
+    $('video-playback-status').textContent = message;
+    $('video-playback-status').hidden = !message;
+    $('video-retry').hidden = !retry;
+  }
+
+  // Load the official API only after a play click. The iframe also works if the API fails.
+  function loadPlayerAPI() {
+    if (window.YT?.Player) return Promise.resolve(window.YT);
+    if (apiPromise) return apiPromise;
+    apiPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      const previous = window.onYouTubeIframeAPIReady;
+      const ready = () => { cleanup(); resolve(window.YT); if (typeof previous === 'function') previous(); };
+      const cleanup = () => {
+        clearTimeout(timer);
+        script.onerror = null;
+        if (window.onYouTubeIframeAPIReady === ready) window.onYouTubeIframeAPIReady = previous;
+      };
+      const fail = () => { cleanup(); script.remove(); reject(new Error('YouTube API unavailable')); };
+      const timer = setTimeout(fail, 15000);
+      window.onYouTubeIframeAPIReady = ready;
+      script.src = 'https://www.youtube.com/iframe_api';
+      script.async = true;
+      script.referrerPolicy = 'strict-origin-when-cross-origin';
+      script.onerror = fail;
+      document.head.append(script);
+    }).catch(error => { apiPromise = null; throw error; });
+    return apiPromise;
+  }
+
+  function observePlayer(frame, session) {
+    const active = () => playing && session === playerSession;
+    let hasProblem = false;
+    playerTimer = setTimeout(() => {
+      if (!active()) return;
+      $('video-screen').setAttribute('aria-busy', 'false');
+      playbackStatus('Плеер долго загружается. Если видео не появилось, повторите запуск или выберите другое.', true);
+    }, 18000);
+    loadPlayerAPI().then(YT => {
+      if (!active()) return;
+      player = new YT.Player(frame, { events: {
+        onReady(event) {
+          if (!active()) return;
+          clearTimeout(playerTimer);
+          $('video-screen').setAttribute('aria-busy', 'false');
+          if (!hasProblem && event.target.getPlayerState() !== 1) playbackStatus('Если видео ещё не запустилось, нажмите ▶ внутри плеера.');
+        },
+        onStateChange(event) {
+          if (!active()) return;
+          if ([0, 1, 2, 5].includes(event.data)) {
+            clearTimeout(playerTimer);
+            $('video-screen').setAttribute('aria-busy', 'false');
+          }
+          if ([0, 1, 2].includes(event.data) && (!hasProblem || event.data === 1)) {
+            hasProblem = false;
+            playbackStatus(event.data === 0 ? 'Видео закончилось. Можно выбрать следующее из подборки.' : '');
+          }
+        },
+        onAutoplayBlocked() {
+          if (!active()) return;
+          clearTimeout(playerTimer);
+          hasProblem = true;
+          $('video-screen').setAttribute('aria-busy', 'false');
+          playbackStatus('Браузер ждёт нажатия: нажмите ▶ внутри плеера, чтобы смотреть здесь.');
+        },
+        onError(event) {
+          if (!active()) return;
+          clearTimeout(playerTimer);
+          hasProblem = true;
+          $('video-screen').setAttribute('aria-busy', 'false');
+          const errors = {
+            2: 'Не удалось открыть этот ролик. Выберите другое видео из подборки.',
+            5: 'Браузер не смог воспроизвести видео. Попробуйте повторить запуск.',
+            100: 'Ролик удалён или стал закрытым. Выберите другое видео из подборки.',
+            101: 'YouTube не разрешил запуск видео. Причина указана внутри плеера. Можно повторить запуск или выбрать другое видео.',
+            150: 'YouTube не разрешил запуск видео. Причина указана внутри плеера. Можно повторить запуск или выбрать другое видео.',
+            153: 'YouTube не смог подтвердить адрес этой страницы. Попробуйте обновить её или выберите другое видео.'
+          };
+          playbackStatus(errors[event.data] || 'Не удалось запустить видео. Посмотрите сообщение YouTube в плеере или повторите запуск.', ![2, 100].includes(event.data));
+        }
+      } });
+    }).catch(() => {
+      if (!active()) return;
+      clearTimeout(playerTimer);
+      $('video-screen').setAttribute('aria-busy', 'false');
+      playbackStatus('Используйте кнопки внутри плеера. Если он не загрузился, повторите запуск.', true);
+    });
+  }
+
   function poster() {
+    ++playerSession; // Ignore late API callbacks after another selection or closing.
+    clearTimeout(playerTimer);
+    if (player) { try { player.destroy(); } catch { /* The iframe may already be detached. */ } }
+    player = null;
     const screen = $('video-screen');
     screen.replaceChildren(); // Removing the iframe stops audio, playback and its network session.
+    screen.setAttribute('aria-busy', 'false');
     playing = false;
+    playbackStatus();
     const image = document.createElement('img');
     image.src = current.thumbnail; image.alt = current.originalTitle;
     image.width = 480; image.height = 360;
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'video-start'; button.dataset.videoPlay = current.id;
-    button.innerHTML = '<span aria-hidden="true">▶</span><span>Смотреть</span>';
-    button.setAttribute('aria-label', `Смотреть: ${current.title}`);
+    button.innerHTML = '<span aria-hidden="true">▶</span><span>Смотреть на сайте</span>';
+    button.setAttribute('aria-label', `Смотреть на сайте: ${current.title}`);
     screen.append(image, button);
     $('video-stop').hidden = true;
   }
@@ -92,7 +188,9 @@
       embed.searchParams.set('autoplay', '1');
       embed.searchParams.set('playsinline', '1');
       embed.searchParams.set('rel', '0');
+      embed.searchParams.set('enablejsapi', '1');
       embed.searchParams.set('origin', location.origin);
+      frame.id = 'tonko-youtube-player';
       frame.src = embed.href;
       frame.title = `${video.originalTitle} · ${video.author}`;
       frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
@@ -101,6 +199,10 @@
       $('video-screen').replaceChildren(frame);
       $('video-stop').hidden = false;
       playing = true;
+      $('video-screen').setAttribute('aria-busy', 'true');
+      playbackStatus('Загружаем плеер…');
+      observePlayer(frame, playerSession);
+      if (!scroll) frame.focus({ preventScroll: true });
       const url = new URL(location.href); url.searchParams.set('video', video.id);
       history.replaceState(null, '', url);
     }
@@ -143,6 +245,7 @@
     topic = 'all'; savedOnly = false; $('video-search').value = ''; $('video-language').value = 'all'; filter(); $('video-search').focus();
   });
   $('video-stop').addEventListener('click', () => { poster(); $('video-screen').querySelector('button').focus(); });
+  $('video-retry').addEventListener('click', () => selectVideo(current, true));
   $('video-next').addEventListener('click', () => {
     if (!shown.length) return;
     const index = shown.findIndex(v => v.id === current.id);
