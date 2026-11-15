@@ -118,7 +118,7 @@
   }
   const comparison=$('#compare-position');
   if(comparison){comparison.addEventListener('input',()=>{$('#photo-comparison').style.setProperty('--split',comparison.value+'%');$('#compare-position-value').textContent=comparison.value+'%';});}
-  $$('[data-gallery-density]').forEach(b=>b.addEventListener('click',()=>{press($$('[data-gallery-density]'),b);$('#editorial-gallery')?.classList.toggle('gallery-large',b.dataset.galleryDensity==='large');}));
+  $$('[data-gallery-density]').forEach(b=>b.addEventListener('click',()=>{press($$('[data-gallery-density]'),b);$('#editorial-gallery')?.classList.toggle('gallery-large',b.dataset.galleryDensity==='large');$$('#editorial-gallery img[srcset]').forEach(img=>img.sizes=b.dataset.galleryDensity==='large'?'(max-width:540px) 100vw, 50vw':'(max-width:540px) 50vw, (max-width:1100px) 33vw, 25vw');}));
 
   // Decorative motion is optional. No initial CSS hiding, timers, scroll hijacking or autoplay.
   if(!reduced.matches&&'IntersectionObserver' in window&&Element.prototype.animate){

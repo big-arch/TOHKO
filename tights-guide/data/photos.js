@@ -12,7 +12,30 @@ window.PHOTO_DATA = [
     "license": "Материал правообладателя",
     "licenseUrl": "https://us.wolford.com/en-us/individual-10-tights-18382.7005.L.html",
     "alt": "Individual 10 · силуэт",
-    "caption": "Individual 10 · силуэт. Фотография из указанной публикации Wolford."
+    "caption": "Individual 10 · силуэт. Фотография из указанной публикации Wolford.",
+    "responsive": [
+      {
+        "src": "assets/responsive/wolford-1-320.webp",
+        "width": 320,
+        "bytes": 5742
+      },
+      {
+        "src": "assets/responsive/wolford-1-640.webp",
+        "width": 640,
+        "bytes": 13200
+      },
+      {
+        "src": "assets/responsive/wolford-1-960.webp",
+        "width": 960,
+        "bytes": 24450
+      },
+      {
+        "src": "assets/responsive/wolford-1-1440.webp",
+        "width": 1440,
+        "bytes": 43606
+      }
+    ],
+    "srcset": "assets/responsive/wolford-1-320.webp 320w, assets/responsive/wolford-1-640.webp 640w, assets/responsive/wolford-1-960.webp 960w, assets/responsive/wolford-1-1440.webp 1440w"
   },
   {
     "id": "tezenis",
@@ -27,7 +50,30 @@ window.PHOTO_DATA = [
     "license": "Материал правообладателя",
     "licenseUrl": "https://tezenis.ru/product/kolgotki-s-imitatsiey-chulok-1ZC055-019",
     "alt": "Графика и имитация чулок",
-    "caption": "Графика и имитация чулок. Фотография из указанной публикации Tezenis."
+    "caption": "Графика и имитация чулок. Фотография из указанной публикации Tezenis.",
+    "responsive": [
+      {
+        "src": "assets/responsive/tezenis-320.webp",
+        "width": 320,
+        "bytes": 5946
+      },
+      {
+        "src": "assets/responsive/tezenis-640.webp",
+        "width": 640,
+        "bytes": 18688
+      },
+      {
+        "src": "assets/responsive/tezenis-960.webp",
+        "width": 960,
+        "bytes": 79218
+      },
+      {
+        "src": "assets/responsive/tezenis-1440.webp",
+        "width": 1440,
+        "bytes": 279938
+      }
+    ],
+    "srcset": "assets/responsive/tezenis-320.webp 320w, assets/responsive/tezenis-640.webp 640w, assets/responsive/tezenis-960.webp 960w, assets/responsive/tezenis-1440.webp 1440w"
   },
   {
     "id": "swedish-lace",
@@ -42,7 +88,30 @@ window.PHOTO_DATA = [
     "license": "Материал правообладателя",
     "licenseUrl": "https://swedishstockings.com/pages/about-us",
     "alt": "Rosa · кружево",
-    "caption": "Rosa · кружево. Фотография из указанной публикации Swedish Stockings."
+    "caption": "Rosa · кружево. Фотография из указанной публикации Swedish Stockings.",
+    "responsive": [
+      {
+        "src": "assets/responsive/swedish-lace-320.webp",
+        "width": 320,
+        "bytes": 22434
+      },
+      {
+        "src": "assets/responsive/swedish-lace-640.webp",
+        "width": 640,
+        "bytes": 103210
+      },
+      {
+        "src": "assets/responsive/swedish-lace-960.webp",
+        "width": 960,
+        "bytes": 223046
+      },
+      {
+        "src": "assets/responsive/swedish-lace-986.webp",
+        "width": 986,
+        "bytes": 236822
+      }
+    ],
+    "srcset": "assets/responsive/swedish-lace-320.webp 320w, assets/responsive/swedish-lace-640.webp 640w, assets/responsive/swedish-lace-960.webp 960w, assets/responsive/swedish-lace-986.webp 986w"
   },
   {
     "id": "tummy",
@@ -57,7 +126,30 @@ window.PHOTO_DATA = [
     "license": "Материал правообладателя",
     "licenseUrl": "https://wolford.ru/catalog/tights/kolgotki62/tummy-20-korrektiruyushchie-kolgotki/",
     "alt": "Tummy Control Top 20",
-    "caption": "Tummy Control Top 20. Фотография из указанной публикации Wolford."
+    "caption": "Tummy Control Top 20. Фотография из указанной публикации Wolford.",
+    "responsive": [
+      {
+        "src": "assets/responsive/tummy-320.webp",
+        "width": 320,
+        "bytes": 6546
+      },
+      {
+        "src": "assets/responsive/tummy-640.webp",
+        "width": 640,
+        "bytes": 16088
+      },
+      {
+        "src": "assets/responsive/tummy-960.webp",
+        "width": 960,
+        "bytes": 29948
+      },
+      {
+        "src": "assets/responsive/tummy-1038.webp",
+        "width": 1038,
+        "bytes": 34236
+      }
+    ],
+    "srcset": "assets/responsive/tummy-320.webp 320w, assets/responsive/tummy-640.webp 640w, assets/responsive/tummy-960.webp 960w, assets/responsive/tummy-1038.webp 1038w"
   },
   {
     "id": "swedish-rib",
@@ -72,7 +164,30 @@ window.PHOTO_DATA = [
     "license": "Материал правообладателя",
     "licenseUrl": "https://swedishstockings.com/pages/about-us",
     "alt": "Diana · шерсть в рубчик",
-    "caption": "Diana · шерсть в рубчик. Фотография из указанной публикации Swedish Stockings."
+    "caption": "Diana · шерсть в рубчик. Фотография из указанной публикации Swedish Stockings.",
+    "responsive": [
+      {
+        "src": "assets/responsive/swedish-rib-320.webp",
+        "width": 320,
+        "bytes": 6904
+      },
+      {
+        "src": "assets/responsive/swedish-rib-640.webp",
+        "width": 640,
+        "bytes": 29550
+      },
+      {
+        "src": "assets/responsive/swedish-rib-960.webp",
+        "width": 960,
+        "bytes": 84010
+      },
+      {
+        "src": "assets/responsive/swedish-rib-1440.webp",
+        "width": 1440,
+        "bytes": 215434
+      }
+    ],
+    "srcset": "assets/responsive/swedish-rib-320.webp 320w, assets/responsive/swedish-rib-640.webp 640w, assets/responsive/swedish-rib-960.webp 960w, assets/responsive/swedish-rib-1440.webp 1440w"
   },
   {
     "id": "dots",
@@ -87,7 +202,15 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Горошек и прозрачность",
-    "caption": "Горошек и прозрачность. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Горошек и прозрачность. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/dots-240.webp",
+        "width": 240,
+        "bytes": 7224
+      }
+    ],
+    "srcset": "assets/responsive/dots-240.webp 240w"
   },
   {
     "id": "wolford-5",
@@ -102,7 +225,30 @@ window.PHOTO_DATA = [
     "license": "Материал правообладателя",
     "licenseUrl": "https://us.wolford.com/en-us/individual-10-tights-18382.7005.L.html",
     "alt": "Модель в топе, прозрачных колготках Individual 10 и туфлях",
-    "caption": "Цельный образ с Wolford Individual 10 из каталога бренда."
+    "caption": "Цельный образ с Wolford Individual 10 из каталога бренда.",
+    "responsive": [
+      {
+        "src": "assets/responsive/wolford-5-320.webp",
+        "width": 320,
+        "bytes": 6342
+      },
+      {
+        "src": "assets/responsive/wolford-5-640.webp",
+        "width": 640,
+        "bytes": 14924
+      },
+      {
+        "src": "assets/responsive/wolford-5-960.webp",
+        "width": 960,
+        "bytes": 25008
+      },
+      {
+        "src": "assets/responsive/wolford-5-1440.webp",
+        "width": 1440,
+        "bytes": 43952
+      }
+    ],
+    "srcset": "assets/responsive/wolford-5-320.webp 320w, assets/responsive/wolford-5-640.webp 640w, assets/responsive/wolford-5-960.webp 960w, assets/responsive/wolford-5-1440.webp 1440w"
   },
   {
     "id": "patterns",
@@ -117,7 +263,20 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Цвет и фантазийные узоры",
-    "caption": "Цвет и фантазийные узоры. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Цвет и фантазийные узоры. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/patterns-320.webp",
+        "width": 320,
+        "bytes": 15980
+      },
+      {
+        "src": "assets/responsive/patterns-480.webp",
+        "width": 480,
+        "bytes": 25206
+      }
+    ],
+    "srcset": "assets/responsive/patterns-320.webp 320w, assets/responsive/patterns-480.webp 480w"
   },
   {
     "id": "glamory",
@@ -132,7 +291,20 @@ window.PHOTO_DATA = [
     "license": "Материал правообладателя",
     "licenseUrl": "https://www.activskin.com/glamory-classic-20-pantyhose-for-men/",
     "alt": "Classic 20 · мужская посадка",
-    "caption": "Classic 20 · мужская посадка. Фотография из указанной публикации Glamory / Activskin."
+    "caption": "Classic 20 · мужская посадка. Фотография из указанной публикации Glamory / Activskin.",
+    "responsive": [
+      {
+        "src": "assets/responsive/glamory-320.webp",
+        "width": 320,
+        "bytes": 12200
+      },
+      {
+        "src": "assets/responsive/glamory-367.webp",
+        "width": 367,
+        "bytes": 15456
+      }
+    ],
+    "srcset": "assets/responsive/glamory-320.webp 320w, assets/responsive/glamory-367.webp 367w"
   },
   {
     "id": "men-tailoring",
@@ -147,7 +319,20 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Пиджак, колготки и цветная обувь",
-    "caption": "Пиджак, колготки и цветная обувь. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Пиджак, колготки и цветная обувь. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/men-tailoring-320.webp",
+        "width": 320,
+        "bytes": 11262
+      },
+      {
+        "src": "assets/responsive/men-tailoring-384.webp",
+        "width": 384,
+        "bytes": 13464
+      }
+    ],
+    "srcset": "assets/responsive/men-tailoring-320.webp 320w, assets/responsive/men-tailoring-384.webp 384w"
   },
   {
     "id": "activskin",
@@ -162,7 +347,20 @@ window.PHOTO_DATA = [
     "license": "Материал правообладателя",
     "licenseUrl": "https://www.activskin.com/a677-microfabric-support-pantyhose-for-men-mantyhose-tights-for-men-with-fly/",
     "alt": "A677 · мужской городской образ",
-    "caption": "A677 · мужской городской образ. Фотография из указанной публикации Activskin."
+    "caption": "A677 · мужской городской образ. Фотография из указанной публикации Activskin.",
+    "responsive": [
+      {
+        "src": "assets/responsive/activskin-320.webp",
+        "width": 320,
+        "bytes": 14772
+      },
+      {
+        "src": "assets/responsive/activskin-500.webp",
+        "width": 500,
+        "bytes": 30422
+      }
+    ],
+    "srcset": "assets/responsive/activskin-320.webp 320w, assets/responsive/activskin-500.webp 500w"
   },
   {
     "id": "men-street",
@@ -177,7 +375,15 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Шорты и прозрачный слой",
-    "caption": "Шорты и прозрачный слой. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Шорты и прозрачный слой. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/men-street-320.webp",
+        "width": 320,
+        "bytes": 19994
+      }
+    ],
+    "srcset": "assets/responsive/men-street-320.webp 320w"
   },
   {
     "id": "wolford-leggings",
@@ -191,7 +397,30 @@ window.PHOTO_DATA = [
     "author": "Wolford",
     "source": "https://wolford.ru/catalog/odezhda/legings/176117005/",
     "license": "Материал правообладателя",
-    "licenseUrl": "https://wolford.ru/catalog/odezhda/legings/176117005/"
+    "licenseUrl": "https://wolford.ru/catalog/odezhda/legings/176117005/",
+    "responsive": [
+      {
+        "src": "assets/responsive/wolford-leggings-320.webp",
+        "width": 320,
+        "bytes": 6506
+      },
+      {
+        "src": "assets/responsive/wolford-leggings-640.webp",
+        "width": 640,
+        "bytes": 15480
+      },
+      {
+        "src": "assets/responsive/wolford-leggings-960.webp",
+        "width": 960,
+        "bytes": 25562
+      },
+      {
+        "src": "assets/responsive/wolford-leggings-1125.webp",
+        "width": 1125,
+        "bytes": 32590
+      }
+    ],
+    "srcset": "assets/responsive/wolford-leggings-320.webp 320w, assets/responsive/wolford-leggings-640.webp 640w, assets/responsive/wolford-leggings-960.webp 960w, assets/responsive/wolford-leggings-1125.webp 1125w"
   },
   {
     "id": "nike-leggings",
@@ -206,7 +435,30 @@ window.PHOTO_DATA = [
     "license": "Материал правообладателя",
     "licenseUrl": "https://www.nike.com/hr/a/best-leggings-tights",
     "alt": "Спортивные легинсы в движении",
-    "caption": "Спортивные легинсы в движении. Фотография из указанной публикации Nike."
+    "caption": "Спортивные легинсы в движении. Фотография из указанной публикации Nike.",
+    "responsive": [
+      {
+        "src": "assets/responsive/nike-leggings-320.webp",
+        "width": 320,
+        "bytes": 13160
+      },
+      {
+        "src": "assets/responsive/nike-leggings-640.webp",
+        "width": 640,
+        "bytes": 37394
+      },
+      {
+        "src": "assets/responsive/nike-leggings-960.webp",
+        "width": 960,
+        "bytes": 73774
+      },
+      {
+        "src": "assets/responsive/nike-leggings-1440.webp",
+        "width": 1440,
+        "bytes": 145138
+      }
+    ],
+    "srcset": "assets/responsive/nike-leggings-320.webp 320w, assets/responsive/nike-leggings-640.webp 640w, assets/responsive/nike-leggings-960.webp 960w, assets/responsive/nike-leggings-1440.webp 1440w"
   },
   {
     "id": "wolford-leggings-detail",
@@ -220,7 +472,30 @@ window.PHOTO_DATA = [
     "author": "Wolford",
     "source": "https://wolford.ru/catalog/odezhda/legings/176117005/",
     "license": "Материал правообладателя",
-    "licenseUrl": "https://wolford.ru/catalog/odezhda/legings/176117005/"
+    "licenseUrl": "https://wolford.ru/catalog/odezhda/legings/176117005/",
+    "responsive": [
+      {
+        "src": "assets/responsive/wolford-leggings-detail-320.webp",
+        "width": 320,
+        "bytes": 6350
+      },
+      {
+        "src": "assets/responsive/wolford-leggings-detail-640.webp",
+        "width": 640,
+        "bytes": 14514
+      },
+      {
+        "src": "assets/responsive/wolford-leggings-detail-960.webp",
+        "width": 960,
+        "bytes": 26874
+      },
+      {
+        "src": "assets/responsive/wolford-leggings-detail-1038.webp",
+        "width": 1038,
+        "bytes": 29846
+      }
+    ],
+    "srcset": "assets/responsive/wolford-leggings-detail-320.webp 320w, assets/responsive/wolford-leggings-detail-640.webp 640w, assets/responsive/wolford-leggings-detail-960.webp 960w, assets/responsive/wolford-leggings-detail-1038.webp 1038w"
   },
   {
     "id": "wolford-2",
@@ -235,7 +510,30 @@ window.PHOTO_DATA = [
     "license": "Материал правообладателя",
     "licenseUrl": "https://us.wolford.com/en-us/individual-10-tights-18382.7005.L.html",
     "alt": "Individual 10 · вид сзади",
-    "caption": "Individual 10 · вид сзади. Фотография из указанной публикации Wolford."
+    "caption": "Individual 10 · вид сзади. Фотография из указанной публикации Wolford.",
+    "responsive": [
+      {
+        "src": "assets/responsive/wolford-2-320.webp",
+        "width": 320,
+        "bytes": 5348
+      },
+      {
+        "src": "assets/responsive/wolford-2-640.webp",
+        "width": 640,
+        "bytes": 12798
+      },
+      {
+        "src": "assets/responsive/wolford-2-960.webp",
+        "width": 960,
+        "bytes": 23722
+      },
+      {
+        "src": "assets/responsive/wolford-2-1440.webp",
+        "width": 1440,
+        "bytes": 48356
+      }
+    ],
+    "srcset": "assets/responsive/wolford-2-320.webp 320w, assets/responsive/wolford-2-640.webp 640w, assets/responsive/wolford-2-960.webp 960w, assets/responsive/wolford-2-1440.webp 1440w"
   },
   {
     "id": "men-shine",
@@ -250,7 +548,15 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Блеск и мужская посадка",
-    "caption": "Блеск и мужская посадка. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Блеск и мужская посадка. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/men-shine-320.webp",
+        "width": 320,
+        "bytes": 7736
+      }
+    ],
+    "srcset": "assets/responsive/men-shine-320.webp 320w"
   },
   {
     "id": "men-mesh",
@@ -265,7 +571,15 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Сетка в мужском гардеробе",
-    "caption": "Сетка в мужском гардеробе. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Сетка в мужском гардеробе. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/men-mesh-255.webp",
+        "width": 255,
+        "bytes": 6982
+      }
+    ],
+    "srcset": "assets/responsive/men-mesh-255.webp 255w"
   },
   {
     "id": "shine",
@@ -280,7 +594,20 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Как свет подчёркивает блеск",
-    "caption": "Как свет подчёркивает блеск. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Как свет подчёркивает блеск. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/shine-320.webp",
+        "width": 320,
+        "bytes": 15148
+      },
+      {
+        "src": "assets/responsive/shine-431.webp",
+        "width": 431,
+        "bytes": 26594
+      }
+    ],
+    "srcset": "assets/responsive/shine-320.webp 320w, assets/responsive/shine-431.webp 431w"
   },
   {
     "id": "wolford-3",
@@ -295,7 +622,30 @@ window.PHOTO_DATA = [
     "license": "Материал правообладателя",
     "licenseUrl": "https://us.wolford.com/en-us/individual-10-tights-18382.7005.L.html",
     "alt": "Крупный план тонкого полотна и верхней части Wolford Individual 10.",
-    "caption": "Крупный план тонкого полотна и верхней части Wolford Individual 10."
+    "caption": "Крупный план тонкого полотна и верхней части Wolford Individual 10.",
+    "responsive": [
+      {
+        "src": "assets/responsive/wolford-3-320.webp",
+        "width": 320,
+        "bytes": 6364
+      },
+      {
+        "src": "assets/responsive/wolford-3-640.webp",
+        "width": 640,
+        "bytes": 24972
+      },
+      {
+        "src": "assets/responsive/wolford-3-960.webp",
+        "width": 960,
+        "bytes": 74912
+      },
+      {
+        "src": "assets/responsive/wolford-3-1440.webp",
+        "width": 1440,
+        "bytes": 270228
+      }
+    ],
+    "srcset": "assets/responsive/wolford-3-320.webp 320w, assets/responsive/wolford-3-640.webp 640w, assets/responsive/wolford-3-960.webp 960w, assets/responsive/wolford-3-1440.webp 1440w"
   },
   {
     "id": "conte-waist",
@@ -310,7 +660,15 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Эластичная верхняя часть",
-    "caption": "Эластичная верхняя часть. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Эластичная верхняя часть. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/conte-waist-320.webp",
+        "width": 320,
+        "bytes": 5390
+      }
+    ],
+    "srcset": "assets/responsive/conte-waist-320.webp 320w"
   },
   {
     "id": "knit",
@@ -325,7 +683,15 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Петли тонкого полотна",
-    "caption": "Петли тонкого полотна. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Петли тонкого полотна. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/knit-240.webp",
+        "width": 240,
+        "bytes": 29214
+      }
+    ],
+    "srcset": "assets/responsive/knit-240.webp 240w"
   },
   {
     "id": "mesh",
@@ -340,7 +706,15 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Ритм крупной сетки",
-    "caption": "Ритм крупной сетки. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Ритм крупной сетки. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/mesh-320.webp",
+        "width": 320,
+        "bytes": 36996
+      }
+    ],
+    "srcset": "assets/responsive/mesh-320.webp 320w"
   },
   {
     "id": "toe",
@@ -355,7 +729,20 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Шов и усиление мыска",
-    "caption": "Шов и усиление мыска. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Шов и усиление мыска. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/toe-320.webp",
+        "width": 320,
+        "bytes": 7104
+      },
+      {
+        "src": "assets/responsive/toe-427.webp",
+        "width": 427,
+        "bytes": 11662
+      }
+    ],
+    "srcset": "assets/responsive/toe-320.webp 320w, assets/responsive/toe-427.webp 427w"
   },
   {
     "id": "wolford-4",
@@ -370,7 +757,30 @@ window.PHOTO_DATA = [
     "license": "Материал правообладателя",
     "licenseUrl": "https://us.wolford.com/en-us/individual-10-tights-18382.7005.L.html",
     "alt": "Полный вид изделия Wolford Individual 10 без модели.",
-    "caption": "Полный вид изделия Wolford Individual 10 без модели."
+    "caption": "Полный вид изделия Wolford Individual 10 без модели.",
+    "responsive": [
+      {
+        "src": "assets/responsive/wolford-4-320.webp",
+        "width": 320,
+        "bytes": 4986
+      },
+      {
+        "src": "assets/responsive/wolford-4-640.webp",
+        "width": 640,
+        "bytes": 11906
+      },
+      {
+        "src": "assets/responsive/wolford-4-960.webp",
+        "width": 960,
+        "bytes": 21336
+      },
+      {
+        "src": "assets/responsive/wolford-4-1440.webp",
+        "width": 1440,
+        "bytes": 50530
+      }
+    ],
+    "srcset": "assets/responsive/wolford-4-320.webp 320w, assets/responsive/wolford-4-640.webp 640w, assets/responsive/wolford-4-960.webp 960w, assets/responsive/wolford-4-1440.webp 1440w"
   },
   {
     "id": "pack-conte",
@@ -385,7 +795,15 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Conte Solo 40 · упаковка",
-    "caption": "Conte Solo 40 · упаковка. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Conte Solo 40 · упаковка. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/pack-conte-240.webp",
+        "width": 240,
+        "bytes": 14782
+      }
+    ],
+    "srcset": "assets/responsive/pack-conte-240.webp 240w"
   },
   {
     "id": "pack-omsa",
@@ -400,7 +818,15 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "Omsa Attiva 40 · упаковка",
-    "caption": "Omsa Attiva 40 · упаковка. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "Omsa Attiva 40 · упаковка. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/pack-omsa-251.webp",
+        "width": 251,
+        "bytes": 9986
+      }
+    ],
+    "srcset": "assets/responsive/pack-omsa-251.webp 251w"
   },
   {
     "id": "pack-nilina",
@@ -415,7 +841,20 @@ window.PHOTO_DATA = [
     "height": 320,
     "origin": "user",
     "alt": "NILINA Elegance 8 · упаковка",
-    "caption": "NILINA Elegance 8 · упаковка. Пример из присланной подборки; бренд не приписывается без источника."
+    "caption": "NILINA Elegance 8 · упаковка. Пример из присланной подборки; бренд не приписывается без источника.",
+    "responsive": [
+      {
+        "src": "assets/responsive/pack-nilina-320.webp",
+        "width": 320,
+        "bytes": 9592
+      },
+      {
+        "src": "assets/responsive/pack-nilina-480.webp",
+        "width": 480,
+        "bytes": 14092
+      }
+    ],
+    "srcset": "assets/responsive/pack-nilina-320.webp 320w, assets/responsive/pack-nilina-480.webp 480w"
   },
   {
     "id": "calzedonia-glitter",
@@ -430,7 +869,30 @@ window.PHOTO_DATA = [
     "source": "https://www.calzedonia.com/us/product/rainy_glitter_tights-MODC2258.html?dwvar_MODC2258_Z_COL_COLL=182F",
     "url": "https://www.calzedonia.com/dw/image/v2/BJHW_PRD/on/demandware.static/-/Sites-CAL_EC_COM/default/dwb07c8880/images/MODC2258182F-M.jpg?sfrm=jpeg&sw=1200",
     "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://www.calzedonia.com/us/product/rainy_glitter_tights-MODC2258.html?dwvar_MODC2258_Z_COL_COLL=182F"
+    "licenseUrl": "https://www.calzedonia.com/us/product/rainy_glitter_tights-MODC2258.html?dwvar_MODC2258_Z_COL_COLL=182F",
+    "responsive": [
+      {
+        "src": "assets/responsive/calzedonia-glitter-320.webp",
+        "width": 320,
+        "bytes": 12336
+      },
+      {
+        "src": "assets/responsive/calzedonia-glitter-640.webp",
+        "width": 640,
+        "bytes": 40548
+      },
+      {
+        "src": "assets/responsive/calzedonia-glitter-960.webp",
+        "width": 960,
+        "bytes": 85020
+      },
+      {
+        "src": "assets/responsive/calzedonia-glitter-1200.webp",
+        "width": 1200,
+        "bytes": 132440
+      }
+    ],
+    "srcset": "assets/responsive/calzedonia-glitter-320.webp 320w, assets/responsive/calzedonia-glitter-640.webp 640w, assets/responsive/calzedonia-glitter-960.webp 960w, assets/responsive/calzedonia-glitter-1200.webp 1200w"
   },
   {
     "id": "cdr-gloss",
@@ -445,7 +907,25 @@ window.PHOTO_DATA = [
     "source": "https://ceciliaderafael.com/en",
     "url": "https://ceciliaderafael.com/images/products/eterno-superlucido-10/1q_look_total.jpg",
     "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://ceciliaderafael.com/en"
+    "licenseUrl": "https://ceciliaderafael.com/en",
+    "responsive": [
+      {
+        "src": "assets/responsive/cdr-gloss-320.webp",
+        "width": 320,
+        "bytes": 8748
+      },
+      {
+        "src": "assets/responsive/cdr-gloss-640.webp",
+        "width": 640,
+        "bytes": 22728
+      },
+      {
+        "src": "assets/responsive/cdr-gloss-832.webp",
+        "width": 832,
+        "bytes": 34052
+      }
+    ],
+    "srcset": "assets/responsive/cdr-gloss-320.webp 320w, assets/responsive/cdr-gloss-640.webp 640w, assets/responsive/cdr-gloss-832.webp 832w"
   },
   {
     "id": "golden-lady-studio",
@@ -460,7 +940,30 @@ window.PHOTO_DATA = [
     "source": "https://www.goldenladycompany.com/en/brand/golden-lady",
     "url": "https://www.goldenladycompany.com/sites/default/files/brand/2024-02/Immagini%20quadrate%201400x1260_GOLDENLADY.jpg",
     "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://www.goldenladycompany.com/en/brand/golden-lady"
+    "licenseUrl": "https://www.goldenladycompany.com/en/brand/golden-lady",
+    "responsive": [
+      {
+        "src": "assets/responsive/golden-lady-studio-320.webp",
+        "width": 320,
+        "bytes": 8286
+      },
+      {
+        "src": "assets/responsive/golden-lady-studio-640.webp",
+        "width": 640,
+        "bytes": 19702
+      },
+      {
+        "src": "assets/responsive/golden-lady-studio-960.webp",
+        "width": 960,
+        "bytes": 35014
+      },
+      {
+        "src": "assets/responsive/golden-lady-studio-1400.webp",
+        "width": 1400,
+        "bytes": 67324
+      }
+    ],
+    "srcset": "assets/responsive/golden-lady-studio-320.webp 320w, assets/responsive/golden-lady-studio-640.webp 640w, assets/responsive/golden-lady-studio-960.webp 960w, assets/responsive/golden-lady-studio-1400.webp 1400w"
   },
   {
     "id": "noq-cocoa",
@@ -475,7 +978,30 @@ window.PHOTO_DATA = [
     "source": "https://noq.com.pl/produkt/rajstopy-damskie-secret-z-delikatnym-wzorem-kwiatow/",
     "url": "https://noq.com.pl/app/uploads/2026/09/rajstopy-noq-by-knittex-secret-wzorzyste-bronzo-brown-30-den-koronkowy-wzor-motyw-kwiatowy-lbox-1068x1602-F7EEED.webp",
     "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://noq.com.pl/produkt/rajstopy-damskie-secret-z-delikatnym-wzorem-kwiatow/"
+    "licenseUrl": "https://noq.com.pl/produkt/rajstopy-damskie-secret-z-delikatnym-wzorem-kwiatow/",
+    "responsive": [
+      {
+        "src": "assets/responsive/noq-cocoa-320.webp",
+        "width": 320,
+        "bytes": 24442
+      },
+      {
+        "src": "assets/responsive/noq-cocoa-640.webp",
+        "width": 640,
+        "bytes": 73814
+      },
+      {
+        "src": "assets/responsive/noq-cocoa-960.webp",
+        "width": 960,
+        "bytes": 126194
+      },
+      {
+        "src": "assets/responsive/noq-cocoa-1068.webp",
+        "width": 1068,
+        "bytes": 143438
+      }
+    ],
+    "srcset": "assets/responsive/noq-cocoa-320.webp 320w, assets/responsive/noq-cocoa-640.webp 640w, assets/responsive/noq-cocoa-960.webp 960w, assets/responsive/noq-cocoa-1068.webp 1068w"
   },
   {
     "id": "noq-lace",
@@ -490,7 +1016,30 @@ window.PHOTO_DATA = [
     "source": "https://noq.com.pl/produkt/rajstopy-damskie-secret-z-delikatnym-wzorem-kwiatow/",
     "url": "https://noq.com.pl/app/uploads/2026/09/secren-nero-1-kopia-lbox-1068x1602-F7EEED.webp",
     "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://noq.com.pl/produkt/rajstopy-damskie-secret-z-delikatnym-wzorem-kwiatow/"
+    "licenseUrl": "https://noq.com.pl/produkt/rajstopy-damskie-secret-z-delikatnym-wzorem-kwiatow/",
+    "responsive": [
+      {
+        "src": "assets/responsive/noq-lace-320.webp",
+        "width": 320,
+        "bytes": 20916
+      },
+      {
+        "src": "assets/responsive/noq-lace-640.webp",
+        "width": 640,
+        "bytes": 56032
+      },
+      {
+        "src": "assets/responsive/noq-lace-960.webp",
+        "width": 960,
+        "bytes": 95160
+      },
+      {
+        "src": "assets/responsive/noq-lace-1068.webp",
+        "width": 1068,
+        "bytes": 105728
+      }
+    ],
+    "srcset": "assets/responsive/noq-lace-320.webp 320w, assets/responsive/noq-lace-640.webp 640w, assets/responsive/noq-lace-960.webp 960w, assets/responsive/noq-lace-1068.webp 1068w"
   },
   {
     "id": "omsa-studio",
@@ -505,7 +1054,30 @@ window.PHOTO_DATA = [
     "source": "https://www.goldenladycompany.com/en/brand/omsa",
     "url": "https://www.goldenladycompany.com/sites/default/files/brand/2021-11/Immagini%20quadrate%201400x1260_OMSA.jpg",
     "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://www.goldenladycompany.com/en/brand/omsa"
+    "licenseUrl": "https://www.goldenladycompany.com/en/brand/omsa",
+    "responsive": [
+      {
+        "src": "assets/responsive/omsa-studio-320.webp",
+        "width": 320,
+        "bytes": 8810
+      },
+      {
+        "src": "assets/responsive/omsa-studio-640.webp",
+        "width": 640,
+        "bytes": 21620
+      },
+      {
+        "src": "assets/responsive/omsa-studio-960.webp",
+        "width": 960,
+        "bytes": 40690
+      },
+      {
+        "src": "assets/responsive/omsa-studio-1400.webp",
+        "width": 1400,
+        "bytes": 90610
+      }
+    ],
+    "srcset": "assets/responsive/omsa-studio-320.webp 320w, assets/responsive/omsa-studio-640.webp 640w, assets/responsive/omsa-studio-960.webp 960w, assets/responsive/omsa-studio-1400.webp 1400w"
   },
   {
     "id": "pm-sheer",
@@ -520,7 +1092,30 @@ window.PHOTO_DATA = [
     "source": "https://www.philippematignon.it/",
     "url": "https://www.philippematignon.it/cdn/shop/files/COLLANT_VELATI.jpg?v=1740996213&width=1284",
     "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://www.philippematignon.it/"
+    "licenseUrl": "https://www.philippematignon.it/",
+    "responsive": [
+      {
+        "src": "assets/responsive/pm-sheer-320.webp",
+        "width": 320,
+        "bytes": 8070
+      },
+      {
+        "src": "assets/responsive/pm-sheer-640.webp",
+        "width": 640,
+        "bytes": 23476
+      },
+      {
+        "src": "assets/responsive/pm-sheer-960.webp",
+        "width": 960,
+        "bytes": 45910
+      },
+      {
+        "src": "assets/responsive/pm-sheer-1284.webp",
+        "width": 1284,
+        "bytes": 78286
+      }
+    ],
+    "srcset": "assets/responsive/pm-sheer-320.webp 320w, assets/responsive/pm-sheer-640.webp 640w, assets/responsive/pm-sheer-960.webp 960w, assets/responsive/pm-sheer-1284.webp 1284w"
   },
   {
     "id": "spanx-hosiery",
@@ -535,7 +1130,25 @@ window.PHOTO_DATA = [
     "source": "https://spanx.com/en-gb/collections/hosiery",
     "url": "https://spanx.bynder.com/transform/24b29a27-b0ca-4145-9b38-14fa4669562f/0326_ShapePLP_VisNav_hosiery?format=webp&quality=90&io=transform%3Afit%2Cwidth%3A1200%2Cheight%3A1800",
     "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://spanx.com/en-gb/collections/hosiery"
+    "licenseUrl": "https://spanx.com/en-gb/collections/hosiery",
+    "responsive": [
+      {
+        "src": "assets/responsive/spanx-hosiery-320.webp",
+        "width": 320,
+        "bytes": 6166
+      },
+      {
+        "src": "assets/responsive/spanx-hosiery-640.webp",
+        "width": 640,
+        "bytes": 15620
+      },
+      {
+        "src": "assets/responsive/spanx-hosiery-784.webp",
+        "width": 784,
+        "bytes": 19612
+      }
+    ],
+    "srcset": "assets/responsive/spanx-hosiery-320.webp 320w, assets/responsive/spanx-hosiery-640.webp 640w, assets/responsive/spanx-hosiery-784.webp 784w"
   },
   {
     "id": "gabriella-arctic",
@@ -550,7 +1163,30 @@ window.PHOTO_DATA = [
     "source": "https://www.gabriella.pl/products/rajstopy-arctic-second-skin",
     "url": "https://www.gabriella.pl/cdn/shop/files/3_ARCTIC_SECOND_SKIN.jpg?v=1793088670&width=1400",
     "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://www.gabriella.pl/products/rajstopy-arctic-second-skin"
+    "licenseUrl": "https://www.gabriella.pl/products/rajstopy-arctic-second-skin",
+    "responsive": [
+      {
+        "src": "assets/responsive/gabriella-arctic-320.webp",
+        "width": 320,
+        "bytes": 4616
+      },
+      {
+        "src": "assets/responsive/gabriella-arctic-640.webp",
+        "width": 640,
+        "bytes": 13982
+      },
+      {
+        "src": "assets/responsive/gabriella-arctic-960.webp",
+        "width": 960,
+        "bytes": 34222
+      },
+      {
+        "src": "assets/responsive/gabriella-arctic-1400.webp",
+        "width": 1400,
+        "bytes": 100200
+      }
+    ],
+    "srcset": "assets/responsive/gabriella-arctic-320.webp 320w, assets/responsive/gabriella-arctic-640.webp 640w, assets/responsive/gabriella-arctic-960.webp 960w, assets/responsive/gabriella-arctic-1400.webp 1400w"
   },
   {
     "id": "cdr-gemini",
@@ -565,6 +1201,24 @@ window.PHOTO_DATA = [
     "source": "https://ceciliaderafael.com/en/product/gemini-15",
     "url": "https://ceciliaderafael.com/images/products/gemini-15/1i_color_32_aclarar_copia.jpg",
     "license": "Авторские права правообладателя; свободная лицензия не заявлена",
-    "licenseUrl": "https://ceciliaderafael.com/en/product/gemini-15"
+    "licenseUrl": "https://ceciliaderafael.com/en/product/gemini-15",
+    "responsive": [
+      {
+        "src": "assets/responsive/cdr-gemini-320.webp",
+        "width": 320,
+        "bytes": 4612
+      },
+      {
+        "src": "assets/responsive/cdr-gemini-640.webp",
+        "width": 640,
+        "bytes": 12016
+      },
+      {
+        "src": "assets/responsive/cdr-gemini-880.webp",
+        "width": 880,
+        "bytes": 21364
+      }
+    ],
+    "srcset": "assets/responsive/cdr-gemini-320.webp 320w, assets/responsive/cdr-gemini-640.webp 640w, assets/responsive/cdr-gemini-880.webp 880w"
   }
 ];

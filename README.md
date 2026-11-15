@@ -34,10 +34,13 @@ python -m http.server 4185 --directory tights-guide
 ```sh
 python scripts/build-editorial.py
 python scripts/build-experience.py
+python scripts/optimize-images.py
 python scripts/check-site.py
 ```
 
 Первая стадия собирает основные тематические страницы. Вторая создаёт журнал, статьи и мастерскую, обновляет навигацию и добавляет связанные материалы. Изображения хранятся локально; их исходные адреса и подписи находятся в `data/editorial-media.json`. Повторный запуск второй стадии не дублирует разделы.
+
+Последняя стадия готовит адаптивные WebP-превью и добавляет `srcset`, `sizes` и приоритет обложек. Для неё нужен Pillow (`python -m pip install Pillow`). Готовые файлы включены в репозиторий, поэтому для просмотра и публикации Pillow не требуется. Оригиналы остаются в `assets/editorial`, варианты — в `assets/responsive`; просмотрщик и увеличение используют оригиналы.
 
 ## Проверка и публикация
 
