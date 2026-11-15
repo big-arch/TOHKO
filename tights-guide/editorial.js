@@ -20,7 +20,7 @@
       catch{status.textContent='Браузер запретил сохранение. Фотографии по-прежнему можно смотреть.';const note=$('#editorial-photo-credit');if(dialog.open)note.textContent='Браузер запретил сохранение. Закройте просмотр, чтобы продолжить.';return false;}
     };
     try {
-      const response=await fetch('data/editorial-media.json');
+      const response=await fetch('data/editorial-media.json', {cache:'no-cache'});
       if(!response.ok)throw new Error('media');
       media=(await response.json()).filter(p=>!['business','archive'].includes(p.category));
       saved=new Set([...saved].filter(id=>media.some(p=>p.id===id)));
