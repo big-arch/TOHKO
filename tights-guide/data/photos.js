@@ -279,34 +279,6 @@ window.PHOTO_DATA = [
     "srcset": "assets/responsive/patterns-320.webp 320w, assets/responsive/patterns-480.webp 480w"
   },
   {
-    "id": "glamory",
-    "url": "https://cdn1.bigcommerce.com/server1700/a2d18/products/177/images/737/50422_Classic_20_Black-2_preview__12143.1517244212.500.750.jpg?c=2",
-    "source": "https://www.activskin.com/glamory-classic-20-pantyhose-for-men/",
-    "author": "Glamory / Activskin",
-    "title": "Classic 20 · мужская посадка",
-    "category": "men",
-    "image": "assets/editorial/glamory.jpg",
-    "width": 367,
-    "height": 750,
-    "license": "Материал правообладателя",
-    "licenseUrl": "https://www.activskin.com/glamory-classic-20-pantyhose-for-men/",
-    "alt": "Classic 20 · мужская посадка",
-    "caption": "Classic 20 · мужская посадка. Фотография из указанной публикации Glamory / Activskin.",
-    "responsive": [
-      {
-        "src": "assets/responsive/glamory-320.webp",
-        "width": 320,
-        "bytes": 12200
-      },
-      {
-        "src": "assets/responsive/glamory-367.webp",
-        "width": 367,
-        "bytes": 15456
-      }
-    ],
-    "srcset": "assets/responsive/glamory-320.webp 320w, assets/responsive/glamory-367.webp 367w"
-  },
-  {
     "id": "men-tailoring",
     "image": "assets/editorial/men-tailoring.webp",
     "title": "Пиджак, колготки и цветная обувь",
@@ -534,52 +506,6 @@ window.PHOTO_DATA = [
       }
     ],
     "srcset": "assets/responsive/wolford-2-320.webp 320w, assets/responsive/wolford-2-640.webp 640w, assets/responsive/wolford-2-960.webp 960w, assets/responsive/wolford-2-1440.webp 1440w"
-  },
-  {
-    "id": "men-shine",
-    "image": "assets/editorial/men-shine.webp",
-    "title": "Блеск и мужская посадка",
-    "category": "men",
-    "author": "Подборка проекта",
-    "source": "https://www.google.com/search?udm=2&q=%D0%BA%D0%BE%D0%BB%D0%B3%D0%BE%D1%82%D0%BA%D0%B8",
-    "license": "Изображение предоставлено владельцем проекта; авторство не установлено",
-    "licenseUrl": "sources.html#photography",
-    "width": 320,
-    "height": 320,
-    "origin": "user",
-    "alt": "Блеск и мужская посадка",
-    "caption": "Блеск и мужская посадка. Пример из присланной подборки; бренд не приписывается без источника.",
-    "responsive": [
-      {
-        "src": "assets/responsive/men-shine-320.webp",
-        "width": 320,
-        "bytes": 7736
-      }
-    ],
-    "srcset": "assets/responsive/men-shine-320.webp 320w"
-  },
-  {
-    "id": "men-mesh",
-    "image": "assets/editorial/men-mesh.webp",
-    "title": "Сетка в мужском гардеробе",
-    "category": "men",
-    "author": "Подборка проекта",
-    "source": "https://www.google.com/search?udm=2&q=%D0%BA%D0%BE%D0%BB%D0%B3%D0%BE%D1%82%D0%BA%D0%B8",
-    "license": "Изображение предоставлено владельцем проекта; авторство не установлено",
-    "licenseUrl": "sources.html#photography",
-    "width": 255,
-    "height": 320,
-    "origin": "user",
-    "alt": "Сетка в мужском гардеробе",
-    "caption": "Сетка в мужском гардеробе. Пример из присланной подборки; бренд не приписывается без источника.",
-    "responsive": [
-      {
-        "src": "assets/responsive/men-mesh-255.webp",
-        "width": 255,
-        "bytes": 6982
-      }
-    ],
-    "srcset": "assets/responsive/men-mesh-255.webp 255w"
   },
   {
     "id": "shine",
@@ -1220,5 +1146,99 @@ window.PHOTO_DATA = [
       }
     ],
     "srcset": "assets/responsive/cdr-gemini-320.webp 320w, assets/responsive/cdr-gemini-640.webp 640w, assets/responsive/cdr-gemini-880.webp 880w"
+  },
+  {
+    "id": "adrian-city",
+    "image": "assets/editorial/adrian-city.png",
+    "title": "Пиджак, рубашка и геометрический рисунок",
+    "category": "men",
+    "author": "Adrian / Activskin",
+    "source": "https://www.activskin.com/adrian-grating-opaque-fashion-tights-for-men/",
+    "url": "https://cdn2.bigcommerce.com/server1700/a2d18/products/163/images/636/Adrian-Grating-tights-for-men-mantyhose-f1__69333.1481034595.1280.1280.png?c=2",
+    "license": "Материал правообладателя; свободная лицензия не заявлена",
+    "licenseUrl": "https://www.activskin.com/adrian-grating-opaque-fashion-tights-for-men/",
+    "width": 853,
+    "height": 1280,
+    "alt": "Пиджак, рубашка и геометрический рисунок",
+    "caption": "Пиджак, рубашка и геометрический рисунок. Каталожная фотография Adrian из публикации Activskin.",
+    "responsive": [
+      {
+        "src": "assets/responsive/adrian-city-320.webp",
+        "width": 320,
+        "bytes": 10246
+      },
+      {
+        "src": "assets/responsive/adrian-city-640.webp",
+        "width": 640,
+        "bytes": 24502
+      },
+      {
+        "src": "assets/responsive/adrian-city-853.webp",
+        "width": 853,
+        "bytes": 36692
+      }
+    ],
+    "srcset": "assets/responsive/adrian-city-320.webp 320w, assets/responsive/adrian-city-640.webp 640w, assets/responsive/adrian-city-853.webp 853w"
+  },
+  {
+    "id": "adrian-pattern",
+    "image": "assets/editorial/adrian-pattern.png",
+    "title": "Шорты, лоферы и рисунок Grating",
+    "category": "men",
+    "author": "Adrian / Activskin",
+    "source": "https://www.activskin.com/adrian-grating-opaque-fashion-tights-for-men/",
+    "url": "https://cdn2.bigcommerce.com/server1700/a2d18/products/163/images/635/Adrian-Grating-tights-for-men-mantyhose-c2__87075.1481034593.1280.1280.png?c=2",
+    "license": "Материал правообладателя; свободная лицензия не заявлена",
+    "licenseUrl": "https://www.activskin.com/adrian-grating-opaque-fashion-tights-for-men/",
+    "width": 853,
+    "height": 1280,
+    "alt": "Шорты, лоферы и рисунок Grating",
+    "caption": "Шорты, лоферы и рисунок Grating. Каталожная фотография Adrian из публикации Activskin.",
+    "responsive": [
+      {
+        "src": "assets/responsive/adrian-pattern-320.webp",
+        "width": 320,
+        "bytes": 11852
+      },
+      {
+        "src": "assets/responsive/adrian-pattern-640.webp",
+        "width": 640,
+        "bytes": 29950
+      },
+      {
+        "src": "assets/responsive/adrian-pattern-853.webp",
+        "width": 853,
+        "bytes": 46596
+      }
+    ],
+    "srcset": "assets/responsive/adrian-pattern-320.webp 320w, assets/responsive/adrian-pattern-640.webp 640w, assets/responsive/adrian-pattern-853.webp 853w"
+  },
+  {
+    "id": "adrian-weekend",
+    "image": "assets/editorial/adrian-weekend.png",
+    "title": "Трикотаж, пиджак и джинсовые шорты",
+    "category": "men",
+    "author": "Adrian / Activskin",
+    "source": "https://www.activskin.com/adrian-grating-opaque-fashion-tights-for-men/",
+    "url": "https://cdn1.bigcommerce.com/server1700/a2d18/product_images/uploaded_images/buy-adrian-grating-patterned-tigths-for-men-at-activskin.com-f2.png",
+    "license": "Материал правообладателя; свободная лицензия не заявлена",
+    "licenseUrl": "https://www.activskin.com/adrian-grating-opaque-fashion-tights-for-men/",
+    "width": 600,
+    "height": 1147,
+    "alt": "Трикотаж, пиджак и джинсовые шорты",
+    "caption": "Трикотаж, пиджак и джинсовые шорты. Каталожная фотография Adrian из публикации Activskin.",
+    "responsive": [
+      {
+        "src": "assets/responsive/adrian-weekend-320.webp",
+        "width": 320,
+        "bytes": 24098
+      },
+      {
+        "src": "assets/responsive/adrian-weekend-600.webp",
+        "width": 600,
+        "bytes": 70860
+      }
+    ],
+    "srcset": "assets/responsive/adrian-weekend-320.webp 320w, assets/responsive/adrian-weekend-600.webp 600w"
   }
 ];

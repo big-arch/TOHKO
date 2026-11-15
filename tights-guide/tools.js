@@ -219,9 +219,10 @@
       ['Как выбрать: мастерская','Подбор пары, сравнение DEN, викторина, конструкция и уход','guide.html','Гид'],
       ['История колготок','Нейлон, эластан, мода и технологии','history.html','История'],
       ['Фотогалерея','Каталожные фотографии, мужские образы, фактура и происхождение изображений','lookbook.html','Фото'],
-      ['Фетиш: психология и психофизиология','Восприятие, ассоциации, интерес и расстройство, согласие и отношения','fetish.html','18+']
+      ['Видеотека','Обзоры, примерки и образы, производство и ASMR','videos.html','Видео']
     ];
     const entries = [
+      ...(window.TONKO_VIDEOS || []).map(v=>({title:v.title,text:v.description+' '+v.author+' '+v.originalTitle,url:'videos.html?video='+v.id,kind:'Видео'})),
       ...(window.TONKO_JOURNAL || []).map(s=>({title:s.title,text:s.description+' '+s.short+' '+s.theme,url:s.url,kind:'Журнал'})),
       ...pages.map(([title,text,url,kind]) => ({title,text,url,kind})),
       ...brands.map((item) => ({title:item.name,text:`${item.summary} ${item.models.map((model) => model.name).join(' ')}`,url:`brand.html?brand=${item.slug}`,kind:'Бренд'})),
