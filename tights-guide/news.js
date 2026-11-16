@@ -7,8 +7,9 @@
   const format=new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'long',year:'numeric'});
   const checkedFormat=new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'});
   let current=null,pending=null,language='all',limit=6,busy=false;
+  try{current=validate(JSON.parse(document.getElementById('news-seed').textContent));}catch{}
   const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text)el.textContent=text;if(cls)el.className=cls;return el;};
-  const signature=data=>JSON.stringify(data.items.map(i=>[i.id,i.title,i.publishedAt]));
+  const signature=data=>JSON.stringify(data.items.map(i=>[i.id,i.title,i.displayTitle,i.excerpt,i.summary,i.publishedAt]));
   function validate(data){
     if(data.version!==1||!Array.isArray(data.items)||!Array.isArray(data.sources))throw Error('Invalid news data');
     data.items=data.items.filter(i=>{
@@ -40,9 +41,9 @@
       const article=node('article',null,'news-item'),meta=node('div',null,'news-meta');
       const time=node('time',format.format(new Date(i.publishedAt)));time.dateTime=i.publishedAt;
       meta.append(node('span',i.source+(i.via?' · через Google News':'')),time,node('span',i.language==='ru'?'RU':'EN'));
-      const title=node('h3'),link=node('a',i.title+' ↗');
-      link.href=i.url;link.target='_blank';link.rel='noopener noreferrer';link.lang=i.language==='ru'?'ru':'en';
-      title.append(link);article.append(meta,title);fragment.append(article);
+      const title=node('h3'),link=node('a',i.displayTitle||i.title);
+      link.href=`news.html#story-${i.id}`;link.dataset.newsId=i.id;link.lang=i.displayTitle?'ru':i.language==='ru'?'ru':'en';
+      title.append(link);article.append(meta,title,node('span','Читать на ТОНКО →','news-read'));fragment.append(article);
     });
     if(!items.length)fragment.append(node('p','Пока нет публикаций на выбранном языке. Посмотрите общую ленту.'));
     list.replaceChildren(fragment);more.hidden=items.length<=limit;
@@ -74,5 +75,16 @@
   fresh.addEventListener('click',()=>{if(pending){current=pending;pending=null;limit=6;render();fresh.hidden=true;refresh.focus({preventScroll:true});}});
   refresh.addEventListener('click',()=>check(true));
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)check();});
+  list.addEventListener('click',event=>{
+    const link=event.target.closest('[data-news-id]');if(!link||!window.TonkoReader||event.ctrlKey||event.metaKey||event.shiftKey)return;
+    const item=current?.items.find(i=>i.id===link.dataset.newsId);if(item){event.preventDefault();window.TonkoReader.open(item);}
+  });
+  render();
+  function syncReader(){
+    const requested=new URLSearchParams(location.search).get('news');
+    const item=current?.items.find(i=>i.id===requested);
+    if(item)window.TonkoReader?.open(item,true);else window.TonkoReader?.close();
+  }
+  addEventListener('popstate',syncReader);syncReader();
   check();setInterval(check,60000);
 })();

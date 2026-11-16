@@ -7,9 +7,12 @@
   if (!videos.length) return;
   const $ = id => document.getElementById(id);
   const key = 'tonko-video-shelf-v1';
+  const memory=window.TonkoVideoMemory;
+  let progressTimer=0;
+  $('video-youtube-mode').value=memory.mode();
   const ids = new Set(videos.map(v => v.id));
   const languages = { ru: 'На русском', en: 'На английском', none: 'Без речи', original: 'Язык оригинала' };
-  const provider = video => video.provider === 'vimeo' ? 'vimeo' : 'youtube';
+  const provider = video => ['vimeo','native'].includes(video.provider) ? video.provider : 'youtube';
   const buttons = [...document.querySelectorAll('[data-video-topic]')];
   const cards = [...document.querySelectorAll('[data-video-card]')];
   const readSaved = () => {
@@ -28,7 +31,7 @@
   savedOnly = params.get('saved') === '1';
   $('video-search').value = params.get('q') || '';
   if (languages[params.get('language')]) $('video-language').value = params.get('language');
-  if (['youtube', 'vimeo'].includes(params.get('provider'))) $('video-provider').value = params.get('provider');
+  if (['youtube', 'vimeo','native'].includes(params.get('provider'))) $('video-provider').value = params.get('provider');
   current = videos.find(v => v.id === params.get('video')) || current;
 
   function updateURL() {
@@ -69,7 +72,7 @@
     $('video-playback-status').textContent = message;
     $('video-playback-status').hidden = !message;
     $('video-retry').hidden = !retry;
-    $('video-alternative').hidden = !alternative || provider(current) !== 'youtube';
+    $('video-alternative').hidden = !alternative || provider(current) === 'native';
   }
 
   function loadVimeoAPI() {
@@ -86,21 +89,41 @@
     return vimeoPromise;
   }
 
+  function playNative(video,session){
+    const media=document.createElement('video');
+    media.controls=true;media.playsInline=true;media.preload='metadata';media.poster=video.thumbnail;
+    media.setAttribute('aria-label',video.title);media.src=video.streamUrl;
+    const active=()=>playing&&session===playerSession;
+    player={destroy(){media.pause();media.removeAttribute('src');media.load();}};
+    const status=(text='',retry=false)=>{if(active()){$('video-screen').setAttribute('aria-busy','false');playbackStatus(text,retry);}};
+    media.addEventListener('loadedmetadata',()=>{if(active()){const resume=memory.get(video.id);if(resume>0&&resume<media.duration)media.currentTime=resume;}});
+    media.addEventListener('timeupdate',()=>{if(active())memory.save(video.id,media.currentTime,media.duration);});
+    media.addEventListener('playing',()=>status());
+    media.addEventListener('ended',()=>{if(active()){memory.save(video.id,0,media.duration);status('Видео закончилось. Можно выбрать следующее из подборки.');}});
+    media.addEventListener('error',()=>status('Не удалось загрузить видео с сервера бренда. Повторите запуск или выберите другой ролик.',true));
+    $('video-screen').replaceChildren(media);
+    media.play().catch(()=>status('Нажмите ▶ внутри плеера, чтобы начать просмотр.'));
+  }
+
   function observeVimeo(frame, session) {
     const active = () => playing && session === playerSession;
     const status = (text = '', retry = false) => {
       if (!active()) return;
       clearTimeout(playerTimer); $('video-screen').setAttribute('aria-busy', 'false');
-      playbackStatus(text, retry);
+      playbackStatus(text, retry, retry);
     };
     playerTimer = setTimeout(() => status('Плеер загружается дольше обычного. Можно подождать или повторить запуск.', true), 25000);
     loadVimeoAPI().then(Vimeo => {
       if (!active()) return;
       const instance = new Vimeo.Player(frame); player = instance;
+      const videoId=current.id;
+      instance.on('timeupdate',data=>{if(active())memory.save(videoId,data.seconds,data.duration);});
       instance.on('play', () => status());
-      instance.on('ended', () => status('Видео закончилось. Можно выбрать следующее из подборки.'));
+      instance.on('ended', () => {if(!active())return;memory.save(videoId,0,current.duration);status('Видео закончилось. Можно выбрать следующее из подборки.');});
       instance.on('error', () => status('Vimeo не смог запустить видео. Проверьте сообщение в плеере или повторите запуск.', true));
-      return instance.ready().then(() => {
+      return instance.ready().then(async () => {
+        if (!active()) return;
+        const resume=memory.get(videoId);if(resume>0)await instance.setCurrentTime(resume).catch(()=>{});
         if (!active()) return;
         return instance.play().catch(() => status('Нажмите ▶ внутри плеера, чтобы начать просмотр.'));
       });
@@ -146,6 +169,9 @@
         onReady(event) {
           if (!active()) return;
           clearTimeout(playerTimer);
+          const videoId=current.id;
+          const resume=memory.get(videoId);if(resume>0)event.target.seekTo(resume,true);
+          progressTimer=setInterval(()=>{if(active()){try{memory.save(videoId,event.target.getCurrentTime(),event.target.getDuration());}catch{}}},2000);
           $('video-screen').setAttribute('aria-busy', 'false');
           if (!hasProblem && event.target.getPlayerState() !== 1) playbackStatus('Если видео ещё не запустилось, нажмите ▶ внутри плеера.');
         },
@@ -192,6 +218,7 @@
   }
 
   function poster() {
+    clearInterval(progressTimer);
     ++playerSession; // Ignore late API callbacks after another selection or closing.
     clearTimeout(playerTimer);
     if (player) { try { Promise.resolve(player.destroy()).catch(() => {}); } catch { /* The iframe may already be detached. */ } }
@@ -207,6 +234,8 @@
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'video-start'; button.dataset.videoPlay = current.id;
     button.innerHTML = '<span aria-hidden="true">▶</span><span>Смотреть на сайте</span>';
+    const resume=memory.get(current.id);
+    if(resume>0)button.lastElementChild.textContent=`Продолжить с ${Math.floor(resume/60)}:${String(resume%60).padStart(2,'0')}`;
     button.setAttribute('aria-label', `Смотреть на сайте: ${current.title}`);
     screen.append(image, button);
     $('video-stop').hidden = true;
@@ -220,18 +249,23 @@
     $('video-current-author').textContent = video.author + ' ↗';
     $('video-current-author').href = video.authorUrl;
     $('video-original').href = video.url;
-    const isVimeo = provider(video) === 'vimeo';
-    const name = isVimeo ? 'Vimeo' : 'YouTube';
-    $('video-original').textContent = `Оригинал на ${name} ↗`;
-    $('video-viewing-note').textContent = isVimeo ? 'Vimeo · Просмотр на ТОНКО' : 'Встроенный YouTube · Сервис может запросить вход';
-    $('video-connection-note').textContent = `После нажатия загружается плеер ${name}. Звук, субтитры и полный экран управляются внутри него.`;
-    $('video-screen').classList.toggle('is-portrait', isVimeo);
+    const isVimeo = provider(video) === 'vimeo',isNative=provider(video)==='native';
+    const name = isNative ? 'Snag · HTML5' : isVimeo ? 'Vimeo' : 'YouTube';
+    $('video-original').textContent = isNative?'Источник: официальный сайт Snag ↗':`Оригинал на ${name} ↗`;
+    $('video-viewing-note').textContent = isNative?'Плеер ТОНКО · Без аккаунта':isVimeo ? 'Vimeo · Просмотр на ТОНКО' : 'Встроенный YouTube · Сервис может запросить вход';
+    $('video-connection-note').textContent = isNative?'Видео поступает с официального CDN Snag после нажатия. Просмотр, звук, скорость и полный экран управляются здесь.':`После нажатия загружается плеер ${name}. Звук, субтитры и полный экран управляются внутри него.`;
+    $('video-screen').classList.toggle('is-portrait', (video.thumbnailHeight||360)>(video.thumbnailWidth||480));
     $('video-share-link').hidden = true;
     $('video-status').textContent = '';
     poster();
     if (play) {
+      if(isNative){
+        playing=true;$('video-stop').hidden=false;$('video-screen').setAttribute('aria-busy','true');playbackStatus('Загружаем видео…');
+        playNative(video,playerSession);
+      }else{
       const frame = document.createElement('iframe');
-      const embed = new URL(isVimeo ? `https://player.vimeo.com/video/${video.providerId}` : `https://www.youtube-nocookie.com/embed/${video.id}`);
+      const youtubeHost=memory.mode()==='standard'?'www.youtube.com':'www.youtube-nocookie.com';
+      const embed = new URL(isVimeo ? `https://player.vimeo.com/video/${video.providerId}` : `https://${youtubeHost}/embed/${video.id}`);
       embed.searchParams.set('autoplay', '1');
       embed.searchParams.set('playsinline', '1');
       if (isVimeo) embed.searchParams.set('dnt', '1');
@@ -253,6 +287,7 @@
       playbackStatus('Загружаем плеер…');
       isVimeo ? observeVimeo(frame, playerSession) : observePlayer(frame, playerSession);
       if (!scroll) frame.focus({ preventScroll: true });
+      }
       const url = new URL(location.href); url.searchParams.set('video', video.id);
       history.replaceState(null, '', url);
     }
@@ -292,13 +327,17 @@
   $('video-search').addEventListener('input', () => filter());
   $('video-language').addEventListener('change', () => filter());
   $('video-provider').addEventListener('change', () => filter());
+  $('video-youtube-mode').addEventListener('change',()=>{
+    memory.setMode($('video-youtube-mode').value);
+    if(provider(current)==='youtube'&&playing)selectVideo(current,true);
+  });
   $('video-reset').addEventListener('click', () => {
     topic = 'all'; savedOnly = false; $('video-search').value = ''; $('video-language').value = 'all'; $('video-provider').value = 'all'; filter(); $('video-search').focus();
   });
   $('video-stop').addEventListener('click', () => { poster(); $('video-screen').querySelector('button').focus(); });
   $('video-retry').addEventListener('click', () => selectVideo(current, true));
   $('video-alternative').addEventListener('click', () => {
-    topic = 'all'; savedOnly = false; $('video-search').value = ''; $('video-language').value = 'all'; $('video-provider').value = 'vimeo';
+    topic = 'all'; savedOnly = false; $('video-search').value = ''; $('video-language').value = 'all'; $('video-provider').value = videos.some(v=>provider(v)==='native')?'native':'vimeo';
     filter(); if (shown.length) selectVideo(shown[0], true);
   });
   $('video-next').addEventListener('click', () => {

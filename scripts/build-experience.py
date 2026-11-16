@@ -11,6 +11,7 @@ def photo(id,caption=None,eager=False):
  m=M[id];return f'<figure class="experience-photo">{image(id,eager)}<figcaption>{caption or H(m["title"])} <a href="{m["source"]}" target="_blank" rel="noopener">{H(m["author"])} ↗</a></figcaption></figure>'
 def strip(text,name):return re.sub(r'<!-- '+name+r' -->.*?<!-- /'+name+r' -->','',text,flags=re.S)
 base=(S/'index.html').read_text(encoding='utf-8')
+base=re.sub(r'<script[^>]*(?:news-seed|news-reader\.js|news\.js)[^>]*>.*?</script>','',base,flags=re.S)
 base=strip(base,'experience-home');base=strip(base,'experience-related')
 def page(file,title,description,body,hero):
  text=re.sub(r'<main\b[^>]*>.*?</main>','<main id="content">'+body+'</main>',base,flags=re.S)

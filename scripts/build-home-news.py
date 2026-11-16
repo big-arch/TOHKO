@@ -14,7 +14,7 @@ media={m['id']:m for m in json.loads((ROOT/'data/editorial-media.json').read_tex
 def card(item):
     stamp=datetime.fromisoformat(item['publishedAt'].replace('Z','+00:00')).strftime('%d.%m.%Y')
     via=' · через Google News' if item.get('via') else ''
-    return f'''<article class="news-item"><div class="news-meta"><span>{esc(item['source'])}{via}</span><time datetime="{esc(item['publishedAt'])}">{stamp}</time><span>{esc(item['language'].upper())}</span></div><h3><a href="{esc(item['url'])}" target="_blank" rel="noopener noreferrer" lang="{esc(item['language'])}">{esc(item['title'])}<span aria-hidden="true"> ↗</span></a></h3></article>'''
+    return f'''<article class="news-item"><div class="news-meta"><span>{esc(item['source'])}{via}</span><time datetime="{esc(item['publishedAt'])}">{stamp}</time><span>{esc(item['language'].upper())}</span></div><h3><a href="news.html#story-{esc(item['id'])}" data-news-id="{esc(item['id'])}" lang="{'ru' if item.get('displayTitle') else esc(item['language'])}">{esc(item.get('displayTitle') or item['title'])}</a></h3><span class="news-read">Читать на ТОНКО →</span></article>'''
 
 stamp=news.get('lastSuccessfulAt')
 checked='Проверка источников ещё не завершена.'
@@ -30,22 +30,43 @@ section=f'''<!-- tonko-news --><section class="portal-container news-section" id
 <details class="news-about"><summary>Как обновляется лента и откуда новости</summary><p>Источники проверяются по расписанию каждые 15 минут. Возможны задержки сервиса и самих изданий. Новость появляется после попадания в RSS или поисковую ленту, а не в момент любой публикации в интернете.</p><p>Заголовки оставлены на языке оригинала. Дата рядом с материалом принадлежит источнику; время проверки ленты указано отдельно. Для ссылок с отметкой Google News сначала открывается агрегатор. При сбое сохраняем предыдущие записи.</p><ul id="news-sources">{sources}</ul></details>
 <noscript><p>Показан сохранённый выпуск. Для проверки обновлений перезагрузите страницу.</p></noscript></section><!-- /tonko-news -->'''
 
-ids=['outfit-street-leather','outfit-pattern-walk','outfit-soft-knit','outfit-men-white']
+ids=['ss-clara','outfit-pattern-walk','ss-argyle','outfit-men-white']
 photos=[]
 for ident in ids:
     m=media[ident]
     responsive=f' srcset="{esc(m["srcset"])}" sizes="auto, (max-width: 700px) 50vw, 25vw" decoding="async"' if m.get('srcset') else ''
     photos.append(f'''<figure><a href="lookbook.html?filter=outfits#photo-{ident}" aria-label="{esc(m['title'])}: открыть в галерее"><img src="{esc(m['image'])}" alt="{esc(m['alt'])}" width="{m['width']}" height="{m['height']}" loading="lazy"{responsive}></a><figcaption>{esc(m['title'])}</figcaption></figure>''')
 looks='''<!-- tonko-looks --><section class="portal-container home-looks" aria-labelledby="looks-title"><div class="looks-heading"><div><p class="portal-eyebrow">Колготки в гардеробе</p><h2 id="looks-title">Вещи складываются<br>в образ.</h2></div><p>Косуха, трикотаж, юбка или шорты. Женские и мужские сочетания из вашей подборки.</p></div><div class="looks-grid">'''+''.join(photos)+'''</div><div class="looks-bottom"><a class="experience-text-link" href="lookbook.html?filter=outfits">Все семь образов ↗</a><span>Подборка владельца ТОНКО · авторы кадров не установлены</span></div></section><!-- /tonko-looks -->'''
+looks=looks.replace('из вашей подборки','из съёмок брендов и подборки ТОНКО').replace('Все семь образов',f'Все образы: {sum("outfit" in m.get("tags",[]) for m in media.values())}').replace('Подборка владельца ТОНКО · авторы кадров не установлены','Источник каждой фотографии — в галерее')
+packs=[]
+for ident in ['ss-pack','pack-omsa-attiva','pack-gabriella-mat','pack-conte']:
+    m=media[ident]
+    packs.append(f'<figure><a href="lookbook.html?filter=packaging#photo-{ident}"><img src="{esc(m["image"])}" alt="{esc(m["alt"])}" loading="lazy" width="{m["width"]}" height="{m["height"]}"></a><figcaption>{esc(m["title"])}</figcaption></figure>')
+packaging='<!-- tonko-packaging --><section class="portal-container home-looks home-packaging"><div class="looks-heading"><div><p class="portal-eyebrow">Лицевая сторона. Оборот. Детали.</p><h2>Знакомство<br>с упаковки.</h2></div><p>Swedish Stockings, OMSA, Gabriella и Conte. Рассмотрите оформление, обозначения и размерные сетки в галерее брендов.</p></div><div class="looks-grid">'+''.join(packs)+'</div><a class="experience-text-link" href="lookbook.html?filter=packaging">Все упаковки →</a></section><!-- /tonko-packaging -->'
 
 p=ROOT/'index.html';text=p.read_text(encoding='utf-8')
-for marker in ('tonko-news','tonko-looks'):
+for marker in ('tonko-news','tonko-looks','tonko-packaging'):
     text=re.sub(r'<!-- '+marker+r' -->.*?<!-- /'+marker+r' -->','',text,flags=re.S)
 anchor='<!-- experience-home -->'
 if anchor not in text: anchor='<section class="portal-section">'
 if anchor not in text: raise SystemExit('Home insertion anchor missing')
-text=text.replace(anchor,section+looks+anchor,1)
+text=text.replace(anchor,section+looks+packaging+anchor,1)
 if 'href="news.css' not in text:text=text.replace('</head>','<link rel="stylesheet" href="news.css?v=20261116-1"></head>')
 if 'src="news.js' not in text:text=text.replace('</body>','<script src="news.js?v=20261116-1" defer></script></body>')
+text=re.sub(r'<script id="news-seed".*?</script>','',text,flags=re.S)
+text=re.sub(r'<script src="news-reader.js[^\"]*"[^>]*></script>','',text)
+seed=json.dumps(news,ensure_ascii=False).replace('<','\\u003c')
+text=text.replace('<script src="news.js',f'<script id="news-seed" type="application/json">{seed}</script><script src="news-reader.js?v=20261116-8" defer></script><script src="news.js')
+text=re.sub(r'(news\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261116-8',text)
 p.write_text(text,encoding='utf-8')
+# A readable, linkable fallback also works without JavaScript.
+stories=[]
+for i in news.get('items',[]):
+    brief=i.get('summary') or i.get('excerpt') or 'В ленте источника доступен только заголовок этой публикации. Развёрнутый анонс пока не предоставлен.'
+    credit='Краткий пересказ ТОНКО по публикации источника.' if i.get('summary') else 'Короткий анонс источника. Полный текст принадлежит издателю.'
+    stories.append(f'<article class="reader-copy news-fallback" id="story-{esc(i["id"])}"><p class="portal-eyebrow">ТОНКО / Краткая новость</p><p class="news-meta">{esc(i["source"])} · {esc(i["publishedAt"][:10])}</p><h2>{esc(i.get("displayTitle") or i["title"])}</h2><p class="reader-excerpt">{esc(brief)}</p><p class="reader-credit">{esc(credit)}</p><a href="{esc(i["url"])}" target="_blank" rel="noopener noreferrer">Первоисточник ↗</a><p><a href="index.html#fashion-news">← Вернуться к ленте</a></p></article>')
+fallback=re.sub(r'<main\b[^>]*>.*?</main>',lambda m:'<main id="content" class="portal-container"><h1>В фокусе чулочной моды.</h1>'+''.join(stories)+'</main>',text,flags=re.S)
+fallback=re.sub(r'<script[^>]*(?:news-seed|news-reader\.js|news\.js)[^>]*>.*?</script>','',fallback,flags=re.S)
+fallback=re.sub(r'<title>.*?</title>','<title>Новости чулочной моды — ТОНКО</title>',fallback)
+(ROOT/'news.html').write_text(fallback,encoding='utf-8')
 print('Home news and outfit sections generated')

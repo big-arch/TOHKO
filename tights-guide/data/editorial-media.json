@@ -242,6 +242,252 @@
     "srcset": "assets/responsive/outfit-men-plaid-320.webp 320w, assets/responsive/outfit-men-plaid-640.webp 640w, assets/responsive/outfit-men-plaid-960.webp 960w"
   },
   {
+    "id": "pack-gabriella-mat",
+    "image": "assets/editorial/pack-gabriella-mat.jpg",
+    "title": "Gabriella · Mat Effect, оборот упаковки",
+    "category": "packaging",
+    "author": "Gabriella / каталог Ceneo",
+    "source": "https://www.ceneo.pl/164392927",
+    "license": "Промоматериал бренда / изображение из каталога; свободная лицензия не заявлена",
+    "licenseUrl": "https://www.ceneo.pl/164392927",
+    "width": 1320,
+    "height": 2308,
+    "origin": "curated",
+    "alt": "Оборот упаковки Gabriella Mat Effect: состав, схема размеров, обозначения ухода и информация об изделии.",
+    "caption": "Оборот упаковки Gabriella Mat Effect: состав, схема размеров, обозначения ухода и информация об изделии. Источник: Gabriella / каталог Ceneo.",
+    "tags": [
+      "packaging"
+    ],
+    "responsive": [
+      {
+        "src": "assets/responsive/pack-gabriella-mat-320.webp",
+        "width": 320,
+        "bytes": 20550
+      },
+      {
+        "src": "assets/responsive/pack-gabriella-mat-640.webp",
+        "width": 640,
+        "bytes": 64344
+      },
+      {
+        "src": "assets/responsive/pack-gabriella-mat-960.webp",
+        "width": 960,
+        "bytes": 119918
+      },
+      {
+        "src": "assets/responsive/pack-gabriella-mat-1320.webp",
+        "width": 1320,
+        "bytes": 189678
+      }
+    ],
+    "srcset": "assets/responsive/pack-gabriella-mat-320.webp 320w, assets/responsive/pack-gabriella-mat-640.webp 640w, assets/responsive/pack-gabriella-mat-960.webp 960w, assets/responsive/pack-gabriella-mat-1320.webp 1320w"
+  },
+  {
+    "id": "pack-omsa-attiva",
+    "image": "assets/editorial/pack-omsa-attiva.jpg",
+    "title": "OMSA · Attiva 40",
+    "category": "packaging",
+    "author": "OMSA / каталог Сільпо",
+    "source": "https://silpo.ua/product/kolgotky-attiva-40-den-nero-3-rozmir-omsa-337824",
+    "license": "Промоматериал бренда / изображение из каталога; свободная лицензия не заявлена",
+    "licenseUrl": "https://silpo.ua/product/kolgotky-attiva-40-den-nero-3-rozmir-omsa-337824",
+    "width": 1600,
+    "height": 1600,
+    "origin": "curated",
+    "alt": "Золотистая упаковка OMSA Attiva 40 с изображением силуэта. На лицевой стороне указана плотность 40 den.",
+    "caption": "Золотистая упаковка OMSA Attiva 40 с изображением силуэта. На лицевой стороне указана плотность 40 den. Источник: OMSA / каталог Сільпо.",
+    "tags": [
+      "packaging"
+    ],
+    "responsive": [
+      {
+        "src": "assets/responsive/pack-omsa-attiva-320.webp",
+        "width": 320,
+        "bytes": 8678
+      },
+      {
+        "src": "assets/responsive/pack-omsa-attiva-640.webp",
+        "width": 640,
+        "bytes": 24270
+      },
+      {
+        "src": "assets/responsive/pack-omsa-attiva-960.webp",
+        "width": 960,
+        "bytes": 45232
+      },
+      {
+        "src": "assets/responsive/pack-omsa-attiva-1440.webp",
+        "width": 1440,
+        "bytes": 86924
+      }
+    ],
+    "srcset": "assets/responsive/pack-omsa-attiva-320.webp 320w, assets/responsive/pack-omsa-attiva-640.webp 640w, assets/responsive/pack-omsa-attiva-960.webp 960w, assets/responsive/pack-omsa-attiva-1440.webp 1440w"
+  },
+  {
+    "id": "ss-pack",
+    "image": "assets/editorial/ss-pack.jpg",
+    "title": "Swedish Stockings · новая упаковка",
+    "category": "packaging",
+    "author": "Swedish Stockings",
+    "source": "https://swedishstockings.com/blogs/journal/introducing-a-new-era",
+    "license": "Промоматериал бренда / изображение из каталога; свободная лицензия не заявлена",
+    "licenseUrl": "https://swedishstockings.com/blogs/journal/introducing-a-new-era",
+    "width": 2400,
+    "height": 1350,
+    "origin": "curated",
+    "alt": "Три упаковки Swedish Stockings с фотографиями моделей и фигурным вырезом верхней части.",
+    "caption": "Три упаковки Swedish Stockings с фотографиями моделей и фигурным вырезом верхней части. Источник: Swedish Stockings.",
+    "tags": [
+      "packaging"
+    ],
+    "responsive": [
+      {
+        "src": "assets/responsive/ss-pack-320.webp",
+        "width": 320,
+        "bytes": 8202
+      },
+      {
+        "src": "assets/responsive/ss-pack-640.webp",
+        "width": 640,
+        "bytes": 24192
+      },
+      {
+        "src": "assets/responsive/ss-pack-960.webp",
+        "width": 960,
+        "bytes": 47018
+      },
+      {
+        "src": "assets/responsive/ss-pack-1440.webp",
+        "width": 1440,
+        "bytes": 95346
+      }
+    ],
+    "srcset": "assets/responsive/ss-pack-320.webp 320w, assets/responsive/ss-pack-640.webp 640w, assets/responsive/ss-pack-960.webp 960w, assets/responsive/ss-pack-1440.webp 1440w"
+  },
+  {
+    "id": "ss-lace",
+    "image": "assets/editorial/ss-lace.jpg",
+    "title": "Светлое кружево и мелкий горох",
+    "category": "pattern",
+    "author": "Swedish Stockings",
+    "source": "https://swedishstockings.com/blogs/journal/introducing-a-new-era",
+    "license": "Промоматериал бренда / изображение из каталога; свободная лицензия не заявлена",
+    "licenseUrl": "https://swedishstockings.com/blogs/journal/introducing-a-new-era",
+    "width": 2400,
+    "height": 1350,
+    "origin": "curated",
+    "alt": "Светлые кружевные колготки с чёрной футболкой и чёрная модель в горох с объёмным верхом.",
+    "caption": "Светлые кружевные колготки с чёрной футболкой и чёрная модель в горох с объёмным верхом. Источник: Swedish Stockings.",
+    "tags": [
+      "outfit"
+    ],
+    "responsive": [
+      {
+        "src": "assets/responsive/ss-lace-320.webp",
+        "width": 320,
+        "bytes": 10606
+      },
+      {
+        "src": "assets/responsive/ss-lace-640.webp",
+        "width": 640,
+        "bytes": 37332
+      },
+      {
+        "src": "assets/responsive/ss-lace-960.webp",
+        "width": 960,
+        "bytes": 83042
+      },
+      {
+        "src": "assets/responsive/ss-lace-1440.webp",
+        "width": 1440,
+        "bytes": 178590
+      }
+    ],
+    "srcset": "assets/responsive/ss-lace-320.webp 320w, assets/responsive/ss-lace-640.webp 640w, assets/responsive/ss-lace-960.webp 960w, assets/responsive/ss-lace-1440.webp 1440w"
+  },
+  {
+    "id": "ss-argyle",
+    "image": "assets/editorial/ss-argyle.jpg",
+    "title": "Ромбы и чёрная классика",
+    "category": "pattern",
+    "author": "Swedish Stockings",
+    "source": "https://swedishstockings.com/blogs/journal/introducing-a-new-era",
+    "license": "Промоматериал бренда / изображение из каталога; свободная лицензия не заявлена",
+    "licenseUrl": "https://swedishstockings.com/blogs/journal/introducing-a-new-era",
+    "width": 2400,
+    "height": 1350,
+    "origin": "curated",
+    "alt": "Голубой рисунок аргайл и чёрные прозрачные колготки в сочетании с объёмным трикотажем. Диптих из официальной съёмки бренда.",
+    "caption": "Голубой рисунок аргайл и чёрные прозрачные колготки в сочетании с объёмным трикотажем. Диптих из официальной съёмки бренда. Источник: Swedish Stockings.",
+    "tags": [
+      "outfit"
+    ],
+    "responsive": [
+      {
+        "src": "assets/responsive/ss-argyle-320.webp",
+        "width": 320,
+        "bytes": 9442
+      },
+      {
+        "src": "assets/responsive/ss-argyle-640.webp",
+        "width": 640,
+        "bytes": 35392
+      },
+      {
+        "src": "assets/responsive/ss-argyle-960.webp",
+        "width": 960,
+        "bytes": 85896
+      },
+      {
+        "src": "assets/responsive/ss-argyle-1440.webp",
+        "width": 1440,
+        "bytes": 214056
+      }
+    ],
+    "srcset": "assets/responsive/ss-argyle-320.webp 320w, assets/responsive/ss-argyle-640.webp 640w, assets/responsive/ss-argyle-960.webp 960w, assets/responsive/ss-argyle-1440.webp 1440w"
+  },
+  {
+    "id": "ss-clara",
+    "image": "assets/editorial/ss-clara.jpg",
+    "title": "Рубашка свободного кроя и прозрачные колготки",
+    "category": "sheer",
+    "author": "Swedish Stockings",
+    "source": "https://swedishstockings.com/blogs/journal/introducing-a-new-era",
+    "license": "Промоматериал бренда / изображение из каталога; свободная лицензия не заявлена",
+    "licenseUrl": "https://swedishstockings.com/blogs/journal/introducing-a-new-era",
+    "width": 2400,
+    "height": 1350,
+    "origin": "curated",
+    "alt": "Два образа из съёмки Swedish Stockings: свободная рубашка и прозрачные колготки в коричневом и чёрном оттенках.",
+    "caption": "Два образа из съёмки Swedish Stockings: свободная рубашка и прозрачные колготки в коричневом и чёрном оттенках. Источник: Swedish Stockings.",
+    "tags": [
+      "outfit"
+    ],
+    "responsive": [
+      {
+        "src": "assets/responsive/ss-clara-320.webp",
+        "width": 320,
+        "bytes": 9716
+      },
+      {
+        "src": "assets/responsive/ss-clara-640.webp",
+        "width": 640,
+        "bytes": 27958
+      },
+      {
+        "src": "assets/responsive/ss-clara-960.webp",
+        "width": 960,
+        "bytes": 55968
+      },
+      {
+        "src": "assets/responsive/ss-clara-1440.webp",
+        "width": 1440,
+        "bytes": 128044
+      }
+    ],
+    "srcset": "assets/responsive/ss-clara-320.webp 320w, assets/responsive/ss-clara-640.webp 640w, assets/responsive/ss-clara-960.webp 960w, assets/responsive/ss-clara-1440.webp 1440w"
+  },
+  {
     "id": "campaign-red",
     "image": "assets/editorial/campaign-red.jpg",
     "title": "Чёрный рисунок на красном",

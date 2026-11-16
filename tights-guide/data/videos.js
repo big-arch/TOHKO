@@ -1,5 +1,47 @@
 window.TONKO_VIDEOS = [
   {
+    "id": "snag-motion",
+    "provider": "native",
+    "title": "Полотно в движении",
+    "originalTitle": "Полотно в движении",
+    "description": "Крупный план колготок из официальной видеоподборки Snag: фактура, растяжение и движение ткани. Ролик длится 20 секунд.",
+    "topics": [
+      "choice"
+    ],
+    "language": "original",
+    "kind": "Видеодеталь Snag",
+    "author": "Snag",
+    "authorUrl": "https://snagtights.com/",
+    "url": "https://snagtights.com/",
+    "streamUrl": "https://snagtights.com/cdn/shop/videos/c/vp/c90991df3fc74ffa86795584dad28792/c90991df3fc74ffa86795584dad28792.HD-1080p-7.2Mbps-100154096.mp4?v=0",
+    "thumbnail": "assets/video/snag-motion.jpg",
+    "thumbnailWidth": 405,
+    "thumbnailHeight": 720,
+    "duration": 19.904,
+    "checked": "2026-11-16"
+  },
+  {
+    "id": "snag-details",
+    "provider": "native",
+    "title": "Свитер, мини и высокие сапоги",
+    "originalTitle": "Свитер, мини и высокие сапоги",
+    "description": "Готовый городской образ Snag с коричневыми колготками, мини-юбкой и свитером со звёздами. Короткое видео, 10 секунд.",
+    "topics": [
+      "styling"
+    ],
+    "language": "original",
+    "kind": "Видеодеталь Snag",
+    "author": "Snag",
+    "authorUrl": "https://snagtights.com/",
+    "url": "https://snagtights.com/",
+    "streamUrl": "https://snagtights.com/cdn/shop/videos/c/vp/dfc296acf8f0458e83f38007a4022877/dfc296acf8f0458e83f38007a4022877.HD-1080p-4.8Mbps-95534965.mp4?v=0",
+    "thumbnail": "assets/video/snag-details.jpg",
+    "thumbnailWidth": 405,
+    "thumbnailHeight": 720,
+    "duration": 9.533333,
+    "checked": "2026-11-16"
+  },
+  {
     "id": "vimeo-1100274499",
     "provider": "vimeo",
     "providerId": "1100274499",
@@ -63,6 +105,52 @@ window.TONKO_VIDEOS = [
     "thumbnailWidth": 960,
     "thumbnailHeight": 1707,
     "duration": 69,
+    "checked": "2026-11-16"
+  },
+  {
+    "id": "vimeo-1225879573",
+    "provider": "vimeo",
+    "providerId": "1225879573",
+    "title": "Рисунок ёлочкой: Ylva",
+    "originalTitle": "121004114-ylva-fishbone-tights-mid-brown-swedish-stockings-video",
+    "description": "Короткая видеодеталь, 4 секунды: модель Ylva Fishbone Tights в оттенке mid brown. Официальная съёмка Swedish Stockings.",
+    "topics": [
+      "styling",
+      "choice"
+    ],
+    "language": "none",
+    "kind": "Видеодеталь · 4 с",
+    "author": "Swedish Stockings",
+    "authorUrl": "https://swedishstockings.com/",
+    "url": "https://vimeo.com/1225879573",
+    "thumbnail": "assets/video/vimeo-1225879573.jpg",
+    "thumbnailSource": "https://i.vimeocdn.com/video/2199705471-efce07824ca7cbd2146e6f9d70ecbacebefd8bb3f78d0d6f68f0c76a6c01046c-d_200x150?region=us",
+    "thumbnailWidth": 960,
+    "thumbnailHeight": 1200,
+    "duration": 4,
+    "checked": "2026-11-16"
+  },
+  {
+    "id": "vimeo-1241278134",
+    "provider": "vimeo",
+    "providerId": "1241278134",
+    "title": "Рельефная шерсть: Diana",
+    "originalTitle": "hero-mobile-diana-ribbed-wool-tights-beige-melange-swedish-stockings",
+    "description": "Короткая видеодеталь, 4 секунды: модель Diana Ribbed Wool Tights в оттенке beige melange. Официальная съёмка Swedish Stockings.",
+    "topics": [
+      "styling",
+      "choice"
+    ],
+    "language": "none",
+    "kind": "Видеодеталь · 4 с",
+    "author": "Swedish Stockings",
+    "authorUrl": "https://swedishstockings.com/",
+    "url": "https://vimeo.com/1241278134",
+    "thumbnail": "assets/video/vimeo-1241278134.jpg",
+    "thumbnailSource": "https://i.vimeocdn.com/video/2219248729-c1bc69847c36add2684bf37b6361eefb8a6c2b07d5eb8ed611d1f59d49a249b8-d_200x150?region=us",
+    "thumbnailWidth": 960,
+    "thumbnailHeight": 1680,
+    "duration": 4,
     "checked": "2026-11-16"
   },
   {

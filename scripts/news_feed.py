@@ -67,10 +67,14 @@ def parse_feed(raw, source, now):
             if host not in source['publishers'] or not publisher_site.startswith('https://'): continue
             publisher=plain(origin.text)[:80]
             if title.endswith(' - '+publisher): title=title[:-(len(publisher)+3)]
-        context=title+' '+plain(fields.get('description') or fields.get('summary') or fields.get('content',''))[:700]
+        description=plain(fields.get('description') or fields.get('summary') or fields.get('content',''))
+        context=title+' '+description[:700]
         if EXCLUDE.search(context): continue
         if source.get('mode')!='brand' and not TOPIC.search(context): continue
-        items.append({'id':hashlib.sha256(url.encode()).hexdigest()[:16], 'title':title, 'url':url,
+        # Only a short feed announcement, never the full publisher article.
+        excerpt='' if source.get('publishers') or description.casefold()==title.casefold() else description[:280]
+        if len(description)>280 and excerpt: excerpt=excerpt.rsplit(' ',1)[0]+'…'
+        items.append({'id':hashlib.sha256(url.encode()).hexdigest()[:16], 'title':title, 'url':url,'excerpt':excerpt,
                       'publishedAt':iso(published),'sourceId':source['id'],'source':publisher,
                       'sourceSite':publisher_site,'via':'Google News' if source.get('publishers') else None,
                       'language':'ru' if re.search('[А-Яа-яЁё]',title) else source['language'] if source['language']!='mixed' else 'en'})
@@ -79,11 +83,13 @@ def parse_feed(raw, source, now):
 def merge_items(items, now):
     seen_urls=set(); seen_titles=set(); result=[]
     valid=[i for i in items if date(i.get('publishedAt')) and now-timedelta(days=365)<=date(i['publishedAt'])<=now]
-    for item in sorted(valid,key=lambda x:x['publishedAt'],reverse=True):
+    # Prefer the publisher's direct record with an announcement over a Google
+    # headline for the same story, even when the aggregator timestamp is newer.
+    for item in sorted(valid,key=lambda x:(not bool(x.get('via')),bool(x.get('excerpt')),x['publishedAt']),reverse=True):
         title=re.sub(r'\W+','',item['title'].casefold())
         if item['url'] in seen_urls or title in seen_titles: continue
         seen_urls.add(item['url']); seen_titles.add(title); result.append(item)
-    return result[:60]
+    return sorted(result,key=lambda x:x['publishedAt'],reverse=True)[:60]
 
 def collect(sources, previous, fetch, now):
     previous_status={s['id']:s for s in previous.get('sources',[])}

@@ -14,6 +14,17 @@ def rss(title='New patterned tights', link='https://example.org/story?utm_source
     return f'<rss><channel><item><title>{title}</title><link>{link}</link><pubDate>{date}</pubDate></item></channel></rss>'.encode()
 
 class NewsTests(unittest.TestCase):
+    def test_publisher_announcement_wins_over_aggregator_duplicate(self):
+        direct=parse_feed(rss(),SOURCE,NOW)[0]
+        direct['excerpt']='A useful publisher announcement.'
+        google={**direct,'id':'google','url':'https://news.google.com/story','via':'Google News','excerpt':''}
+        self.assertEqual(merge_items([google,direct],NOW),[direct])
+    def test_excerpt_is_short_plain_text(self):
+        raw=rss().replace(b'</item>', ('<description>&lt;b&gt;'+('Fine tights for everyday outfits. '*30)+'&lt;/b&gt;</description></item>').encode())
+        item=parse_feed(raw,SOURCE,NOW)[0]
+        self.assertLessEqual(len(item['excerpt']),281)
+        self.assertNotIn('<b>',item['excerpt'])
+        self.assertTrue(item['excerpt'].endswith('…'))
     def test_rss_and_tracking(self):
         item = parse_feed(rss(), SOURCE, NOW)[0]
         self.assertEqual(item['url'], 'https://example.org/story')
