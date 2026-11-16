@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "maxAutoVideos": 60,
+  "maxNewPerRun": 12,
+  "maxCandidatesPerSource": 12,
+  "maxAgeDays": 540,
+  "sources": [
+    {
+      "id": "calzedonia-youtube",
+      "name": "CalzedoniaOfficial",
+      "kind": "youtube-atom",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCoZE4fZMjf0CbZGBlbneNDQ",
+      "channelId": "UCoZE4fZMjf0CbZGBlbneNDQ",
+      "authorUrls": ["https://www.youtube.com/@CalzedoniaOfficial", "https://www.youtube.com/channel/UCoZE4fZMjf0CbZGBlbneNDQ"],
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@CalzedoniaOfficial"
+    },
+    {
+      "id": "swedish-journal",
+      "name": "Swedish Stockings",
+      "kind": "publisher-atom",
+      "url": "https://swedishstockings.com/blogs/journal.atom",
+      "publisherHost": "swedishstockings.com",
+      "authorUrls": ["https://vimeo.com/user177971415"],
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://swedishstockings.com/blogs/journal"
+    },
+    {
+      "id": "alena-youtube",
+      "name": "Alena Vorontsova",
+      "kind": "youtube-atom",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsLpMbKgAt3MVJ5V0_8PF8A",
+      "channelId": "UCsLpMbKgAt3MVJ5V0_8PF8A",
+      "authorUrls": ["https://www.youtube.com/@AlenaVoroncova", "https://www.youtube.com/channel/UCsLpMbKgAt3MVJ5V0_8PF8A"],
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@AlenaVoroncova"
+    },
+    {
+      "id": "style-support-youtube",
+      "name": "Алла Науменко",
+      "kind": "youtube-atom",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCl7L-IHdhnuc04rwt7Rq0gw",
+      "channelId": "UCl7L-IHdhnuc04rwt7Rq0gw",
+      "authorUrls": ["https://www.youtube.com/@style_support", "https://www.youtube.com/channel/UCl7L-IHdhnuc04rwt7Rq0gw"],
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@style_support"
+    },
+    {
+      "id": "jsemotion-youtube",
+      "name": "JsEmotion BLOG",
+      "kind": "youtube-atom",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC2cKk1P411BrWFHigp-G75Q",
+      "channelId": "UC2cKk1P411BrWFHigp-G75Q",
+      "authorUrls": ["https://www.youtube.com/@jsemotionblog3802", "https://www.youtube.com/channel/UC2cKk1P411BrWFHigp-G75Q"],
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@jsemotionblog3802"
+    }
+  ]
+}

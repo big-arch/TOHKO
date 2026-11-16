@@ -1,0 +1,41 @@
+{
+  "models": 30,
+  "brands": 15,
+  "photos": 58,
+  "fallbackPackages": 685,
+  "viewports": [
+    {
+      "width": 320,
+      "overflow": false,
+      "photoArrow": true,
+      "escapeLayers": true,
+      "focusRestored": true,
+      "zoom": true
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "photoArrow": true,
+      "escapeLayers": true,
+      "focusRestored": true,
+      "zoom": true
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "photoArrow": true,
+      "escapeLayers": true,
+      "focusRestored": true,
+      "zoom": true
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "photoArrow": true,
+      "escapeLayers": true,
+      "focusRestored": true,
+      "zoom": true
+    }
+  ],
+  "pageErrors": []
+}

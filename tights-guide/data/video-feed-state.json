@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "checkedAt": "2026-11-16T12:12:45Z",
+  "lastSuccessfulAt": "2026-11-16T12:12:45Z",
+  "added": 0,
+  "autoVideos": 8,
+  "totalVideos": 26,
+  "sources": [
+    {
+      "id": "calzedonia-youtube",
+      "name": "CalzedoniaOfficial",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCoZE4fZMjf0CbZGBlbneNDQ",
+      "lastAttemptAt": "2026-11-16T12:12:45Z",
+      "added": 0,
+      "candidates": 8,
+      "rejected": 0,
+      "status": "ok",
+      "failures": 0,
+      "lastSuccessfulAt": "2026-11-16T12:12:45Z",
+      "nextRetryAt": null,
+      "error": null
+    },
+    {
+      "id": "swedish-journal",
+      "name": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal.atom",
+      "lastAttemptAt": "2026-11-16T12:12:45Z",
+      "added": 0,
+      "candidates": 4,
+      "rejected": 0,
+      "status": "ok",
+      "failures": 0,
+      "lastSuccessfulAt": "2026-11-16T12:12:45Z",
+      "nextRetryAt": null,
+      "error": null
+    },
+    {
+      "id": "alena-youtube",
+      "name": "Alena Vorontsova",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsLpMbKgAt3MVJ5V0_8PF8A",
+      "lastAttemptAt": "2026-11-16T12:12:45Z",
+      "added": 0,
+      "candidates": 0,
+      "rejected": 0,
+      "status": "ok",
+      "failures": 0,
+      "lastSuccessfulAt": "2026-11-16T12:12:45Z",
+      "nextRetryAt": null,
+      "error": null
+    },
+    {
+      "id": "style-support-youtube",
+      "name": "Алла Науменко",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCl7L-IHdhnuc04rwt7Rq0gw",
+      "lastAttemptAt": "2026-11-16T12:12:45Z",
+      "added": 0,
+      "candidates": 0,
+      "rejected": 0,
+      "status": "error",
+      "failures": 1,
+      "error": "feed or metadata unavailable",
+      "nextRetryAt": "2026-11-16T14:12:45Z"
+    },
+    {
+      "id": "jsemotion-youtube",
+      "name": "JsEmotion BLOG",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC2cKk1P411BrWFHigp-G75Q",
+      "lastAttemptAt": "2026-11-16T12:12:45Z",
+      "added": 0,
+      "candidates": 0,
+      "rejected": 0,
+      "status": "ok",
+      "failures": 0,
+      "lastSuccessfulAt": "2026-11-16T12:12:45Z",
+      "nextRetryAt": null,
+      "error": null
+    }
+  ]
+}

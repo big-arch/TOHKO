@@ -37,7 +37,7 @@ section=f'''<!-- tonko-news --><section class="portal-container news-section" id
 <details class="news-about"><summary>Как обновляется лента и откуда новости</summary><p>Источники проверяются по расписанию каждые 15 минут. Возможны задержки сервиса и самих изданий. В ленту попадают только подготовленные статьи с текстом: найденный заголовок сначала поступает в очередь, затем проверяется первоисточник и готовится самостоятельный русский пересказ.</p><p>Автоматические тексты помечены «AI-пересказ». Дата рядом с материалом принадлежит источнику; время проверки указано отдельно. Если источник недоступен или данных мало, материал остаётся в очереди с причиной и повторной попыткой. При сбое готовые статьи сохраняются.</p><div id="news-queue"><p>Готово: {news['queue']['ready']}. В подготовке: {news['queue']['pending']}. Требуют повторной проверки: {news['queue']['failed']}.</p></div><ul id="news-sources">{sources}</ul></details>
 <noscript><p>Показан сохранённый выпуск. Для проверки обновлений перезагрузите страницу.</p></noscript></section><!-- /tonko-news -->'''
 
-ids=['ss-clara','outfit-pattern-walk','ss-argyle','outfit-men-white']
+ids=['ss-clara','style-better-tailoring','outfit-pattern-walk','style-couple-city']
 photos=[]
 for ident in ids:
     m=media[ident]

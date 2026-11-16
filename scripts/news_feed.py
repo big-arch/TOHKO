@@ -9,7 +9,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
 TOPIC = re.compile(r'колгот|чулоч|чулк|легинс|леггинс|\b(tights|pantyhose|hosiery|stockings|denier|wolford|calzedonia|falke|leggings)\b', re.I)
-EXCLUDE = re.compile(r'фетиш|эротик|порног|\b(fetish|porn|erotic)\b', re.I)
+EXCLUDE = re.compile(r'фетиш|эротик|порног|\b(fetish|porn|erotic|crotchless|intimacy)\b', re.I)
 
 def requires_photo_review(title):
     return bool(re.search(r'\bwinter\b|зим|мороз|т[её]пл',title or '',re.I))
@@ -44,7 +44,7 @@ def safe_url(value, source):
 
 IMAGE_HOSTS={
     'whowhatwear':{'cdn.mos.cms.futurecdn.net','cdn.mos.cms.futurecdn.com'},
-    'swedish':{'cdn.shopify.com'},'snag':{'cdn.shopify.com'},
+    'swedish':{'cdn.shopify.com'},'snag':{'cdn.shopify.com'},'better':{'cdn.shopify.com'},'nylo':{'cdn.shopify.com'},
     'fashionunited':{'media.fashionunited.com'},
 }
 

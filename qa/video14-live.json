@@ -1,0 +1,29 @@
+[
+  {
+    "id": "snag-motion",
+    "outcome": "played",
+    "time": 6.940678,
+    "paused": false,
+    "ready": 4,
+    "duration": 19.904,
+    "error": null,
+    "muted": false,
+    "after": 8.459048
+  },
+  {
+    "id": "vimeo-1224898418",
+    "outcome": "platform_restricted",
+    "platformMessage": "We couldn't verify the security of your connection.\nAccess to this content has been restricted. Contact your internet service provider for help."
+  },
+  {
+    "id": "CQu5pHHkA0I",
+    "outcome": "platform_restricted",
+    "time": 0,
+    "paused": true,
+    "ready": 0,
+    "duration": null,
+    "error": null,
+    "muted": false,
+    "platformMessage": "Войдите в аккаунт, чтобы подтвердить, что вы не бот\nЭта мера помогает защищать сообщество.\nВойти\nПодробнее..."
+  }
+]

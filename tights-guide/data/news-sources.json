@@ -1,8 +1,73 @@
 [
-  {"id":"google","name":"Google News · выбранные издания","url":"https://news.google.com/rss/search?q=%28tights%20OR%20hosiery%20OR%20%D0%BA%D0%BE%D0%BB%D0%B3%D0%BE%D1%82%D0%BA%D0%B8%29%20%28site%3Awhowhatwear.com%20OR%20site%3Avogue.com%20OR%20site%3Abracatus.com%20OR%20site%3Afashionunited.com%20OR%20site%3Amarieclaire.com%29%20when%3A30d&hl=ru&gl=RU&ceid=RU%3Aru","site":"https://news.google.com","language":"mixed","mode":"topic","publishers":["whowhatwear.com","vogue.com","bracatus.com","fashionunited.com","marieclaire.com"]},
-  {"id":"whowhatwear","name":"Who What Wear","url":"https://www.whowhatwear.com/feeds.xml","site":"https://www.whowhatwear.com","language":"en","mode":"topic"},
-  {"id":"fashionunited","name":"FashionUnited","url":"https://fashionunited.com/rss-news","site":"https://fashionunited.com","language":"en","mode":"topic"},
-  {"id":"swedish","name":"Swedish Stockings","url":"https://swedishstockings.com/blogs/journal.atom","site":"https://swedishstockings.com","language":"en","mode":"brand"},
-  {"id":"snag","name":"Snag","url":"https://snagtights.com/blogs/news.atom","site":"https://snagtights.com","language":"en","mode":"topic"},
-  {"id":"bracatus","name":"Bracatus","url":"https://bracatus.com/feed","site":"https://bracatus.com","language":"ru","mode":"topic"}
+  {
+    "id": "google",
+    "name": "Google News · выбранные издания",
+    "url": "https://news.google.com/rss/search?q=%28tights%20OR%20hosiery%20OR%20%D0%BA%D0%BE%D0%BB%D0%B3%D0%BE%D1%82%D0%BA%D0%B8%29%20%28site%3Awhowhatwear.com%20OR%20site%3Avogue.com%20OR%20site%3Abracatus.com%20OR%20site%3Afashionunited.com%20OR%20site%3Amarieclaire.com%29%20when%3A30d&hl=ru&gl=RU&ceid=RU%3Aru",
+    "site": "https://news.google.com",
+    "language": "mixed",
+    "mode": "topic",
+    "publishers": [
+      "whowhatwear.com",
+      "vogue.com",
+      "bracatus.com",
+      "fashionunited.com",
+      "marieclaire.com"
+    ]
+  },
+  {
+    "id": "whowhatwear",
+    "name": "Who What Wear",
+    "url": "https://www.whowhatwear.com/feeds.xml",
+    "site": "https://www.whowhatwear.com",
+    "language": "en",
+    "mode": "topic"
+  },
+  {
+    "id": "fashionunited",
+    "name": "FashionUnited",
+    "url": "https://fashionunited.com/rss-news",
+    "site": "https://fashionunited.com",
+    "language": "en",
+    "mode": "topic"
+  },
+  {
+    "id": "swedish",
+    "name": "Swedish Stockings",
+    "url": "https://swedishstockings.com/blogs/journal.atom",
+    "site": "https://swedishstockings.com",
+    "language": "en",
+    "mode": "brand"
+  },
+  {
+    "id": "snag",
+    "name": "Snag",
+    "url": "https://snagtights.com/blogs/news.atom",
+    "site": "https://snagtights.com",
+    "language": "en",
+    "mode": "topic"
+  },
+  {
+    "id": "bracatus",
+    "name": "Bracatus",
+    "url": "https://bracatus.com/feed",
+    "site": "https://bracatus.com",
+    "language": "ru",
+    "mode": "topic"
+  },
+  {
+    "id": "better",
+    "name": "Better Tights",
+    "site": "https://www.bettertights.com",
+    "url": "https://www.bettertights.com/blogs/news.atom",
+    "language": "en",
+    "mode": "topic"
+  },
+  {
+    "id": "nylo",
+    "name": "NYLO Journal",
+    "site": "https://nylo.us",
+    "url": "https://nylo.us/blogs/journal.atom",
+    "language": "en",
+    "mode": "topic"
+  }
 ]

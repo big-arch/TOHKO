@@ -1,0 +1,143 @@
+{
+  "checkedAt": "2026-11-16T12:33:05.864834+00:00",
+  "static": "local assets at production Origin",
+  "apiMocked": false,
+  "turns": [
+    {
+      "question": "Покажи два фото мужчин в прозрачных колготках 20 DEN.",
+      "status": 200,
+      "response": {
+        "answer": "Вот два каталожных фото мужских колготок 20 DEN: чёрные и оттенок Teint.",
+        "sources": [],
+        "photos": [
+          {
+            "id": "style-glamory-classic20-black",
+            "title": "Glamory Classic20 · чёрные",
+            "src": "assets/style/style-glamory-classic20-black.webp",
+            "thumb": "assets/style/style-glamory-classic20-black-thumb.webp",
+            "alt": "Каталожный вид мужских чёрных колготок Glamory Classic20.",
+            "caption": "Каталожный вид мужских чёрных колготок Glamory Classic20. 20 DEN указано производителем для этой модели.",
+            "source": "https://glamoryhosiery.com/mens-tights/classic20-sheer/",
+            "sourceLabel": "Glamory",
+            "credit": "Glamory",
+            "category": "men",
+            "tags": [
+              "men",
+              "sheer",
+              "catalog",
+              "den-20"
+            ],
+            "denVerified": true,
+            "den": 20,
+            "brand": "Glamory",
+            "model": "Classic20",
+            "width": 881,
+            "height": 1800
+          },
+          {
+            "id": "style-glamory-classic20-teint",
+            "title": "Glamory Classic20 · Teint",
+            "src": "assets/style/style-glamory-classic20-teint.webp",
+            "thumb": "assets/style/style-glamory-classic20-teint-thumb.webp",
+            "alt": "Каталожный вид мужских колготок Glamory Classic20 в оттенке Teint.",
+            "caption": "Каталожный вид мужских колготок Glamory Classic20 в оттенке Teint. 20 DEN указано производителем для этой модели.",
+            "source": "https://glamoryhosiery.com/mens-tights/classic20-sheer/",
+            "sourceLabel": "Glamory",
+            "credit": "Glamory",
+            "category": "men",
+            "tags": [
+              "men",
+              "sheer",
+              "catalog",
+              "den-20"
+            ],
+            "denVerified": true,
+            "den": 20,
+            "brand": "Glamory",
+            "model": "Classic20",
+            "width": 881,
+            "height": 1800
+          }
+        ],
+        "nextQuestion": null
+      }
+    },
+    {
+      "question": "А на втором снимке какая плотность и как сочетать такие колготки с шортами?",
+      "status": 200,
+      "response": {
+        "answer": "На втором снимке — Glamory Classic20 оттенка Teint; производитель указывает для этой модели 20 DEN. С шортами можно собрать спокойный образ: однотонные шорты до колена, рубашка или тонкий трикотаж и обувь в близком к колготкам или более тёмном оттенке. Для цельного вида подберите цвет шорт и колготок без резкого контраста.",
+        "sources": [
+          {
+            "id": "guide-men",
+            "title": "Колготки в мужском гардеробе",
+            "href": "men.html"
+          },
+          {
+            "id": "guide-den",
+            "title": "Что означает DEN",
+            "href": "guide.html#den-lab"
+          }
+        ],
+        "photos": [],
+        "nextQuestion": null
+      }
+    },
+    {
+      "question": "Теперь покажи фото мужчины и девушки вместе.",
+      "status": 200,
+      "response": {
+        "answer": "Вот два совместных образа мужчины и женщины. Плотность колготок на этих снимках не указана.",
+        "sources": [],
+        "photos": [
+          {
+            "id": "style-couple-cavallini",
+            "title": "Emilio Cavallini · рисунок для двоих",
+            "src": "assets/style/style-couple-cavallini.webp",
+            "thumb": "assets/style/style-couple-cavallini-thumb.webp",
+            "alt": "Архивная съёмка Emilio Cavallini: мужчина и женщина в колготках с рисунком звёзд.",
+            "caption": "Архивная съёмка Emilio Cavallini: мужчина и женщина в колготках с рисунком звёзд. Плотность и точная модель для этого кадра в источнике не указаны.",
+            "source": "https://www.glamour.com/story/apparently-mantyhose-are-total",
+            "sourceLabel": "Emilio Cavallini / Glamour",
+            "credit": "Emilio Cavallini / Glamour",
+            "category": "couple",
+            "tags": [
+              "couple",
+              "outfit",
+              "together"
+            ],
+            "denVerified": false,
+            "den": null,
+            "brand": "Emilio Cavallini",
+            "width": 317,
+            "height": 515
+          },
+          {
+            "id": "style-couple-city",
+            "title": "Вдвоём на городской прогулке",
+            "src": "assets/style/style-couple-city.webp",
+            "thumb": "assets/style/style-couple-city-thumb.webp",
+            "alt": "Парный образ: мужчина в куртке, шортах и прозрачных колготках рядом с женщиной в пальто.",
+            "caption": "Парный образ: мужчина в куртке, шортах и прозрачных колготках рядом с женщиной в пальто. Плотность и точная модель для этого кадра в источнике не указаны. Автор исходного кадра не установлен.",
+            "source": "https://www.pinterest.com/pin/nylon-couple--937382109924537953/",
+            "sourceLabel": "Публичная подборка Pinterest",
+            "credit": "Публичная подборка Pinterest",
+            "category": "couple",
+            "tags": [
+              "couple",
+              "outfit",
+              "together"
+            ],
+            "denVerified": false,
+            "den": null,
+            "width": 723,
+            "height": 1151
+          }
+        ],
+        "nextQuestion": null
+      }
+    }
+  ],
+  "jsErrors": [],
+  "passed": true
+}

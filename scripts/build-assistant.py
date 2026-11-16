@@ -13,7 +13,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "tights-guide"
@@ -40,7 +40,7 @@ GUIDES = [
     guide("material", "Полиамид, капрон и эластан", "nylon.html",
           "Капрон — полиамидное волокно; в чулочном трикотаже используются полиамид и эластан. Эластан помогает полотну растягиваться и восстанавливать форму. Число DEN не заменяет состав. Проценты полиамида, эластана, хлопка или шерсти относятся к конкретному артикулу и могут различаться. Сверяйте состав с ярлыком или официальной карточкой выбранной модели, не переносите состав на весь бренд.", ["material"], ["капрон", "нейлон", "состав", "полиамид", "эластан", "шерсть", "хлопок"]),
     guide("care", "Уход за любимой парой", "guide.html#care",
-          "Перед надеванием снимите украшения, проверьте ногти, соберите ногу изделия до мыска и распределяйте полотно постепенно. Перед стиркой сверьтесь с ярлыком конкретной пары. Держите тонкие изделия отдельно от молний, крючков и липучек. Температура, машинная стирка, отбеливание и способ сушки зависят от материала и указаний производителя. Универсальный режим для всех моделей не утверждается.", ["care"], ["стирка", "сушка", "зацепка", "надевать", "уход"]),
+          "Для обычных тонких колготок бережный ориентир — ручная стирка в чуть тёплой воде с мягким средством и тщательное полоскание. После стирки аккуратно уберите воду чистым полотенцем, не выкручивайте; расправьте и дайте высохнуть на воздухе, разложив или аккуратно развесив. Не кладите на батарею и не ускоряйте сушку горячим воздухом. Эти приёмы описаны в официальной инструкции Snag; конкретный ярлык имеет приоритет, особенно у шерсти, декора и специальных изделий. Snag рекомендует избегать прямого нагрева и барабанной сушки: они вредят эластичности. Машинный режим и точную температуру выбирают только по ярлыку; если машинная стирка разрешена, используйте мешочек и отделите молнии, крючки и липучки. Перед надеванием снимите украшения, проверьте ногти, соберите ногу изделия до мыска и распределяйте полотно постепенно. Источник: Snag, How to Care for Your Tights to Help them Last Longer, 16.02.2024; проверен 16.11.2026.", ["care"], ["стирка", "сушка", "сушить", "батарея", "полотенце", "зацепка", "надевать", "уход"]),
     guide("men", "Колготки в мужском гардеробе", "men.html",
           "На сайте разобраны полноценные одетые мужские образы: пиджак или рубашка, трикотаж, шорты, обувь и колготки; есть сочетания слоёв и выразительные фактуры. Выбор зависит от нужного эффекта, посадки и удобства, а не только гендерной надписи на изделии. Для незаметного слоя под брюки проверьте длину, швы и пояс; для открытого образа сравните плотность, рисунок и цвет с одеждой и обувью. Уточняйте, под брюки нужен слой или видимый образ, когда это меняет рекомендацию.", ["style", "size"], ["мужчинам", "мужские", "парням", "унисекс", "шорты", "образ"]),
     guide("card", "Пять вопросов к карточке товара", "read-product-card.html",
@@ -73,6 +73,92 @@ for (const file of ['brands.js','brand-research.js']) vm.runInContext(fs.readFil
 process.stdout.write(JSON.stringify(context.window.BRAND_DATA));"""
     result = subprocess.run(["node", "-e", script], cwd=ROOT, capture_output=True, check=True, encoding="utf-8")
     return json.loads(result.stdout)
+
+
+def photo_registry():
+    """Only maintained local registries; photos never come from model output.
+
+    Legacy photos have no independently verified DEN. A number in their title
+    never becomes a filter value. Exact package matches carry explicit evidence.
+    """
+    script = """const fs = require('node:fs'); const vm = require('node:vm');
+const context = vm.createContext({window:{}});
+vm.runInContext(fs.readFileSync('tights-guide/data/photos.js','utf8'), context, {timeout:1000});
+process.stdout.write(JSON.stringify(context.window.PHOTO_DATA));"""
+    result = subprocess.run(["node", "-e", script], cwd=ROOT, capture_output=True, check=True, encoding="utf-8")
+    photos = []
+    for p in json.loads(result.stdout):
+        if p.get("category") == "packaging":
+            continue
+        source = p.get("source", "sources.html#photography")
+        unknown_source = "google.com/search" in source or not source.startswith("https://")
+        if unknown_source:
+            source = "sources.html#photography"
+        responsive = sorted(p.get("responsive", []), key=lambda x: x["width"])
+        thumb = next((r["src"] for r in responsive if r["width"] >= 320), p["image"])
+        photos.append({"id": "gallery-" + p["id"], "title": p["title"], "src": p["image"], "thumb": thumb,
+                       "alt": p.get("alt") or p["title"], "caption": p.get("caption") or p["title"],
+                       "source": source, "sourceLabel": "Об источниках фото" if unknown_source else p.get("author") or "Источник фото",
+                       "credit": p.get("author") or "Автор не указан", "category": "men" if p.get("category") == "men" else "women",
+                       "tags": list(dict.fromkeys([p.get("category", "style"), *p.get("tags", [])])),
+                       "den": None, "denVerified": False, "width": p["width"], "height": p["height"]})
+    styles = SITE / "data/style-photos.json"
+    if styles.is_file():
+        data = json.loads(styles.read_text(encoding="utf-8"))
+        if data.get("version") != 1 or not isinstance(data.get("items"), list):
+            raise ValueError("Invalid style-photos registry")
+        for p in data["items"]:
+            photos.append({**p, "id": p["id"] if p["id"].startswith("style-") else "style-" + p["id"]})
+    packages = SITE / "data/package-looks.json"
+    if packages.is_file():
+        data = json.loads(packages.read_text(encoding="utf-8"))
+        if data.get("version") != 1 or not isinstance(data.get("items"), list):
+            raise ValueError("Invalid package-looks registry")
+        for item in data["items"]:
+            match = item.get("exactMatch", {})
+            if not all(match.get(k) == item.get(k) for k in ["brand", "model", "den"]) or not match.get("brand") or not match.get("model"):
+                raise ValueError("Unverified package look: " + str(item.get("id")))
+            for p in item.get("photos", []):
+                photos.append({**p, "id": "look-" + p["id"], "brand": match["brand"], "model": match["model"], "den": match["den"],
+                               "denVerified": type(match["den"]) is int and match["den"] > 0, "category": p.get("category", "women"), "tags": p.get("tags", [])})
+    ids = set()
+    for p in photos:
+        if not isinstance(p.get("id"), str) or not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,100}", p["id"]) or p["id"] in ids:
+            raise ValueError("Invalid/duplicate assistant photo id: " + str(p.get("id")))
+        ids.add(p["id"])
+        for field in ["src", "thumb"]:
+            path = p.get(field, "")
+            if not isinstance(path, str) or not re.fullmatch(r"assets/(?:[a-zA-Z0-9_-]+/)*[a-zA-Z0-9_-]+\.(?:jpe?g|png|webp|avif)", path):
+                raise ValueError("Non-public assistant photo path: " + str(path))
+            file = SITE / path
+            if not file.is_file() or file.stat().st_size > 20 * 1024 * 1024:
+                raise ValueError("Missing/oversized assistant photo: " + path)
+        for field, limit in [("title", 160), ("alt", 360), ("caption", 600), ("sourceLabel", 120), ("credit", 240)]:
+            if not isinstance(p.get(field), str) or not p[field].strip() or len(p[field]) > limit:
+                raise ValueError("Invalid photo text: " + p["id"] + "/" + field)
+        for field in ["width", "height"]:
+            if type(p.get(field)) is not int or not 1 <= p[field] <= 20000:
+                raise ValueError("Invalid photo dimensions: " + p["id"])
+        if p.get("category") not in ["men", "couple", "women"] or type(p.get("denVerified")) is not bool:
+            raise ValueError("Invalid photo category or DEN verification: " + p["id"])
+        if p["denVerified"]:
+            if type(p.get("den")) is not int or not 1 <= p["den"] <= 2000 or urlsplit(p.get("source", "")).scheme != "https":
+                raise ValueError("Missing verified photo DEN/source: " + p["id"])
+        else:
+            p["den"] = None
+    if len(photos) > 600:
+        raise ValueError("Assistant photo registry exceeds 600 photos")
+    # The public gallery may also import style-photos. Keep its richer canonical
+    # entry rather than publishing two IDs for one file and showing it twice.
+    unique = {}
+    quality = lambda p: (p["denVerified"], not p["id"].startswith("gallery-"), bool(p.get("model")), bool(p.get("brand")))
+    for p in photos:
+        previous = unique.get(p["src"])
+        if previous and previous["denVerified"] and p["denVerified"] and previous["den"] != p["den"]:
+            raise ValueError("Conflicting verified DEN for photo: " + p["src"])
+        if previous is None or quality(p) > quality(previous):
+            unique[p["src"]] = p
+    return sorted(unique.values(), key=lambda p: p["id"])
 
 
 def news_documents(snapshot):
@@ -141,12 +227,19 @@ def build_knowledge():
     for d in documents:
         assert (SITE / d["href"].split("?")[0].split("#")[0]).is_file(), d["href"]
     assert len({d["id"] for d in documents}) == len(documents)
-    canonical = json.dumps(documents, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    photos = photo_registry()
+    canonical = json.dumps({"documents": documents, "photos": photos}, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     snapshot = {"version": 1, "contentHash": hashlib.sha256(canonical.encode()).hexdigest(),
-                "scope": "Редакционные материалы ТОНКО, архив упаковок и только готовые статьи новостей; без сырых RSS-анонсов, пользовательских сообщений и актуальных цен.", "documents": documents}
+                "scope": "Редакционные материалы ТОНКО, архив упаковок, реестр фото и только готовые статьи новостей; без сырых RSS-анонсов, пользовательских сообщений и актуальных цен.", "documents": documents, "photos": photos}
     text = json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n"
     if len(documents) > 2500 or len(text.encode("utf-8")) > 2 * 1024 * 1024:
         raise ValueError("Assistant snapshot exceeds server limit: 2500 documents / 2 MiB")
+    # Use the exact runtime validator before publishing either copy. A bad photo
+    # registry must fail the build, not silently make Edge retain stale content.
+    validation = """import {validateKnowledge} from './supabase/functions/tonko-assistant/knowledge-cache.mjs';
+let text=''; for await (const chunk of process.stdin) text += chunk;
+validateKnowledge(JSON.parse(text));"""
+    subprocess.run(["node", "--input-type=module", "-e", validation], cwd=ROOT, input=text, encoding="utf-8", check=True)
     FUNCTION.mkdir(parents=True, exist_ok=True)
     (SITE / "data/assistant-knowledge.json").write_text(text, encoding="utf-8")
     (FUNCTION / "knowledge.json").write_text(text, encoding="utf-8")
@@ -162,8 +255,8 @@ def inject_pages():
         text = re.sub(r'<!-- tonko-assistant:(?:style|script) -->.*?<!-- /tonko-assistant -->\s*', '', text, flags=re.S)
         if "</head>" not in text or "</body>" not in text:
             continue
-        text = text.replace("</head>", '<!-- tonko-assistant:style --><link rel="stylesheet" href="assistant.css?v=1"><!-- /tonko-assistant --></head>', 1)
-        text = text.replace("</body>", '<!-- tonko-assistant:script --><script src="assistant.js?v=1" defer></script><!-- /tonko-assistant --></body>', 1)
+        text = text.replace("</head>", '<!-- tonko-assistant:style --><link rel="stylesheet" href="assistant.css?v=2"><!-- /tonko-assistant --></head>', 1)
+        text = text.replace("</body>", '<!-- tonko-assistant:script --><script src="assistant.js?v=2" defer></script><!-- /tonko-assistant --></body>', 1)
         path.write_text(text, encoding="utf-8")
         count += 1
     return count

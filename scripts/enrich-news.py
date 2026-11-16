@@ -1,4 +1,4 @@
-"""Repair covers and generate bounded summaries. Images never require an API key."""
+"""Generate summaries and check publisher photos in the same bounded AI request."""
 import json,os
 from datetime import datetime,timezone
 from pathlib import Path
@@ -6,6 +6,7 @@ from news_ai import enrich,extract_article,request_summary,article_cover,validat
 from news_sources import resolve_publisher
 from news_publication import sync_publication
 from news_editorial import apply_editorial
+from news_images import image_input
 
 ROOT=Path(__file__).resolve().parents[1];DATA=ROOT/'tights-guide/data'
 def atomic(path,value):
@@ -34,13 +35,17 @@ def main():
     def fetch_article(item):
         url,publisher=resolve_publisher(item,sources,fetch_article_url,now,feed_cache)
         raw=fetch_article_url(url,publisher);text=extract_article(raw)
-        if not item.get('illustration'):
-            photo=article_cover(raw,publisher,{**item,'url':url})
-            if photo:item['illustration']=photo
+        photo=article_cover(raw,publisher,{**item,'url':url},allow_seasonal=True)
+        if photo:
+            image=image_input(photo,publisher)
+            if image:
+                item['_coverCandidate']=photo;item['_imageInput']=image
         return text
     stats=enrich(news,sources,cache,fetch_article,
         lambda item,text:request_summary(item,text,key),now,lambda:atomic(cache_path,cache))
     apply_editorial(news);sync_publication(news,now)
+    for item in news.get('items',[]):
+        item.pop('_coverCandidate',None);item.pop('_imageInput',None)
     atomic(DATA/'news.json',news)
     print('AI summaries:',json.dumps(stats,ensure_ascii=True))
     if stats['apiStatus'] is not None:print('::warning::OpenAI request failed (HTTP '+str(stats['apiStatus'])+'); existing news retained.')

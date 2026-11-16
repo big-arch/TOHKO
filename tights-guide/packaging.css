@@ -11,3 +11,39 @@
 @media(max-width:600px){.pack-intro{padding-block:30px 24px}.pack-intro-bottom{margin-top:20px;gap:10px}#pack-brand-links{grid-template-columns:repeat(2,minmax(0,1fr))}.pack-browser .pack-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}.pack-browser .pack-open{height:240px}}
 @media(max-width:360px){.pack-browser .pack-open{height:200px}}
 .pack-kind-note{margin:-12px 0 24px;font-size:12px;line-height:1.6;color:#75675e}
+
+/* Model photographs stay beside the package; short cards do not leave a tall empty column. */
+.pack-dialog{width:min(1180px,96vw)}
+.pack-dialog-layout{grid-template-columns:minmax(280px,1fr) minmax(0,1.06fr);align-items:start}
+.pack-image-area{position:sticky;top:65px;height:min(76dvh,790px);min-height:300px}
+.pack-detail{min-width:0;padding:28px}
+.pack-detail h2{margin:6px 0 14px}
+.pack-dialog-actions{margin:18px 0 24px;flex-wrap:wrap}
+.pack-facts{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;padding:18px 0;margin:20px 0;border-block:1px solid #d5cbc1}
+.pack-facts div{min-width:0}
+.pack-facts dt{font-size:11px;color:#7a6b60;margin-bottom:5px}
+.pack-facts dd{margin:0;font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+.pack-styling h3,.pack-looks h3{font-size:18px;font-weight:550;line-height:1.35;margin:0 0 10px}
+.pack-styling{margin:24px 0}.pack-styling p{margin:0}
+.pack-looks{padding-top:24px;border-top:1px solid #d5cbc1}
+.pack-detail .pack-looks-note{font-size:12px;color:#6b5f55;line-height:1.65;margin:0 0 16px}
+.pack-looks-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}.pack-looks-grid[hidden]{display:none}
+.pack-look{margin:0;min-width:0}
+.pack-dialog .pack-look-open{position:relative;display:block;width:100%;padding:0;border:0;background:#e9e2d9;overflow:hidden}
+.pack-look-open img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain}
+.pack-look-open>span{position:absolute;right:8px;bottom:8px;display:grid;place-items:center;width:28px;height:28px;background:#f8f4efe8;border:1px solid #d5cbc1;border-radius:50%;font-size:17px}
+.pack-look figcaption{font-size:11px;line-height:1.6;margin-top:8px;color:#67594f;overflow-wrap:anywhere}
+.pack-look figcaption small{display:block;font-size:10px;color:#7d4656;margin-top:5px}
+#pack-variants details{margin-block:14px;font-size:12px;line-height:1.6}#pack-variants summary{cursor:pointer;padding:8px 0;min-height:36px}#pack-variants summary:focus-visible{outline:2px solid #834c56;outline-offset:3px}
+.pack-photo-dialog{width:min(1020px,96vw);max-height:96dvh;padding:0;border:1px solid #c7baae;background:#f8f4ef;color:#342c27}
+.pack-photo-dialog::backdrop{background:#211a22de}
+.pack-photo-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;border-bottom:1px solid #d5cbc1;position:sticky;top:0;background:#f8f4ef;z-index:1}
+.pack-photo-bar span{font-size:12px}
+.pack-photo-dialog button{min-width:44px;min-height:44px;font:inherit;border:1px solid #bfb1a5;background:#f8f4ef;color:inherit;padding:8px 12px;cursor:pointer}
+.pack-photo-stage{background:#e9e2d9;display:grid;place-items:center;padding:16px}
+.pack-photo-stage img{display:block;max-width:100%;width:auto;height:auto;max-height:67dvh;object-fit:contain}
+.pack-photo-info{padding:18px 24px}.pack-photo-info h2{font-size:20px;line-height:1.35;margin:6px 0 10px}.pack-photo-info p{font-size:12px;line-height:1.6;margin:8px 0}.pack-photo-info a{font-size:12px;color:#7d4656;text-underline-offset:4px}.pack-photo-info #pack-photo-match{font-size:11px;color:#7d4656}
+.pack-photo-navigation{display:flex;gap:10px;margin-top:16px}
+.pack-photo-dialog :focus-visible{outline:2px solid #834c56;outline-offset:3px}
+@media(max-width:700px){.pack-dialog-layout{grid-template-columns:1fr}.pack-image-area{position:static;height:50dvh;min-height:230px;padding:18px}.pack-detail{padding:22px}.pack-dialog-bar{padding-inline:14px}.pack-photo-info{padding:16px}.pack-photo-stage{padding:10px}.pack-photo-stage img{max-height:60dvh}}
+@media(max-width:360px){.pack-detail{padding:18px}.pack-looks-grid{gap:16px 10px}.pack-looks h3{font-size:17px}.pack-photo-bar{padding:8px}.pack-photo-info h2{font-size:18px}}

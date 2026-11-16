@@ -1,1 +1,2 @@
 trafilatura==2.3.1
+Pillow>=11.3,<13

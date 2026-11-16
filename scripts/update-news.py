@@ -51,7 +51,7 @@ def main():
         previous=restore_previous(previous,fetch_url)
     def fetch(source):
         if args.cache:
-            files={'google':'google.xml','snag':'snag.atom','swedish':'swedish.atom','whowhatwear':'whowhatwear.xml','fashionunited':'fashionunited.xml','bracatus':'bracatus.xml'}
+            files={'google':'google.xml','snag':'snag.atom','swedish':'swedish.atom','whowhatwear':'whowhatwear.xml','fashionunited':'fashionunited.xml','bracatus':'bracatus.xml','better':'better.atom','nylo':'nylo.atom'}
             return (args.cache/files[source['id']]).read_bytes()
         return fetch_url(source['url'])
     result=collect(sources,previous,fetch,datetime.now(timezone.utc))

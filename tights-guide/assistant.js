@@ -23,9 +23,26 @@
     const url = new URL(href, base);
     return url.origin === base.origin && url.pathname.startsWith(base.pathname) ? url.href : null;
   };
+  const safeAsset = path => typeof path === 'string' && path.length <= 240 && /^assets\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+\.(?:jpe?g|png|webp|avif)$/.test(path) ? new URL(path, base).href : null;
+  const safePhotoSource = href => {
+    const local = safeLink(href); if (local) return local;
+    if (typeof href !== 'string' || href.length > 1000 || /[\s<>\\]/.test(href)) return null;
+    try { const u = new URL(href); return u.protocol === 'https:' && !u.username && !u.password && !u.port && /^(?:[a-z0-9-]+\.)+[a-z]{2,}$/i.test(u.hostname) && !/(?:^|\.)(?:localhost|local|internal|test|invalid|example)$/i.test(u.hostname) ? u.href : null; } catch { return null; }
+  };
+  const cleanPhoto = p => {
+    if (!p || typeof p.id !== 'string' || !/^[a-z0-9][a-z0-9-]{0,100}$/.test(p.id) || !safeAsset(p.src) || !safeAsset(p.thumb) || !safePhotoSource(p.source) || !['men', 'couple', 'women'].includes(p.category) || typeof p.denVerified !== 'boolean') return null;
+    for (const [key, max] of [['title', 160], ['alt', 360], ['caption', 600], ['sourceLabel', 120], ['credit', 240]]) if (typeof p[key] !== 'string' || !p[key].trim() || p[key].length > max) return null;
+    if (p.denVerified && (!Number.isInteger(p.den) || p.den < 1 || p.den > 2000 || !p.source.startsWith('https://'))) return null;
+    if (!['width', 'height'].every(key => Number.isInteger(p[key]) && p[key] > 0 && p[key] <= 20000)) return null;
+    return { id: p.id, title: p.title, src: p.src, thumb: p.thumb, alt: p.alt, caption: p.caption, source: p.source, sourceLabel: p.sourceLabel,
+      credit: p.credit, category: p.category, denVerified: p.denVerified, den: p.denVerified ? p.den : null,
+      brand: typeof p.brand === 'string' ? p.brand.slice(0, 120) : '', model: typeof p.model === 'string' ? p.model.slice(0, 120) : '', width: p.width, height: p.height };
+  };
+  const photoDensity = p => p.denVerified ? `${p.den} DEN · подтверждено источником` : 'DEN не указан в источнике';
   const cleanMessage = item => {
     if (!item || !['user', 'assistant'].includes(item.role) || typeof item.content !== 'string' || !item.content.trim() || item.content.length > 5300) return null;
-    return { role: item.role, content: item.content, sources: (Array.isArray(item.sources) ? item.sources : []).slice(0, 3).filter(s => s && typeof s.title === 'string' && s.title.length <= 160 && safeLink(s.href)).map(s => ({ title: s.title, href: s.href })) };
+    return { role: item.role, content: item.content, sources: (Array.isArray(item.sources) ? item.sources : []).slice(0, 3).filter(s => s && typeof s.title === 'string' && s.title.length <= 160 && safeLink(s.href)).map(s => ({ title: s.title, href: s.href })),
+      photos: item.role === 'assistant' && Array.isArray(item.photos) ? item.photos.slice(0, 3).map(cleanPhoto).filter(Boolean) : [] };
   };
   let messages = [];
   try { const saved = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]'); if (Array.isArray(saved)) messages = saved.slice(-24).map(cleanMessage).filter(Boolean); } catch { /* private mode / corrupt old storage */ }
@@ -48,9 +65,9 @@
   const conversation = el('div', 'tonko-assistant-conversation');
   conversation.setAttribute('role', 'log'); conversation.setAttribute('aria-label', 'Переписка с помощником'); conversation.setAttribute('aria-live', 'polite'); conversation.setAttribute('aria-relevant', 'additions'); conversation.tabIndex = 0;
   const welcome = el('section', 'tonko-assistant-welcome');
-  welcome.append(el('span', 'tonko-assistant-monogram', 'Т'), el('h3', '', 'У каждой пары — свои детали.'), el('p', '', 'Разберёмся в плотности, размере и составе. Найдём упаковку или материал для вашего вопроса.'));
+  welcome.append(el('span', 'tonko-assistant-monogram', 'Т'), el('h3', '', 'У каждой пары — свои детали.'), el('p', '', 'Помогу с выбором, уходом и сочетаниями. Могу показать фото из галереи — просто попросите.'));
   const suggestions = el('div', 'tonko-assistant-suggestions'); suggestions.setAttribute('aria-label', 'Примеры вопросов');
-  [ ['20 или 40 DEN?', 'Чем отличаются 20 и 40 DEN и как выбрать?'], ['Как узнать размер?', 'Как узнать свой размер колготок?'], ['Мужской образ', 'Помоги составить мужской образ с колготками.'], ['Бережный уход', 'Как ухаживать за тонкими колготками?'] ].forEach(([label, question]) => {
+  [ ['20 или 40 DEN?', 'Чем отличаются 20 и 40 DEN и как выбрать?'], ['Как узнать размер?', 'Как узнать свой размер колготок?'], ['Фото мужских образов', 'Покажи фото мужских образов с колготками.'], ['Бережный уход', 'Как стирать и сушить тонкие колготки?'] ].forEach(([label, question]) => {
     const button = el('button', '', label); button.type = 'button';
     button.addEventListener('click', () => { input.value = question; updateInput(); input.focus(); if (isReady()) form.requestSubmit(); });
     suggestions.append(button);
@@ -58,7 +75,7 @@
   welcome.append(suggestions);
   const notice = el('div', 'tonko-assistant-notice', 'Проверяем доступность помощника…');
   notice.setAttribute('role', 'status');
-  const busy = el('div', 'tonko-assistant-busy', 'Подбираю ответ по материалам ТОНКО…'); busy.setAttribute('role', 'status'); busy.hidden = true;
+  const busy = el('div', 'tonko-assistant-busy', 'Смотрю, что подойдёт…'); busy.setAttribute('role', 'status'); busy.hidden = true;
   const form = el('form', 'tonko-assistant-form');
   const label = el('label', 'tonko-assistant-sr-only', 'Ваш вопрос о колготках'); label.htmlFor = 'tonko-assistant-input';
   const input = el('textarea'); input.id = 'tonko-assistant-input'; input.name = 'message'; input.rows = 2; input.maxLength = MAX_MESSAGE;
@@ -77,6 +94,68 @@
   dialog.append(header, toolbar, conversation, notice, busy, form);
   document.body.append(launcher, dialog);
 
+  const gallery = el('dialog', 'tonko-assistant-gallery');
+  gallery.setAttribute('aria-labelledby', 'tonko-assistant-gallery-title');
+  const galleryHeader = el('header', 'tonko-assistant-gallery-header');
+  const galleryTitle = el('h2'); galleryTitle.id = 'tonko-assistant-gallery-title';
+  const galleryClose = el('button', 'tonko-assistant-icon'); galleryClose.type = 'button'; galleryClose.setAttribute('aria-label', 'Закрыть фото'); galleryClose.append(icon('close'));
+  galleryHeader.append(galleryTitle, galleryClose);
+  const galleryFigure = el('figure', 'tonko-assistant-gallery-figure');
+  const galleryStage = el('div', 'tonko-assistant-gallery-stage');
+  const galleryCaption = el('figcaption');
+  const galleryText = el('p'), galleryDetails = el('p', 'tonko-assistant-photo-detail'), galleryCredit = el('p', 'tonko-assistant-photo-credit');
+  const gallerySource = el('a'); gallerySource.target = '_blank'; gallerySource.rel = 'noopener noreferrer';
+  galleryCaption.append(galleryText, galleryDetails, galleryCredit, gallerySource); galleryFigure.append(galleryStage, galleryCaption);
+  const galleryNav = el('nav', 'tonko-assistant-gallery-nav'); galleryNav.setAttribute('aria-label', 'Фотографии ответа');
+  const galleryPrev = el('button', '', '← Назад'), galleryNext = el('button', '', 'Дальше →');
+  galleryPrev.type = galleryNext.type = 'button'; galleryPrev.setAttribute('aria-label', 'Предыдущее фото'); galleryNext.setAttribute('aria-label', 'Следующее фото');
+  const galleryCount = el('span'); galleryCount.setAttribute('role', 'status');
+  galleryNav.append(galleryPrev, galleryCount, galleryNext); gallery.append(galleryHeader, galleryFigure, galleryNav); document.body.append(gallery);
+  let galleryPhotos = [], galleryIndex = 0, galleryOpener = null;
+  function showPhoto(index) {
+    galleryIndex = (index + galleryPhotos.length) % galleryPhotos.length;
+    const p = galleryPhotos[galleryIndex];
+    galleryTitle.textContent = p.title; galleryText.textContent = p.caption;
+    galleryDetails.textContent = [p.brand && [p.brand, p.model].filter(Boolean).join(' · '), photoDensity(p)].filter(Boolean).join(' · ');
+    galleryCredit.textContent = p.credit; gallerySource.textContent = `${p.sourceLabel} ↗`; gallerySource.href = safePhotoSource(p.source);
+    galleryCount.textContent = `${galleryIndex + 1} / ${galleryPhotos.length}`;
+    galleryPrev.disabled = galleryNext.disabled = galleryPhotos.length < 2;
+    const img = el('img'); img.alt = p.alt; img.width = p.width; img.height = p.height;
+    const fail = el('p', 'tonko-assistant-photo-error', 'Фото не загрузилось. Можно открыть источник или перейти к следующему.'); fail.hidden = true;
+    img.addEventListener('error', () => { img.hidden = true; fail.hidden = false; });
+    img.src = safeAsset(p.src); galleryStage.replaceChildren(img, fail);
+  }
+  function openGallery(photos, index, trigger) {
+    galleryPhotos = photos; galleryOpener = trigger; showPhoto(index); gallery.showModal(); galleryClose.focus();
+  }
+  galleryClose.addEventListener('click', () => gallery.close());
+  gallery.addEventListener('close', () => { galleryStage.replaceChildren(); galleryOpener?.focus({ preventScroll: true }); });
+  galleryPrev.addEventListener('click', () => showPhoto(galleryIndex - 1)); galleryNext.addEventListener('click', () => showPhoto(galleryIndex + 1));
+  gallery.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { event.preventDefault(); showPhoto(galleryIndex + (event.key === 'ArrowLeft' ? -1 : 1)); }
+    if (event.key === 'Tab') trapFocus(event, gallery);
+  });
+  gallery.addEventListener('click', event => {
+    if (event.target !== gallery) return;
+    const r = gallery.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) gallery.close();
+  });
+
+  function photoCards(photos) {
+    const strip = el('div', 'tonko-assistant-photos'); strip.setAttribute('aria-label', 'Фото к ответу');
+    photos.forEach((p, index) => {
+      const figure = el('figure', 'tonko-assistant-photo'); const button = el('button', 'tonko-assistant-photo-open');
+      button.type = 'button'; button.setAttribute('aria-label', `Увеличить: ${p.title}`);
+      const img = el('img'); img.alt = p.alt; img.width = p.width; img.height = p.height; img.loading = 'lazy'; img.decoding = 'async';
+      const fail = el('span', 'tonko-assistant-photo-error', 'Открыть фото'); fail.hidden = true;
+      img.addEventListener('error', () => { img.hidden = true; fail.hidden = false; }); img.src = safeAsset(p.thumb);
+      button.append(img, fail, el('span', 'tonko-assistant-photo-zoom', 'Увеличить ↗')); button.addEventListener('click', () => openGallery(photos, index, button));
+      const caption = el('figcaption'); caption.append(el('p', 'tonko-assistant-photo-title', p.title), el('p', 'tonko-assistant-photo-detail', p.denVerified ? `${p.den} DEN · по источнику` : 'DEN не указан'));
+      const source = el('a', '', `${p.sourceLabel} ↗`); source.href = safePhotoSource(p.source); source.target = '_blank'; source.rel = 'noopener noreferrer'; caption.append(source);
+      figure.append(button, caption); strip.append(figure);
+    });
+    return strip;
+  }
+
   function persist() {
     try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(messages.slice(-24))); }
     catch { privacy.firstChild.textContent = 'Вопрос и часть переписки отправляются OpenAI. Браузер не разрешил сохранить историю — она исчезнет при обновлении страницы. Не указывайте личные данные. '; }
@@ -85,6 +164,7 @@
     const article = el('article', `tonko-assistant-message is-${item.role}`);
     article.append(el('p', 'tonko-assistant-speaker', item.role === 'user' ? 'Вы' : 'ТОНКО · ИИ'));
     article.append(el('p', 'tonko-assistant-text', item.content));
+    if (item.role === 'assistant' && item.photos?.length) article.append(photoCards(item.photos));
     if (item.role === 'assistant' && item.sources?.length) {
       const sources = el('ul', 'tonko-assistant-sources'); sources.setAttribute('aria-label', 'Материалы к ответу');
       for (const source of item.sources) {
@@ -94,6 +174,7 @@
       article.append(sources);
     }
     conversation.append(article);
+    return article;
   }
   function render() {
     conversation.replaceChildren();
@@ -102,6 +183,9 @@
     scrollEnd();
   }
   function scrollEnd() { requestAnimationFrame(() => { conversation.scrollTop = conversation.scrollHeight; }); }
+  function scrollAnswer(article) {
+    requestAnimationFrame(() => { conversation.scrollTop += article.getBoundingClientRect().top - conversation.getBoundingClientRect().top - 16; });
+  }
   function isReady() { return Boolean(config?.enabled && config.endpoint && config.publishableKey); }
   function updateInput() {
     send.disabled = Boolean(pending) || !isReady() || !input.value.trim();
@@ -122,7 +206,7 @@
     sequence++; pending.abort(); setPending(null); setNotice(message); input.focus();
   }
   function historyForRequest() {
-    const history = messages.slice(0, -1).slice(-8).map(m => ({ role: m.role, content: m.content.slice(0, 3000) }));
+    const history = messages.slice(0, -1).slice(-8).map(m => ({ role: m.role, content: (m.content.slice(0, m.photos?.length ? 2000 : 3000) + (m.photos?.length ? '\nФото в этом ответе: ' + m.photos.map((p, i) => `${i + 1}. ${p.title.slice(0, 80)} (ID:${p.id}; ${photoDensity(p)})`).join('; ') : '')).slice(0, 3000) }));
     while (history.reduce((n, m) => n + m.content.length, 0) > 6000) history.shift();
     return history;
   }
@@ -152,9 +236,9 @@
       }
       if (typeof data.answer !== 'string' || !data.answer.trim() || data.answer.length > 5000 || !Array.isArray(data.sources)) throw new Error('Не удалось прочитать ответ. Попробуйте ещё раз.');
       const content = data.answer.trim() + (typeof data.nextQuestion === 'string' && data.nextQuestion.trim() ? '\n\n' + data.nextQuestion.trim().slice(0, 240) : '');
-      const item = cleanMessage({ role: 'assistant', content, sources: data.sources });
+      const item = cleanMessage({ role: 'assistant', content, sources: data.sources, photos: data.photos });
       if (!item) throw new Error('Не удалось прочитать ответ. Попробуйте ещё раз.');
-      messages.push(item); persist(); appendMessage(item); scrollEnd();
+      messages.push(item); persist(); scrollAnswer(appendMessage(item));
     } catch (error) {
       if (requestId !== sequence) return;
       if (timedOut) setNotice('Ответ занял слишком много времени. Попробуйте ещё раз.', true);
@@ -177,13 +261,13 @@
   });
   close.addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', () => { cancel(); launcher.setAttribute('aria-expanded', 'false'); opener?.focus({ preventScroll: true }); });
-  dialog.addEventListener('keydown', event => {
-    if (event.key !== 'Tab') return;
-    const focusable = [...dialog.querySelectorAll('button:not([disabled]),a[href],textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(node => node.getClientRects().length);
+  function trapFocus(event, surface) {
+    const focusable = [...surface.querySelectorAll('button:not([disabled]),a[href],textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(node => node.getClientRects().length);
     const first = focusable[0], last = focusable.at(-1);
     if (event.shiftKey && (document.activeElement === first || !focusable.includes(document.activeElement))) { event.preventDefault(); last?.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
-  });
+  }
+  dialog.addEventListener('keydown', event => { if (event.key === 'Tab') trapFocus(event, dialog); });
   dialog.addEventListener('click', event => {
     if (event.target !== dialog) return;
     const r = dialog.getBoundingClientRect();

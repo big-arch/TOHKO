@@ -4,7 +4,7 @@ on:
     branches: [main]
   workflow_dispatch:
   schedule:
-    - cron: '7,22,37,52 * * * *'
+    - cron: '9,24,39,54 * * * *'
 permissions:
   contents: read
   pages: write
@@ -25,8 +25,11 @@ jobs:
         run: |
           python -m unittest discover -s qa -p 'test_news*.py'
           node qa/test_video_memory.cjs
-          node --test qa/test_assistant.cjs qa/test_assistant_cache.cjs
+          node --test qa/test_assistant.cjs qa/test_assistant_cache.cjs qa/test_assistant14.cjs
           python -m unittest qa/test_assistant_build.py
+          python -m unittest qa/test_video_feed.py
+      - name: Refresh public videos
+        run: python scripts/update-videos.py --deployed
       - name: Refresh fashion headlines
         run: python scripts/update-news.py --deployed
       - name: Restore generated summaries
@@ -63,6 +66,8 @@ jobs:
       - name: Build news and packaging pages
         run: |
           python scripts/build-packaging.py
+          python scripts/build-videos.py
+          python scripts/build-style-photos.py
           python scripts/build-home-news.py
           python scripts/build-assistant.py --inject
       - name: Check local links and JavaScript
@@ -75,3 +80,30 @@ jobs:
           path: tights-guide
       - uses: actions/deploy-pages@v4
         id: deployment
+  snapshot:
+    needs: deploy
+    if: ${{ github.event_name == 'schedule' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Check recovery snapshot interval
+        id: due
+        run: |
+          age=$(( $(date +%s) - $(git log -1 --format=%ct) ))
+          if [ "$age" -ge 604800 ]; then echo 'save=true' >> "$GITHUB_OUTPUT"; fi
+      - name: Preserve published feed history
+        if: ${{ steps.due.outputs.save == 'true' }}
+        run: |
+          python scripts/save-published-snapshot.py
+          git add tights-guide/data/news.json tights-guide/data/videos.json tights-guide/data/video-feed-state.json tights-guide/assets/videos-new
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'chore: preserve published TONKO feed snapshot'
+            git push origin HEAD:main
+          fi

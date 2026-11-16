@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "checkedAt": "2026-11-16T07:28:35.689626Z",
-  "lastSuccessfulAt": "2026-11-16T07:28:35.689626Z",
+  "checkedAt": "2026-11-16T12:14:48.876796Z",
+  "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
   "intervalMinutes": 15,
   "sources": [
     {
@@ -9,7 +9,7 @@
       "name": "Google News · выбранные издания",
       "site": "https://news.google.com",
       "language": "mixed",
-      "lastSuccessfulAt": "2026-11-16T07:28:35.689626Z",
+      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
       "status": "ok",
       "matched": 12
     },
@@ -18,7 +18,7 @@
       "name": "Who What Wear",
       "site": "https://www.whowhatwear.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-16T07:28:35.689626Z",
+      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
       "status": "ok",
       "matched": 2
     },
@@ -27,7 +27,7 @@
       "name": "FashionUnited",
       "site": "https://fashionunited.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-16T07:28:35.689626Z",
+      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
       "status": "ok",
       "matched": 0
     },
@@ -36,7 +36,7 @@
       "name": "Swedish Stockings",
       "site": "https://swedishstockings.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-16T07:28:35.689626Z",
+      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
       "status": "ok",
       "matched": 17
     },
@@ -45,7 +45,7 @@
       "name": "Snag",
       "site": "https://snagtights.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-16T07:28:35.689626Z",
+      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
       "status": "ok",
       "matched": 1
     },
@@ -54,9 +54,27 @@
       "name": "Bracatus",
       "site": "https://bracatus.com",
       "language": "ru",
-      "lastSuccessfulAt": "2026-11-16T07:28:35.689626Z",
+      "lastSuccessfulAt": "2026-11-16T11:25:40.721673Z",
+      "status": "error",
+      "error": "FetchError"
+    },
+    {
+      "id": "better",
+      "name": "Better Tights",
+      "site": "https://www.bettertights.com",
+      "language": "en",
+      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
       "status": "ok",
-      "matched": 5
+      "matched": 21
+    },
+    {
+      "id": "nylo",
+      "name": "NYLO Journal",
+      "site": "https://nylo.us",
+      "language": "en",
+      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
+      "status": "ok",
+      "matched": 19
     }
   ],
   "items": [
@@ -394,6 +412,19 @@
       "sourceSite": "https://www.whowhatwear.com",
       "via": null,
       "language": "en",
+      "illustration": {
+        "src": "assets/news/csb-editorial-review.webp",
+        "alt": "Три редакционных образа с вещами CSB: бордовый, серый спортивный и светлый комплект",
+        "caption": "Три образа из редакционной примерки CSB. Коллаж Who What Wear из этой публикации о посадке и сочетаниях вещей бренда.",
+        "source": "https://www.whowhatwear.com/fashion/athleisure/csb-editor-try-on-2026",
+        "width": 1800,
+        "height": 1013,
+        "imageSource": "https://cdn.mos.cms.futurecdn.net/A4n54NJ2NW7gvuiUfkXbJH-1920-80.jpg"
+      },
+      "publication": {
+        "status": "ready",
+        "checkedAt": "2026-11-16T08:50:34.473745Z"
+      },
       "displayTitle": "CSB проверили редакторы Who What Wear: легинсы, топы и особенности посадки",
       "summary": "Редакторы Who What Wear испытали вещи австралийского бренда CSB в повседневной жизни и на тренировках в Нью-Йорке. В их отзывах сочетаются похвала крою и стилю с важным замечанием о плотной посадке и размерах.",
       "sections": [
@@ -423,19 +454,6 @@
         "model": "gpt-6-luna",
         "generatedAt": "2026-11-16T08:50:34.473745Z",
         "sourceWords": 1203
-      },
-      "illustration": {
-        "src": "assets/news/csb-editorial-review.webp",
-        "alt": "Три редакционных образа с вещами CSB: бордовый, серый спортивный и светлый комплект",
-        "caption": "Три образа из редакционной примерки CSB. Коллаж Who What Wear из этой публикации о посадке и сочетаниях вещей бренда.",
-        "source": "https://www.whowhatwear.com/fashion/athleisure/csb-editor-try-on-2026",
-        "width": 1800,
-        "height": 1013,
-        "imageSource": "https://cdn.mos.cms.futurecdn.net/A4n54NJ2NW7gvuiUfkXbJH-1920-80.jpg"
-      },
-      "publication": {
-        "status": "ready",
-        "checkedAt": "2026-11-16T08:50:34.473745Z"
       }
     },
     {
@@ -651,6 +669,24 @@
       }
     },
     {
+      "id": "5c3e30182ed37d5b",
+      "title": "Sheertex for men: how its tights compare with NYLO's",
+      "url": "https://nylo.us/blogs/journal/sheertex-for-men-how-its-tights-compare-with-nylo",
+      "excerpt": "Sheertex sizes its sheer tights by weight, in letter sizes, as of November 2026. NYLO makes sheer pantyhose for men, sized by height and weight, with a stated rise on every pair of tights. More",
+      "publishedAt": "2026-11-12T15:19:55Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
       "id": "2df0d94c6bc34bf9",
       "title": "Kunert, Philippe Matignon и Trasparenze делают ставку на фактурные колготки",
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPdEVKOEFULVh2bXJLQWhKTEJVYkt6cTJUM1pDZ2dWSUl5Z1JtNVNFTzhITXNkSGNlVU1RNzlpdnV1Y3F0eHJ2XzJVWXN1UUg4TzVzRUkyOVU0OW9zdTA1QmR0cnV1MF8wM3E4Tm5oSGpRSExEbzZ0dnFraEh0ZFNZS3c3WU5qdWtrbmd6UldPR1cxb2pqTlZMeUtB?oc=5",
@@ -847,6 +883,24 @@
       }
     },
     {
+      "id": "f17d5ec29af4280e",
+      "title": "Nylon vs spandex: what men's sheer tights and socks are made of",
+      "url": "https://nylo.us/blogs/journal/nylon-vs-spandex-mens-sheer-tights-socks",
+      "excerpt": "Nylon is the main yarn our sheer dress socks and our 10D Sheer Tights are knit from, and spandex is the stretch fiber knit in with it. The 1D socks are 80% nylon and 20% spandex. The 10D socks and the 10D tights use Lycra, a brand of spandex. More",
+      "publishedAt": "2026-11-10T15:14:58Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
       "id": "965179ab4f08fa88",
       "title": "Обзор: белые колготки «на меху» Omsa Groenland 250",
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1Uc0lpNDlPZklIYzA4SDBLSHRqclp2cUVoV1VydGthNllDVXRHb3dWdV9uYjhMVm5yeU56alZTdzB6MFhDd2ZpRnc5OFY3TklUZHBGUzJvQkgyekEwQV9EVm12ZHlfVTFDNzdBUGg4MHIyQ3k3M0hR?oc=5",
@@ -893,6 +947,60 @@
         "caption": "Белые Omsa Groenland 250 крупным планом. Фото © Bracatus из этого обзора: показаны полотно и обработка краёв изделия.",
         "source": "https://bracatus.com/obzor-belye-kolgotki-na-mehu-omsa-groenland-250",
         "imageSource": "https://bracatus.com/wp-content/uploads/2026/11/Omsa-Groenland-2_3.jpg"
+      }
+    },
+    {
+      "id": "9abedd65084c9ca4",
+      "title": "Tights vs socks: sheer tights or sheer dress socks with trousers",
+      "url": "https://nylo.us/blogs/journal/tights-vs-socks-sheer-tights-or-sheer-dress-socks",
+      "excerpt": "Sheer dress socks stop below the knee and come in Standard size, so they are the smaller first step under a suit. Sheer tights run from toe to waist and are sized by height and weight, for the man who wants the whole leg to match. More",
+      "publishedAt": "2026-11-09T15:16:13Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "b8106793d5adacc8",
+      "title": "Can you put pantyhose in the dryer? How to dry sheer tights",
+      "url": "https://nylo.us/blogs/journal/can-you-put-pantyhose-in-the-dryer",
+      "excerpt": "No. Pantyhose and sheer tights never go in the dryer. Wash them by hand in cold water, let them air dry away from heat, and keep a second pair so you are never waiting on a wet one. More",
+      "publishedAt": "2026-11-08T15:19:55Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "50621f2c9999f451",
+      "title": "Thanksgiving outfit for men: smart casual, down to the socks",
+      "url": "https://nylo.us/blogs/journal/thanksgiving-outfit-for-men-smart-casual",
+      "excerpt": "A good Thanksgiving outfit for men is smart casual: a sweater or a collared shirt, chinos or wool trousers, and leather loafers or boots. Finish it below the hem with a sheer dress sock, or wear our 10D Sheer Tights under the trousers. More",
+      "publishedAt": "2026-11-07T15:16:02Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
       }
     },
     {
@@ -997,6 +1105,7 @@
       "id": "10c2e58a93d5b519",
       "title": "Обзор: шерстяные колготки Dvorak C57 — утилитарный согревающий зимний вариант с верблюжьей и овечьей шерстью",
       "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOWF9TaTE0N3psNWFTTjNUblVDUm9OZ2NoNWVjcW05Y045aHVYLTIwNWdFdDE3N0hWYlpMTWVraC14alhhajdCNjlJM2JNRGt2dnVoei1aMzRRcTFlR3FNNjJRcG1ZN0s0cEliSTdyRlItRHlSQ0ZTZXpCNmM0WmU1bjYzM3BlajZXVklna1ZoeV9lY3psR3dzUk5fOGdQbEF3MzJNYnZkTVI5Y0xBU1dCYlFqb3F6YUl0ZkVkQlB1NDh5elA5ZDJfOTRlYzZUZw?oc=5",
+      "excerpt": "",
       "publishedAt": "2026-11-06T08:00:00Z",
       "sourceId": "google",
       "source": "bracatuS",
@@ -1039,6 +1148,24 @@
         "caption": "Dvorak C57 в упаковке, снятые для обзора. Фото © Bracatus: этикетки помогают связать обсуждаемый состав с конкретным изделием.",
         "source": "https://bracatus.com/obzor-sherstyanye-kolgotki-dvorak-c57-utilitarnyj-sogrevayushhij-zimnij-variant-s-verblyuzhej-i-ovechej-sherstyu",
         "imageSource": "https://bracatus.com/wp-content/uploads/2024/12/DSC_0456.jpg"
+      }
+    },
+    {
+      "id": "5b70af1e82740c1c",
+      "title": "Wolford tights for men vs NYLO: what each brand makes",
+      "url": "https://nylo.us/blogs/journal/wolford-tights-for-men-vs-nylo",
+      "excerpt": "Wolford sells its sheer tights in letter sizes and lists height and weight in its size guide, as of November 2026. NYLO makes sheer tights for men at 1, 3 and 10 denier, each with a height and weight range in its size guide. More",
+      "publishedAt": "2026-11-04T15:44:25Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
       }
     },
     {
@@ -1088,6 +1215,24 @@
         "caption": "Тематическая фотоиллюстрация винной палитры: Nora Perfect Everyday в цвете Red Wine. Официальная каталожная фотография Swedish Stockings.",
         "source": "https://swedishstockings.com/products/nora-perfect-everyday-tights-red-wine",
         "imageSource": "https://cdn.shopify.com/s/files/1/0078/3128/9969/files/11128515-nora-perfect-everyday-tights-black-camille-charriere-swedish-stockings-3.jpg?v=1765442898"
+      }
+    },
+    {
+      "id": "4b907a75f38ed49c",
+      "title": "How to pack tights and sheer socks for a trip",
+      "url": "https://nylo.us/blogs/journal/how-to-pack-tights-and-sheer-socks-for-a-trip",
+      "excerpt": "Pack tights flat in a soft drawstring bag of their own, away from zips and hook-and-loop, with a spare pair and the gloves from your order. Sheer socks travel folded in their pairs, and a hotel sink with cold water handles the washing. More",
+      "publishedAt": "2026-11-02T15:45:55Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
       }
     },
     {
@@ -1188,6 +1333,168 @@
       }
     },
     {
+      "id": "3fb56aeef06cceee",
+      "title": "Men's opaque tights: how to wear the 120D, a fully covered black pair",
+      "url": "https://nylo.us/blogs/journal/mens-opaque-tights-how-to-wear",
+      "excerpt": "Our men's opaque tights, the 120D, are a dense 120 denier knit in matte black, fully footed, worn under trousers or with a sweater or a blazer. They come in Tall only, and they are a second pair: start with the sheer 10D. More",
+      "publishedAt": "2026-10-30T14:13:06Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "817f1252d8c75388",
+      "title": "Matte vs shiny tights: choosing a finish in men's sheer pairs",
+      "url": "https://nylo.us/blogs/journal/matte-vs-shiny-tights-mens-sheer-finish",
+      "excerpt": "Matte or shiny comes down to the pair. Our 1D is matte, the 10D is sheer with a soft sheen up close, and the 120D is opaque in a deep matte black. More",
+      "publishedAt": "2026-10-29T14:49:02Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "248ca78d32377343",
+      "title": "Men wearing pantyhose to work: a practical office week",
+      "url": "https://nylo.us/blogs/journal/men-wearing-pantyhose-to-work-office-week",
+      "excerpt": "Sheer pantyhose made for men go under ordinary office trousers; with lace-up shoes, what shows is the strip between hem and shoe. Our 10 denier sheer tights, the 10D, are our usual first recommendation for men inside their range, and a sheer dress sock is the smaller first step.…",
+      "publishedAt": "2026-10-27T14:16:44Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "032392949c5a3834",
+      "title": "How to take off pantyhose without snagging them",
+      "url": "https://nylo.us/blogs/journal/how-to-take-off-pantyhose-without-snagging",
+      "excerpt": "Sit down, roll the waistband down over the hips and thighs with flat hands, and slip the rolled edge past the heel. Never pull a sheer pair off from the toe. More",
+      "publishedAt": "2026-10-26T14:10:56Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "8000265da493bc14",
+      "title": "Activskin pantyhose vs NYLO: how the men's pairs compare",
+      "url": "https://nylo.us/blogs/journal/activskin-pantyhose-vs-nylo-mens-pairs-compare",
+      "excerpt": "As of October 2026, Activskin sizes its pantyhose for men in letter sizes by height, waist and inseam. NYLO sizes every pair of tights by height and weight and states the denier and rise of each one. More",
+      "publishedAt": "2026-10-25T14:28:55Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "f8a1c4898f8ae958",
+      "title": "Opaque vs sheer tights for men: where the 120D sits",
+      "url": "https://nylo.us/blogs/journal/opaque-vs-sheer-tights-what-changes-for-men",
+      "excerpt": "The 120D Opaque Tights are a dense 120 denier knit, the most opaque pair we make. The 10D, the Comfort Fit and the 1D are sheer, at 10, 3 and 1 denier, and for a man of 5'7\" to 6'2\" and 145 to 210 lbs a first pair is usually the 10D. More",
+      "publishedAt": "2026-10-22T14:21:19Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "e34e20ae9674b9c6",
+      "title": "Why do pantyhose rip so easily, and what helps",
+      "url": "https://nylo.us/blogs/journal/why-do-pantyhose-rip-so-easily",
+      "excerpt": "Sheer tights rip because the yarn is fine and a knit is a chain of loops: break one and the loops below it unravel into a run. What helps is a pair knit to resist runs, like our 10D at 10 denier, and a careful hand when you put them on. More",
+      "publishedAt": "2026-10-21T19:35:57Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "82b3204f4aaffadc",
+      "title": "How to wear tights for guys: choosing your first sheer pair",
+      "url": "https://nylo.us/blogs/journal/how-to-wear-tights-for-guys-first-pair",
+      "excerpt": "Sheer pantyhose made for men, sized by height and weight: at 5'7\" to 6'2\" and 145 to 210 lbs, our 10D Sheer Tights, a 10 denier knit woven with Lycra, is our usual first recommendation. For a broader build, 175 to 300 lbs at those heights, the Comfort Fit, Open front only. More",
+      "publishedAt": "2026-10-19T06:03:28Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "435c118b6775263d",
+      "title": "Pantyhose size chart for men: Standard, Tall or Comfort Fit",
+      "url": "https://nylo.us/blogs/journal/pantyhose-size-chart-for-men",
+      "excerpt": "Our sheer pantyhose for men are sized by height and weight, not waist. Here is the full chart, which rows you fall into, and how to choose when more than one pair fits. More",
+      "publishedAt": "2026-10-16T23:46:15Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
       "id": "3a8926fce2caa891",
       "title": "Meet The Changemakers: XV Production",
       "url": "https://swedishstockings.com/blogs/journal/meet-the-changemakers-xv-production",
@@ -1198,6 +1505,10 @@
       "sourceSite": "https://swedishstockings.com",
       "via": null,
       "language": "en",
+      "publication": {
+        "status": "ready",
+        "checkedAt": "2026-11-16T08:50:34.473745Z"
+      },
       "displayTitle": "XV Production: как превратить колготки в новый предмет одежды",
       "summary": "Шведская студия XV Production работает с уже существующими материалами и одеждой, создавая новые изделия. В совместном проекте со Swedish Stockings и Николь Уокер отправной точкой стали колготки бренда, из которых изготовили топ.",
       "sections": [
@@ -1236,10 +1547,6 @@
         "caption": "В мастерской XV Production. Фотография из интервью Swedish Stockings о повторном использовании колготок.",
         "source": "https://swedishstockings.com/blogs/journal/meet-the-changemakers-xv-production",
         "imageSource": "https://cdn.shopify.com/s/files/1/0078/3128/9969/files/split-banner-xv-production-journal-22.jpg?v=1788788597"
-      },
-      "publication": {
-        "status": "ready",
-        "checkedAt": "2026-11-16T08:50:34.473745Z"
       }
     },
     {
@@ -1253,6 +1560,10 @@
       "sourceSite": "https://swedishstockings.com",
       "via": null,
       "language": "en",
+      "publication": {
+        "status": "ready",
+        "checkedAt": "2026-11-16T09:12:55.184309Z"
+      },
       "displayTitle": "Nicole Walker переосмыслила чулки в формате топа",
       "summary": "Swedish Stockings представил совместную работу со стилистом и креативным директором Николь Уокер: топ, созданный из чулок. Проект развивает интерес бренда и художницы к новым способам использования материала.",
       "sections": [
@@ -1284,10 +1595,6 @@
         "caption": "Топ Nicole Walker из чулочного трикотажа. Фотография из этой публикации Swedish Stockings.",
         "source": "https://swedishstockings.com/blogs/journal/dialogues-nicole-walker",
         "imageSource": "https://cdn.shopify.com/s/files/1/0078/3128/9969/files/Nicole-walker-top-22.jpg?v=1788168286"
-      },
-      "publication": {
-        "status": "ready",
-        "checkedAt": "2026-11-16T09:12:55.184309Z"
       }
     },
     {
@@ -1417,6 +1724,78 @@
       }
     },
     {
+      "id": "c2143ae99acd5eb5",
+      "title": "Why Great Tights Don't Have a Gender",
+      "url": "https://www.bettertights.com/blogs/news/why-great-tights-dont-have-a-gender",
+      "excerpt": "More men are wearing tights than ever before and for reasons that might surprise you. From everyday comfort and warmth to confidence, support and personal style, discover why hosiery is for everybody and how the Better Tights community is helping challenge outdated stereotypes.…",
+      "publishedAt": "2026-07-14T08:27:25Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "59da1bf58a05a125",
+      "title": "Summer Wardrobe Essentials: Stay Cool, Comfortable and Confident All Season",
+      "url": "https://www.bettertights.com/blogs/news/summer-wardrobe-essentials-stay-cool-comfortable-and-confident-all-season",
+      "excerpt": "Discover the ultimate summer wardrobe essentials with Better Tights. From breathable bamboo socks and lightweight summer sheer tights to anti chafing shorts and smoothing bodysuits, explore the must-have pieces designed to keep you cool, comfortable and confident all season…",
+      "publishedAt": "2026-07-09T14:11:12Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "f39402348bc5c358",
+      "title": "Introducing The Fruit Club: Limited Edition Fruit Print Knee High Socks & Anti Chafing Shorts",
+      "url": "https://www.bettertights.com/blogs/news/introducing-the-fruit-club-limited-edition-fruit-print-knee-high-socks-anti-chafing-shorts",
+      "excerpt": "Meet The Fruit Club Better Tights’ limited edition collection of hand-printed fruit designs. Discover our 40 denier knee high socks and bestselling anti chafing shorts, combining playful prints with comfort, quality and everyday confidence. More",
+      "publishedAt": "2026-07-07T12:11:30Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "e92ab68f7c50eaaf",
+      "title": "Premium Anti Chafing Shorts: Your Summer Essential for All-Day Comfort",
+      "url": "https://www.bettertights.com/blogs/news/premium-anti-chafing-shorts-your-summer-essential-for-all-day-comfort",
+      "excerpt": "Summer is for sunshine, not thigh chafing. If you're swapping your tights for dresses and skirts, our Premium Anti Chafing Shorts are the warm-weather essential you won't want to be without. Made with seamless 3D knitting technology, breathable premium stretch yarns and soft…",
+      "publishedAt": "2026-06-29T14:53:35Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
       "id": "7e3000a4ae753772",
       "title": "DIALOGUES - SYLVI SUNDKLER",
       "url": "https://swedishstockings.com/blogs/journal/dialogues-sylvi-sundkler",
@@ -1427,6 +1806,10 @@
       "sourceSite": "https://swedishstockings.com",
       "via": null,
       "language": "en",
+      "publication": {
+        "status": "ready",
+        "checkedAt": "2026-11-16T09:12:55.184309Z"
+      },
       "displayTitle": "Как использованные колготки стали частью коллекции SYLVI SUNDKLER",
       "summary": "Шведские бренды Swedish Stockings и SYLVI SUNDKLER представили капсульную коллекцию, созданную из колготок, собранных через Recycling Club. Проект переосмысляет текстиль, который уже не выполняет свою первоначальную функцию.",
       "sections": [
@@ -1465,10 +1848,168 @@
         "caption": "Работа над коллекцией SYLVI SUNDKLER: материалы, раскрой и примерка. Коллаж из публикации Swedish Stockings.",
         "source": "https://swedishstockings.com/blogs/journal/dialogues-sylvi-sundkler",
         "imageSource": "https://cdn.shopify.com/s/files/1/0078/3128/9969/files/hero-desktop-sylvi-sundkler-swedish-stockings-4.jpg?v=1782309763"
-      },
+      }
+    },
+    {
+      "id": "e721aa235934c420",
+      "title": "Spring In Your Step Returns by Popular Demand",
+      "url": "https://www.bettertights.com/blogs/news/spring-in-your-step-returns-by-popular-demand",
+      "excerpt": "Back by popular demand, our bestselling Spring In Your Step print returns for a limited time. Shop the beloved floral design in tights and anti-chafing shorts. More",
+      "publishedAt": "2026-06-23T14:39:00Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
       "publication": {
-        "status": "ready",
-        "checkedAt": "2026-11-16T09:12:55.184309Z"
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "398150deaeccda1f",
+      "title": "Team Better Tights Takes on the Twilight Walk in Leicester",
+      "url": "https://www.bettertights.com/blogs/news/team-better-tights-takes-on-the-twilight-walk-in-leicester",
+      "excerpt": "This Saturday, Team Better Tights will once again be taking part in the Twilight Walk in Leicester, joining hundreds of people in support of an incredible cause and raising vital funds for the local community. At Better Tights, we believe that making a positive impact extends…",
+      "publishedAt": "2026-06-18T13:37:49Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "7556334cd2c8e6b1",
+      "title": "World Cup Colours: The Best Better products for Supporting Your Team",
+      "url": "https://www.bettertights.com/blogs/news/world-cup-colours-the-best-tights-for-supporting-your-team",
+      "excerpt": "Celebrate the World Cup in colour with Better Tights. From England's iconic red and white to France's blue, Brazil's green, and the Netherlands' famous orange, discover better tights pieces inspired by the world's biggest football teams. Find the perfect pair to support your…",
+      "publishedAt": "2026-06-16T13:28:42Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "369f063f1151047a",
+      "title": "Meet the Better 6th Birthday Collection: Limited-Edition Printed Tights Designed by Our Team",
+      "url": "https://www.bettertights.com/blogs/news/meet-the-better-6th-birthday-collection-limited-edition-printed-tights-designed-by-our-team",
+      "excerpt": "At Better, we believe that tights should be anything but boring. For six years, we've been creating colourful, creative and confidence-boosting printed tights designed to bring joy to everyday outfits. To celebrate our 6th Birthday, we wanted to do something a little different.…",
+      "publishedAt": "2026-06-11T08:43:51Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "eb9bfdd7f11362e7",
+      "title": "Why You Should Be Wearing Sheer Tights This Summer",
+      "url": "https://www.bettertights.com/blogs/news/why-you-should-be-wearing-sheer-tights-this-summer",
+      "excerpt": "When most people think of tights, they picture cosy autumn outfits and chilly winter mornings. But we're here to make the case for something different: sheer tights deserve a place in your summer wardrobe too . Lightweight, breathable and effortlessly stylish, 30 denier tights…",
+      "publishedAt": "2026-06-10T10:48:21Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "a5cd59d10bbfcfae",
+      "title": "Introducing Coffee & Mocha: The Newest Shades in Our Core Collection",
+      "url": "https://www.bettertights.com/blogs/news/introducing-coffee-mocha-the-newest-shades-in-our-core-collection",
+      "excerpt": "When it comes to building a wardrobe that works effortlessly, it's all about the essentials. The pieces you reach for time and time again. The styles that complement every outfit without demanding attention. That's exactly why we're excited to introduce the newest additions to…",
+      "publishedAt": "2026-06-08T09:47:24Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "86dcff169172a993",
+      "title": "50 Denier Tights Colour Collection – Add a Pop of Colour This Summer",
+      "url": "https://www.bettertights.com/blogs/news/50-denier-tights-colour-collection-add-a-pop-of-colour-this-summer",
+      "excerpt": "Step into summer with confidence and colour with our 50 Denier Tights Colour Collection. Designed to combine comfort, coverage, and standout style, these tights are the perfect way to refresh your wardrobe with vibrant seasonal shades. Why Choose 50 Denier Tights? Our 50 denier…",
+      "publishedAt": "2026-05-21T14:00:11Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "ba2b140c1bc78055",
+      "title": "Discover the New Mini Me Hand Printed Collection",
+      "url": "https://www.bettertights.com/blogs/news/discover-the-new-mini-me-hand-printed-collection",
+      "excerpt": "Bright, Playful and Made for Everyday Adventures The new Mini Me Hand Printed Collection is here, bringing bold colours, playful prints and all-day comfort to children’s wardrobes. Featuring two limited edition designs, Pink Lemonade Printed Tights and Little Bloom Printed…",
+      "publishedAt": "2026-05-19T10:09:13Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "8fa3049c85b5c121",
+      "title": "Wavy Daisy Printed Tights – Unique Hand-Designed Printed Tights",
+      "url": "https://www.bettertights.com/blogs/news/wavy-daisy-printed-tights-unique-hand-designed-printed-tights",
+      "excerpt": "Wavy Daisy Printed Tights are a limited-edition, hand-designed floral hosiery style from Better Tights . Featuring a unique wavy daisy pattern, these statement printed tights for women are digitally sublimation printed in-house for vibrant, long-lasting colour, a smooth finish,…",
+      "publishedAt": "2026-05-14T11:37:45Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
       }
     },
     {
@@ -1482,6 +2023,10 @@
       "sourceSite": "https://snagtights.com",
       "via": null,
       "language": "en",
+      "publication": {
+        "status": "ready",
+        "checkedAt": "2026-11-16T09:12:55.184309Z"
+      },
       "displayTitle": "Одежда как источник сенсорного комфорта",
       "summary": "В статье Snag рассматривается, как ощущения от одежды могут влиять на чувство защищённости и напряжение. Мягкие, не стесняющие движений вещи автор противопоставляет раздражающей или неудобной одежде.",
       "sections": [
@@ -1518,10 +2063,96 @@
         "caption": "Образ с колготками Snag из материала Clothing as a Safe Space. Фотография из обсуждаемой публикации бренда.",
         "source": "https://snagtights.com/blogs/news/clothing-as-a-safe-space",
         "imageSource": "https://cdn.shopify.com/s/files/1/0605/3458/7580/files/Bella-Size-F-50-Denier-Hot-Chocolate5_50a84747-1885-4821-8ae4-eed0158dd217.jpg?v=1778518689"
-      },
+      }
+    },
+    {
+      "id": "747f8f4cfde5920d",
+      "title": "Just Landed: New 50 Denier Colour Tights for Spring & Early Summer | Better Tights",
+      "url": "https://www.bettertights.com/blogs/news/just-landed-new-50-denier-colour-tights-for-spring-early-summer-better-tights",
+      "excerpt": "Discover our new 50 denier coloured tights in Berry, Olive Branch, Thunder & Rainforest. Soft, opaque, comfortable tights designed for every body and every outfit this spring and summer. More",
+      "publishedAt": "2026-05-07T12:37:56Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
       "publication": {
-        "status": "ready",
-        "checkedAt": "2026-11-16T09:12:55.184309Z"
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "3c9af0771e52f3f9",
+      "title": "Become a better Beauty: Join the better Tights Brand Ambassador Programme",
+      "url": "https://www.bettertights.com/blogs/news/become-a-better-beauty-join-the-better-tights-brand-ambassador-programme",
+      "excerpt": "At better Tights , we believe fashion should be expressive, inclusive, and effortless. Our brand ambassador programme is designed for creators who love styling outfits, sharing content, and inspiring confidence through everyday fashion. We’re inviting influencers, creators, and…",
+      "publishedAt": "2026-05-01T12:06:52Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "d19cb3bea96cd21b",
+      "title": "Hosiery Care Guide: How to Look After Your Tights",
+      "url": "https://www.bettertights.com/blogs/news/hosiery-care-guide-how-to-look-after-your-tights",
+      "excerpt": "Better Tights Care Tips for Long-Lasting, Durable & Sustainable Wear At b etter Tights , we design premium hosiery that blends durability, comfort, and sustainability . To help you get the most out of your tights, leggings, and anti-chafing shorts, proper care is essential.…",
+      "publishedAt": "2026-04-30T09:51:41Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "4f549bd15c753e89",
+      "title": "How Our Printed Tights Are Made: Inside Better Tights’ Digital Sublimation Process",
+      "url": "https://www.bettertights.com/blogs/news/how-our-printed-tights-are-made-inside-better-tights-digital-sublimation-process",
+      "excerpt": "At better Tights, we believe your tights should be as bold and unique as your style. That’s why we create limited edition printed tights using an in-house design and production process that puts quality, colour, and durability first. If you’ve ever wondered how our statement…",
+      "publishedAt": "2026-04-29T14:42:55Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "e49297768e68052d",
+      "title": "Lightweight, Breathable, Unstoppable: Meet Your Spring Essentials",
+      "url": "https://www.bettertights.com/blogs/news/lightweight-breathable-unstoppable-meet-your-spring-essentials",
+      "excerpt": "When the temperature starts to rise, your wardrobe shifts with it and so should your legwear. From lightweight tights to anti-chafing shorts, sheer socks, and capris , spring is all about breathable layers that work with the weather (not against it). The New Rules of Spring…",
+      "publishedAt": "2026-04-28T14:37:57Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
       }
     },
     {
@@ -1564,6 +2195,24 @@
         "caption": "Lia Stir-Up Leggings в двух сочетаниях с жакетом. Коллаж из гида Swedish Stockings по легинсам со штрипками.",
         "source": "https://swedishstockings.com/blogs/journal/stir-up-leggings-style-guide",
         "imageSource": "https://cdn.shopify.com/s/files/1/0078/3128/9969/files/Lia-Stir-Up-Leggings-Style-Guide-Swedish-Stockings-22.jpg?v=1776848984"
+      }
+    },
+    {
+      "id": "960702e9edef8405",
+      "title": "better Tights Has Landed on Pinterest",
+      "url": "https://www.bettertights.com/blogs/news/better-tights-has-landed-on-pinterest",
+      "excerpt": "We’re excited to announce something fresh and inspiring from better Tights, our brand new Pinterest page is officially live! 🎉 Follow us here: https://uk.pinterest.com/bettertights01 This space is where our creativity comes to life. On our Pinterest, we’ll be sharing our…",
+      "publishedAt": "2026-04-17T12:03:22Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
       }
     },
     {
@@ -1612,6 +2261,42 @@
         "caption": "Лиссабонская съёмка Occasion Campaign 2026: розовые гольфы и кружевные капри. Коллаж Swedish Stockings из этой летней кампании.",
         "source": "https://swedishstockings.com/blogs/journal/behind-the-scenes-occasion-campaign-2026",
         "imageSource": "https://cdn.shopify.com/s/files/1/0078/3128/9969/files/Ocassion-shoot-bts-journal-swedish-stockings-16.png?v=1776168346"
+      }
+    },
+    {
+      "id": "dc09dbabd91fd86e",
+      "title": "Rethink Black: Meet Sheer Brown Tights",
+      "url": "https://www.bettertights.com/blogs/news/rethink-black-meet-sheer-brown-tights",
+      "excerpt": "Sheer brown tights are having a moment and it’s easy to see why. Once overlooked in favour of classic black, this softer, warmer alternative is quickly becoming a staple in modern wardrobes. What makes sheer brown tights especially exciting right now is how seamlessly they fit…",
+      "publishedAt": "2026-04-14T09:23:49Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
+      "id": "32515a5b6effa192",
+      "title": "Welcome to the NEW better Tights Journal",
+      "url": "https://www.bettertights.com/blogs/news/welcome-to-the-new-better-tights-journal",
+      "excerpt": "Welcome to the Better Tights Journal Welcome to the very first post on the Better Tights Journal —your new destination for everything related to tights, hosiery styling, brand updates, and community stories . This journal is where we go beyond products and share the heart of…",
+      "publishedAt": "2026-04-13T13:10:14Z",
+      "sourceId": "better",
+      "source": "Better Tights",
+      "sourceSite": "https://www.bettertights.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
       }
     },
     {
@@ -1708,6 +2393,24 @@
         "caption": "Коричневое кружево в весенней стилизации. Коллаж из Style Guide for Spring Legwear, Swedish Stockings.",
         "source": "https://swedishstockings.com/blogs/journal/style-guide-for-spring-legwear",
         "imageSource": "https://cdn.shopify.com/s/files/1/0078/3128/9969/files/Johanna-lager-desktop.jpg?v=1774015732"
+      }
+    },
+    {
+      "id": "76b68333be0de984",
+      "title": "Is it normal for a man to wear pantyhose?",
+      "url": "https://nylo.us/blogs/journal/is-it-socially-acceptable-for-men-to-wear-pantyhose",
+      "excerpt": "Yes, wearing pantyhose is an ordinary choice a man makes about what goes on his legs. Under trousers a pair goes wherever the trousers go, and what shows is the strip above the shoe when you sit. More",
+      "publishedAt": "2026-03-25T00:07:29Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
       }
     },
     {
@@ -1855,6 +2558,24 @@
       }
     },
     {
+      "id": "f2535b185054d0fd",
+      "title": "Why would a man wear pantyhose? The practical reasons",
+      "url": "https://nylo.us/blogs/journal/why-do-men-wear-pantyhose",
+      "excerpt": "A man wears pantyhose for how a fine knit sits under his trousers and how the leg looks when he sits and the hem lifts. Ours are sheer pantyhose made for men, sized by height and weight, not waist. More",
+      "publishedAt": "2026-02-12T22:56:00Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
+      }
+    },
+    {
       "id": "e41511467a863f74",
       "title": "CPHFW AW26 - RUNWAY RECAP",
       "url": "https://swedishstockings.com/blogs/journal/cphfw-aw26-runway-recap",
@@ -1936,6 +2657,24 @@
         "caption": "За кадром коллекции Swedish Stockings весна–лето 2026. Студийный коллаж из этой публикации бренда.",
         "source": "https://swedishstockings.com/blogs/journal/bts-ss26",
         "imageSource": "https://cdn.shopify.com/s/files/1/0078/3128/9969/files/hero-desktop-BTS-swedish-stockings-1.jpg?v=1769518722"
+      }
+    },
+    {
+      "id": "6ae1e37e99a198ae",
+      "title": "Pantyhose for men: how the brands compare on sizing",
+      "url": "https://nylo.us/blogs/journal/best-pantyhose-brands-for-men",
+      "excerpt": "Pantyhose sizing differs by brand: some set a size from height and weight, some from waist and inseam, some from weight, and some from a letter chart. Here is what six brands and NYLO state on their own pages, and who each pair suits. More",
+      "publishedAt": "2026-01-02T00:56:00Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0
       }
     },
     {
@@ -2037,13 +2776,13 @@
   ],
   "aiUsage": {
     "date": "2026-11-16",
-    "calls": 6,
-    "dailyLimit": 10,
+    "calls": 9,
+    "dailyLimit": 60,
     "model": "gpt-6-luna"
   },
   "queue": {
     "ready": 40,
-    "pending": 0,
+    "pending": 40,
     "failed": 0
   }
 }

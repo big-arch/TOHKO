@@ -5,7 +5,38 @@
   const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const normal=v=>v.toLocaleLowerCase('ru').replaceAll('ё','е');
   const brands=[...new Set(rows.map(r=>r.brand))];
-  const dialog=$('pack-dialog');let shown=rows,current=0,opener=null,oldOverflow='';
+  const dialog=$('pack-dialog');let shown=rows,current=0,opener=null,oldOverflow='',activePhotos=[],photoIndex=0;
+  const looks=window.TONKO_PACKAGE_LOOKS?.items||[];
+  const exactKey=v=>normal(String(v||'')).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zа-я0-9]+/g,' ').trim();
+  const photoDialog=$('pack-photo-dialog');
+  document.querySelector('.pack-looks').after(document.querySelector('.pack-styling'));
+  function keepDialogFocus(e,modal){if(e.key!=='Tab')return;const controls=[...modal.querySelectorAll('button:not([disabled]),a[href],summary,input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>el.getClientRects().length);if(!controls.length)return;const first=controls[0],last=controls[controls.length-1];if(e.shiftKey&&(document.activeElement===first||!modal.contains(document.activeElement))){e.preventDefault();last.focus();}else if(!e.shiftKey&&(document.activeElement===last||!modal.contains(document.activeElement))){e.preventDefault();first.focus();}}
+  let stylePhotos=window.TONKO_STYLE_PHOTOS?.items||[],stylesReady=null;
+  function findLooks(r){return looks.find(x=>Array.isArray(x.packageIds)&&x.packageIds.includes(r.id)&&exactKey(x.exactMatch?.brand)===exactKey(r.brand)&&x.exactMatch?.den===r.den);}
+  function suggestions(r){
+    if(r.productKind==='легинсы')return 'Попробуйте удлинённый жакет или свободный трикотаж и лаконичную обувь. Посадку и длину сверяйте с карточкой модели.';
+    if(r.productKind==='гольфы')return 'Попробуйте миди или укороченные брюки с лоферами. Проверьте, где заканчивается манжета и видна ли она в движении.';
+    if(r.den===null)return 'Начните с одного акцента: рисунка, цвета или фактуры. Подберите спокойную одежду и проверьте сочетание при дневном свете.';
+    if(r.den<=20)return 'Тонкие колготки можно сочетать с платьем, юбкой или строгими шортами. Для спокойного образа подберите близкий к обуви оттенок.';
+    if(r.den<=50)return 'Попробуйте юбку миди, жакет или трикотажное платье. Оттенок обуви в тон колготкам помогает собрать цельное сочетание.';
+    return 'Попробуйте плотный трикотаж, шерстяную юбку или свободные шорты с ботинками. Гладкая одежда уравновесит выраженную фактуру.';
+  }
+  function inspiration(r){
+    const hints=r.den!==null&&r.den<=20?['sheer','тонкие','прозрачные']:r.den!==null&&r.den>=60?['opaque','плотные','трикотаж']:['tights','колготки','skirt','юбка'];
+    return stylePhotos.filter(p=>p.src&&p.thumb).map(p=>({p,score:(p.tags||[]).filter(t=>hints.some(h=>normal(String(t)).includes(h))).length})).sort((a,b)=>b.score-a.score).slice(0,2).map(({p})=>({...p,matchType:'inspiration'}));
+  }
+  function renderDetails(r){
+    const matched=findLooks(r),kind=r.productKind||'колготки';
+    $('pack-facts').innerHTML=`<div><dt>Тип изделия</dt><dd>${esc(kind)}</dd></div><div><dt>DEN в названии</dt><dd>${r.den===null?'Не указано':esc(r.den)+' DEN'}</dd></div>`;
+    $('pack-styling').textContent=suggestions(r);
+    activePhotos=matched?.photos?.length?matched.photos.map(p=>({...p,matchType:'exact'})):inspiration(r);
+    $('pack-looks-title').textContent=matched?'На модели: '+matched.model:'Идеи сочетаний';
+    $('pack-looks-note').textContent=matched?'Каталожные фотографии этой модели. Источник подтверждает название; цвет и выпуск могут отличаться от упаковки.':activePhotos.length?'Проверенных дополнительных фото этой модели пока нет. Ниже — идеи сочетаний: бренд и модель колготок на этих снимках могут отличаться.':'Проверенных дополнительных фото этой модели пока нет. Используйте идею сочетания выше и ссылку на карточку источника.';
+    $('pack-looks-grid').innerHTML=activePhotos.map((p,i)=>`<figure class="pack-look"><button type="button" class="pack-look-open" data-look-index="${i}" aria-label="Увеличить: ${esc(p.alt||p.title)}"><img src="${esc(p.thumb||p.src)}" alt="${esc(p.alt||p.title)}" width="${Number(p.width)||600}" height="${Number(p.height)||800}" loading="${i<2?'eager':'lazy'}" decoding="async"><span aria-hidden="true">↗</span></button><figcaption>${esc(p.caption||p.title)}${p.matchType==='inspiration'?'<small>Идея сочетания · другая или неустановленная модель</small>':''}</figcaption></figure>`).join('');
+    $('pack-looks-grid').hidden=!activePhotos.length;
+    if(!matched&&!stylePhotos.length&&!stylesReady){stylesReady=fetch('data/style-photos.json').then(res=>res.ok?res.json():null).then(data=>{stylePhotos=Array.isArray(data?.items)?data.items:[];if(dialog.open&&shown[current])renderDetails(shown[current]);}).catch(()=>{});}
+  }
+  function displayPhoto(index){photoIndex=(index+activePhotos.length)%activePhotos.length;const p=activePhotos[photoIndex];if(!p)return;$('pack-photo-full').src=p.src;$('pack-photo-full').alt=p.alt||p.title;$('pack-photo-title').textContent=p.title;$('pack-photo-caption').textContent=p.caption||p.alt;$('pack-photo-source').href=p.source;$('pack-photo-source').textContent=(p.sourceLabel||p.credit||'Источник фотографии')+' ↗';$('pack-photo-match').textContent=p.matchType==='exact'?'Фотография конкретной модели':'Идея сочетания · это не подтверждённое фото выбранной модели';$('pack-photo-position').textContent=`${photoIndex+1} / ${activePhotos.length}`;$('pack-photo-previous').disabled=$('pack-photo-next').disabled=activePhotos.length<2;}
   const limits=new Map();
   $('pack-directory').open=!matchMedia('(max-width:800px)').matches;
   const params=new URLSearchParams(location.search);
@@ -35,7 +66,8 @@
     $('pack-image-area').classList.remove('is-zoomed');$('pack-zoom').setAttribute('aria-pressed','false');$('pack-zoom').textContent='Увеличить';
     $('pack-label').textContent=r.brand;$('pack-title').textContent=r.title;$('pack-caption').textContent=r.caption;
     $('pack-source').href=r.source;$('pack-source').textContent=r.sourceName+' ↗';$('pack-position').textContent=`${current+1} / ${shown.length}`;
-    $('pack-variants').replaceChildren();if(r.variants.length){const p=document.createElement('p');p.textContent='Другие изображения и карточки этой упаковки:';$('pack-variants').append(p);r.variants.forEach(v=>{const a=document.createElement('a');a.href=v.source;a.target='_blank';a.rel='noopener noreferrer';a.textContent=v.title+' ↗';$('pack-variants').append(a);if(v.image){const photo=document.createElement('a');photo.href=v.image;photo.target='_blank';photo.rel='noopener noreferrer';photo.textContent='Рассмотреть дополнительное фото ↗';$('pack-variants').append(photo);}});}
+    renderDetails(r);
+    $('pack-variants').replaceChildren();if(r.variants.length){const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='Другие изображения и источники упаковки ('+r.variants.length+')';details.append(summary);$('pack-variants').append(details);r.variants.forEach(v=>{const a=document.createElement('a');a.href=v.source;a.target='_blank';a.rel='noopener noreferrer';a.textContent=v.title+' ↗';details.append(a);if(v.image){const photo=document.createElement('a');photo.href=v.image;photo.target='_blank';photo.rel='noopener noreferrer';photo.textContent='Рассмотреть дополнительное фото ↗';details.append(photo);}});}
     $('pack-previous').disabled=$('pack-next').disabled=shown.length<2;
     const u=new URL(location.href);u.searchParams.set('pack',r.id);history.replaceState(null,'',u);
   }
@@ -45,9 +77,14 @@
   });
   $('pack-brand-links').addEventListener('click',e=>{const a=e.target.closest('[data-brand]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();$('pack-brand').value=a.dataset.brand;limits.clear();render();if(matchMedia('(max-width:800px)').matches)$('pack-directory').open=false;$('package-archive').scrollIntoView({block:'start'});$('pack-brand').focus({preventScroll:true});});
   $('pack-close').onclick=()=>dialog.close();dialog.addEventListener('close',()=>{document.documentElement.style.overflow=oldOverflow;const u=new URL(location.href);u.searchParams.delete('pack');history.replaceState(null,'',u);opener?.focus({preventScroll:true});});
-  function change(n){if(shown.length){current=(current+n+shown.length)%shown.length;display();}}
+  function change(n){if(shown.length){current=(current+n+shown.length)%shown.length;display();if(dialog.open&&!dialog.contains(document.activeElement))$(n<0?'pack-previous':'pack-next').focus();}}
   $('pack-previous').onclick=()=>change(-1);$('pack-next').onclick=()=>change(1);
-  dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();change(e.key==='ArrowLeft'?-1:1);}});
+  $('pack-looks-grid').addEventListener('click',e=>{const button=e.target.closest('[data-look-index]');if(!button)return;displayPhoto(Number(button.dataset.lookIndex));photoDialog.showModal();});
+  $('pack-photo-close').onclick=()=>photoDialog.close();
+  $('pack-photo-previous').onclick=()=>displayPhoto(photoIndex-1);$('pack-photo-next').onclick=()=>displayPhoto(photoIndex+1);
+  photoDialog.addEventListener('keydown',e=>{keepDialogFocus(e,photoDialog);if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();e.stopPropagation();displayPhoto(photoIndex+(e.key==='ArrowLeft'?-1:1));}});
+  photoDialog.addEventListener('click',e=>{if(e.target===photoDialog){const r=photoDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)photoDialog.close();}});
+  dialog.addEventListener('keydown',e=>{keepDialogFocus(e,dialog);if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();change(e.key==='ArrowLeft'?-1:1);}});
   $('pack-zoom').onclick=()=>{const area=$('pack-image-area');if(!area.classList.contains('is-zoomed'))area.style.setProperty('--pack-zoom-width',Math.round($('pack-full').getBoundingClientRect().width*2)+'px');const active=area.classList.toggle('is-zoomed');$('pack-zoom').setAttribute('aria-pressed',String(active));$('pack-zoom').textContent=active?'Вписать':'Увеличить';};
   dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
   document.querySelector('.pack-tools').hidden=false;document.querySelector('.pack-tools').onsubmit=e=>e.preventDefault();
