@@ -28,6 +28,7 @@ jobs:
       - name: Refresh fashion headlines
         run: |
           python scripts/update-news.py --deployed
+          python scripts/build-packaging.py
           python scripts/build-home-news.py
       - name: Check local links and JavaScript
         run: |

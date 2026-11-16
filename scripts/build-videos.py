@@ -46,7 +46,7 @@ t=t.replace('</body>','<script src="data/videos.js"></script><script src="video-
 
 def strip(t,marker):return re.sub('<!-- '+marker+' -->.*?<!-- /'+marker+' -->','',t,flags=re.S)
 
-nav=[('journal.html','Журнал'),('brands.html','Бренды'),('lookbook.html','Галерея'),('videos.html','Видео'),('men.html','Мужчинам'),('leggings.html','Легинсы'),('business.html','Индустрия'),('guide.html','Как выбрать'),('search.html','Поиск')]
+nav=[('journal.html','Журнал'),('brands.html','Бренды'),('lookbook.html','Галерея'),('packaging.html','Упаковки'),('videos.html','Видео'),('men.html','Мужчинам'),('leggings.html','Легинсы'),('business.html','Индустрия'),('guide.html','Как выбрать'),('search.html','Поиск')]
 for path in S.glob('*.html'):
  t=path.read_text(encoding='utf-8');current='journal.html' if path.name.startswith('read-') else path.name
  t=re.sub(r'((?:editorial|videos)\.(?:js|css)|data/videos\.js)\?v=[^"\s]+',r'\1',t)
@@ -66,6 +66,6 @@ for path in S.glob('*.html'):
  if path.name=='sources.html':
   t=strip(t,'video-sources');t=t.replace('</main>','<!-- video-sources --><section class="portal-container experience-related"><h2>Видеотека и фотографии: выпуск 06</h2><p>Добавлены три каталожных кадра одетых образов Adrian из публикации Activskin. Прежние три фотографии мужских моделей без полного комплекта одежды исключены из опубликованной коллекции.</p><p>Видеотека содержит 18 роликов: 11 YouTube, 5 Vimeo и 2 Snag в плеере HTML5. Фильмы Journey of a Thread взяты из официального журнала Swedish Stockings; их реальное воспроизведение проверено внутри ТОНКО. Названия, каналы и ссылки проверены через oEmbed соответствующей платформы; просмотрены превью. Проверка не является сплошным просмотром каждого ролика или юридической экспертизой. Автор может изменить название, превью, описание и доступность видео.</p><p>Превью принадлежат авторам видео. Видеофайлы не скачиваются: используются официальные встроенные плееры Vimeo и YouTube, а видео Snag поступает с официального CDN в HTML5-плеер.</p><a href="videos.html">Каналы и оригиналы видео →</a></section><!-- /video-sources --></main>')
  for asset in ('editorial.css','editorial.js','videos.css','videos.js','data/videos.js'):
-  t=t.replace('="'+asset+'"','="'+asset+'?v=20261116-media8"')
+  t=t.replace('="'+asset+'"','="'+asset+'?v=20261116-media9"')
  path.write_text(t,encoding='utf-8')
 print(f'Built video library: {len(videos)} videos; navigation, search, shelf and privacy linked.')

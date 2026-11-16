@@ -5,6 +5,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from news_feed import parse_feed, merge_items, collect, safe_url
+from news_editorial import apply_editorial
+from news_render import story
 spec=importlib.util.spec_from_file_location('update_news',Path(__file__).resolve().parents[1]/'scripts/update-news.py')
 updater=importlib.util.module_from_spec(spec);spec.loader.exec_module(updater)
 
@@ -14,6 +16,25 @@ def rss(title='New patterned tights', link='https://example.org/story?utm_source
     return f'<rss><channel><item><title>{title}</title><link>{link}</link><pubDate>{date}</pubDate></item></channel></rss>'.encode()
 
 class NewsTests(unittest.TestCase):
+    def test_editorial_survives_successful_feed_refresh(self):
+        url='https://bracatus.com/kak-ranshe-borolis-s-neprochnostyu-chulok-kak-eto-delayut-sejchas'
+        source={**SOURCE,'id':'bracatus','site':'https://bracatus.com'}
+        old=collect([source],{},lambda s:rss(link=url),NOW)
+        apply_editorial(old)
+        updated=collect([source],old,lambda s:rss(link=url),NOW)
+        apply_editorial(updated)
+        item=updated['items'][0]
+        self.assertEqual(len(item['sections']),3)
+        self.assertEqual(item['publishedAt'],'2026-11-15T12:00:00Z')
+        self.assertIn('pkg-a003df0fca',item['illustration']['src'])
+        self.assertNotIn('ss-clara',story(item))
+    def test_static_reader_escapes_text_and_keeps_source(self):
+        item=parse_feed(rss(),SOURCE,NOW)[0]
+        item.update(summary='<script>alert(1)</script>',sections=[{'heading':'Details','paragraphs':['<b>test</b>']}])
+        rendered=story(item)
+        self.assertNotIn('<script>',rendered)
+        self.assertIn('&lt;script&gt;',rendered)
+        self.assertIn('https://example.org/story',rendered)
     def test_publisher_announcement_wins_over_aggregator_duplicate(self):
         direct=parse_feed(rss(),SOURCE,NOW)[0]
         direct['excerpt']='A useful publisher announcement.'
@@ -29,6 +50,14 @@ class NewsTests(unittest.TestCase):
         item = parse_feed(rss(), SOURCE, NOW)[0]
         self.assertEqual(item['url'], 'https://example.org/story')
         self.assertEqual(item['publishedAt'], '2026-11-15T12:00:00Z')
+    def test_only_publisher_featured_image_is_used(self):
+        raw=rss().replace(b'<rss>',b'<rss xmlns:media="http://search.yahoo.com/mrss/">').replace(b'</item>',b'<media:content medium="image" url="https://example.org/photo.jpg" width="800" height="1000"/></item>')
+        self.assertEqual(parse_feed(raw,SOURCE,NOW)[0]['illustration']['src'],'https://example.org/photo.jpg')
+        for url in [b'https://evil.org/photo.jpg',b'javascript:alert(1)',b'https://example.org/logo.jpg',b'https://user:pass@example.org/photo.jpg']:
+            self.assertNotIn('illustration',parse_feed(raw.replace(b'https://example.org/photo.jpg',url),SOURCE,NOW)[0])
+        self.assertNotIn('illustration',parse_feed(raw.replace(b'width="800"',b'width="1"'),SOURCE,NOW)[0])
+    def test_missing_image_does_not_get_an_unrelated_gallery_photo(self):
+        self.assertNotIn('illustration',parse_feed(rss(),SOURCE,NOW)[0])
     def test_atom_uses_publication_not_modified_date(self):
         raw=b'<feed xmlns="http://www.w3.org/2005/Atom"><entry><title>New tights</title><link href="https://example.org/story"/><published>2026-11-14T12:00:00+02:00</published><updated>2026-11-15T12:00:00Z</updated></entry></feed>'
         self.assertEqual(parse_feed(raw,SOURCE,NOW)[0]['publishedAt'],'2026-11-14T10:00:00Z')

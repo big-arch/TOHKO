@@ -1,4 +1,4 @@
-"""RSS/Atom headlines only. No external HTML, scripts, or images are published."""
+"""RSS/Atom announcements and explicit publisher cover images. Never embed HTML."""
 import hashlib
 import re
 import xml.etree.ElementTree as ET
@@ -39,6 +39,34 @@ def safe_url(value, source):
         return urlunsplit(('https',parsed.netloc,parsed.path,urlencode(query),''))
     except (ValueError, AttributeError): return None
 
+IMAGE_HOSTS={
+    'whowhatwear':{'cdn.mos.cms.futurecdn.net','cdn.mos.cms.futurecdn.com'},
+    'swedish':{'cdn.shopify.com'},'snag':{'cdn.shopify.com'},
+    'fashionunited':{'media.fashionunited.com'},
+}
+
+def featured_image(node, source):
+    # Only a cover explicitly attached to this feed entry, not an arbitrary
+    # <img> from advertisements, article HTML, or a broad keyword match.
+    if source.get('publishers'):return None
+    for child in node.iter():
+        name=child.tag.split('}')[-1]
+        media=child.tag.startswith('{http://search.yahoo.com/mrss/}')
+        if not ((media and name in ('content','thumbnail')) or name=='enclosure'):continue
+        a=child.attrib
+        if name not in ('thumbnail',) and a.get('medium')!='image' and not a.get('type','').startswith('image/'):continue
+        try:
+            url=urlsplit(a.get('url',''));host=(url.hostname or '').removeprefix('www.')
+            allowed={urlsplit(source['site']).hostname.removeprefix('www.')}|IMAGE_HOSTS.get(source['id'],set())
+            if url.scheme!='https' or url.username or url.password or url.port not in (None,443) or host not in allowed:continue
+            if re.search(r'logo|favicon|placeholder|tracking|pixel|avatar|sprite|bracatus\.jpg',url.path,re.I):continue
+            if not re.search(r'\.(?:jpg|jpeg|png|webp|avif)$',url.path,re.I):continue
+            if any(int(a.get(size,'300'))<200 for size in ('width','height')):continue
+        except (ValueError,AttributeError):continue
+        return {'src':urlunsplit(url),'alt':'Иллюстрация к публикации '+source['name'],
+                'caption':'Изображение, приложенное изданием к этой публикации в RSS.','source':source['site']}
+    return None
+
 def parse_feed(raw, source, now):
     if len(raw)>8_000_000: raise ValueError('Feed too large')
     if b'<!DOCTYPE' in raw.upper() or b'<!ENTITY' in raw.upper(): raise ValueError('DTD not supported')
@@ -78,6 +106,10 @@ def parse_feed(raw, source, now):
                       'publishedAt':iso(published),'sourceId':source['id'],'source':publisher,
                       'sourceSite':publisher_site,'via':'Google News' if source.get('publishers') else None,
                       'language':'ru' if re.search('[А-Яа-яЁё]',title) else source['language'] if source['language']!='mixed' else 'en'})
+        image=featured_image(node,source)
+        if image:
+            image['source']=url
+            items[-1]['illustration']=image
     return items
 
 def merge_items(items, now):

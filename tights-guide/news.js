@@ -9,7 +9,7 @@
   let current=null,pending=null,language='all',limit=6,busy=false;
   try{current=validate(JSON.parse(document.getElementById('news-seed').textContent));}catch{}
   const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text)el.textContent=text;if(cls)el.className=cls;return el;};
-  const signature=data=>JSON.stringify(data.items.map(i=>[i.id,i.title,i.displayTitle,i.excerpt,i.summary,i.publishedAt]));
+  const signature=data=>JSON.stringify(data.items.map(i=>[i.id,i.title,i.displayTitle,i.excerpt,i.summary,i.sections,i.illustration,i.references,i.publishedAt]));
   function validate(data){
     if(data.version!==1||!Array.isArray(data.items)||!Array.isArray(data.sources))throw Error('Invalid news data');
     data.items=data.items.filter(i=>{
@@ -43,7 +43,7 @@
       meta.append(node('span',i.source+(i.via?' · через Google News':'')),time,node('span',i.language==='ru'?'RU':'EN'));
       const title=node('h3'),link=node('a',i.displayTitle||i.title);
       link.href=`news.html#story-${i.id}`;link.dataset.newsId=i.id;link.lang=i.displayTitle?'ru':i.language==='ru'?'ru':'en';
-      title.append(link);article.append(meta,title,node('span','Читать на ТОНКО →','news-read'));fragment.append(article);
+      title.append(link);article.append(meta,title,node('span',i.sections?.length?'Разбор ТОНКО · Читать →':'Короткая новость · Читать →','news-read'));fragment.append(article);
     });
     if(!items.length)fragment.append(node('p','Пока нет публикаций на выбранном языке. Посмотрите общую ленту.'));
     list.replaceChildren(fragment);more.hidden=items.length<=limit;

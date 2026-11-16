@@ -4,11 +4,15 @@ import json
 import re
 from pathlib import Path
 from datetime import datetime
+from news_editorial import apply_editorial
+from news_render import story
 
 ROOT=Path(__file__).resolve().parents[1]/'tights-guide'
 esc=lambda value:html.escape(str(value),quote=True)
 news_path=ROOT/'data/news.json'
 news=json.loads(news_path.read_text(encoding='utf-8')) if news_path.exists() else {'items':[],'sources':[]}
+apply_editorial(news)
+news_path.write_text(json.dumps(news,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 media={m['id']:m for m in json.loads((ROOT/'data/editorial-media.json').read_text(encoding='utf-8'))}
 
 def card(item):
@@ -38,11 +42,12 @@ for ident in ids:
     photos.append(f'''<figure><a href="lookbook.html?filter=outfits#photo-{ident}" aria-label="{esc(m['title'])}: открыть в галерее"><img src="{esc(m['image'])}" alt="{esc(m['alt'])}" width="{m['width']}" height="{m['height']}" loading="lazy"{responsive}></a><figcaption>{esc(m['title'])}</figcaption></figure>''')
 looks='''<!-- tonko-looks --><section class="portal-container home-looks" aria-labelledby="looks-title"><div class="looks-heading"><div><p class="portal-eyebrow">Колготки в гардеробе</p><h2 id="looks-title">Вещи складываются<br>в образ.</h2></div><p>Косуха, трикотаж, юбка или шорты. Женские и мужские сочетания из вашей подборки.</p></div><div class="looks-grid">'''+''.join(photos)+'''</div><div class="looks-bottom"><a class="experience-text-link" href="lookbook.html?filter=outfits">Все семь образов ↗</a><span>Подборка владельца ТОНКО · авторы кадров не установлены</span></div></section><!-- /tonko-looks -->'''
 looks=looks.replace('из вашей подборки','из съёмок брендов и подборки ТОНКО').replace('Все семь образов',f'Все образы: {sum("outfit" in m.get("tags",[]) for m in media.values())}').replace('Подборка владельца ТОНКО · авторы кадров не установлены','Источник каждой фотографии — в галерее')
+archive=json.loads((ROOT/'data/packaging.json').read_text(encoding='utf-8'))
 packs=[]
-for ident in ['ss-pack','pack-omsa-attiva','pack-gabriella-mat','pack-conte']:
-    m=media[ident]
-    packs.append(f'<figure><a href="lookbook.html?filter=packaging#photo-{ident}"><img src="{esc(m["image"])}" alt="{esc(m["alt"])}" loading="lazy" width="{m["width"]}" height="{m["height"]}"></a><figcaption>{esc(m["title"])}</figcaption></figure>')
-packaging='<!-- tonko-packaging --><section class="portal-container home-looks home-packaging"><div class="looks-heading"><div><p class="portal-eyebrow">Лицевая сторона. Оборот. Детали.</p><h2>Знакомство<br>с упаковки.</h2></div><p>Swedish Stockings, OMSA, Gabriella и Conte. Рассмотрите оформление, обозначения и размерные сетки в галерее брендов.</p></div><div class="looks-grid">'+''.join(packs)+'</div><a class="experience-text-link" href="lookbook.html?filter=packaging">Все упаковки →</a></section><!-- /tonko-packaging -->'
+for ident in ['pkg-falke','pkg-wolford','pkg-a003df0fca','pkg-c05d201da8']:
+    m=next(r for r in archive if r['id']==ident)
+    packs.append(f'<figure><a href="packaging.html?pack={ident}"><img src="{esc(m["thumbnail"])}" alt="Упаковка {esc(m["title"])}" loading="lazy" width="{m["width"]}" height="{m["height"]}"></a><figcaption>{esc(m["title"])}</figcaption></figure>')
+packaging=f'<!-- tonko-packaging --><section class="portal-container home-looks home-packaging"><div class="looks-heading"><div><p class="portal-eyebrow">Логотипы. Модели. Детали.</p><h2>Знакомство<br>с упаковки.</h2></div><p>{len(archive)} изображений, {len(set(r["brand"] for r in archive))} брендов. Упаковки и фирменные вкладыши: поиск по модели, сравнение оформления и просмотр крупным планом.</p></div><div class="looks-grid">'+''.join(packs)+'</div><a class="experience-text-link" href="packaging.html">Открыть архив упаковок →</a></section><!-- /tonko-packaging -->'
 
 p=ROOT/'index.html';text=p.read_text(encoding='utf-8')
 for marker in ('tonko-news','tonko-looks','tonko-packaging'):
@@ -52,19 +57,16 @@ if anchor not in text: anchor='<section class="portal-section">'
 if anchor not in text: raise SystemExit('Home insertion anchor missing')
 text=text.replace(anchor,section+looks+packaging+anchor,1)
 if 'href="news.css' not in text:text=text.replace('</head>','<link rel="stylesheet" href="news.css?v=20261116-1"></head>')
+if 'href="news-reader.css' not in text:text=text.replace('</head>','<link rel="stylesheet" href="news-reader.css?v=20261116-9"></head>')
 if 'src="news.js' not in text:text=text.replace('</body>','<script src="news.js?v=20261116-1" defer></script></body>')
 text=re.sub(r'<script id="news-seed".*?</script>','',text,flags=re.S)
 text=re.sub(r'<script src="news-reader.js[^\"]*"[^>]*></script>','',text)
 seed=json.dumps(news,ensure_ascii=False).replace('<','\\u003c')
-text=text.replace('<script src="news.js',f'<script id="news-seed" type="application/json">{seed}</script><script src="news-reader.js?v=20261116-8" defer></script><script src="news.js')
-text=re.sub(r'(news\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261116-8',text)
+text=text.replace('<script src="news.js',f'<script id="news-seed" type="application/json">{seed}</script><script src="news-reader.js?v=20261116-9" defer></script><script src="news.js')
+text=re.sub(r'(news\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261116-9',text)
 p.write_text(text,encoding='utf-8')
 # A readable, linkable fallback also works without JavaScript.
-stories=[]
-for i in news.get('items',[]):
-    brief=i.get('summary') or i.get('excerpt') or 'В ленте источника доступен только заголовок этой публикации. Развёрнутый анонс пока не предоставлен.'
-    credit='Краткий пересказ ТОНКО по публикации источника.' if i.get('summary') else 'Короткий анонс источника. Полный текст принадлежит издателю.'
-    stories.append(f'<article class="reader-copy news-fallback" id="story-{esc(i["id"])}"><p class="portal-eyebrow">ТОНКО / Краткая новость</p><p class="news-meta">{esc(i["source"])} · {esc(i["publishedAt"][:10])}</p><h2>{esc(i.get("displayTitle") or i["title"])}</h2><p class="reader-excerpt">{esc(brief)}</p><p class="reader-credit">{esc(credit)}</p><a href="{esc(i["url"])}" target="_blank" rel="noopener noreferrer">Первоисточник ↗</a><p><a href="index.html#fashion-news">← Вернуться к ленте</a></p></article>')
+stories=[story(i) for i in news.get('items',[])]
 fallback=re.sub(r'<main\b[^>]*>.*?</main>',lambda m:'<main id="content" class="portal-container"><h1>В фокусе чулочной моды.</h1>'+''.join(stories)+'</main>',text,flags=re.S)
 fallback=re.sub(r'<script[^>]*(?:news-seed|news-reader\.js|news\.js)[^>]*>.*?</script>','',fallback,flags=re.S)
 fallback=re.sub(r'<title>.*?</title>','<title>Новости чулочной моды — ТОНКО</title>',fallback)

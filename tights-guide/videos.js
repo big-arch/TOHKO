@@ -10,6 +10,14 @@
   const memory=window.TonkoVideoMemory;
   let progressTimer=0;
   $('video-youtube-mode').value=memory.mode();
+  const accountHelp=document.createElement('section');accountHelp.className='youtube-account-help';accountHelp.hidden=true;
+  accountHelp.innerHTML='<h3>Уже вошли в YouTube, а видео просит войти снова?</h3><p>Вход в отдельном окне YouTube не всегда передаётся встроенному плееру. Сначала включите обычный режим, затем обновите плеер после входа.</p><p id="youtube-mode-status" role="status"></p><div class="video-player-actions"><button type="button" id="youtube-use-account">Использовать обычный YouTube</button><button type="button" id="youtube-reconnect">Обновить плеер после входа</button></div><details><summary>Если YouTube всё ещё пишет «Вы не бот»</summary><p>Браузер может изолировать cookies YouTube внутри другого сайта; на просмотр также могут влиять расширения. Проверьте разрешения для YouTube именно на этой странице. ТОНКО не может определить, вошли ли вы в Google, и не может отменить проверку YouTube.</p><p>Не нужно повторно вводить пароль на ТОНКО: сайт не имеет доступа к вашему аккаунту. Для просмотра без входа выберите «Без аккаунта · плеер ТОНКО» в фильтре.</p><a href="https://support.google.com/youtube/answer/3037019?hl=ru" target="_blank" rel="noopener noreferrer">Рекомендации YouTube по воспроизведению ↗</a></details>';
+  $('video-viewing-note').after(accountHelp);
+  function updateAccountHelp(){
+    const standard=memory.mode()==='standard';
+    $('youtube-mode-status').textContent=standard?'Включён обычный youtube.com. Наличие входа управляется браузером и YouTube.':'Включён приватный youtube-nocookie.com. Этот режим не рассчитан на использование вашего входа youtube.com.';
+    $('youtube-use-account').disabled=standard;
+  }
   const ids = new Set(videos.map(v => v.id));
   const languages = { ru: 'На русском', en: 'На английском', none: 'Без речи', original: 'Язык оригинала' };
   const provider = video => ['vimeo','native'].includes(video.provider) ? video.provider : 'youtube';
@@ -250,6 +258,7 @@
     $('video-current-author').href = video.authorUrl;
     $('video-original').href = video.url;
     const isVimeo = provider(video) === 'vimeo',isNative=provider(video)==='native';
+    accountHelp.hidden=isVimeo||isNative;updateAccountHelp();
     const name = isNative ? 'Snag · HTML5' : isVimeo ? 'Vimeo' : 'YouTube';
     $('video-original').textContent = isNative?'Источник: официальный сайт Snag ↗':`Оригинал на ${name} ↗`;
     $('video-viewing-note').textContent = isNative?'Плеер ТОНКО · Без аккаунта':isVimeo ? 'Vimeo · Просмотр на ТОНКО' : 'Встроенный YouTube · Сервис может запросить вход';
@@ -329,8 +338,14 @@
   $('video-provider').addEventListener('change', () => filter());
   $('video-youtube-mode').addEventListener('change',()=>{
     memory.setMode($('video-youtube-mode').value);
+    updateAccountHelp();
     if(provider(current)==='youtube'&&playing)selectVideo(current,true);
   });
+  $('youtube-use-account').addEventListener('click',()=>{
+    memory.setMode('standard');$('video-youtube-mode').value='standard';updateAccountHelp();
+    if(provider(current)==='youtube')selectVideo(current,true);
+  });
+  $('youtube-reconnect').addEventListener('click',()=>{if(provider(current)==='youtube')selectVideo(current,true);});
   $('video-reset').addEventListener('click', () => {
     topic = 'all'; savedOnly = false; $('video-search').value = ''; $('video-language').value = 'all'; $('video-provider').value = 'all'; filter(); $('video-search').focus();
   });

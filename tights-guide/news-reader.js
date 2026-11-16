@@ -4,34 +4,38 @@
   const date = new Intl.DateTimeFormat('ru-RU', {day:'numeric', month:'long', year:'numeric'});
   const el = (tag, text, cls) => { const n=document.createElement(tag); if(text)n.textContent=text; if(cls)n.className=cls; return n; };
   const dialog = el('dialog', '', 'news-reader');
-  dialog.setAttribute('aria-label', 'Читать новость на ТОНКО');
+  dialog.setAttribute('aria-labelledby', 'reader-title');
   const close = el('button', 'Закрыть ×', 'reader-close'); close.type='button'; close.autofocus=true;
   const body=el('div', '', 'reader-body'); dialog.append(close, body); document.body.append(dialog);
   let returnFocus=null, previousOverflow='', openedFromURL=false, closingFromHistory=false;
-  const contexts=[
-    {pattern:/упаков|packag/i, image:'ss-pack', label:'Детали бренда', text:'На упаковке полезно сверить состав, размерную сетку, плотность и обозначения ухода. Одинаковое число DEN у разных моделей не гарантирует одинаковые прозрачность и посадку.', link:'lookbook.html?filter=packaging', action:'Рассмотреть упаковки'},
-    {pattern:/тёпл|тепл|winter|wool|шерст|warm/i, image:'outfit-soft-knit', label:'Сезон и фактура', text:'В зимнем образе обращайте внимание на состав и фактуру: плотность DEN сама по себе не описывает тепло. Сравните материал колготок с обувью и верхним слоем одежды.', link:'guide.html', action:'Открыть мастерскую выбора'},
-    {pattern:/lace|круж|dots|горох|pattern|фактур|рисун|argyle/i, image:'ss-lace', label:'Рисунок в образе', text:'Чтобы рассмотреть рисунок, начните с простого однотонного верха. Повтор цвета в обуви или аксессуарах помогает связать детали образа.', link:'lookbook.html?filter=pattern', action:'Посмотреть рисунки'},
-    {pattern:/.*/, image:'ss-clara', label:'Колготки в гардеробе', text:'Попробуйте собрать сочетание вокруг одной детали: оттенка, прозрачности или фактуры. В галерее можно сравнить готовые образы и сохранить понравившиеся фотографии.', link:'lookbook.html?filter=outfits', action:'Посмотреть образы'}
-  ];
+  function link(label,value,cls){
+    try{const u=new URL(value,location.href);if(u.protocol!=='https:'&&u.origin!==location.origin)return null;
+      const a=el('a',label,cls);a.href=u.href;if(u.origin!==location.origin){a.target='_blank';a.rel='noopener noreferrer';}return a;
+    }catch{return null;}
+  }
   function content(item) {
-    const c=contexts.find(c=>c.pattern.test(item.title));
-    const wrap=el('div','','reader-layout'),visual=el('figure','','reader-visual');
-    const img=el('img');img.src=`assets/editorial/${c.image}.${c.image==='outfit-soft-knit'?'webp':'jpg'}`;img.alt=c.label;img.loading='lazy';
-    visual.append(img,el('figcaption',(c.image.startsWith('ss-')?'Swedish Stockings. ':'Подборка владельца ТОНКО. ')+'Иллюстрация из галереи, не фотография события.'));
-    const copy=el('div','','reader-copy');
-    copy.append(el('p','ТОНКО / В фокусе','portal-eyebrow'),el('p',`${item.source} · ${date.format(new Date(item.publishedAt))}`,'news-meta'));
-    const heading=el('h2',item.displayTitle||item.title); heading.lang=item.displayTitle?'ru':item.language==='ru'?'ru':'en'; copy.append(heading);
-    copy.append(el('p',item.summary?'Кратко по материалу':'Анонс источника','reader-label'));
-    const brief=el('p',item.summary || item.excerpt || 'Источник опубликовал материал на эту тему. В ленте доступен только заголовок; развёрнутый анонс редакция пока не предоставила.','reader-excerpt');
-    brief.lang=item.summary?'ru':item.language==='ru'?'ru':'en';copy.append(brief);
-    if(item.excerpt||item.summary)copy.append(el('p',item.summary?'Краткий пересказ ТОНКО по публикации источника.':'Короткий анонс из ленты источника. Полный текст принадлежит издателю.','reader-credit'));
-    const note=el('aside','','reader-note');note.append(el('h3',c.label),el('p',c.text),el('p','Заметка ТОНКО · совет по теме, не пересказ публикации','reader-credit'));
-    const related=el('a',c.action+' →');related.href=c.link;note.append(related);copy.append(note);
-    const source=el('a',`Первоисточник: ${item.source} ↗`,'reader-source');
-    try{const url=new URL(item.url);if(url.protocol==='https:'){source.href=url.href;source.target='_blank';source.rel='noopener noreferrer';copy.append(source);}}catch{}
-    if(item.via)copy.append(el('p','Ссылка на первоисточник проходит через Google News.','reader-credit'));
-    wrap.append(visual,copy); return wrap;
+    const sections=Array.isArray(item.sections)?item.sections:[],expanded=sections.length>0;
+    const words=[item.summary||item.excerpt||'',...sections.flatMap(s=>s.paragraphs||[])].join(' ').trim().split(/\s+/).length;
+    const article=el('article','','reader-article'),head=el('header','','reader-head');
+    head.append(el('p',expanded?'ТОНКО / Разбор':'ТОНКО / Лента','portal-eyebrow'),el('p',`${item.source} · ${date.format(new Date(item.publishedAt))} · ${expanded?Math.max(2,Math.ceil(words/160))+' мин чтения':'Короткая новость'}`,'news-meta'));
+    const heading=el('h2',item.displayTitle||item.title);heading.id='reader-title';heading.lang=item.displayTitle?'ru':item.language;head.append(heading);
+    const lead=el('p',item.summary||item.excerpt||'Издание опубликовало материал на эту тему. В его ленте доступен только заголовок; развёрнутый текст для чтения на ТОНКО пока не подготовлен.','reader-excerpt');lead.lang=item.summary?'ru':item.language;head.append(lead);
+    const layout=el('div','','reader-layout'),copy=el('div','','reader-copy');
+    const photo=item.illustration;
+    if(photo&&typeof photo.src==='string'&&(photo.src.startsWith('assets/')||photo.src.startsWith('https://'))){
+      const visual=el('figure','','reader-visual'),img=el('img');img.src=photo.src;img.alt=photo.alt||'';img.decoding='async';
+      img.addEventListener('error',()=>{visual.remove();layout.classList.remove('has-visual');});
+      visual.append(img,el('figcaption',photo.caption||'Иллюстрация к публикации.'));
+      const credit=link('Об изображении ↗',photo.source,'reader-image-source');if(credit)visual.append(credit);
+      layout.append(visual);layout.classList.add('has-visual');
+    }
+    sections.forEach(s=>{const section=el('section');if(s.heading)section.append(el('h3',s.heading));(s.paragraphs||[]).forEach(p=>section.append(el('p',p)));copy.append(section);});
+    const credits=el('footer','','reader-credits');
+    credits.append(el('p',expanded?'Разбор ТОНКО по указанным источникам. Рекомендации редакции отделены от сообщений изданий.':'Короткий анонс из ленты источника. Полный текст издания здесь не перепечатывается.','reader-credit'));
+    const source=link(`Первоисточник: ${item.source} ↗`,item.url,'reader-source');if(source)credits.append(source);
+    (item.references||[]).forEach(ref=>{const a=link(ref.label+' ↗',ref.url,'reader-source');if(a)credits.append(a);});
+    if(item.via)credits.append(el('p','Ссылка на первоисточник проходит через Google News.','reader-credit'));
+    copy.append(credits);layout.append(copy);article.append(head,layout);return article;
   }
   function dismiss(){if(dialog.open)dialog.close();}
   dialog.addEventListener('close',()=>{

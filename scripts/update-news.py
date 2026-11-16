@@ -5,6 +5,7 @@ import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 from news_feed import collect
+from news_editorial import apply_editorial
 
 ROOT=Path(__file__).resolve().parents[1]
 DATA=ROOT/'tights-guide/data'
@@ -53,11 +54,7 @@ def main():
             return (args.cache/files[source['id']]).read_bytes()
         return fetch_url(source['url'])
     result=collect(sources,previous,fetch,datetime.now(timezone.utc))
-    digests_path=DATA/'news-digests.json'
-    digests=json.loads(digests_path.read_text(encoding='utf-8')) if digests_path.exists() else {}
-    for item in result['items']:
-        if item['id'] in digests:
-            item.update({key:digests[item['id']][key] for key in ('displayTitle','summary')})
+    apply_editorial(result)
     if args.cache:
         # Offline test runs must not impersonate a successful network check.
         result['checkedAt']=None;result['lastSuccessfulAt']=None
