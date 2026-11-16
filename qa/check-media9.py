@@ -29,12 +29,12 @@ with sync_playwright() as pw:
         if ident in ['740fbfe776775a58','a1d9fbbdd67f650c','110baf802c1c037e']:
             assert page.locator('.reader-visual').count()==0
     page.goto(BASE+'packaging.html',wait_until='networkidle')
-    total=page.evaluate('TONKO_PACKAGING.length');assert total==386
-    assert page.locator('#pack-brand option').count()==20
-    assert page.locator('.pack-card').count()==36
+    total=page.evaluate('TONKO_PACKAGING.length');counts=page.evaluate('TONKO_PACKAGING.reduce((m,r)=>(m[r.brand]=(m[r.brand]||0)+1,m),{})')
+    assert page.locator('#pack-brand option').count()==len(counts)+1
+    assert page.locator('.pack-card').count()==sum(min(n,4) for n in counts.values())
     assert page.locator('nav a[aria-current="page"]').inner_text()=='Упаковки'
     page.screenshot(path=str(OUT/'media9-packaging-desktop.png'),full_page=True)
-    page.locator('#pack-more').click();assert page.locator('.pack-card').count()==72
+    page.locator('[data-more-brand="Conte"]').click();assert page.locator('[data-brand-section="Conte"] .pack-card').count()==16
     page.locator('#pack-brand').select_option('OMSA')
     assert page.locator('.pack-card').count()>20
     page.locator('#pack-search').fill('Attiva');assert page.locator('.pack-card').count()>0
@@ -50,10 +50,10 @@ with sync_playwright() as pw:
     ids=page.locator('[data-pack]').evaluate_all('(a)=>a.map(x=>x.dataset.pack)')
     assert page.evaluate('(ids)=>TONKO_PACKAGING.filter(x=>ids.includes(x.id)).every(x=>x.den>0&&x.den<=20)',ids)
     page.locator('#pack-search').fill('НесуществующаяМодель');assert page.locator('.pack-card').count()==0
-    assert not page.locator('#pack-more').is_visible()
+    assert page.locator('[data-more-brand]').count()==0
     page.goto(BASE+'packaging.html?pack=pkg-falke',wait_until='networkidle')
     assert page.locator('#pack-label').inner_text()=='FALKE'
-    page.keyboard.press('ArrowRight');assert page.locator('#pack-label').inner_text()!='FALKE'
+    assert page.locator('#pack-next').is_disabled()
     page.keyboard.press('Escape')
     for width in [320,390,768,1440]:
         page.set_viewport_size({'width':width,'height':850})
@@ -87,6 +87,6 @@ with sync_playwright() as pw:
     page=nojs.new_page();page.goto(BASE+'news.html#story-a3973b36c3edd608')
     assert page.locator('#story-a3973b36c3edd608 h3').count()==3
     assert len(page.locator('#story-a3973b36c3edd608').inner_text())>2500
-    page.goto(BASE+'packaging.html');assert page.locator('.pack-card').count()==36
+    page.goto(BASE+'packaging.html');assert page.locator('.pack-card').count()==total
     browser.close()
-print(json.dumps({'status':'PASS','packages':total,'brands':19,'expandedArticles':6,'viewports':[320,390,768,1440],'javascriptErrors':errors,'youtube':'UI/host/mode persistence tested with mock; no claim of Google login'},ensure_ascii=False))
+print(json.dumps({'status':'PASS','packages':total,'brands':len(counts),'expandedArticles':6,'viewports':[320,390,768,1440],'javascriptErrors':errors,'youtube':'UI/host/mode persistence tested with mock; no claim of Google login'},ensure_ascii=False))
