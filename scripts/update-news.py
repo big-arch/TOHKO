@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from news_feed import collect
 from news_editorial import apply_editorial
+from news_ai import preserve_generated
 
 ROOT=Path(__file__).resolve().parents[1]
 DATA=ROOT/'tights-guide/data'
@@ -54,6 +55,7 @@ def main():
             return (args.cache/files[source['id']]).read_bytes()
         return fetch_url(source['url'])
     result=collect(sources,previous,fetch,datetime.now(timezone.utc))
+    preserve_generated(result,previous)
     apply_editorial(result)
     if args.cache:
         # Offline test runs must not impersonate a successful network check.

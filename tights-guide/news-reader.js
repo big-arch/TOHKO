@@ -17,7 +17,7 @@
     const sections=Array.isArray(item.sections)?item.sections:[],expanded=sections.length>0;
     const words=[item.summary||item.excerpt||'',...sections.flatMap(s=>s.paragraphs||[])].join(' ').trim().split(/\s+/).length;
     const article=el('article','','reader-article'),head=el('header','','reader-head');
-    head.append(el('p',expanded?'ТОНКО / Разбор':'ТОНКО / Лента','portal-eyebrow'),el('p',`${item.source} · ${date.format(new Date(item.publishedAt))} · ${expanded?Math.max(2,Math.ceil(words/160))+' мин чтения':'Короткая новость'}`,'news-meta'));
+    head.append(el('p',item.ai?'ТОНКО / Новости':expanded?'ТОНКО / Разбор':'ТОНКО / Лента','portal-eyebrow'),el('p',`${item.source} · ${date.format(new Date(item.publishedAt))} · ${expanded?Math.max(2,Math.ceil(words/160))+' мин чтения':'Короткая новость'}${item.ai?' · AI-пересказ':''}`,'news-meta'));
     const heading=el('h2',item.displayTitle||item.title);heading.id='reader-title';heading.lang=item.displayTitle?'ru':item.language;head.append(heading);
     const lead=el('p',item.summary||item.excerpt||'Издание опубликовало материал на эту тему. В его ленте доступен только заголовок; развёрнутый текст для чтения на ТОНКО пока не подготовлен.','reader-excerpt');lead.lang=item.summary?'ru':item.language;head.append(lead);
     const layout=el('div','','reader-layout'),copy=el('div','','reader-copy');
@@ -31,7 +31,7 @@
     }
     sections.forEach(s=>{const section=el('section');if(s.heading)section.append(el('h3',s.heading));(s.paragraphs||[]).forEach(p=>section.append(el('p',p)));copy.append(section);});
     const credits=el('footer','','reader-credits');
-    credits.append(el('p',expanded?'Разбор ТОНКО по указанным источникам. Рекомендации редакции отделены от сообщений изданий.':'Короткий анонс из ленты источника. Полный текст издания здесь не перепечатывается.','reader-credit'));
+    credits.append(el('p',item.ai?'Автоматический пересказ ТОНКО с помощью AI по тексту источника. Может содержать неточности; подробности и актуальные условия — в оригинале.':expanded?'Разбор ТОНКО по указанным источникам. Рекомендации редакции отделены от сообщений изданий.':'Короткий анонс из ленты источника. Полный текст издания здесь не перепечатывается.','reader-credit'));
     const source=link(`Первоисточник: ${item.source} ↗`,item.url,'reader-source');if(source)credits.append(source);
     (item.references||[]).forEach(ref=>{const a=link(ref.label+' ↗',ref.url,'reader-source');if(a)credits.append(a);});
     if(item.via)credits.append(el('p','Ссылка на первоисточник проходит через Google News.','reader-credit'));

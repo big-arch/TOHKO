@@ -31,7 +31,7 @@ section=f'''<!-- tonko-news --><section class="portal-container news-section" id
 <button type="button" id="news-new" hidden>Показать новые публикации</button>
 <div id="news-list" class="news-list">{''.join(card(i) for i in news.get('items',[])[:6]) or '<p>Публикаций пока нет. Источники проверяются автоматически.</p>'}</div>
 <button type="button" id="news-more" hidden>Ещё публикации ↓</button>
-<details class="news-about"><summary>Как обновляется лента и откуда новости</summary><p>Источники проверяются по расписанию каждые 15 минут. Возможны задержки сервиса и самих изданий. Новость появляется после попадания в RSS или поисковую ленту, а не в момент любой публикации в интернете.</p><p>Заголовки оставлены на языке оригинала. Дата рядом с материалом принадлежит источнику; время проверки ленты указано отдельно. Для ссылок с отметкой Google News сначала открывается агрегатор. При сбое сохраняем предыдущие записи.</p><ul id="news-sources">{sources}</ul></details>
+<details class="news-about"><summary>Как обновляется лента и откуда новости</summary><p>Источники проверяются по расписанию каждые 15 минут. Возможны задержки сервиса и самих изданий. Новость появляется после попадания в RSS или поисковую ленту, а не в момент любой публикации в интернете.</p><p>Часть заголовков переведена на русский. Автоматические пересказы помечены «AI-пересказ»; при недостатке данных остаётся короткий анонс. Дата рядом с материалом принадлежит источнику; время проверки ленты указано отдельно. Для ссылок с отметкой Google News сначала открывается агрегатор. При сбое сохраняем предыдущие записи.</p><ul id="news-sources">{sources}</ul></details>
 <noscript><p>Показан сохранённый выпуск. Для проверки обновлений перезагрузите страницу.</p></noscript></section><!-- /tonko-news -->'''
 
 ids=['ss-clara','outfit-pattern-walk','ss-argyle','outfit-men-white']
@@ -57,13 +57,13 @@ if anchor not in text: anchor='<section class="portal-section">'
 if anchor not in text: raise SystemExit('Home insertion anchor missing')
 text=text.replace(anchor,section+looks+packaging+anchor,1)
 if 'href="news.css' not in text:text=text.replace('</head>','<link rel="stylesheet" href="news.css?v=20261116-1"></head>')
-if 'href="news-reader.css' not in text:text=text.replace('</head>','<link rel="stylesheet" href="news-reader.css?v=20261116-9"></head>')
+if 'href="news-reader.css' not in text:text=text.replace('</head>','<link rel="stylesheet" href="news-reader.css?v=20261116-10"></head>')
 if 'src="news.js' not in text:text=text.replace('</body>','<script src="news.js?v=20261116-1" defer></script></body>')
 text=re.sub(r'<script id="news-seed".*?</script>','',text,flags=re.S)
 text=re.sub(r'<script src="news-reader.js[^\"]*"[^>]*></script>','',text)
 seed=json.dumps(news,ensure_ascii=False).replace('<','\\u003c')
-text=text.replace('<script src="news.js',f'<script id="news-seed" type="application/json">{seed}</script><script src="news-reader.js?v=20261116-9" defer></script><script src="news.js')
-text=re.sub(r'(news\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261116-9',text)
+text=text.replace('<script src="news.js',f'<script id="news-seed" type="application/json">{seed}</script><script src="news-reader.js?v=20261116-10" defer></script><script src="news.js')
+text=re.sub(r'(news\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261116-10',text)
 p.write_text(text,encoding='utf-8')
 # A readable, linkable fallback also works without JavaScript.
 stories=[story(i) for i in news.get('items',[])]

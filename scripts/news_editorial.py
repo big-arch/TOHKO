@@ -9,6 +9,7 @@ def apply_editorial(news, path=None):
     digests=json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
     for item in news.get('items',[]):
         if item['id'] in digests:
+            item.pop('ai',None)
             digest=digests[item['id']]
             for key in FIELDS:
                 item.pop(key,None)

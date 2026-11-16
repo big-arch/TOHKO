@@ -23,11 +23,43 @@ jobs:
       - uses: actions/checkout@v6
       - name: Verify news collector
         run: |
-          python -m unittest discover -s qa -p test_news.py
+          python -m unittest discover -s qa -p 'test_news*.py'
           node qa/test_video_memory.cjs
       - name: Refresh fashion headlines
+        run: python scripts/update-news.py --deployed
+      - name: Restore generated summaries
+        id: ai-cache
+        continue-on-error: true
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/news-ai-cache.json
+          key: tonko-news-ai-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: tonko-news-ai-v1-
+      - name: Generate new on-site summaries
+        id: ai-news
+        if: ${{ steps.ai-cache.outcome == 'success' }}
+        continue-on-error: true
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_NEWS_ENABLED: ${{ vars.OPENAI_NEWS_ENABLED || 'true' }}
         run: |
-          python scripts/update-news.py --deployed
+          if [ -n "$OPENAI_API_KEY" ] && [ "$OPENAI_NEWS_ENABLED" = "true" ]; then
+            python -m pip install --disable-pip-version-check -r scripts/requirements-news.txt
+          fi
+          python scripts/enrich-news.py
+      - name: Save generated summaries and request counters
+        id: ai-cache-save
+        continue-on-error: true
+        if: ${{ always() && hashFiles('.cache/news-ai-cache.json') != '' }}
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/news-ai-cache.json
+          key: tonko-news-ai-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Report optional AI stage failures
+        if: ${{ always() && (steps.ai-cache.outcome == 'failure' || steps.ai-news.outcome == 'failure' || steps.ai-cache-save.outcome == 'failure') }}
+        run: echo '::warning::AI stage unavailable; publishing refreshed RSS and previously saved articles.'
+      - name: Build news and packaging pages
+        run: |
           python scripts/build-packaging.py
           python scripts/build-home-news.py
       - name: Check local links and JavaScript

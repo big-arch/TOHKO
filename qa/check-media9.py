@@ -15,7 +15,7 @@ with sync_playwright() as pw:
     assert page.locator('.reader-copy section').count()==3
     assert len(page.locator('.reader-article').inner_text())>2500
     assert page.locator('.reader-visual img').get_attribute('src').endswith('pkg-a003df0fca.webp')
-    assert page.locator('.reader-visual img').evaluate('(i)=>i.complete&&i.naturalWidth>0')
+    page.wait_for_function('document.querySelector(".reader-visual img")?.naturalWidth>0')
     assert 'ss-clara' not in page.locator('.reader-body').inner_html()
     page.screenshot(path=str(OUT/'media9-news-desktop.png'))
     page.go_back();assert page.locator('.news-reader[open]').count()==0
@@ -39,7 +39,7 @@ with sync_playwright() as pw:
     assert page.locator('.pack-card').count()>20
     page.locator('#pack-search').fill('Attiva');assert page.locator('.pack-card').count()>0
     page.locator('.pack-open').first.click();assert page.locator('#pack-dialog[open]').count()==1
-    assert page.locator('#pack-full').evaluate('(i)=>i.complete&&i.naturalWidth>0')
+    page.wait_for_function('document.querySelector("#pack-full")?.naturalWidth>0')
     fit_width=page.locator('#pack-full').bounding_box()['width']
     page.locator('#pack-zoom').click();assert page.locator('#pack-zoom').get_attribute('aria-pressed')=='true'
     assert page.locator('#pack-full').bounding_box()['width']>=fit_width*1.9
