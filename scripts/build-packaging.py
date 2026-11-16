@@ -1,6 +1,9 @@
 """Build the locally curated package archive. Run after build-videos.py."""
 from pathlib import Path
-import html,json,re,unicodedata
+import argparse,html,json,re,unicodedata
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--packaging-only',action='store_true',help='Rebuild only the archive page and its data; leave other pages untouched.')
+args=parser.parse_args()
 R=Path(__file__).resolve().parents[1];S=R/'tights-guide';esc=lambda s:html.escape(str(s),quote=True)
 def order(value):
     return unicodedata.normalize('NFKD',value).casefold()
@@ -15,7 +18,9 @@ def card(r):
     return f'<article class="pack-card"><a class="pack-open" href="{esc(r["image"])}" data-pack="{esc(r["id"])}" aria-label="Рассмотреть упаковку: {esc(r["title"])}"><img src="{esc(r["thumbnail"])}" alt="Упаковка {esc(r["title"])}" width="{r["width"]}" height="{r["height"]}" loading="lazy" decoding="async"></a><h3>{esc(r["title"])}</h3></article>'
 def group(brand):
     items=[r for r in rows if r['brand']==brand]
-    return f'<section class="pack-brand-section" data-brand-section="{esc(brand)}" aria-labelledby="brand-{esc(items[0]["brandSlug"])}"><header class="pack-brand-heading"><h2 id="brand-{esc(items[0]["brandSlug"])}">{esc(brand)}</h2><p>Упаковок: {len(items)}</p></header><div class="pack-grid">'+''.join(card(r) for r in items)+'</div></section>'
+    kinds={kind:sum(r.get('productKind','колготки')==kind for r in items) for kind in ('колготки','гольфы','легинсы')}
+    note='<p class="pack-kind-note">Типы изделий: '+', '.join(f'{kind} — {count}' for kind,count in kinds.items() if count)+'.</p>' if any(kinds[kind] for kind in ('гольфы','легинсы')) else ''
+    return f'<section class="pack-brand-section" data-brand-section="{esc(brand)}" aria-labelledby="brand-{esc(items[0]["brandSlug"])}"><header class="pack-brand-heading"><h2 id="brand-{esc(items[0]["brandSlug"])}">{esc(brand)}</h2><p>Упаковок: {len(items)}</p></header>'+note+'<div class="pack-grid">'+''.join(card(r) for r in items)+'</div></section>'
 brand_links='<a href="#package-archive" data-brand="all" aria-current="true"><span>Все бренды</span><span class="pack-brand-total">'+str(len(rows))+'</span></a>'
 for brand in brands:
     items=[r for r in rows if r['brand']==brand]
@@ -31,9 +36,9 @@ text=re.sub(r'<main\b[^>]*>.*?</main>',lambda _:'<main id="content">'+body+'</ma
 text=re.sub(r'<title>.*?</title>','<title>Упаковки колготок по брендам и моделям — ТОНКО</title>',text)
 text=re.sub(r'<meta property="og:title" content="[^"]*">','<meta property="og:title" content="Архив упаковок колготок — ТОНКО">',text)
 text=re.sub(r'<meta name="description" content="[^"]*">',f'<meta name="description" content="Архив ТОНКО: {len(rows)} изображений упаковок колготок, {len(brands)} брендов. Поиск, фильтры, увеличение и ссылки на источники.">',text)
-text=text.replace('</head>','<link rel="stylesheet" href="packaging.css?v=11"></head>').replace('</body>','<script src="data/packaging.js?v=11"></script><script src="packaging.js?v=11"></script></body>')
+text=text.replace('</head>','<link rel="stylesheet" href="packaging.css?v=13"></head>').replace('</body>','<script src="data/packaging.js?v=13"></script><script src="packaging.js?v=13"></script></body>')
 (S/'packaging.html').write_text(text,encoding='utf-8')
-for path in S.glob('*.html'):
+for path in ([S/'packaging.html'] if args.packaging_only else S.glob('*.html')):
     t=path.read_text(encoding='utf-8')
     nav=re.search(r'<nav\b.*?</nav>',t,re.S)
     if nav and '<a href="packaging.html"' not in nav[0]:
@@ -45,6 +50,6 @@ for path in S.glob('*.html'):
         t=t.replace('</main>',f'<!-- pack-link --><section class="portal-container experience-related"><h2>Упаковки: {len(rows)} изображений</h2><p>{len(brands)} брендов, поиск по моделям и просмотр деталей.</p><a href="packaging.html">Открыть архив упаковок →</a></section><!-- /pack-link --></main>')
     if path.name=='sources.html':
         t=re.sub(r'<!-- pack-sources -->.*?<!-- /pack-sources -->','',t,flags=re.S)
-        t=t.replace('</main>',f'<!-- pack-sources --><section class="portal-container experience-related"><h2>Архив упаковок</h2><p>{len(rows)} изображений упаковок и фирменных вкладышей {len(brands)} брендов. Источники: каталоги Колготки-Онлайн, КолготкиОпт и других продавцов, фотографии Nordstrom и eBay, материалы Swedish Stockings, OMSA и Gabriella. У каждого изображения указана ссылка на конкретную карточку. Свободная лицензия на каталожные изображения не заявлена; товарные знаки принадлежат правообладателям.</p><p>Одинаковые изображения сгруппированы: варианты перечислены внутри карточки. Оформление и наличие могут меняться. Это пополняемый архив, а не исчерпывающий реестр всех упаковок.</p><a href="packaging.html">Открыть архив →</a></section><!-- /pack-sources --></main>')
+        t=t.replace('</main>',f'<!-- pack-sources --><section class="portal-container experience-related"><h2>Архив упаковок</h2><p>{len(rows)} изображений упаковок и фирменных вкладышей {len(brands)} брендов. Источники: каталоги Колготки-Онлайн, КолготкиОпт и других продавцов, фотографии Nordstrom и eBay, материалы Swedish Stockings, OMSA и Gabriella. У каждого изображения указан источник; архив также содержит фотографии из обзоров и материалы брендов. У Swedish Stockings отдельно подписаны упаковки гольфов и легинсов. Свободная лицензия на каталожные изображения не заявлена; товарные знаки принадлежат правообладателям.</p><p>Одинаковые изображения сгруппированы: варианты перечислены внутри карточки. Оформление и наличие могут меняться. Это пополняемый архив, а не исчерпывающий реестр всех упаковок.</p><a href="packaging.html">Открыть архив →</a></section><!-- /pack-sources --></main>')
     path.write_text(t,encoding='utf-8')
 print(f'Packaging archive: {len(rows)} images, {len(brands)} brands')

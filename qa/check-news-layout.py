@@ -48,6 +48,11 @@ with sync_playwright() as pw:
             assert page.locator('.news-reader[open]').count() == 1
             copy = page.locator('.news-reader .reader-copy')
             photo = page.locator('.news-reader .reader-visual img')
+            if not editorial.get('illustration'):
+                assert photo.count()==0, (ident,'unexpected image')
+                assert copy.bounding_box()['width'] >= min(700,width-(120 if width>760 else 80))
+                assert page.locator('.news-reader').evaluate('(d)=>d.scrollWidth<=d.clientWidth+1')
+                continue
             assert photo.count() == 1, (ident, 'missing editorial image')
             page.wait_for_function('document.querySelector(".news-reader .reader-visual img").naturalWidth>0')
             assert photo.get_attribute('src') == editorial['illustration']['src']

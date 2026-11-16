@@ -39,13 +39,14 @@ class NewsTests(unittest.TestCase):
         self.assertNotIn('ss-clara',story(item))
     def test_static_reader_escapes_text_and_keeps_source(self):
         item=parse_feed(rss(),SOURCE,NOW)[0]
-        item.update(summary='<script>alert(1)</script>',sections=[{'heading':'Details','paragraphs':['<b>test</b>']}])
+        item.update(summary='<script>alert(1)</script> A complete introduction.',sections=[{'heading':'Details','paragraphs':['<b>test</b> '+'Useful editorial text explaining the reported story. '*12]}])
         rendered=story(item)
         self.assertNotIn('<script>',rendered)
         self.assertIn('&lt;script&gt;',rendered)
         self.assertIn('https://example.org/story',rendered)
     def test_news_layout_is_independent_and_photo_dimensions_are_safe(self):
         item=parse_feed(rss(),SOURCE,NOW)[0]
+        item.update(summary='A complete introduction to this news article.',sections=[{'heading':'Details','paragraphs':['Useful editorial text explaining the reported story. '*12]}])
         item['illustration']={'src':'assets/news/cover.webp','alt':'<photo>',
                               'caption':'<caption>','source':'https://example.org/story',
                               'width':1200,'height':1680}

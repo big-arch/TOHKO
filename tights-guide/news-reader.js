@@ -33,9 +33,9 @@
     sections.forEach(s=>{const section=el('section');if(s.heading)section.append(el('h3',s.heading));(s.paragraphs||[]).forEach(p=>section.append(el('p',p)));copy.append(section);});
     const credits=el('footer','','reader-credits');
     credits.append(el('p',item.ai?'Автоматический пересказ ТОНКО с помощью AI по тексту источника. Может содержать неточности; подробности и актуальные условия — в оригинале.':expanded?'Разбор ТОНКО по указанным источникам. Рекомендации редакции отделены от сообщений изданий.':'Короткий анонс из ленты источника. Полный текст издания здесь не перепечатывается.','reader-credit'));
-    const source=link(`Первоисточник: ${item.source} ↗`,item.url,'reader-source');if(source)credits.append(source);
+    const source=link(`Первоисточник: ${item.source} ↗`,item.publisherUrl||item.url,'reader-source');if(source)credits.append(source);
     (item.references||[]).forEach(ref=>{const a=link(ref.label+' ↗',ref.url,'reader-source');if(a)credits.append(a);});
-    if(item.via)credits.append(el('p','Ссылка на первоисточник проходит через Google News.','reader-credit'));
+    if(item.via&&!item.publisherUrl)credits.append(el('p','Ссылка на первоисточник проходит через Google News.','reader-credit'));
     copy.append(credits);layout.append(copy);article.append(head,layout);return article;
   }
   function dismiss(){if(dialog.open)dialog.close();}
@@ -48,7 +48,7 @@
   close.addEventListener('click',dismiss);
   dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dismiss();}});
   window.TonkoReader={close(){if(dialog.open){closingFromHistory=true;dialog.close();}},open(item, fromURL=false){
-    if(!item)return;
+    if(!item||!item.summary||!Array.isArray(item.sections)||!item.sections.length)return;
     if(!dialog.open){returnFocus=document.activeElement;previousOverflow=document.documentElement.style.overflow;dialog.showModal();}
     body.replaceChildren(content(item));dialog.scrollTop=0;document.documentElement.style.overflow='hidden';close.focus();
     const url=new URL(location.href);url.searchParams.set('news',item.id);

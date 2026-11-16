@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-FIELDS=('displayTitle','summary','sections','illustration','references','checked')
+FIELDS=('displayTitle','summary','sections','illustration','references','checked','publisherUrl')
 
 def apply_editorial(news, path=None):
     path=path or Path(__file__).resolve().parents[1]/'tights-guide/data/news-digests.json'

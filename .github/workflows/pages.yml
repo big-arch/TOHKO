@@ -15,16 +15,18 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 18
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
-      - name: Verify news collector
+      - name: Verify content and assistant
         run: |
           python -m unittest discover -s qa -p 'test_news*.py'
           node qa/test_video_memory.cjs
+          node --test qa/test_assistant.cjs qa/test_assistant_cache.cjs
+          python -m unittest qa/test_assistant_build.py
       - name: Refresh fashion headlines
         run: python scripts/update-news.py --deployed
       - name: Restore generated summaries
@@ -57,11 +59,12 @@ jobs:
           key: tonko-news-ai-v1-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Report optional AI stage failures
         if: ${{ always() && (steps.ai-cache.outcome == 'failure' || steps.ai-news.outcome == 'failure' || steps.ai-cache-save.outcome == 'failure') }}
-        run: echo '::warning::AI stage unavailable; publishing refreshed RSS and previously saved articles.'
+        run: echo '::warning::AI stage unavailable; publishing ready articles and retaining pending discoveries for retry.'
       - name: Build news and packaging pages
         run: |
           python scripts/build-packaging.py
           python scripts/build-home-news.py
+          python scripts/build-assistant.py --inject
       - name: Check local links and JavaScript
         run: |
           python scripts/check-site.py

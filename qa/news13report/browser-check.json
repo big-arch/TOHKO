@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "articles": 40,
+  "allDeepLinksHaveBody": true,
+  "pendingFailedNotPublished": true,
+  "imagesLoaded": 40,
+  "allImagesLocal": true,
+  "winterPhotoVerified": true,
+  "noJavaScriptArchive": true,
+  "viewports": [
+    390,
+    1440
+  ],
+  "javascriptErrors": []
+}

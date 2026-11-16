@@ -3,7 +3,7 @@ import copy,json,sys,unittest
 from datetime import datetime,timezone,timedelta
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from news_ai import enrich,validate_result,APIError,parse_response,article_cover,preserve_generated,backfill_covers,validate_stored_fields
+from news_ai import enrich,validate_result,APIError,parse_response,article_cover,preserve_generated,backfill_covers,validate_stored_fields,MAX_PER_DAY,MAX_PER_RUN,MAX_OUTPUT_TOKENS
 NOW=datetime(2026,11,16,12,tzinfo=timezone.utc)
 SOURCE={'id':'example','site':'https://example.org','name':'Example'}
 TEXT=' '.join('Исходный материал о новой коллекции колготок и разных вариантах оформления.' for _ in range(70))
@@ -70,10 +70,10 @@ class AITests(unittest.TestCase):
         request=opener.call_args.args[0];payload=json.loads(request.data)
         self.assertEqual(request.full_url,'https://api.openai.com/v1/responses')
         self.assertNotIn('not-a-real-key',request.data.decode())
-        self.assertFalse(payload['store']);self.assertEqual(payload['max_output_tokens'],4000)
+        self.assertFalse(payload['store']);self.assertEqual(payload['max_output_tokens'],MAX_OUTPUT_TOKENS)
         self.assertEqual(payload['text']['format']['type'],'json_schema')
     def test_corrupt_cache_blocks_paid_requests(self):
-        for bad in [None,-100,True,'3',11]:
+        for bad in [None,-100,True,'3',MAX_PER_DAY+1]:
             cache={'date':'2026-11-16','calls':bad,'records':{}}
             with self.assertRaises(ValueError):enrich({'items':[item()]},[SOURCE],cache,fetch,lambda *a:self.fail('No paid calls'),NOW)
     def test_corrupt_ready_fields_cannot_override_feed(self):
@@ -123,11 +123,13 @@ class AITests(unittest.TestCase):
         enrich(news,[SOURCE],{},fail,lambda *a:self.fail('No API call'),NOW)
         self.assertNotIn('sections',news['items'][0]);self.assertEqual(news['items'][0]['excerpt'],'A short note.')
     def test_per_run_and_daily_limits(self):
-        cache={};news={'items':[item(str(i)) for i in range(20)]};calls=[]
+        cache={};news={'items':[item(str(i)) for i in range(MAX_PER_DAY+10)]};calls=[]
         fn=lambda i,t:(calls.append(i['id']) or result())
-        for n in range(5):enrich(news,[SOURCE],cache,fetch,fn,NOW+timedelta(minutes=n*15))
-        self.assertEqual(len(calls),10)
-        self.assertEqual(cache['calls'],10)
+        for n in range(12):
+            before=len(calls);enrich(news,[SOURCE],cache,fetch,fn,NOW+timedelta(minutes=n*15))
+            self.assertLessEqual(len(calls)-before,MAX_PER_RUN)
+        self.assertEqual(len(calls),MAX_PER_DAY)
+        self.assertEqual(cache['calls'],MAX_PER_DAY)
     def test_auth_failure_stops_batch_without_losing_news(self):
         news={'items':[item('a'),item('b')]};calls=[]
         def fail(i,t):calls.append(i['id']);raise APIError(401)

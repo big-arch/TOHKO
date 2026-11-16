@@ -6,13 +6,16 @@ from pathlib import Path
 from datetime import datetime
 from news_editorial import apply_editorial
 from news_render import story
+from news_publication import is_ready,sync_publication
 
 ROOT=Path(__file__).resolve().parents[1]/'tights-guide'
 esc=lambda value:html.escape(str(value),quote=True)
 news_path=ROOT/'data/news.json'
 news=json.loads(news_path.read_text(encoding='utf-8')) if news_path.exists() else {'items':[],'sources':[]}
 apply_editorial(news)
+sync_publication(news)
 news_path.write_text(json.dumps(news,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+published=[i for i in news.get('items',[]) if is_ready(i)]
 media={m['id']:m for m in json.loads((ROOT/'data/editorial-media.json').read_text(encoding='utf-8'))}
 
 def card(item):
@@ -27,11 +30,11 @@ if stamp:
 sources=''.join(f'<li><a href="{esc(s["site"])}" target="_blank" rel="noopener noreferrer">{esc(s["name"])}</a><span>{"Доступен" if s["status"]=="ok" else "Временно недоступен"}</span></li>' for s in news.get('sources',[]))
 section=f'''<!-- tonko-news --><section class="portal-container news-section" id="fashion-news" aria-labelledby="news-title">
 <div class="news-heading"><div><p class="portal-eyebrow">Лента публикаций</p><h2 id="news-title">Сейчас в<br>чулочной моде.</h2></div><div class="news-heading-note"><p>Коллекции, сочетания и новые взгляды на знакомую вещь. Публикации брендов и модных изданий в одной ленте.</p><p class="news-status" id="news-status" role="status">{esc(checked)}</p></div></div>
-<div class="news-toolbar"><div class="news-filters" role="group" aria-label="Язык публикаций"><button type="button" data-news-language="all" aria-pressed="true">Все</button><button type="button" data-news-language="ru" aria-pressed="false">На русском</button><button type="button" data-news-language="en" aria-pressed="false">На английском</button></div><button type="button" id="news-refresh">Проверить ленту ↻</button></div>
+<div class="news-toolbar"><div class="news-filters" role="group" aria-label="Язык источника"><button type="button" data-news-language="all" aria-pressed="true">Все источники</button><button type="button" data-news-language="ru" aria-pressed="false">Русскоязычные</button><button type="button" data-news-language="en" aria-pressed="false">Англоязычные</button></div><button type="button" id="news-refresh">Проверить ленту ↻</button></div>
 <button type="button" id="news-new" hidden>Показать новые публикации</button>
-<div id="news-list" class="news-list">{''.join(card(i) for i in news.get('items',[])[:6]) or '<p>Публикаций пока нет. Источники проверяются автоматически.</p>'}</div>
+<div id="news-list" class="news-list">{''.join(card(i) for i in published[:6]) or '<p>Готовых публикаций пока нет. Найденные материалы проходят подготовку.</p>'}</div>
 <button type="button" id="news-more" hidden>Ещё публикации ↓</button>
-<details class="news-about"><summary>Как обновляется лента и откуда новости</summary><p>Источники проверяются по расписанию каждые 15 минут. Возможны задержки сервиса и самих изданий. Новость появляется после попадания в RSS или поисковую ленту, а не в момент любой публикации в интернете.</p><p>Часть заголовков переведена на русский. Автоматические пересказы помечены «AI-пересказ»; при недостатке данных остаётся короткий анонс. Дата рядом с материалом принадлежит источнику; время проверки ленты указано отдельно. Для ссылок с отметкой Google News сначала открывается агрегатор. При сбое сохраняем предыдущие записи.</p><ul id="news-sources">{sources}</ul></details>
+<details class="news-about"><summary>Как обновляется лента и откуда новости</summary><p>Источники проверяются по расписанию каждые 15 минут. Возможны задержки сервиса и самих изданий. В ленту попадают только подготовленные статьи с текстом: найденный заголовок сначала поступает в очередь, затем проверяется первоисточник и готовится самостоятельный русский пересказ.</p><p>Автоматические тексты помечены «AI-пересказ». Дата рядом с материалом принадлежит источнику; время проверки указано отдельно. Если источник недоступен или данных мало, материал остаётся в очереди с причиной и повторной попыткой. При сбое готовые статьи сохраняются.</p><div id="news-queue"><p>Готово: {news['queue']['ready']}. В подготовке: {news['queue']['pending']}. Требуют повторной проверки: {news['queue']['failed']}.</p></div><ul id="news-sources">{sources}</ul></details>
 <noscript><p>Показан сохранённый выпуск. Для проверки обновлений перезагрузите страницу.</p></noscript></section><!-- /tonko-news -->'''
 
 ids=['ss-clara','outfit-pattern-walk','ss-argyle','outfit-men-white']
@@ -63,11 +66,11 @@ text=re.sub(r'<script id="news-seed".*?</script>','',text,flags=re.S)
 text=re.sub(r'<script src="news-reader.js[^\"]*"[^>]*></script>','',text)
 seed=json.dumps(news,ensure_ascii=False).replace('<','\\u003c')
 text=text.replace('<script src="news.js',f'<script id="news-seed" type="application/json">{seed}</script><script src="news-reader.js?v=20261116-12" defer></script><script src="news.js')
-text=re.sub(r'(news-reader\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261116-12',text)
-text=re.sub(r'(news\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261116-10',text)
+text=re.sub(r'(news-reader\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261116-13',text)
+text=re.sub(r'(news\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261116-13',text)
 p.write_text(text,encoding='utf-8')
 # A readable, linkable fallback also works without JavaScript.
-stories=[story(i) for i in news.get('items',[])]
+stories=[story(i) for i in published]
 fallback=re.sub(r'<main\b[^>]*>.*?</main>',lambda m:'<main id="content" class="portal-container"><h1>В фокусе чулочной моды.</h1>'+''.join(stories)+'</main>',text,flags=re.S)
 fallback=re.sub(r'<script[^>]*(?:news-seed|news-reader\.js|news\.js)[^>]*>.*?</script>','',fallback,flags=re.S)
 fallback=re.sub(r'<title>.*?</title>','<title>Новости чулочной моды — ТОНКО</title>',fallback)

@@ -1,18 +1,23 @@
 """Bounded, cached original summaries. Secrets never enter generated site files."""
-import copy,json,re
+import copy,hashlib,json,re,time
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from datetime import datetime,timedelta,timezone
 from urllib.request import Request,urlopen,HTTPRedirectHandler,build_opener
 from urllib.error import HTTPError,URLError
 from urllib.parse import urljoin,urlsplit
-from news_feed import safe_url,iso,date,featured_image
+from news_feed import safe_url,iso,date,featured_image,requires_photo_review
+from news_sources import publisher_source,SourceError
+from news_publication import is_ready,sync_publication
 
 MODEL='gpt-6-luna'
 MAX_INPUT_CHARS=18000
-MAX_OUTPUT_TOKENS=4000
-MAX_PER_RUN=3
-MAX_PER_DAY=10
+MAX_OUTPUT_TOKENS=2200
+MAX_PER_RUN=6
+MAX_PER_DAY=60
+MIN_SOURCE_WORDS=140
+MAX_PAID_ATTEMPTS=3
+MAX_SECONDS_PER_RUN=360
 GENERATED_FIELDS=('displayTitle','summary','sections','ai','illustration')
 SCHEMA={'type':'object','additionalProperties':False,'required':['usable','displayTitle','summary','sections'],
  'properties':{'usable':{'type':'boolean'},'displayTitle':{'type':'string'},'summary':{'type':'string'},
@@ -20,8 +25,8 @@ SCHEMA={'type':'object','additionalProperties':False,'required':['usable','displ
  'required':['heading','paragraphs'],'properties':{'heading':{'type':'string'},'paragraphs':{'type':'array','maxItems':3,'items':{'type':'string'}}}}}}}
 INSTRUCTIONS='''Ты пишешь для русскоязычного журнала о колготках ТОНКО. Сделай самостоятельный
 информационный пересказ только предоставленной статьи, на русском. Заголовок, вводный абзац
-и 2–4 раздела. Обычно 180–320 слов вместе, но не более 65% объёма оригинала. Если фактов мало,
-лучше 120–180 слов. Если статья не относится к колготкам, чулкам, легинсам или их производству,
+и 2–4 раздела. Обычно 120–200 слов вместе, но не более 60% объёма оригинала. Для короткого
+анонса на 140–220 слов достаточно 75–110 слов и 1–2 разделов. Если статья не относится к колготкам, чулкам, легинсам или их производству,
 закрыта, содержит только рекламу/каталог или не даёт достаточно фактов — usable=false и пустые поля.
 Не дополняй текст общими советами ради длины. Не придумывай цитаты, продажи, цены, даты, состав,
 имена, причинно-следственные связи, личный опыт или независимую проверку. Сохраняй оговорки источника.
@@ -42,15 +47,17 @@ class SafeArticleRedirect(HTTPRedirectHandler):
         if not url:raise ValueError('Article redirect leaves publisher domain')
         return super().redirect_request(req,fp,code,msg,headers,url)
 
-def fetch_article_url(url,source):
+def fetch_publisher_url(url,source):
     url=safe_url(url,source)
     if not url:raise ValueError('Disallowed publisher URL')
     opener=build_opener(SafeArticleRedirect(source))
     with opener.open(Request(url,headers={'User-Agent':'TONKO-News/1.0 (+https://big-arch.github.io/TOHKO/)'}),timeout=20) as response:
-        if 'text/html' not in response.headers.get('Content-Type',''):raise ValueError('Not an HTML article')
+        if not any(t in response.headers.get('Content-Type','') for t in ('text/html','application/xhtml+xml','application/xml','text/xml','application/rss+xml','application/atom+xml')):raise ValueError('Not a publisher document')
         raw=response.read(8_000_001)
     if len(raw)>8_000_000:raise ValueError('Article too large')
     return raw
+
+fetch_article_url=fetch_publisher_url
 
 def parse_response(payload):
     if payload.get('status')!='completed':raise ValueError('Incomplete response')
@@ -101,8 +108,9 @@ def text_fields(value):
 def validate_result(value,source_text):
     if not isinstance(value,dict) or value.get('usable') is not True:raise ValueError('Insufficient facts')
     combined=text_fields(value)
+    if not is_ready(value):raise ValueError('Incomplete readable article')
     output_words=words(combined);input_words=words(source_text)
-    if not 110<=len(output_words)<=min(390,int(len(input_words)*.75)):raise ValueError('Inappropriate summary length')
+    if not 70<=len(output_words)<=min(230,int(len(input_words)*.65)):raise ValueError('Inappropriate summary length')
     # Reject long verbatim passages rather than republishing the source article.
     source_runs={' '.join(input_words[i:i+14]) for i in range(max(0,len(input_words)-13))}
     if any(' '.join(output_words[i:i+14]) in source_runs for i in range(max(0,len(output_words)-13))):raise ValueError('Verbatim passage')
@@ -111,11 +119,12 @@ def validate_result(value,source_text):
 def validate_stored_fields(fields):
     if not isinstance(fields,dict) or set(fields)-set(GENERATED_FIELDS):raise ValueError('Unexpected stored fields')
     combined=text_fields(fields)
+    if not is_ready(fields):raise ValueError('Invalid stored body')
     ai=fields.get('ai')
     if not isinstance(ai,dict) or set(ai)!={'model','generatedAt','sourceWords'}:raise ValueError('Invalid AI metadata')
     if ai.get('model')!=MODEL or not date(ai.get('generatedAt')):raise ValueError('Invalid AI provenance')
-    if type(ai.get('sourceWords')) is not int or not 220<=ai['sourceWords']<=MAX_INPUT_CHARS:raise ValueError('Invalid source length')
-    if not 110<=len(words(combined))<=min(390,int(ai['sourceWords']*.75)):raise ValueError('Invalid stored article length')
+    if type(ai.get('sourceWords')) is not int or not MIN_SOURCE_WORDS<=ai['sourceWords']<=MAX_INPUT_CHARS:raise ValueError('Invalid source length')
+    if not 70<=len(words(combined))<=min(390,int(ai['sourceWords']*.75)):raise ValueError('Invalid stored article length')
     photo=fields.get('illustration')
     if photo is not None:
         if not isinstance(photo,dict) or set(photo)-{'src','alt','caption','source','width','height','imageSource'}:raise ValueError('Invalid stored photo')
@@ -145,9 +154,15 @@ def validate_cache(cache):
     if not isinstance(records,dict) or len(records)>1000:raise ValueError('Invalid cache records')
     for ident,record in records.items():
         if not isinstance(ident,str) or not re.fullmatch(r'[\w-]{1,80}',ident) or not isinstance(record,dict):raise ValueError('Invalid cache entry')
-        if set(record)-{'status','at','attempts','fields'}:raise ValueError('Unexpected record fields')
+        if set(record)-{'status','at','attempts','fields','fetchAttempts','nextAttemptAt','reason','sourceHash','publisherUrl','paidStatus','paidAt'}:raise ValueError('Unexpected record fields')
         if record.get('status') not in ('fetching','requested','ready','source_unavailable','api_error','not_published') or not date(record.get('at')):raise ValueError('Invalid record state')
-        if type(record.get('attempts',0)) is not int or not 0<=record.get('attempts',0)<=2:raise ValueError('Invalid attempt count')
+        if type(record.get('attempts',0)) is not int or not 0<=record.get('attempts',0)<=MAX_PAID_ATTEMPTS:raise ValueError('Invalid attempt count')
+        if type(record.get('fetchAttempts',0)) is not int or not 0<=record.get('fetchAttempts',0)<=1000:raise ValueError('Invalid fetch count')
+        if record.get('nextAttemptAt') and not date(record['nextAttemptAt']):raise ValueError('Invalid retry time')
+        if 'sourceHash' in record and (not isinstance(record['sourceHash'],str) or not re.fullmatch('[a-f0-9]{64}',record['sourceHash'])):raise ValueError('Invalid source hash')
+        if 'reason' in record and (not isinstance(record['reason'],str) or not re.fullmatch('[a-z0-9_]{1,80}',record['reason'])):raise ValueError('Invalid failure reason')
+        if 'paidAt' in record and not date(record['paidAt']):raise ValueError('Invalid paid attempt time')
+        if 'paidStatus' in record and record['paidStatus'] not in ('requested','ready','api_error','not_published'):raise ValueError('Invalid paid attempt state')
         if record['status']=='ready':validate_stored_fields(record.get('fields'))
         elif 'fields' in record:raise ValueError('Unexpected cached result')
 
@@ -155,15 +170,18 @@ def extract_article(raw):
     from trafilatura import extract
     html=raw.decode('utf-8','replace') if isinstance(raw,bytes) else raw
     # Do not extract hidden subscriber content or pass access challenges to AI.
-    if re.search(r'"isAccessibleForFree"\s*:\s*(?:false|"false")',html,re.I):raise ValueError('Subscriber article')
+    if re.search(r'"isAccessibleForFree"\s*:\s*(?:false|"false")',html,re.I):raise SourceError('access_restricted')
     text=extract(html,include_comments=False,include_tables=False,include_images=False,
                  include_links=False,favor_precision=True,deduplicate=True) or ''
     text=text[:MAX_INPUT_CHARS]
-    if len(words(text))<220:raise ValueError('Source body too short')
-    if re.search(r'verify you are human|enable javascript and cookies to continue|just a moment',text[:500],re.I):raise ValueError('Access challenge')
+    if len(words(text))<MIN_SOURCE_WORDS:raise SourceError('source_too_short')
+    if re.search(r'verify you are human|enable javascript and cookies to continue|just a moment|enter your email to see the list|thanks for signing up',text[:500],re.I):raise SourceError('access_restricted')
     return text
 
 def article_cover(raw,source,item):
+    # An OG collage cannot demonstrate weather suitability. Seasonal stories
+    # receive only a separately reviewed picture from news-illustrations.json.
+    if requires_photo_review(item.get('title','')):return None
     class Meta(HTMLParser):
         def __init__(self):super().__init__();self.values={}
         def handle_starttag(self,tag,attrs):
@@ -190,19 +208,25 @@ def article_cover(raw,source,item):
 
 def backfill_covers(news,sources,fetch=fetch_article_url,limit=6):
     """Repair covers of existing summaries without generating or paying for text."""
-    source_map={s['id']:s for s in sources};checked=0;added=0
+    checked=0;added=0
     for item in news.get('items',[]):
         if checked>=limit:break
-        source=source_map.get(item.get('sourceId'))
-        if not item.get('sections') or item.get('illustration') or item.get('via'):continue
-        if not source or not safe_url(item.get('url',''),source):continue
+        if not item.get('sections') or item.get('illustration') or requires_photo_review(item.get('title','')):continue
+        try:source=publisher_source(item,sources)
+        except SourceError:continue
+        url=item.get('publisherUrl') or item.get('url','')
+        if not safe_url(url,source):continue
         checked+=1
-        try:photo=article_cover(fetch(item['url'],source),source,item)
+        try:photo=article_cover(fetch(url,source),source,{**item,'url':url})
         except Exception:continue
         if photo:item['illustration']=photo;added+=1
     return {'checked':checked,'added':added}
 
 def preserve_generated(news,previous):
+    prior={i['id']:i for i in previous.get('items',[])}
+    for item in news.get('items',[]):
+        for key in ('publisherUrl','publication'):
+            if key in prior.get(item['id'],{}):item[key]=copy.deepcopy(prior[item['id']][key])
     old={i['id']:i for i in previous.get('items',[]) if i.get('ai') and i.get('sections')}
     for item in news.get('items',[]):
         if item['id'] in old:
@@ -225,43 +249,100 @@ def enrich(news,sources,cache,fetch,ask,now,save=lambda:None):
     if usage.get('date')==today:
         if type(usage.get('calls')) is not int or not 0<=usage['calls']<=MAX_PER_DAY:raise ValueError('Invalid published counters')
         cache['calls']=max(cache.get('calls',0),usage['calls'])
-    records=cache['records'];source_map={s['id']:s for s in sources};calls=0;fetches=0
+    records=cache['records'];calls=0;fetches=0;deadline=time.monotonic()+MAX_SECONDS_PER_RUN
     stats={'generated':0,'restored':0,'skipped':0,'failed':0,'apiStatus':None}
+    def publish_state(item,record):
+        state={'status':'failed','reason':record.get('reason','source_unavailable'),
+               'checkedAt':record['at'],'attempts':record.get('attempts',0),
+               'fetchAttempts':record.get('fetchAttempts',0)}
+        for key in ('nextAttemptAt','sourceHash','paidStatus','paidAt'):
+            if key in record:state[key]=record[key]
+        item['publication']=state
+    def postpone(item,record,reason,status,delay):
+        record.update(status=status,reason=reason,nextAttemptAt=iso(now+delay))
+        publish_state(item,record);save()
     for item in news.get('items',[]):
         ident=item['id'];record=records.get(ident,{})
         if item.get('sections') and not item.get('ai'):continue
+        # The deployed JSON is a second retry ledger, not just an output. Losing
+        # the optional Actions cache must not turn a failure into a new request.
+        state=item.get('publication',{})
+        if not record and isinstance(state,dict) and date(state.get('checkedAt')):
+            record={'status':'api_error' if state.get('reason','').startswith('api_') else 'not_published' if state.get('reason') in ('insufficient_facts','validation_failed') else 'source_unavailable',
+                    'at':state['checkedAt']}
+            for key,maximum in (('attempts',MAX_PAID_ATTEMPTS),('fetchAttempts',1000)):
+                value=state.get(key,0)
+                record[key]=value if type(value) is int and 0<=value<=maximum else 0
+            for key in ('reason','sourceHash','nextAttemptAt','paidStatus','paidAt'):
+                if key in state:record[key]=state[key]
+            records[ident]=record
         if record.get('status')=='ready' and isinstance(record.get('fields'),dict):
-            item.update(copy.deepcopy(record['fields']));stats['restored']+=1;continue
+            if record.get('publisherUrl') and not safe_url(record['publisherUrl'],publisher_source(item,sources)):
+                raise ValueError('Unapproved cached publisher')
+            item.update(copy.deepcopy(record['fields']))
+            if record.get('publisherUrl'):item['publisherUrl']=record['publisherUrl']
+            stats['restored']+=1;continue
         if item.get('sections') and item.get('ai'):
-            records[ident]={'status':'ready','at':iso(now),'fields':{k:copy.deepcopy(item[k]) for k in GENERATED_FIELDS if k in item}};continue
-        if calls>=MAX_PER_RUN or cache['calls']>=MAX_PER_DAY or fetches>=6:continue
-        source=source_map.get(item.get('sourceId'))
-        if not source or item.get('via') or not safe_url(item.get('url'),source):continue
+            if is_ready(item):
+                records[ident]={'status':'ready','at':iso(now),'fields':{k:copy.deepcopy(item[k]) for k in GENERATED_FIELDS if k in item}}
+                if item.get('publisherUrl'):records[ident]['publisherUrl']=item['publisherUrl']
+                continue
+        item.setdefault('publication',{'status':'pending','reason':'awaiting_source','attempts':0,'fetchAttempts':0})
+        if calls>=MAX_PER_RUN or cache['calls']>=MAX_PER_DAY or fetches>=12 or time.monotonic()>=deadline:continue
         attempted=date(record.get('at'))
-        if record.get('attempts',0)>=2 or (attempted and now-attempted<timedelta(hours=24)):continue
-        records[ident]={'status':'fetching','at':iso(now),'attempts':record.get('attempts',0)}
+        next_attempt=date(record.get('nextAttemptAt')) or (attempted+timedelta(minutes=30) if attempted else None)
+        if next_attempt and now<next_attempt:continue
+        previous_status=record.get('status');previous_hash=record.get('sourceHash')
+        if 'paidStatus' not in record and previous_status in ('api_error','not_published','requested'):
+            record['paidStatus']=previous_status;record['paidAt']=record['at']
+        record={**record,'status':'fetching','at':iso(now),'attempts':record.get('attempts',0),
+                'fetchAttempts':min(1000,record.get('fetchAttempts',0)+1)}
+        record.pop('fields',None);record.pop('nextAttemptAt',None)
+        records[ident]=record
         fetches+=1
         try:
+            source=publisher_source(item,sources)
+            if item.get('publisherUrl') and not safe_url(item['publisherUrl'],source):raise SourceError('publisher_not_allowed')
             text=fetch(item)[:MAX_INPUT_CHARS]
-            if len(words(text))<220:raise ValueError('Source body too short')
-        except Exception:
-            records[ident]['status']='source_unavailable';stats['skipped']+=1;save();continue
-        calls+=1;cache['calls']+=1;records[ident].update(status='requested',attempts=record.get('attempts',0)+1)
+            if len(words(text))<MIN_SOURCE_WORDS:raise SourceError('source_too_short')
+        except Exception as error:
+            reason=error.code if isinstance(error,SourceError) else 'source_unavailable'
+            delays=(timedelta(minutes=30),timedelta(hours=6),timedelta(days=1),timedelta(days=7))
+            postpone(item,record,reason,'source_unavailable',delays[min(record['fetchAttempts']-1,3)])
+            stats['skipped']+=1;continue
+        source_hash=hashlib.sha256(text.encode()).hexdigest()
+        if previous_hash and previous_hash!=source_hash:record['attempts']=0
+        if record['attempts']>=MAX_PAID_ATTEMPTS:
+            paid_at=date(record.get('paidAt')) or attempted
+            retryable=record.get('paidStatus') in ('api_error','requested')
+            if retryable and paid_at and now-paid_at>=timedelta(days=7):record['attempts']=0
+            else:
+                postpone(item,record,'api_retry_exhausted' if retryable else 'validation_failed',
+                         'api_error' if retryable else 'not_published',timedelta(days=7));continue
+        calls+=1;cache['calls']+=1
+        record.update(status='requested',attempts=record['attempts']+1,sourceHash=source_hash,paidStatus='requested',paidAt=iso(now))
+        if item.get('publisherUrl'):record['publisherUrl']=item['publisherUrl']
         save() # Persist the attempt before the paid request, even if validation later fails.
         try:
-            fields=validate_result(ask(item,text),text)
+            answer=ask(item,text)
+            if isinstance(answer,dict) and answer.get('usable') is False:raise SourceError('insufficient_facts')
+            fields=validate_result(answer,text)
             fields['ai']={'model':MODEL,'generatedAt':iso(now),'sourceWords':len(words(text))}
             if item.get('illustration'):fields['illustration']=copy.deepcopy(item['illustration'])
-            item.update(fields);records[ident].update(status='ready',fields=copy.deepcopy(fields));stats['generated']+=1
+            item.update(fields);record.update(status='ready',fields=copy.deepcopy(fields),paidStatus='ready');record.pop('reason',None);stats['generated']+=1
         except APIError as error:
-            records[ident]['status']='api_error';stats['failed']+=1;stats['apiStatus']=error.status
-            save()
+            record['paidStatus']='api_error'
+            stats['failed']+=1;stats['apiStatus']=error.status
+            postpone(item,record,'api_'+str(error.status),'api_error',timedelta(days=7) if record['attempts']>=MAX_PAID_ATTEMPTS else timedelta(minutes=30))
             if error.status in (0,401,403,429):break
-        except Exception:
-            records[ident]['status']='not_published';stats['failed']+=1
+        except Exception as error:
+            record['paidStatus']='not_published'
+            reason=error.code if isinstance(error,SourceError) else 'validation_failed'
+            postpone(item,record,reason,'not_published',timedelta(days=1));stats['failed']+=1
         save()
     # Bound the private cache; published summaries still travel with the feed snapshot.
     if len(records)>500:
         cache['records']=dict(sorted(records.items(),key=lambda pair:pair[1].get('at',''),reverse=True)[:500])
     news['aiUsage']={'date':today,'calls':cache['calls'],'dailyLimit':MAX_PER_DAY,'model':MODEL}
+    stats['queue']=sync_publication(news,now)
     save();return stats

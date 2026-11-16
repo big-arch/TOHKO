@@ -1,0 +1,6 @@
+{
+  "enabled": true,
+  "endpoint": "https://renbakjudvdnkjvjujti.supabase.co/functions/v1/tonko-assistant",
+  "publishableKey": "sb_publishable_tJ2cQXwiFEv-1r6wHRwndg_5hEN-h4C",
+  "version": 1
+}

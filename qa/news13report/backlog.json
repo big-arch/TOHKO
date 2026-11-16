@@ -1,0 +1,238 @@
+{
+  "current": {
+    "ready": 40,
+    "pending": 0,
+    "failed": 0
+  },
+  "articles": 40,
+  "newlyPrepared": 28,
+  "updated": [
+    "ee8ae4a2a6c7f547"
+  ],
+  "retentionRefresh": {
+    "beforeReady": 40,
+    "afterReady": 40,
+    "allPreviousLinksRetained": true
+  },
+  "articlesPrepared": [
+    {
+      "id": "fb9e23837e95c12e",
+      "title": "Как Swedish Stockings представил новую коллекцию в Стокгольме",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/reimagining-hosiery-an-evening-with-swedish-stockings",
+      "status": "ready"
+    },
+    {
+      "id": "bfd2f03ae301d568",
+      "title": "Балерина Дарья Иванова в кампании Swedish Stockings AW26",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/aw26-behind-the-scenes",
+      "status": "ready"
+    },
+    {
+      "id": "d4e8e16255104b16",
+      "title": "Новый логотип и упаковка Swedish Stockings: что изменилось",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/introducing-a-new-era",
+      "status": "ready"
+    },
+    {
+      "id": "ecfefa91acbb25c6",
+      "title": "Легинсы со штрипками: три детали образа в гиде Swedish Stockings",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/stir-up-leggings-style-guide",
+      "status": "ready"
+    },
+    {
+      "id": "42c8582c92a885b1",
+      "title": "Лиссабонская съёмка Swedish Stockings: кружево, капри и летний цвет",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/behind-the-scenes-occasion-campaign-2026",
+      "status": "ready"
+    },
+    {
+      "id": "027ada4e3cdc30c2",
+      "title": "Rave Rvw: как переработанные ткани встречаются с цветными колготками",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/rave-review-journal",
+      "status": "ready"
+    },
+    {
+      "id": "b8f663fe189f9015",
+      "title": "Весенние сочетания Swedish Stockings: от коричневого кружева до голубого",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/style-guide-for-spring-legwear",
+      "status": "ready"
+    },
+    {
+      "id": "40f2838465682250",
+      "title": "August Barron × Swedish Stockings: сетка поверх трикотажа",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/threading-fashion-and-form-the-swedish-stockings-august-barron-collaboration",
+      "status": "ready"
+    },
+    {
+      "id": "6d993c552faf7a1d",
+      "title": "Лондон AW26: колготки и гольфы Swedish Stockings на показах",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/ldn-fw",
+      "status": "ready"
+    },
+    {
+      "id": "456f77b8a76349b5",
+      "title": "Нью-Йорк AW26: цвет, кружево и рубчик на подиуме",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/nyfw-aw26-recap",
+      "status": "ready"
+    },
+    {
+      "id": "e41511467a863f74",
+      "title": "Копенгаген AW26: кружево, цветные колготки и высокие носки",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/cphfw-aw26-runway-recap",
+      "status": "ready"
+    },
+    {
+      "id": "11c995bf8463959a",
+      "title": "Контрасты в коллекции Swedish Stockings весна–лето 2026",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/bts-ss26",
+      "status": "ready"
+    },
+    {
+      "id": "ffca86dd42910ddb",
+      "title": "Итоги года Swedish Stockings: производство, США и вторая жизнь колготок",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/a-letter-from-our-founder-ceo-linn-frisinger",
+      "status": "ready"
+    },
+    {
+      "id": "702f48398a3ac4d2",
+      "title": "От Копенгагена до Лондона: чулочный трикотаж на показах SS26",
+      "source": "Swedish Stockings",
+      "url": "https://swedishstockings.com/blogs/journal/fashion-week-ss26-recap",
+      "status": "ready"
+    },
+    {
+      "id": "d97ca36124a1dd82",
+      "title": "Календарь чулочного мира: история нейлона и неофициальные праздники",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/kalendar-nosochno-chulochnogo-mira",
+      "status": "ready"
+    },
+    {
+      "id": "b4a87c1b9cc86aa7",
+      "title": "Серые колготки: как меняется привычная нейтральная основа",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/serye-kolgotki-stanovyatsya-alternativoj-klassicheskim-chyornym",
+      "status": "ready"
+    },
+    {
+      "id": "e91f3ab7c1d5c5c6",
+      "title": "Тёплые колготки: что сравнивать кроме числа DEN",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/tyoplye-kolgotki-2026-entsiklopediya-materialov-tehnologij-stilnyh-kombinatsij",
+      "status": "ready"
+    },
+    {
+      "id": "2df0d94c6bc34bf9",
+      "title": "Фактура вместо однотонности: три подхода к декоративным колготкам",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/kunert-philippe-matignon-trasparenze-delayut-stavku-na-fakturnye-kolgotki",
+      "status": "ready"
+    },
+    {
+      "id": "2e20b7543f721dfc",
+      "title": "Колготки и носки: разная динамика покупок за девять месяцев",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/kolgotki-pokupayut-chashhe-noski-rezhe-v-rossii-vyrosli-tseny-na-obe-kategorii",
+      "status": "ready"
+    },
+    {
+      "id": "5fcce6d8671b2313",
+      "title": "Хлопок, шерсть или микрофибра: выбор колготок под свой маршрут",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/v-kakih-kolgotkah-ne-budet-holodno-hlopok-sherst-ili-mikrofibra",
+      "status": "ready"
+    },
+    {
+      "id": "31970a45d545a6b9",
+      "title": "Как устроены тёплые колготки: нить, ворс и несколько слоёв",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/iz-chego-kak-delayut-sovremennye-tyoplye-kolgotki",
+      "status": "ready"
+    },
+    {
+      "id": "965179ab4f08fa88",
+      "title": "Белые Omsa Groenland 250: что показал обзор и чего он не обещает",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/obzor-belye-kolgotki-na-mehu-omsa-groenland-250",
+      "status": "ready"
+    },
+    {
+      "id": "4e85ad88e518b74a",
+      "title": "«Спущенные» колготки Julie Kegels: подиумная игра с гравитацией",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/effekt-spushhennyh-kolgotok-gravitatsiya-ironiya-dekonstruktsiya-v-kollektsii-julie-kegels-vesna-leto-2027",
+      "status": "ready"
+    },
+    {
+      "id": "7c98f83e81c54f4e",
+      "title": "Осень–зима 2026/27: цвет и фактура в подборке Bracatus",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/modnye-tyoplye-kolgotki-osen-zima-2026-2027",
+      "status": "ready"
+    },
+    {
+      "id": "10c2e58a93d5b519",
+      "title": "Dvorak C57: шерстяная смесь и детали посадки в обзоре Bracatus",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/obzor-sherstyanye-kolgotki-dvorak-c57-utilitarnyj-sogrevayushhij-zimnij-variant-s-verblyuzhej-i-ovechej-sherstyu",
+      "status": "ready"
+    },
+    {
+      "id": "d04e413ae5925279",
+      "title": "Бордо, шоколад и графит: три спокойных способа добавить цвет",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/bordovyj-shokoladnyj-grafit-gid-po-modnoj-palitre-kolgotok-na-osen-zimu",
+      "status": "ready"
+    },
+    {
+      "id": "401469c4e6dfb62c",
+      "title": "От офисной обязанности к модному акценту: взгляд на историю колготок",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/ot-panihidy-renessansa-evolyutsiya-kolgotok-ot-nachala-2000-h-2026-go",
+      "status": "ready"
+    },
+    {
+      "id": "6b27edbb1086a9a4",
+      "title": "Чулочная отрасль в октябре: цвет, новые материалы и давление затрат",
+      "source": "bracatuS",
+      "url": "https://bracatus.com/dajdzhest-novostej-chulochno-nosochnoj-otrasli-oktyabr-2026",
+      "status": "ready"
+    }
+  ],
+  "images": {
+    "total": 40,
+    "photographsOrPhotoCollages": 39,
+    "labelledThematicIllustrations": 1,
+    "local": 40,
+    "missing": 0,
+    "newlyAdded": 28,
+    "winterReplaced": true,
+    "existingCsbLocalized": true
+  },
+  "retentionPolicy": {
+    "ready": 200,
+    "discoveries": 200,
+    "independentBudgets": true,
+    "readyOlderThanOneYearRetained": true
+  },
+  "verification": {
+    "newsUnitTests": 57,
+    "newsBrowser": "PASS",
+    "localLinksHtmlPages": 35,
+    "allImagesLoaded": true,
+    "javascriptErrors": 0
+  }
+}
