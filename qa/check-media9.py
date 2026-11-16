@@ -14,7 +14,7 @@ with sync_playwright() as pw:
     assert page.locator('.news-reader[open]').count()==1
     assert page.locator('.reader-copy section').count()==3
     assert len(page.locator('.reader-article').inner_text())>2500
-    assert page.locator('.reader-visual img').get_attribute('src').endswith('pkg-a003df0fca.webp')
+    assert page.locator('.reader-visual img').get_attribute('src').endswith('conte-tulle-stop-runs.webp')
     page.wait_for_function('document.querySelector(".reader-visual img")?.naturalWidth>0')
     assert 'ss-clara' not in page.locator('.reader-body').inner_html()
     page.screenshot(path=str(OUT/'media9-news-desktop.png'))
@@ -26,8 +26,8 @@ with sync_playwright() as pw:
         page.goto(BASE+'?news='+ident,wait_until='networkidle')
         assert page.locator('.reader-copy section').count()==3
         assert len(page.locator('.reader-article').inner_text())>2000
-        if ident in ['740fbfe776775a58','a1d9fbbdd67f650c','110baf802c1c037e']:
-            assert page.locator('.reader-visual').count()==0
+        assert page.locator('.reader-visual').count()==1
+        page.wait_for_function('document.querySelector(".reader-visual img")?.naturalWidth>0')
     page.goto(BASE+'packaging.html',wait_until='networkidle')
     total=page.evaluate('TONKO_PACKAGING.length');counts=page.evaluate('TONKO_PACKAGING.reduce((m,r)=>(m[r.brand]=(m[r.brand]||0)+1,m),{})')
     assert page.locator('#pack-brand option').count()==len(counts)+1

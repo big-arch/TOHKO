@@ -16,6 +16,15 @@ def rss(title='New patterned tights', link='https://example.org/story?utm_source
     return f'<rss><channel><item><title>{title}</title><link>{link}</link><pubDate>{date}</pubDate></item></channel></rss>'.encode()
 
 class NewsTests(unittest.TestCase):
+    def test_reviewed_photo_does_not_replace_ai_text_or_attribution(self):
+        item={'id':'ec69a51c86814bde','publishedAt':'2026-11-15T12:00:00Z',
+              'summary':'Saved original summary','sections':[{'heading':'Details','paragraphs':['Text']}],
+              'ai':{'model':'test','generatedAt':'2026-11-16T00:00:00Z'}}
+        import copy
+        before=copy.deepcopy(item)
+        apply_editorial({'items':[item]})
+        self.assertIn('nicole-walker',item['illustration']['src'])
+        self.assertEqual({k:v for k,v in item.items() if k!='illustration'},before)
     def test_editorial_survives_successful_feed_refresh(self):
         url='https://bracatus.com/kak-ranshe-borolis-s-neprochnostyu-chulok-kak-eto-delayut-sejchas'
         source={**SOURCE,'id':'bracatus','site':'https://bracatus.com'}
@@ -26,7 +35,7 @@ class NewsTests(unittest.TestCase):
         item=updated['items'][0]
         self.assertEqual(len(item['sections']),3)
         self.assertEqual(item['publishedAt'],'2026-11-15T12:00:00Z')
-        self.assertIn('pkg-a003df0fca',item['illustration']['src'])
+        self.assertIn('conte-tulle-stop-runs',item['illustration']['src'])
         self.assertNotIn('ss-clara',story(item))
     def test_static_reader_escapes_text_and_keeps_source(self):
         item=parse_feed(rss(),SOURCE,NOW)[0]
@@ -35,6 +44,18 @@ class NewsTests(unittest.TestCase):
         self.assertNotIn('<script>',rendered)
         self.assertIn('&lt;script&gt;',rendered)
         self.assertIn('https://example.org/story',rendered)
+    def test_news_layout_is_independent_and_photo_dimensions_are_safe(self):
+        item=parse_feed(rss(),SOURCE,NOW)[0]
+        item['illustration']={'src':'assets/news/cover.webp','alt':'<photo>',
+                              'caption':'<caption>','source':'https://example.org/story',
+                              'width':1200,'height':1680}
+        rendered=story(item)
+        self.assertIn('class="news-story-layout"',rendered)
+        self.assertNotIn('class="reader-layout',rendered)
+        self.assertIn('width="1200" height="1680"',rendered)
+        self.assertIn('&lt;caption&gt;',rendered)
+        item['illustration']['width']='1" onload="alert(1)'
+        self.assertNotIn('onload',story(item))
     def test_publisher_announcement_wins_over_aggregator_duplicate(self):
         direct=parse_feed(rss(),SOURCE,NOW)[0]
         direct['excerpt']='A useful publisher announcement.'

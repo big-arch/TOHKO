@@ -1,8 +1,8 @@
-"""Run in Actions after RSS refresh. No key means a successful no-op."""
+"""Repair covers and generate bounded summaries. Images never require an API key."""
 import json,os
 from datetime import datetime,timezone
 from pathlib import Path
-from news_ai import enrich,extract_article,request_summary,article_cover,validate_cache,fetch_article_url
+from news_ai import enrich,extract_article,request_summary,article_cover,validate_cache,fetch_article_url,backfill_covers
 
 ROOT=Path(__file__).resolve().parents[1];DATA=ROOT/'tights-guide/data'
 def atomic(path,value):
@@ -10,11 +10,14 @@ def atomic(path,value):
     temp=path.with_suffix('.tmp');temp.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');temp.replace(path)
 
 def main():
+    news=json.loads((DATA/'news.json').read_text(encoding='utf-8'))
+    sources=json.loads((DATA/'news-sources.json').read_text(encoding='utf-8'))
+    covers=backfill_covers(news,sources)
+    if covers['added']:atomic(DATA/'news.json',news)
+    print('Article covers:',json.dumps(covers))
     key=os.environ.get('OPENAI_API_KEY','').strip()
     if not key or os.environ.get('OPENAI_NEWS_ENABLED','true').lower()!='true':
         print('AI summaries disabled or OPENAI_API_KEY is absent; RSS news preserved.');return
-    news=json.loads((DATA/'news.json').read_text(encoding='utf-8'))
-    sources=json.loads((DATA/'news-sources.json').read_text(encoding='utf-8'))
     cache_path=ROOT/'.cache/news-ai-cache.json'
     try:
         cache=json.loads(cache_path.read_text(encoding='utf-8')) if cache_path.exists() else {}

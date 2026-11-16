@@ -118,10 +118,18 @@ def validate_stored_fields(fields):
     if not 110<=len(words(combined))<=min(390,int(ai['sourceWords']*.75)):raise ValueError('Invalid stored article length')
     photo=fields.get('illustration')
     if photo is not None:
-        if not isinstance(photo,dict) or set(photo)-{'src','alt','caption','source'}:raise ValueError('Invalid stored photo')
-        for key in ('src','source'):
-            parsed=urlsplit(photo.get(key,''))
+        if not isinstance(photo,dict) or set(photo)-{'src','alt','caption','source','width','height','imageSource'}:raise ValueError('Invalid stored photo')
+        for key in ('src','source','imageSource'):
+            if key=='imageSource' and key not in photo:continue
+            value=photo.get(key,'')
+            if not isinstance(value,str):raise ValueError('Invalid photo URL')
+            # Reviewed, committed images may accompany published AI summaries.
+            # Keep this path narrow: no traversal, queries, scripts or arbitrary files.
+            if key=='src' and re.fullmatch(r'assets/news/[a-z0-9][a-z0-9-]{0,119}\.(?:webp|jpg|jpeg|png|avif)',value):continue
+            parsed=urlsplit(value)
             if parsed.scheme!='https' or not parsed.hostname or parsed.username or parsed.password or parsed.port not in (None,443):raise ValueError('Invalid photo URL')
+        if 'width' in photo or 'height' in photo:
+            if not all(type(photo.get(k)) is int and 1<=photo[k]<=20000 for k in ('width','height')):raise ValueError('Invalid photo dimensions')
         if not all(isinstance(photo.get(k,''),str) and len(photo.get(k,''))<=1000 for k in ('alt','caption')):raise ValueError('Invalid photo caption')
 
 def validate_cache(cache):
@@ -160,16 +168,39 @@ def article_cover(raw,source,item):
         def __init__(self):super().__init__();self.values={}
         def handle_starttag(self,tag,attrs):
             attrs=dict(attrs)
-            if tag=='meta' and attrs.get('property') in ('og:image','og:image:width','og:image:height'):
-                self.values.setdefault(attrs['property'],attrs.get('content',''))
+            key=(attrs.get('property') or attrs.get('name') or '').lower()
+            if tag=='meta' and key in ('og:image','og:image:secure_url','og:image:width','og:image:height'):
+                self.values.setdefault(key,attrs.get('content',''))
     parser=Meta();parser.feed(raw.decode('utf-8','replace') if isinstance(raw,bytes) else raw)
     values=parser.values
+    image_url=values.get('og:image:secure_url') or values.get('og:image','')
+    if not image_url:return None
+    try:
+        image_url=urljoin(item['url'],image_url)
+        # Shopify may publish HTTP og:image URLs on HTTPS articles. Only use
+        # HTTPS; featured_image still enforces the existing host allowlist.
+        if image_url.startswith('http://'):image_url='https://'+image_url[7:]
+    except ValueError:return None
     node=ET.Element('item');ET.SubElement(node,'{http://search.yahoo.com/mrss/}content',{
-       'url':values.get('og:image',''),'medium':'image','width':values.get('og:image:width','300'),
+       'url':image_url,'medium':'image','width':values.get('og:image:width','300'),
        'height':values.get('og:image:height','300')})
     photo=featured_image(node,source)
     if photo:photo.update(source=item['url'],caption='Обложка этой публикации у издателя.',alt='Иллюстрация к материалу: '+item['title'])
     return photo
+
+def backfill_covers(news,sources,fetch=fetch_article_url,limit=6):
+    """Repair covers of existing summaries without generating or paying for text."""
+    source_map={s['id']:s for s in sources};checked=0;added=0
+    for item in news.get('items',[]):
+        if checked>=limit:break
+        source=source_map.get(item.get('sourceId'))
+        if not item.get('sections') or item.get('illustration') or item.get('via'):continue
+        if not source or not safe_url(item.get('url',''),source):continue
+        checked+=1
+        try:photo=article_cover(fetch(item['url'],source),source,item)
+        except Exception:continue
+        if photo:item['illustration']=photo;added+=1
+    return {'checked':checked,'added':added}
 
 def preserve_generated(news,previous):
     old={i['id']:i for i in previous.get('items',[]) if i.get('ai') and i.get('sections')}

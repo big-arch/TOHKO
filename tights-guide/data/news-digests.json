@@ -26,10 +26,13 @@
       }
     ],
     "illustration": {
-      "src": "assets/packaging/pkg-a003df0fca.webp",
-      "alt": "Упаковка Conte Tulle 30 с обозначением Stop Runs",
-      "caption": "Conte Tulle 30: пример маркировки Stop Runs. Иллюстрация к разбору ТОНКО, не фотография из публикации Bracatus.",
-      "source": "packaging.html?pack=pkg-a003df0fca"
+      "src": "assets/news/conte-tulle-stop-runs.webp",
+      "width": 1280,
+      "height": 1768,
+      "alt": "Упаковка колготок Conte Tulle 30 с крупной надписью Stop Runs",
+      "caption": "Conte Tulle 30: маркировка Stop Runs крупным планом. Фото из карточки Колготки-Онлайн; пример обозначения, разобранного в статье.",
+      "source": "https://kolgotki-online.ru/product/zhenskie-kolgotki-tulle-30-conte",
+      "imageSource": "https://cdn.insales-shop.ru/images/products/1/127/719642751/EKVTvihyKZ3BNBYK_1_.jpg"
     },
     "checked": "2026-11-16"
   },
@@ -56,17 +59,26 @@
         "paragraphs": [
           "Представьте обычный маршрут: короткая дорога и тёплый офис, длительная прогулка или несколько часов в помещении. Одна и та же плотная пара в этих ситуациях может ощущаться по-разному. Полезно оценить также обувь и посадку одежды поверх колготок, а не выбирать их как отдельную вещь.",
           "Если магазин предоставляет образец материала, сравните поверхность руками и уточните возможность примерки до покупки. При домашней проверке оцените пояс, длину и ощущения при движении; сильное натяжение не стоит принимать за нормальную посадку. Условия возврата и примерки лучше узнать у конкретного продавца.",
-          "На иллюстрации — упаковка Omero Ermete 80 Lana из нашего архива. Она выбрана по теме шерстяных моделей. Это пример оформления, а не результат теста мягкости: личные ощущения нельзя достоверно определить по фотографии."
+          "На фотографии — Oroblù Cheryl, пример смесовой модели с модалом и кашемиром. В официальной карточке указаны 65% модала и 8% кашемира. Это иллюстрация к разговору о составе, а не результат теста мягкости: личные ощущения нельзя достоверно определить по фотографии."
         ]
       }
     ],
     "illustration": {
-      "src": "assets/packaging/pkg-c05d201da8.webp",
-      "alt": "Упаковка шерстяных колготок Omero Ermete 80 Lana",
-      "caption": "Omero Ermete 80 Lana — упаковка модели с обозначением Lana. Пример по теме материала, не участник сравнительного тестирования.",
-      "source": "packaging.html?pack=pkg-c05d201da8"
+      "src": "assets/news/oroblu-cheryl-cashmere.webp",
+      "width": 1200,
+      "height": 1725,
+      "alt": "Серые меланжевые колготки Oroblù Cheryl с модалом и кашемиром",
+      "caption": "Oroblù Cheryl — пример смесовой модели: 65% модала и 8% кашемира по карточке бренда. Фото Oroblù; иллюстрация к теме состава и мягкости.",
+      "source": "https://oroblu.com/en-us/products/modal-and-cashmere-opaque-tights-cheryl-grey-melange-obh001640000000000031",
+      "imageSource": "https://oroblu.com/cdn/shop/files/OBH0016400000000-00031-1_01.jpg?v=1765269831&width=1200"
     },
-    "checked": "2026-11-16"
+    "checked": "2026-11-16",
+    "references": [
+      {
+        "label": "Oroblù · состав Cheryl",
+        "url": "https://oroblu.com/en-us/products/modal-and-cashmere-opaque-tights-cheryl-grey-melange-obh001640000000000031"
+      }
+    ]
   },
   "740fbfe776775a58": {
     "displayTitle": "Тёплые колготки с эффектом прозрачности: что предлагает Oroblù",
@@ -101,7 +113,16 @@
         "url": "https://oroblu.com/en-eu/products/thermonude-sheereffect-opaque-thermal-tights-black-obh003100000000000231"
       }
     ],
-    "checked": "2026-11-16"
+    "checked": "2026-11-16",
+    "illustration": {
+      "src": "assets/news/oroblu-thermo-nude-hearts.webp",
+      "width": 1200,
+      "height": 1799,
+      "alt": "Колготки Oroblù Thermo-Nude с эффектом прозрачности и маленькими чёрными сердечками",
+      "caption": "Oroblù Thermo-Nude, VOBC68637: версия с бархатистыми сердечками, описанная в разборе. Фото Oroblù.",
+      "source": "https://oroblu.com/en-us/products/thermonude-sheereffect-opaque-thermal-tights-black-obh003100000000000231",
+      "imageSource": "https://oroblu.com/cdn/shop/files/OBH0031000000000-00231-1_01.jpg?v=1790254015&width=1200"
+    }
   },
   "a1d9fbbdd67f650c": {
     "displayTitle": "Праздничная Calzedonia: кристаллы, кружево и акцент на колготках",
@@ -130,7 +151,16 @@
         ]
       }
     ],
-    "checked": "2026-11-16"
+    "checked": "2026-11-16",
+    "illustration": {
+      "src": "assets/news/calzedonia-party-diamante.webp",
+      "width": 1200,
+      "height": 1680,
+      "alt": "Чёрные колготки Calzedonia с декоративными кристаллами",
+      "caption": "Calzedonia, MODC2242: колготки с кристаллами из раздела Party Collection. Пример декора, который обсуждается в статье. Фото Calzedonia.",
+      "source": "https://www.calzedonia.com/uk/product/opaque_tights_with_diamante_applique-MODC2242.html",
+      "imageSource": "https://www.calzedonia.com/dw/image/v2/BJHW_PRD/on/demandware.static/-/Sites-CAL_EC_COM/default/dw30a3efed/images/MODC22425485-M.jpg?sfrm=jpeg&sw=1200"
+    }
   },
   "110baf802c1c037e": {
     "displayTitle": "Блестящие колготки Хейли Бибер: что известно о Rainy Glitter",
@@ -159,7 +189,16 @@
         ]
       }
     ],
-    "checked": "2026-11-16"
+    "checked": "2026-11-16",
+    "illustration": {
+      "src": "assets/news/calzedonia-rainy-glitter.webp",
+      "width": 1200,
+      "height": 1680,
+      "alt": "Чёрные колготки Calzedonia Rainy Glitter с вертикальными блестящими полосами",
+      "caption": "Calzedonia Rainy Glitter, MODC2258 — модель, о которой идёт речь в статье. Фотография из каталога Calzedonia.",
+      "source": "https://www.calzedonia.com/uk/product/rainy_glitter_tights-MODC2258.html",
+      "imageSource": "https://www.calzedonia.com/dw/image/v2/BJHW_PRD/on/demandware.static/-/Sites-CAL_EC_COM/default/dwb07c8880/images/MODC2258182F-M.jpg?sfrm=jpeg&sw=1200"
+    }
   },
   "de251274a9173ea9": {
     "displayTitle": "Ботфорты возвращаются: колготки или узкие джинсы?",
@@ -194,7 +233,9 @@
       "alt": "Два сочетания высоких сапог с узкими джинсами",
       "caption": "Коллаж из публикации Who What Wear: высокие сапоги с узкими джинсами. Права на фотографии принадлежат их авторам.",
       "source": "https://www.whowhatwear.com/fashion/shoes/french-girl-over-the-knee-boot-skinny-jeans-outfit-2026",
-      "imageSource": "https://cdn.mos.cms.futurecdn.net/hgrRc5Ff9GwqzRLBb4uHsm-1280-80.png"
+      "imageSource": "https://cdn.mos.cms.futurecdn.net/hgrRc5Ff9GwqzRLBb4uHsm-1280-80.png",
+      "width": 1280,
+      "height": 720
     }
   }
 }

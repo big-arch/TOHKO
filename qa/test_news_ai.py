@@ -3,7 +3,7 @@ import copy,json,sys,unittest
 from datetime import datetime,timezone,timedelta
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from news_ai import enrich,validate_result,APIError,parse_response,article_cover,preserve_generated
+from news_ai import enrich,validate_result,APIError,parse_response,article_cover,preserve_generated,backfill_covers,validate_stored_fields
 NOW=datetime(2026,11,16,12,tzinfo=timezone.utc)
 SOURCE={'id':'example','site':'https://example.org','name':'Example'}
 TEXT=' '.join('Исходный материал о новой коллекции колготок и разных вариантах оформления.' for _ in range(70))
@@ -12,6 +12,55 @@ def result():return {'usable':True,'displayTitle':'Новая коллекция
 def ask(i,t):return result()
 def fetch(i):return TEXT
 class AITests(unittest.TestCase):
+    def test_reviewed_local_photo_survives_restore_without_another_paid_summary(self):
+        news={'items':[item()]};cache={}
+        enrich(news,[SOURCE],cache,fetch,ask,NOW)
+        news['items'][0]['illustration']={'src':'assets/news/reviewed-photo.webp','width':1200,'height':1800,
+                                        'source':'https://example.org/one','imageSource':'https://example.org/photo.jpg',
+                                        'alt':'Photo','caption':'Reviewed source photo'}
+        restored={'items':[item()]};preserve_generated(restored,news)
+        self.assertEqual(restored['items'][0]['sections'],news['items'][0]['sections'])
+        self.assertEqual(restored['items'][0]['illustration'],news['items'][0]['illustration'])
+        cache={}
+        for _ in range(2):
+            stats=enrich(restored,[SOURCE],cache,fetch,lambda *a:self.fail('Repeated paid summary'),NOW)
+            self.assertEqual(stats['generated'],0)
+        fields=cache['records']['one']['fields']
+        for bad in ({'src':'assets/news/../secret.webp'}, {'src':'assets/news/%2e%2e/secret.webp'},
+                    {'src':'assets/news/test.svg'}, {'height':-10}, {'width':True},
+                    {'imageSource':'http://example.org/photo.jpg'}):
+            invalid=copy.deepcopy(fields);invalid['illustration'].update(bad)
+            with self.assertRaises(ValueError):validate_stored_fields(invalid)
+    def test_shopify_http_and_relative_covers_are_upgraded_without_relaxing_hosts(self):
+        for url in ('http://example.org/cover.jpg','//example.org/cover.jpg','/cover.jpg'):
+            self.assertEqual(article_cover(f'<meta property="og:image" content="{url}">',SOURCE,item())['src'],'https://example.org/cover.jpg')
+        for url in ('http://evil.org/cover.jpg','//example.org.evil.org/cover.jpg','http://user:pass@example.org/cover.jpg','http://example.org:80/cover.jpg'):
+            self.assertIsNone(article_cover(f'<meta property="og:image" content="{url}">',SOURCE,item()))
+        markup='<meta name="og:image" content="http://example.org/old.jpg"><meta property="og:image:secure_url" content="https://example.org/cover.jpg">'
+        self.assertEqual(article_cover(markup,SOURCE,item())['src'],'https://example.org/cover.jpg')
+    def test_cover_backfill_preserves_articles_and_limits_fetches(self):
+        articles=[{**item(str(i)),'sourceId':'example',**result(),'ai':{'model':'test'}} for i in range(9)]
+        old=copy.deepcopy(articles)
+        news={'items':articles};calls=[]
+        def fetch_cover(url,source):
+            calls.append(url)
+            return '<meta property="og:image" content="http://example.org/cover.jpg">'
+        self.assertEqual(backfill_covers(news,[SOURCE],fetch_cover),{'checked':6,'added':6})
+        self.assertEqual(len(calls),6)
+        for article,previous in zip(articles,old):
+            self.assertEqual({k:v for k,v in article.items() if k!='illustration'},previous)
+        self.assertEqual(backfill_covers(news,[SOURCE],fetch_cover),{'checked':3,'added':3})
+        self.assertEqual(backfill_covers(news,[SOURCE],fetch_cover),{'checked':0,'added':0})
+    def test_cover_backfill_skips_foreign_urls_and_keeps_good_images(self):
+        missing={**item(),'sourceId':'example',**result()}
+        good={**missing,'id':'good','illustration':{'src':'assets/photo.webp'}}
+        foreign={**missing,'id':'foreign','url':'https://evil.org/story'}
+        calls=[]
+        def failed(url,source):
+            calls.append(url);raise ValueError('Unavailable')
+        self.assertEqual(backfill_covers({'items':[good,foreign,missing]},[SOURCE],failed),{'checked':1,'added':0})
+        self.assertEqual(calls,['https://example.org/one'])
+        self.assertEqual(good['illustration']['src'],'assets/photo.webp')
     def test_api_request_keeps_key_out_of_payload_and_uses_bounded_output(self):
         from unittest.mock import patch,MagicMock
         from news_ai import request_summary

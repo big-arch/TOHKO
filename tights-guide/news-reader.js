@@ -20,14 +20,15 @@
     head.append(el('p',item.ai?'ТОНКО / Новости':expanded?'ТОНКО / Разбор':'ТОНКО / Лента','portal-eyebrow'),el('p',`${item.source} · ${date.format(new Date(item.publishedAt))} · ${expanded?Math.max(2,Math.ceil(words/160))+' мин чтения':'Короткая новость'}${item.ai?' · AI-пересказ':''}`,'news-meta'));
     const heading=el('h2',item.displayTitle||item.title);heading.id='reader-title';heading.lang=item.displayTitle?'ru':item.language;head.append(heading);
     const lead=el('p',item.summary||item.excerpt||'Издание опубликовало материал на эту тему. В его ленте доступен только заголовок; развёрнутый текст для чтения на ТОНКО пока не подготовлен.','reader-excerpt');lead.lang=item.summary?'ru':item.language;head.append(lead);
-    const layout=el('div','','reader-layout'),copy=el('div','','reader-copy');
+    const layout=el('div','','news-story-layout'),copy=el('div','','reader-copy');
     const photo=item.illustration;
     if(photo&&typeof photo.src==='string'&&(photo.src.startsWith('assets/')||photo.src.startsWith('https://'))){
       const visual=el('figure','','reader-visual'),img=el('img');img.src=photo.src;img.alt=photo.alt||'';img.decoding='async';
-      img.addEventListener('error',()=>{visual.remove();layout.classList.remove('has-visual');});
-      visual.append(img,el('figcaption',photo.caption||'Иллюстрация к публикации.'));
-      const credit=link('Об изображении ↗',photo.source,'reader-image-source');if(credit)visual.append(credit);
-      layout.append(visual);layout.classList.add('has-visual');
+      if(Number.isInteger(photo.width)&&photo.width>0&&Number.isInteger(photo.height)&&photo.height>0){img.width=photo.width;img.height=photo.height;}
+      img.addEventListener('error',()=>visual.remove());
+      const caption=el('figcaption',photo.caption||'Иллюстрация к публикации.');
+      const credit=link('Источник фотографии ↗',photo.source,'reader-image-source');if(credit)caption.append(credit);
+      visual.append(img,caption);layout.append(visual);
     }
     sections.forEach(s=>{const section=el('section');if(s.heading)section.append(el('h3',s.heading));(s.paragraphs||[]).forEach(p=>section.append(el('p',p)));copy.append(section);});
     const credits=el('footer','','reader-credits');
