@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "checkedAt": "2026-11-16T06:39:31.338399Z",
+  "lastSuccessfulAt": "2026-11-16T06:39:31.338399Z",
+  "intervalMinutes": 15,
+  "sources": [
+    {
+      "id": "google",
+      "name": "Google News · выбранные издания",
+      "site": "https://news.google.com",
+      "language": "mixed",
+      "lastSuccessfulAt": "2026-11-16T06:39:31.338399Z",
+      "status": "ok",
+      "matched": 13
+    },
+    {
+      "id": "whowhatwear",
+      "name": "Who What Wear",
+      "site": "https://www.whowhatwear.com",
+      "language": "en",
+      "lastSuccessfulAt": "2026-11-16T06:39:31.338399Z",
+      "status": "ok",
+      "matched": 2
+    },
+    {
+      "id": "fashionunited",
+      "name": "FashionUnited",
+      "site": "https://fashionunited.com",
+      "language": "en",
+      "lastSuccessfulAt": "2026-11-16T06:39:31.338399Z",
+      "status": "ok",
+      "matched": 0
+    },
+    {
+      "id": "swedish",
+      "name": "Swedish Stockings",
+      "site": "https://swedishstockings.com",
+      "language": "en",
+      "lastSuccessfulAt": "2026-11-16T06:39:31.338399Z",
+      "status": "ok",
+      "matched": 17
+    },
+    {
+      "id": "snag",
+      "name": "Snag",
+      "site": "https://snagtights.com",
+      "language": "en",
+      "lastSuccessfulAt": "2026-11-16T06:39:31.338399Z",
+      "status": "ok",
+      "matched": 1
+    },
+    {
+      "id": "bracatus",
+      "name": "Bracatus",
+      "site": "https://bracatus.com",
+      "language": "ru",
+      "lastSuccessfulAt": null,
+      "status": "error",
+      "error": "OSError"
+    }
+  ],
+  "items": [
+    {
+      "id": "526906455127cce3",
+      "title": "We Just Tried 13 CSB Best Sellers, From Hailey's Favorite Tank to the Leggings NYC It Girls Swear By",
+      "url": "https://www.whowhatwear.com/fashion/athleisure/csb-editor-try-on-2026",
+      "publishedAt": "2026-11-14T12:00:00Z",
+      "sourceId": "whowhatwear",
+      "source": "Who What Wear",
+      "sourceSite": "https://www.whowhatwear.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "d97ca36124a1dd82",
+      "title": "Календарь носочно-чулочного мира: памятные даты и праздники, которые стоит отметить",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFA0Yjdib2FfMzFVVmdLZnlWaGhJdHBfUzVBcWZucTlneVFzZkQyZ0l1Y1NCNXMwNUc3MU1wMUxlRXUyMVBjMnpCdTFLSmxCVGVhclQybmpmRHVJTUpnWWwxS0lrdDluUQ?oc=5",
+      "publishedAt": "2026-11-13T14:16:56Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "b4a87c1b9cc86aa7",
+      "title": "Серые колготки становятся альтернативой классическим чёрным",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNQzdJMEt3R2pnLU5OWVhPaWVrUE4wTi1sZng0dzFvWkM1UVk2ZEV5UWhxQ192QjBaaHZDdmt3MjgtWGVIRWdkUXBxaU9pZmlHdlFBbFJ1bkJkdGNRZU1pSngtMnhqdHppaldrNnZTeWJPeFFZRUU3UEM5dDJoeVVXTF8yeUVZdVJTRHRqVA?oc=5",
+      "publishedAt": "2026-11-13T10:47:08Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "ee8ae4a2a6c7f547",
+      "title": "Hot Take: Wear Leggings Like This If You Want to Avoid Looking \"Lazy\" This Winter",
+      "url": "https://www.whowhatwear.com/fashion/winter/winter-leggings-trends-2026",
+      "publishedAt": "2026-11-13T10:46:43Z",
+      "sourceId": "whowhatwear",
+      "source": "Who What Wear",
+      "sourceSite": "https://www.whowhatwear.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "e91f3ab7c1d5c5c6",
+      "title": "Тёплые колготки 2026: энциклопедия материалов, технологий и стильных комбинаций",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNQUZvSUVTRUFEZ3o2czZYRFpyNFhVNVAxRU1wVXBIME1mcURsczBXOWFWV01HNHV0SG9ra0hRQnNSN2NjQnJxWldSOE1URGdVbjZCSHJDZk5kNEhhUWF2NXllTVBhTEV6S3VLc2hleHNuWE9mZGo4VnMxTHM4MG5kRXpvUjlYeXFYTjJQSjVFd2ZINi1GM2UxUGZqSFdfUFdF?oc=5",
+      "publishedAt": "2026-11-12T21:56:48Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "2df0d94c6bc34bf9",
+      "title": "Kunert, Philippe Matignon и Trasparenze делают ставку на фактурные колготки",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPdEVKOEFULVh2bXJLQWhKTEJVYkt6cTJUM1pDZ2dWSUl5Z1JtNVNFTzhITXNkSGNlVU1RNzlpdnV1Y3F0eHJ2XzJVWXN1UUg4TzVzRUkyOVU0OW9zdTA1QmR0cnV1MF8wM3E4Tm5oSGpRSExEbzZ0dnFraEh0ZFNZS3c3WU5qdWtrbmd6UldPR1cxb2pqTlZMeUtB?oc=5",
+      "publishedAt": "2026-11-12T13:27:28Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "2e20b7543f721dfc",
+      "title": "Колготки покупают чаще, носки — реже: в России выросли цены на обе категории",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOcmpFOGpkSTd6OWx2V01FSy04bEdMZ2R6UGFhZG1xR1czdFgtalF2aDlYZzFvbE5CYkFQNEZiRlp5X1VMYkZEQkh4WFJ6Ykp5c3BiNG1yWXphaHpmT1JqS2F5aUw3NGtPS0o4dFlQc21zS2Npd2xhSnlTNV9jbG1aaUxvVlpiZ2RMdTA1VHd0WE9NUVF2VGtlN1AtSWhlMGF4?oc=5",
+      "publishedAt": "2026-11-11T07:02:31Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "5fcce6d8671b2313",
+      "title": "В каких колготках не будет холодно: хлопок, шерсть или микрофибра",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOZHpjRzdTU3hjQUNoYUltclUtUktnYjVrTF92U0FuTUVVNnZPSGxuWjdIZEh3QlNmaXNIQWRpamE0TnBDMU9UZ0dWWDRSTFMtT05QUVJzbVdNbEd3YnhaMlpVajRsTGttYnlMUXZMMUh0TnI0bDhjRkM2a2JTR2hfR3p4V0oyMkVBYnRfWg?oc=5",
+      "publishedAt": "2026-11-10T21:05:38Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "31970a45d545a6b9",
+      "title": "Из чего и как делают современные тёплые колготки",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBUSEZld3g5Rkd2cGgwYmJ1ejk2cmFlUGFjMjhheEZ4bXozLWRVenhqTk40emIwdldIMFpISmlza0lURnR3Um5QSHJFSjhycXNhcnJob0tFZllDYzk4cjJtRkJQT2YwaGtaeUZKVGRENzN5QkVEOU1mX1h3?oc=5",
+      "publishedAt": "2026-11-10T15:25:55Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "965179ab4f08fa88",
+      "title": "Обзор: белые колготки «на меху» Omsa Groenland 250",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1Uc0lpNDlPZklIYzA4SDBLSHRqclp2cUVoV1VydGthNllDVXRHb3dWdV9uYjhMVm5yeU56alZTdzB6MFhDd2ZpRnc5OFY3TklUZHBGUzJvQkgyekEwQV9EVm12ZHlfVTFDNzdBUGg4MHIyQ3k3M0hR?oc=5",
+      "publishedAt": "2026-11-09T15:16:40Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "4e85ad88e518b74a",
+      "title": "Эффект спущенных колготок: гравитация, ирония и деконструкция в коллекции Julie Kegels Весна-Лето 2027",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQMjdxZWVlNUl2bGMwa0w1VnZNN0x1VVkxMHYwSG5BTWdheGkzbDdBbUdSM2hURTdxbXJtZUFxX0NuYkJBdmdWV25ORXZ2M1N0YklJVVJzNWtZc29jYkxPajNGcm5BS2wycjJfVnpOUUhiaGdyT21rVkFNNGJJSFJ2ZVhEY2UwZHNrWVF1Y21XZEYxdVBxZHlBVW1IMXF1T0ktWl8weVJCY0otUTFnYWhLbTZmMG1tWDJNdjN6LUpGNnRpMU1yZnc?oc=5",
+      "publishedAt": "2026-11-07T12:17:35Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "7c98f83e81c54f4e",
+      "title": "Модные тёплые колготки Осень-Зима 2026/2027",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5kQ3VCd0xzQ1dua0RVYU1iVUxTWEV6Q2dxU1ZjNkZjTE9fc3VucWc2Ui1jWFdyTFZ5UzZCT0xfNVlVdTNUX2JxTlRPNW00Qy1oTzhyaEdfRnd1NkNTWndRSmRxanVKTDJNMXd1dHNBd2VJUQ?oc=5",
+      "publishedAt": "2026-11-06T13:14:29Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "10c2e58a93d5b519",
+      "title": "Обзор: шерстяные колготки Dvorak C57 — утилитарный согревающий зимний вариант с верблюжьей и овечьей шерстью",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOWF9TaTE0N3psNWFTTjNUblVDUm9OZ2NoNWVjcW05Y045aHVYLTIwNWdFdDE3N0hWYlpMTWVraC14alhhajdCNjlJM2JNRGt2dnVoei1aMzRRcTFlR3FNNjJRcG1ZN0s0cEliSTdyRlItRHlSQ0ZTZXpCNmM0WmU1bjYzM3BlajZXVklna1ZoeV9lY3psR3dzUk5fOGdQbEF3MzJNYnZkTVI5Y0xBU1dCYlFqb3F6YUl0ZkVkQlB1NDh5elA5ZDJfOTRlYzZUZw?oc=5",
+      "publishedAt": "2026-11-06T08:00:00Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "d04e413ae5925279",
+      "title": "Бордовый, шоколадный и графит: гид по модной палитре колготок на осень-зиму",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNSnNzVXp3MlpIZ3VJU0hERGQ2bVlQZGpxWHpwVF9TSlZMZ3VreDRQWHdmeXlRTlVZNHlGUDJGdlJEdzU2SE1WMzRRVW56dHZvcjJrd1BjVTZFa2xZbWduZlkxX19Bam1sVDBNWVB1RFUyRkowenZhRy1UcmxkdVB5a2hIZUVUUWl4REd2RFdnbEIxbFZuS0ZV?oc=5",
+      "publishedAt": "2026-11-04T08:00:00Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "401469c4e6dfb62c",
+      "title": "От «панихиды» до ренессанса: эволюция колготок от начала 2000-х до 2026-го",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNenRFUlgxRWhZYV85ZEpxUmFHbmlzcGkwRTBZYUkzS2VzeFhfX0ZJcFpFQktycnR1b1FvcTNBSGRUNjRhbVdHdjdySnBjaXRZS1dEUHMya2FDXzZ0S0p2WWtpTmEzRXZqRzl2WUszeGEzOUpmR3h2Z0FVQnZyam5GTzV3MmhDaFMtMl9oUFZGcWRrSkxp?oc=5",
+      "publishedAt": "2026-11-01T21:07:18Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru"
+    },
+    {
+      "id": "3a8926fce2caa891",
+      "title": "Meet The Changemakers: XV Production",
+      "url": "https://swedishstockings.com/blogs/journal/meet-the-changemakers-xv-production",
+      "publishedAt": "2026-09-07T13:52:35Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "ec69a51c86814bde",
+      "title": "Dialogues: Nicole Walker",
+      "url": "https://swedishstockings.com/blogs/journal/dialogues-nicole-walker",
+      "publishedAt": "2026-08-31T14:03:50Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "fb9e23837e95c12e",
+      "title": "A Night Celebrating Fashion – AW26 Launch Event in Stockholm",
+      "url": "https://swedishstockings.com/blogs/journal/reimagining-hosiery-an-evening-with-swedish-stockings",
+      "publishedAt": "2026-08-24T12:34:18Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "bfd2f03ae301d568",
+      "title": "AW26: Behind the Scenes – Discover the team behind the campaign",
+      "url": "https://swedishstockings.com/blogs/journal/aw26-behind-the-scenes",
+      "publishedAt": "2026-08-17T16:05:19Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "d4e8e16255104b16",
+      "title": "Introducing a New Era – Explore the new collection and packaging",
+      "url": "https://swedishstockings.com/blogs/journal/introducing-a-new-era",
+      "publishedAt": "2026-08-13T14:44:00Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "7e3000a4ae753772",
+      "title": "DIALOGUES - SYLVI SUNDKLER",
+      "url": "https://swedishstockings.com/blogs/journal/dialogues-sylvi-sundkler",
+      "publishedAt": "2026-06-24T14:27:51Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "f27186a9a0504e41",
+      "title": "Clothing as a Safe Space: Sensory Comfort and the Nervous System",
+      "url": "https://snagtights.com/blogs/news/clothing-as-a-safe-space",
+      "publishedAt": "2026-05-11T17:00:03Z",
+      "sourceId": "snag",
+      "source": "Snag",
+      "sourceSite": "https://snagtights.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "ecfefa91acbb25c6",
+      "title": "Stir-Up Leggings – Style Guide",
+      "url": "https://swedishstockings.com/blogs/journal/stir-up-leggings-style-guide",
+      "publishedAt": "2026-04-22T11:00:29Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "42c8582c92a885b1",
+      "title": "Behind The Scenes – The Summer Edit",
+      "url": "https://swedishstockings.com/blogs/journal/behind-the-scenes-occasion-campaign-2026",
+      "publishedAt": "2026-04-14T13:24:28Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "027ada4e3cdc30c2",
+      "title": "Dialogues - Rave Rvw",
+      "url": "https://swedishstockings.com/blogs/journal/rave-review-journal",
+      "publishedAt": "2026-04-07T13:28:14Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "b8f663fe189f9015",
+      "title": "How to Dress for Spring",
+      "url": "https://swedishstockings.com/blogs/journal/style-guide-for-spring-legwear",
+      "publishedAt": "2026-04-02T11:41:06Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "40f2838465682250",
+      "title": "Threading Fashion and Form: The August Barron x Swedish Stockings Collaboration",
+      "url": "https://swedishstockings.com/blogs/journal/threading-fashion-and-form-the-swedish-stockings-august-barron-collaboration",
+      "publishedAt": "2026-03-17T14:15:54Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "6d993c552faf7a1d",
+      "title": "LDNFW AW26 - Highlights",
+      "url": "https://swedishstockings.com/blogs/journal/ldn-fw",
+      "publishedAt": "2026-02-27T16:24:29Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "456f77b8a76349b5",
+      "title": "NYFW AW26 - Runway & Backstage",
+      "url": "https://swedishstockings.com/blogs/journal/nyfw-aw26-recap",
+      "publishedAt": "2026-02-20T15:19:49Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "e41511467a863f74",
+      "title": "CPHFW AW26 - RUNWAY RECAP",
+      "url": "https://swedishstockings.com/blogs/journal/cphfw-aw26-runway-recap",
+      "publishedAt": "2026-02-09T15:58:54Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "11c995bf8463959a",
+      "title": "Behind The Scenes Spring/Summer 2026 Collection",
+      "url": "https://swedishstockings.com/blogs/journal/bts-ss26",
+      "publishedAt": "2026-01-28T14:35:56Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "ffca86dd42910ddb",
+      "title": "A Letter from Our Founder & CEO, Linn Frisinger",
+      "url": "https://swedishstockings.com/blogs/journal/a-letter-from-our-founder-ceo-linn-frisinger",
+      "publishedAt": "2025-12-29T08:18:30Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    },
+    {
+      "id": "702f48398a3ac4d2",
+      "title": "FASHION WEEK SS26 RECAP",
+      "url": "https://swedishstockings.com/blogs/journal/fashion-week-ss26-recap",
+      "publishedAt": "2025-11-25T12:54:06Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en"
+    }
+  ]
+}

@@ -1,5 +1,247 @@
 [
   {
+    "id": "outfit-street-leather",
+    "image": "assets/editorial/outfit-street-leather.jpg",
+    "title": "Косуха, мини и светлые ботинки",
+    "category": "sheer",
+    "tags": [
+      "outfit"
+    ],
+    "author": "Подборка владельца ТОНКО",
+    "source": "sources.html#photography",
+    "license": "Изображение предоставлено владельцем проекта; автор и исходная публикация не установлены",
+    "licenseUrl": "sources.html#photography",
+    "width": 736,
+    "height": 1177,
+    "origin": "user",
+    "alt": "Чёрные прозрачные колготки с белой рубашкой, косухой, мини-юбкой и светлыми ботинками.",
+    "caption": "Чёрные прозрачные колготки с белой рубашкой, косухой, мини-юбкой и светлыми ботинками. Бренд и параметры изделия по фотографии не определяются; автор и происхождение кадра пока не установлены.",
+    "responsive": [
+      {
+        "src": "assets/responsive/outfit-street-leather-320.webp",
+        "width": 320,
+        "bytes": 72910
+      },
+      {
+        "src": "assets/responsive/outfit-street-leather-640.webp",
+        "width": 640,
+        "bytes": 271260
+      },
+      {
+        "src": "assets/responsive/outfit-street-leather-736.webp",
+        "width": 736,
+        "bytes": 337814
+      }
+    ],
+    "srcset": "assets/responsive/outfit-street-leather-320.webp 320w, assets/responsive/outfit-street-leather-640.webp 640w, assets/responsive/outfit-street-leather-736.webp 736w"
+  },
+  {
+    "id": "outfit-city-heels",
+    "image": "assets/editorial/outfit-city-heels.jpg",
+    "title": "Чёрный силуэт в городе",
+    "category": "sheer",
+    "tags": [
+      "outfit"
+    ],
+    "author": "Подборка владельца ТОНКО",
+    "source": "sources.html#photography",
+    "license": "Изображение предоставлено владельцем проекта; автор и исходная публикация не установлены",
+    "licenseUrl": "sources.html#photography",
+    "width": 720,
+    "height": 1560,
+    "origin": "user",
+    "alt": "Чёрная куртка, короткая юбка, прозрачные колготки и туфли в городском образе.",
+    "caption": "Чёрная куртка, короткая юбка, прозрачные колготки и туфли в городском образе. Бренд и параметры изделия по фотографии не определяются; автор и происхождение кадра пока не установлены.",
+    "responsive": [
+      {
+        "src": "assets/responsive/outfit-city-heels-320.webp",
+        "width": 320,
+        "bytes": 22824
+      },
+      {
+        "src": "assets/responsive/outfit-city-heels-640.webp",
+        "width": 640,
+        "bytes": 55866
+      },
+      {
+        "src": "assets/responsive/outfit-city-heels-720.webp",
+        "width": 720,
+        "bytes": 67242
+      }
+    ],
+    "srcset": "assets/responsive/outfit-city-heels-320.webp 320w, assets/responsive/outfit-city-heels-640.webp 640w, assets/responsive/outfit-city-heels-720.webp 720w"
+  },
+  {
+    "id": "outfit-lace-lakeside",
+    "image": "assets/editorial/outfit-lace-lakeside.jpg",
+    "title": "Кружево и ботильоны",
+    "category": "sheer",
+    "tags": [
+      "outfit"
+    ],
+    "author": "Подборка владельца ТОНКО",
+    "source": "sources.html#photography",
+    "license": "Изображение предоставлено владельцем проекта; автор и исходная публикация не установлены",
+    "licenseUrl": "sources.html#photography",
+    "width": 1457,
+    "height": 2590,
+    "origin": "user",
+    "alt": "Образ с чёрным кружевным верхом, прозрачными колготками и ботильонами у воды.",
+    "caption": "Образ с чёрным кружевным верхом, прозрачными колготками и ботильонами у воды. Бренд и параметры изделия по фотографии не определяются; автор и происхождение кадра пока не установлены.",
+    "responsive": [
+      {
+        "src": "assets/responsive/outfit-lace-lakeside-320.webp",
+        "width": 320,
+        "bytes": 26102
+      },
+      {
+        "src": "assets/responsive/outfit-lace-lakeside-640.webp",
+        "width": 640,
+        "bytes": 62664
+      },
+      {
+        "src": "assets/responsive/outfit-lace-lakeside-960.webp",
+        "width": 960,
+        "bytes": 110880
+      },
+      {
+        "src": "assets/responsive/outfit-lace-lakeside-1440.webp",
+        "width": 1440,
+        "bytes": 180344
+      }
+    ],
+    "srcset": "assets/responsive/outfit-lace-lakeside-320.webp 320w, assets/responsive/outfit-lace-lakeside-640.webp 640w, assets/responsive/outfit-lace-lakeside-960.webp 960w, assets/responsive/outfit-lace-lakeside-1440.webp 1440w"
+  },
+  {
+    "id": "outfit-pattern-walk",
+    "image": "assets/editorial/outfit-pattern-walk.jpg",
+    "title": "Маленький рисунок, цельный образ",
+    "category": "pattern",
+    "tags": [
+      "outfit"
+    ],
+    "author": "Подборка владельца ТОНКО",
+    "source": "sources.html#photography",
+    "license": "Изображение предоставлено владельцем проекта; автор и исходная публикация не установлены",
+    "licenseUrl": "sources.html#photography",
+    "width": 474,
+    "height": 842,
+    "origin": "user",
+    "alt": "Чёрный комплект с мини-юбкой, колготками с мелким рисунком и туфлями.",
+    "caption": "Чёрный комплект с мини-юбкой, колготками с мелким рисунком и туфлями. Бренд и параметры изделия по фотографии не определяются; автор и происхождение кадра пока не установлены.",
+    "responsive": [
+      {
+        "src": "assets/responsive/outfit-pattern-walk-320.webp",
+        "width": 320,
+        "bytes": 37768
+      },
+      {
+        "src": "assets/responsive/outfit-pattern-walk-474.webp",
+        "width": 474,
+        "bytes": 67820
+      }
+    ],
+    "srcset": "assets/responsive/outfit-pattern-walk-320.webp 320w, assets/responsive/outfit-pattern-walk-474.webp 474w"
+  },
+  {
+    "id": "outfit-soft-knit",
+    "image": "assets/editorial/outfit-soft-knit.webp",
+    "title": "Светлый трикотаж и чёрный низ",
+    "category": "sheer",
+    "tags": [
+      "outfit"
+    ],
+    "author": "Подборка владельца ТОНКО",
+    "source": "sources.html#photography",
+    "license": "Изображение предоставлено владельцем проекта; автор и исходная публикация не установлены",
+    "licenseUrl": "sources.html#photography",
+    "width": 474,
+    "height": 842,
+    "origin": "user",
+    "alt": "Светлый джемпер, чёрная юбка, тонкие колготки и ботильоны в повседневном сочетании.",
+    "caption": "Светлый джемпер, чёрная юбка, тонкие колготки и ботильоны в повседневном сочетании. Бренд и параметры изделия по фотографии не определяются; автор и происхождение кадра пока не установлены.",
+    "responsive": [
+      {
+        "src": "assets/responsive/outfit-soft-knit-320.webp",
+        "width": 320,
+        "bytes": 15718
+      },
+      {
+        "src": "assets/responsive/outfit-soft-knit-474.webp",
+        "width": 474,
+        "bytes": 25010
+      }
+    ],
+    "srcset": "assets/responsive/outfit-soft-knit-320.webp 320w, assets/responsive/outfit-soft-knit-474.webp 474w"
+  },
+  {
+    "id": "outfit-men-white",
+    "image": "assets/editorial/outfit-men-white.jpg",
+    "title": "Белый акцент с шортами",
+    "category": "men",
+    "tags": [
+      "outfit"
+    ],
+    "author": "Подборка владельца ТОНКО",
+    "source": "sources.html#photography",
+    "license": "Изображение предоставлено владельцем проекта; автор и исходная публикация не установлены",
+    "licenseUrl": "sources.html#photography",
+    "width": 441,
+    "height": 500,
+    "origin": "user",
+    "alt": "Мужской образ: рубашка в полоску, тёмные шорты, белые колготки и высокие кеды.",
+    "caption": "Мужской образ: рубашка в полоску, тёмные шорты, белые колготки и высокие кеды. Бренд и параметры изделия по фотографии не определяются; автор и происхождение кадра пока не установлены.",
+    "responsive": [
+      {
+        "src": "assets/responsive/outfit-men-white-320.webp",
+        "width": 320,
+        "bytes": 30616
+      },
+      {
+        "src": "assets/responsive/outfit-men-white-441.webp",
+        "width": 441,
+        "bytes": 62748
+      }
+    ],
+    "srcset": "assets/responsive/outfit-men-white-320.webp 320w, assets/responsive/outfit-men-white-441.webp 441w"
+  },
+  {
+    "id": "outfit-men-plaid",
+    "image": "assets/editorial/outfit-men-plaid.png",
+    "title": "Клетчатая рубашка и прозрачность",
+    "category": "men",
+    "tags": [
+      "outfit"
+    ],
+    "author": "Подборка владельца ТОНКО",
+    "source": "sources.html#photography",
+    "license": "Изображение предоставлено владельцем проекта; автор и исходная публикация не установлены",
+    "licenseUrl": "sources.html#photography",
+    "width": 960,
+    "height": 1280,
+    "origin": "user",
+    "alt": "Мужской повседневный образ с клетчатой рубашкой, белой футболкой и чёрными прозрачными колготками.",
+    "caption": "Мужской повседневный образ с клетчатой рубашкой, белой футболкой и чёрными прозрачными колготками. Бренд и параметры изделия по фотографии не определяются; автор и происхождение кадра пока не установлены.",
+    "responsive": [
+      {
+        "src": "assets/responsive/outfit-men-plaid-320.webp",
+        "width": 320,
+        "bytes": 22548
+      },
+      {
+        "src": "assets/responsive/outfit-men-plaid-640.webp",
+        "width": 640,
+        "bytes": 60910
+      },
+      {
+        "src": "assets/responsive/outfit-men-plaid-960.webp",
+        "width": 960,
+        "bytes": 109402
+      }
+    ],
+    "srcset": "assets/responsive/outfit-men-plaid-320.webp 320w, assets/responsive/outfit-men-plaid-640.webp 640w, assets/responsive/outfit-men-plaid-960.webp 960w"
+  },
+  {
     "id": "campaign-red",
     "image": "assets/editorial/campaign-red.jpg",
     "title": "Чёрный рисунок на красном",

@@ -3,6 +3,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
 permissions:
   contents: read
   pages: write
@@ -13,11 +15,18 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
+      - name: Verify news collector
+        run: python -m unittest discover -s qa -p test_news.py
+      - name: Refresh fashion headlines
+        run: |
+          python scripts/update-news.py --deployed
+          python scripts/build-home-news.py
       - name: Check local links and JavaScript
         run: |
           python scripts/check-site.py

@@ -28,6 +28,8 @@ def enhance(match):
   tag=re.sub(r'\s'+attr+r'="[^"]*"','',tag)
  lazy=a.get('loading')=='lazy'
  sizes=('auto, ' if lazy else '')+'(max-width: 540px) 100vw, 50vw'
+ if m.get('tags') and 'outfit' in m['tags']:
+  sizes=('auto, ' if lazy else '')+'(max-width: 700px) 50vw, 25vw'
  attrs=f' srcset="{m["srcset"]}" sizes="{sizes}" decoding="async"'
  if a.get('loading')=='eager':attrs+=' fetchpriority="high"'
  return tag[:-1]+attrs+'>'
