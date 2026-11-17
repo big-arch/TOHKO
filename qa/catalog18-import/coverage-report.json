@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-11-17T14:10:55Z",
+  "startedAt": "2026-11-17T14:11:13Z",
   "source": "https://xn--80ajrmkna.xn--p1ai/",
   "failedUrls": [],
   "complete": true,
@@ -110,13 +110,13 @@
   },
   "pricesAvailable": 1267,
   "scope": "Все публичные родительские и дочерние листинги колготок классика, колготок фантазия, чулок на силиконе и чулок под пояс, а также отдельная подкатегория детских колготок. Остальные группы не входят в охват.",
-  "images": 793,
+  "images": 1465,
   "imageFailures": 0,
   "imagePhaseComplete": true,
   "phase": "finished",
-  "lastUpdatedAt": "2026-11-17T14:11:04Z",
-  "imageJobsCompleted": 0,
-  "imageJobsTotal": 0,
+  "lastUpdatedAt": "2026-11-17T14:22:32Z",
+  "imageJobsCompleted": 1565,
+  "imageJobsTotal": 1565,
   "categoryDetails": [
     {
       "name": "Чулки на силиконе · все модели",
@@ -1698,8 +1698,8 @@
   "conflicts": [],
   "unknownBrands": [],
   "parentOnlyItems": [],
-  "networkRequests": 0,
+  "networkRequests": 672,
   "cacheHits": 131,
   "published": true,
-  "finishedAt": "2026-11-17T14:11:04Z"
+  "finishedAt": "2026-11-17T14:22:32Z"
 }
