@@ -1,0 +1,72 @@
+{
+  "startedAt": "2026-11-17T13:58:34Z",
+  "catalogCheckedAt": "2026-11-17T13:58:30Z",
+  "availableUnpicturedImages": 818,
+  "selectedCount": 4,
+  "curlVersion": "curl 8.18.0 (x86_64-pc-linux-gnu) libcurl/8.18.0 OpenSSL/3.5.5 zlib/1.3.1 brotli/1.2.0 zstd/1.5.7 libidn2/2.3.8 libpsl/0.21.2 libssh2/1.11.1 nghttp2/1.68.0 librtmp/2.3 mit-krb5/1.22.1 OpenLDAP/2.6.10",
+  "curlSupportsHttp2": true,
+  "requestLimitSeconds": 45,
+  "requests": [
+    {
+      "id": "loretta-306592",
+      "brand": "Conte",
+      "url": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_1289926.jpg",
+      "transport": "curl",
+      "httpStatus": 200,
+      "httpVersion": "1.1",
+      "sizeBytes": 26195,
+      "ok": true,
+      "exitCode": 0,
+      "dnsSeconds": 0.000783,
+      "connectSeconds": 0.126072,
+      "tlsSeconds": 0.254817,
+      "headersSeconds": 0.380232,
+      "totalSeconds": 0.504988,
+      "wallSeconds": 0.5121
+    },
+    {
+      "id": "loretta-254474",
+      "brand": "Omero",
+      "url": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_1237846.jpg",
+      "transport": "urllib",
+      "httpStatus": 200,
+      "sizeBytes": 36485,
+      "ok": true,
+      "headersSeconds": 0.3805,
+      "httpVersion": "1.1",
+      "totalSeconds": 0.5042,
+      "wallSeconds": 0.5513
+    },
+    {
+      "id": "loretta-152070",
+      "brand": "Pretty Polly",
+      "url": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_1135609.jpg",
+      "transport": "curl",
+      "httpStatus": 200,
+      "httpVersion": "1.1",
+      "sizeBytes": 50895,
+      "ok": true,
+      "exitCode": 0,
+      "dnsSeconds": 0.000861,
+      "connectSeconds": 0.120952,
+      "tlsSeconds": 0.244062,
+      "headersSeconds": 0.366796,
+      "totalSeconds": 0.602175,
+      "wallSeconds": 0.6105
+    },
+    {
+      "id": "loretta-206038",
+      "brand": "ХОХ",
+      "url": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_1189433.jpg",
+      "transport": "urllib",
+      "httpStatus": 200,
+      "sizeBytes": 39894,
+      "ok": true,
+      "headersSeconds": 0.3841,
+      "httpVersion": "1.1",
+      "totalSeconds": 0.5082,
+      "wallSeconds": 0.5549
+    }
+  ],
+  "finishedAt": "2026-11-17T13:58:38Z"
+}

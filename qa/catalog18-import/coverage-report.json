@@ -1,27 +1,21 @@
 {
-  "startedAt": "2026-11-17T13:38:45Z",
+  "startedAt": "2026-11-17T13:58:16Z",
   "source": "https://xn--80ajrmkna.xn--p1ai/",
-  "failedUrls": [
-    {
-      "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den/filter/page=9",
-      "reason": "Advertised count changed during pagination"
-    },
-    {
-      "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den",
-      "reason": "Coverage mismatch: expected 95, collected 94 unique products"
-    }
-  ],
-  "complete": false,
-  "categories": 62,
-  "categoriesComplete": 61,
-  "pages": 118,
-  "listedOccurrences": 2335,
-  "uniqueProducts": 1564,
+  "failedUrls": [],
+  "complete": true,
+  "categories": 66,
+  "categoriesComplete": 66,
+  "parentListings": 4,
+  "subcategories": 62,
+  "parentOnlyProducts": 0,
+  "pages": 130,
+  "listedOccurrences": 3999,
+  "uniqueProducts": 1565,
   "excludedUnrelatedProducts": 0,
   "imagesAwaitingReview": 99,
   "byKind": {
     "аксессуар": 1,
-    "колготки": 1303,
+    "колготки": 1304,
     "комбинезон": 17,
     "чулки": 243
   },
@@ -100,7 +94,7 @@
     "Samburu": 5,
     "Silky": 2,
     "Silvia Grandi": 2,
-    "Sisi": 27,
+    "Sisi": 28,
     "SocksFun": 1,
     "Trasparenze": 92,
     "Vogue": 27,
@@ -112,21 +106,51 @@
   },
   "byAvailability": {
     "in_stock": 1267,
-    "out_of_stock": 297
+    "out_of_stock": 298
   },
   "pricesAvailable": 1267,
-  "scope": "Все публичные подкатегории колготок классика, колготок фантазия, детских колготок, чулок на силиконе и чулок под пояс из меню Лоретты. Остальные группы не входят в охват.",
+  "scope": "Все публичные родительские и дочерние листинги колготок классика, колготок фантазия, чулок на силиконе и чулок под пояс, а также отдельная подкатегория детских колготок. Остальные группы не входят в охват.",
   "images": 648,
   "imageFailures": 0,
   "imagePhaseComplete": true,
   "phase": "finished",
-  "lastUpdatedAt": "2026-11-17T13:47:57Z",
+  "lastUpdatedAt": "2026-11-17T13:58:34Z",
   "imageJobsCompleted": 0,
   "imageJobsTotal": 0,
   "categoryDetails": [
     {
+      "name": "Чулки на силиконе · все модели",
+      "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone",
+      "scopeLevel": "parent",
+      "advertisedCount": 172,
+      "collectedCount": 172,
+      "cardCount": 202,
+      "pages": [
+        {
+          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone",
+          "count": 10,
+          "checkedAt": "2026-11-17T13:58:17Z"
+        },
+        {
+          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/filter/page=1",
+          "count": 20,
+          "checkedAt": "2026-11-17T13:58:19Z"
+        },
+        {
+          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/filter/page=17",
+          "count": 172,
+          "checkedAt": "2026-11-17T13:58:21Z"
+        }
+      ],
+      "paginationMode": "cumulative",
+      "redundantIntermediatePagesSkipped": 15,
+      "complete": true,
+      "errors": []
+    },
+    {
       "name": "Чулки на силиконе · блестящие",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/blestyaschie",
+      "scopeLevel": "subcategory",
       "advertisedCount": 11,
       "collectedCount": 11,
       "cardCount": 21,
@@ -150,6 +174,7 @@
     {
       "name": "Чулки на силиконе · большие размеры",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/bolshie-razmery",
+      "scopeLevel": "subcategory",
       "advertisedCount": 12,
       "collectedCount": 12,
       "cardCount": 22,
@@ -173,6 +198,7 @@
     {
       "name": "Чулки на силиконе · цветные, цветная резинка",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/cvetnye-cvetnaya-rezinka",
+      "scopeLevel": "subcategory",
       "advertisedCount": 6,
       "collectedCount": 6,
       "cardCount": 6,
@@ -191,6 +217,7 @@
     {
       "name": "Чулки на силиконе · классические",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/klassicheskie",
+      "scopeLevel": "subcategory",
       "advertisedCount": 86,
       "collectedCount": 86,
       "cardCount": 116,
@@ -219,6 +246,7 @@
     {
       "name": "Чулки на силиконе · лечебные",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/lechebnye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 5,
       "collectedCount": 5,
       "cardCount": 5,
@@ -237,6 +265,7 @@
     {
       "name": "Чулки на силиконе · нейлоновые",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/neylonovye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 6,
       "collectedCount": 6,
       "cardCount": 6,
@@ -255,6 +284,7 @@
     {
       "name": "Чулки на силиконе · плотные, теплые",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/plotnye-teplye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 14,
       "collectedCount": 14,
       "cardCount": 24,
@@ -278,6 +308,7 @@
     {
       "name": "Чулки на силиконе · с бантом, лентами",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/s-bantom-lentami",
+      "scopeLevel": "subcategory",
       "advertisedCount": 1,
       "collectedCount": 1,
       "cardCount": 1,
@@ -296,6 +327,7 @@
     {
       "name": "Чулки на силиконе · с рисунком",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/s-risunkom",
+      "scopeLevel": "subcategory",
       "advertisedCount": 6,
       "collectedCount": 6,
       "cardCount": 6,
@@ -314,6 +346,7 @@
     {
       "name": "Чулки на силиконе · со швом",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/so-shvom",
+      "scopeLevel": "subcategory",
       "advertisedCount": 7,
       "collectedCount": 7,
       "cardCount": 7,
@@ -332,6 +365,7 @@
     {
       "name": "Чулки на силиконе · тюлевые",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/tyulevye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 3,
       "collectedCount": 3,
       "cardCount": 3,
@@ -350,6 +384,7 @@
     {
       "name": "Чулки на силиконе · в сетку",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/v-setku",
+      "scopeLevel": "subcategory",
       "advertisedCount": 15,
       "collectedCount": 15,
       "cardCount": 25,
@@ -371,8 +406,38 @@
       "errors": []
     },
     {
+      "name": "Чулки под пояс · все модели",
+      "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-pod-poyas",
+      "scopeLevel": "parent",
+      "advertisedCount": 67,
+      "collectedCount": 67,
+      "cardCount": 97,
+      "pages": [
+        {
+          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-pod-poyas",
+          "count": 10,
+          "checkedAt": "2026-11-17T13:58:18Z"
+        },
+        {
+          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-pod-poyas/filter/page=1",
+          "count": 20,
+          "checkedAt": "2026-11-17T13:58:19Z"
+        },
+        {
+          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-pod-poyas/filter/page=6",
+          "count": 67,
+          "checkedAt": "2026-11-17T13:58:21Z"
+        }
+      ],
+      "paginationMode": "cumulative",
+      "redundantIntermediatePagesSkipped": 4,
+      "complete": true,
+      "errors": []
+    },
+    {
       "name": "Чулки под пояс · большие размеры",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-pod-poyas/bolshie-razmery",
+      "scopeLevel": "subcategory",
       "advertisedCount": 5,
       "collectedCount": 5,
       "cardCount": 5,
@@ -391,6 +456,7 @@
     {
       "name": "Чулки под пояс · чулки + пояс",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-pod-poyas/chulki-poyas",
+      "scopeLevel": "subcategory",
       "advertisedCount": 3,
       "collectedCount": 3,
       "cardCount": 3,
@@ -409,6 +475,7 @@
     {
       "name": "Чулки под пояс · цветные",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-pod-poyas/cvetnye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 7,
       "collectedCount": 7,
       "cardCount": 7,
@@ -427,6 +494,7 @@
     {
       "name": "Чулки под пояс · фантазийные",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-pod-poyas/fantaziynye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 14,
       "collectedCount": 14,
       "cardCount": 24,
@@ -450,6 +518,7 @@
     {
       "name": "Чулки под пояс · классические",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-pod-poyas/klassicheskie",
+      "scopeLevel": "subcategory",
       "advertisedCount": 25,
       "collectedCount": 25,
       "cardCount": 55,
@@ -478,6 +547,7 @@
     {
       "name": "Чулки под пояс · нейлоновые",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-pod-poyas/neylonovye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 10,
       "collectedCount": 10,
       "cardCount": 10,
@@ -496,6 +566,7 @@
     {
       "name": "Чулки под пояс · со швом",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-pod-poyas/so-shvom",
+      "scopeLevel": "subcategory",
       "advertisedCount": 3,
       "collectedCount": 3,
       "cardCount": 3,
@@ -514,6 +585,7 @@
     {
       "name": "Детское · колготки",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/detskoe/kolgotki",
+      "scopeLevel": "subcategory",
       "advertisedCount": 23,
       "collectedCount": 23,
       "cardCount": 53,
@@ -540,8 +612,38 @@
       "errors": []
     },
     {
+      "name": "Колготки фантазия · все модели",
+      "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya",
+      "scopeLevel": "parent",
+      "advertisedCount": 268,
+      "collectedCount": 268,
+      "cardCount": 298,
+      "pages": [
+        {
+          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya",
+          "count": 10,
+          "checkedAt": "2026-11-17T13:58:18Z"
+        },
+        {
+          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/filter/page=1",
+          "count": 20,
+          "checkedAt": "2026-11-17T13:58:19Z"
+        },
+        {
+          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/filter/page=26",
+          "count": 268,
+          "checkedAt": "2026-11-17T13:58:23Z"
+        }
+      ],
+      "paginationMode": "cumulative",
+      "redundantIntermediatePagesSkipped": 24,
+      "complete": true,
+      "errors": []
+    },
+    {
       "name": "Колготки фантазия · анималистический принт",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/animalisticheskiy-print",
+      "scopeLevel": "subcategory",
       "advertisedCount": 3,
       "collectedCount": 3,
       "cardCount": 3,
@@ -560,6 +662,7 @@
     {
       "name": "Колготки фантазия · большие размеры",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/bolshie-razmery",
+      "scopeLevel": "subcategory",
       "advertisedCount": 4,
       "collectedCount": 4,
       "cardCount": 4,
@@ -578,6 +681,7 @@
     {
       "name": "Колготки фантазия · цветные",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/cvetnye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 21,
       "collectedCount": 21,
       "cardCount": 51,
@@ -606,6 +710,7 @@
     {
       "name": "Колготки фантазия · эффект гольф, ботфортов",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/effekt-botfortov",
+      "scopeLevel": "subcategory",
       "advertisedCount": 12,
       "collectedCount": 12,
       "cardCount": 22,
@@ -629,6 +734,7 @@
     {
       "name": "Колготки фантазия · эффект татуировки",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/effekt-tatuirovki",
+      "scopeLevel": "subcategory",
       "advertisedCount": 16,
       "collectedCount": 16,
       "cardCount": 26,
@@ -652,6 +758,7 @@
     {
       "name": "Колготки фантазия · геометрия",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/geometricheckiy-risunok",
+      "scopeLevel": "subcategory",
       "advertisedCount": 57,
       "collectedCount": 57,
       "cardCount": 87,
@@ -680,6 +787,7 @@
     {
       "name": "Колготки фантазия · хлопковые",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/hlopkovye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 7,
       "collectedCount": 7,
       "cardCount": 7,
@@ -698,6 +806,7 @@
     {
       "name": "Колготки фантазия · имитация чулка",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/imitaciya-chulka",
+      "scopeLevel": "subcategory",
       "advertisedCount": 23,
       "collectedCount": 23,
       "cardCount": 53,
@@ -726,6 +835,7 @@
     {
       "name": "Колготки фантазия · кружевные, тюлевые",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/kruzhevnye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 10,
       "collectedCount": 10,
       "cardCount": 10,
@@ -744,6 +854,7 @@
     {
       "name": "Колготки фантазия · люрекс, блестящие",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/lyureks-blestyaschie",
+      "scopeLevel": "subcategory",
       "advertisedCount": 19,
       "collectedCount": 19,
       "cardCount": 29,
@@ -767,6 +878,7 @@
     {
       "name": "Колготки фантазия · новогодние",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/novogodnie",
+      "scopeLevel": "subcategory",
       "advertisedCount": 5,
       "collectedCount": 5,
       "cardCount": 5,
@@ -785,6 +897,7 @@
     {
       "name": "Колготки фантазия · шерстяные",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/sherstyanye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 1,
       "collectedCount": 1,
       "cardCount": 1,
@@ -803,6 +916,7 @@
     {
       "name": "Колготки фантазия · шов с рисунком",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/shov-s-risunkom",
+      "scopeLevel": "subcategory",
       "advertisedCount": 13,
       "collectedCount": 13,
       "cardCount": 23,
@@ -826,6 +940,7 @@
     {
       "name": "Колготки фантазия · со стразами",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/so-strazami",
+      "scopeLevel": "subcategory",
       "advertisedCount": 7,
       "collectedCount": 7,
       "cardCount": 7,
@@ -844,6 +959,7 @@
     {
       "name": "Колготки фантазия · цветочный рисунок",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/tsvetochniy-risunok",
+      "scopeLevel": "subcategory",
       "advertisedCount": 24,
       "collectedCount": 24,
       "cardCount": 54,
@@ -872,6 +988,7 @@
     {
       "name": "Колготки фантазия · горох, ромб, сердечки",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/v-goroshek-rombik",
+      "scopeLevel": "subcategory",
       "advertisedCount": 46,
       "collectedCount": 46,
       "cardCount": 76,
@@ -898,8 +1015,38 @@
       "errors": []
     },
     {
+      "name": "Колготки классика · все модели",
+      "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika",
+      "scopeLevel": "parent",
+      "advertisedCount": 1036,
+      "collectedCount": 1036,
+      "cardCount": 1066,
+      "pages": [
+        {
+          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika",
+          "count": 10,
+          "checkedAt": "2026-11-17T13:58:20Z"
+        },
+        {
+          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/filter/page=1",
+          "count": 20,
+          "checkedAt": "2026-11-17T13:58:21Z"
+        },
+        {
+          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/filter/page=103",
+          "count": 1036,
+          "checkedAt": "2026-11-17T13:58:30Z"
+        }
+      ],
+      "paginationMode": "cumulative",
+      "redundantIntermediatePagesSkipped": 101,
+      "complete": true,
+      "errors": []
+    },
+    {
       "name": "Колготки классика · антицеллюлит, массаж",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/anticellyulit-massazh",
+      "scopeLevel": "subcategory",
       "advertisedCount": 5,
       "collectedCount": 5,
       "cardCount": 5,
@@ -918,6 +1065,7 @@
     {
       "name": "Колготки классика · бесшовные",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/besshovnye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 21,
       "collectedCount": 21,
       "cardCount": 51,
@@ -946,6 +1094,7 @@
     {
       "name": "Колготки классика · блестящие",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/blestyaschie",
+      "scopeLevel": "subcategory",
       "advertisedCount": 95,
       "collectedCount": 95,
       "cardCount": 125,
@@ -974,6 +1123,7 @@
     {
       "name": "Колготки классика · большие размеры",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/bolshie-razmery",
+      "scopeLevel": "subcategory",
       "advertisedCount": 125,
       "collectedCount": 125,
       "cardCount": 155,
@@ -1002,6 +1152,7 @@
     {
       "name": "Колготки классика · для беременных",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/dlya-beremennyh",
+      "scopeLevel": "subcategory",
       "advertisedCount": 27,
       "collectedCount": 27,
       "cardCount": 57,
@@ -1030,6 +1181,7 @@
     {
       "name": "Колготки классика · эротические",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/eroticheskie",
+      "scopeLevel": "subcategory",
       "advertisedCount": 51,
       "collectedCount": 51,
       "cardCount": 81,
@@ -1058,6 +1210,7 @@
     {
       "name": "Колготки классика · кашемировые",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/kashemirovye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 4,
       "collectedCount": 4,
       "cardCount": 4,
@@ -1076,6 +1229,7 @@
     {
       "name": "Колготки классика · классика 13-40 ден",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/klassika-13-40-den",
+      "scopeLevel": "subcategory",
       "advertisedCount": 198,
       "collectedCount": 198,
       "cardCount": 228,
@@ -1104,6 +1258,7 @@
     {
       "name": "Колготки классика · комбинезоны",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/kombinezon",
+      "scopeLevel": "subcategory",
       "advertisedCount": 19,
       "collectedCount": 19,
       "cardCount": 29,
@@ -1127,6 +1282,7 @@
     {
       "name": "Колготки классика · корректирующие",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/korrektiruyuschie",
+      "scopeLevel": "subcategory",
       "advertisedCount": 126,
       "collectedCount": 126,
       "cardCount": 156,
@@ -1155,6 +1311,7 @@
     {
       "name": "Колготки классика · кружевная резинка",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/kruzhevnaya-rezinka",
+      "scopeLevel": "subcategory",
       "advertisedCount": 6,
       "collectedCount": 6,
       "cardCount": 6,
@@ -1173,6 +1330,7 @@
     {
       "name": "Колготки классика · лечебные",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/lechebnye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 24,
       "collectedCount": 24,
       "cardCount": 54,
@@ -1201,6 +1359,7 @@
     {
       "name": "Колготки классика · тонкие 5-12 ден",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/letnie-5-12-den",
+      "scopeLevel": "subcategory",
       "advertisedCount": 46,
       "collectedCount": 46,
       "cardCount": 76,
@@ -1229,6 +1388,7 @@
     {
       "name": "Колготки классика · мужские колготки",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/muzhskie-kolgotki",
+      "scopeLevel": "subcategory",
       "advertisedCount": 21,
       "collectedCount": 21,
       "cardCount": 51,
@@ -1257,6 +1417,7 @@
     {
       "name": "Колготки классика · нейлоновые",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/neylonovye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 3,
       "collectedCount": 3,
       "cardCount": 3,
@@ -1275,6 +1436,7 @@
     {
       "name": "Колготки классика · открытые пальцы",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/otkrytye-palcy",
+      "scopeLevel": "subcategory",
       "advertisedCount": 7,
       "collectedCount": 7,
       "cardCount": 7,
@@ -1293,43 +1455,70 @@
     {
       "name": "Колготки классика · плотные от 50 ден",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den",
+      "scopeLevel": "subcategory",
       "advertisedCount": 95,
-      "collectedCount": 94,
-      "cardCount": 124,
+      "collectedCount": 95,
+      "cardCount": 125,
       "pages": [
         {
           "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den",
           "count": 10,
-          "checkedAt": "2026-11-17T13:46:24Z"
+          "checkedAt": "2026-11-17T13:58:24Z"
         },
         {
           "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den/filter/page=1",
           "count": 20,
-          "checkedAt": "2026-11-17T13:47:02Z"
+          "checkedAt": "2026-11-17T13:58:25Z"
         },
         {
           "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den/filter/page=9",
-          "count": 94,
-          "checkedAt": "2026-11-17T13:47:51Z"
+          "count": 95,
+          "checkedAt": "2026-11-17T13:58:27Z"
         }
       ],
       "paginationMode": "cumulative",
       "redundantIntermediatePagesSkipped": 7,
-      "complete": false,
-      "errors": [
-        {
-          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den/filter/page=9",
-          "reason": "Advertised count changed during pagination"
-        },
-        {
-          "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den",
-          "reason": "Coverage mismatch: expected 95, collected 94 unique products"
-        }
-      ]
+      "complete": true,
+      "errors": [],
+      "freshRetry": {
+        "attempted": true,
+        "reason": "Advertised count changed during pagination",
+        "previousAdvertisedCount": 95,
+        "previousCollectedCount": 94,
+        "previousErrors": [
+          {
+            "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den/filter/page=9",
+            "reason": "Advertised count changed during pagination"
+          },
+          {
+            "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den",
+            "reason": "Coverage mismatch: expected 95, collected 94 unique products"
+          }
+        ],
+        "previousPages": [
+          {
+            "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den",
+            "count": 10,
+            "checkedAt": "2026-11-17T13:46:24Z"
+          },
+          {
+            "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den/filter/page=1",
+            "count": 20,
+            "checkedAt": "2026-11-17T13:47:02Z"
+          },
+          {
+            "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den/filter/page=9",
+            "count": 94,
+            "checkedAt": "2026-11-17T13:47:51Z"
+          }
+        ],
+        "succeeded": true
+      }
     },
     {
       "name": "Колготки классика · с хлопком",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/s-hlopkom",
+      "scopeLevel": "subcategory",
       "advertisedCount": 40,
       "collectedCount": 40,
       "cardCount": 70,
@@ -1358,6 +1547,7 @@
     {
       "name": "Колготки классика · с вискозой",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/s-viskozoy",
+      "scopeLevel": "subcategory",
       "advertisedCount": 4,
       "collectedCount": 4,
       "cardCount": 4,
@@ -1376,6 +1566,7 @@
     {
       "name": "Колготки классика · сеточка",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/setochka",
+      "scopeLevel": "subcategory",
       "advertisedCount": 31,
       "collectedCount": 31,
       "cardCount": 61,
@@ -1404,6 +1595,7 @@
     {
       "name": "Колготки классика · шерстяные",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/sherstyanye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 10,
       "collectedCount": 10,
       "cardCount": 10,
@@ -1422,6 +1614,7 @@
     {
       "name": "Колготки классика · со швом",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/so-shvom",
+      "scopeLevel": "subcategory",
       "advertisedCount": 20,
       "collectedCount": 20,
       "cardCount": 30,
@@ -1445,6 +1638,7 @@
     {
       "name": "Колготки классика · танцевальные",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/tancevalnye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 14,
       "collectedCount": 14,
       "cardCount": 24,
@@ -1468,6 +1662,7 @@
     {
       "name": "Колготки классика · термо-колготки",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/termo-kolgotki",
+      "scopeLevel": "subcategory",
       "advertisedCount": 15,
       "collectedCount": 15,
       "cardCount": 25,
@@ -1491,6 +1686,7 @@
     {
       "name": "Колготки классика · тюлевые",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/tyulevye",
+      "scopeLevel": "subcategory",
       "advertisedCount": 10,
       "collectedCount": 10,
       "cardCount": 10,
@@ -1509,6 +1705,7 @@
     {
       "name": "Колготки классика · заниженная талия",
       "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/zanizhennaya-taliya",
+      "scopeLevel": "subcategory",
       "advertisedCount": 19,
       "collectedCount": 19,
       "cardCount": 29,
@@ -1534,8 +1731,9 @@
   "excludedProducts": [],
   "conflicts": [],
   "unknownBrands": [],
-  "networkRequests": 139,
-  "cacheHits": 0,
-  "published": false,
-  "finishedAt": "2026-11-17T13:47:57Z"
+  "parentOnlyItems": [],
+  "networkRequests": 15,
+  "cacheHits": 119,
+  "published": true,
+  "finishedAt": "2026-11-17T13:58:34Z"
 }
