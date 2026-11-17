@@ -9,6 +9,7 @@ Only Python's standard library is needed to parse; Pillow optimizes images.
 from __future__ import annotations
 
 import argparse
+import codecs
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
@@ -28,6 +29,7 @@ import threading
 import time
 import unicodedata
 from urllib.parse import urljoin, urlsplit, urlunsplit
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -52,6 +54,39 @@ def utc_now():
 
 def clean(value):
     return re.sub(r"\s+", " ", unescape(value)).strip()
+
+
+def decode_html(body, content_type=""):
+    """Decode declared HTML strictly; never publish replacement characters.
+
+    Both UTF-8 and Windows-1251 are supported. Prefer an actual BOM,
+    otherwise require consistent HTTP/meta declarations. Undeclared legacy
+    pages are tried as UTF-8 then Windows-1251, without lossy replacements.
+    """
+    if body.startswith(codecs.BOM_UTF8):
+        text = body.decode("utf-8-sig", errors="strict")
+    else:
+        header = re.search(r"charset\s*=\s*[\"']?([^\s;\"']+)", content_type, re.I)
+        meta = re.search(rb"<meta\b[^>]*charset\s*=\s*[\"']?\s*([A-Za-z0-9._-]+)", body[:8192], re.I)
+        declarations = []
+        for encoding in (header.group(1) if header else None, meta.group(1).decode("ascii") if meta else None):
+            if encoding:
+                try:
+                    declarations.append(codecs.lookup(encoding).name)
+                except LookupError as exc:
+                    raise UnicodeError(f"Unknown declared HTML charset: {encoding}") from exc
+        if len(set(declarations)) > 1:
+            raise UnicodeError(f"Conflicting HTTP/meta charsets: {declarations}")
+        if declarations:
+            text = body.decode(declarations[0], errors="strict")
+        else:
+            try:
+                text = body.decode("utf-8", errors="strict")
+            except UnicodeDecodeError:
+                text = body.decode("windows-1251", errors="strict")
+    if "\ufffd" in text:
+        raise UnicodeError("Replacement characters in source HTML; refusing damaged text")
+    return text
 
 
 def normalized(value):
@@ -255,6 +290,8 @@ def parse_listing(html, url, checked_at):
         sku_node = card.first("input", name="tocart")
         sold_node = card.first(cls="predZak")
         sku = (sku_node.attrs.get("value") if sku_node else None) or (sold_node.attrs.get("data-hid") if sold_node else None)
+        if sku and not re.fullmatch(r"[0-9]+", sku):
+            raise ValueError(f"Invalid source SKU on {url}")
         goods_node = card.first("input", name="goodsId") or card.first(cls="inWishListSet")
         goods_id = (goods_node.attrs.get("value") or goods_node.attrs.get("data-id")) if goods_node else None
         if not sku:
@@ -309,7 +346,7 @@ def crawl_category(client, category):
         visited.add(url)
         try:
             body, meta = client.get(url)
-            result = parse_listing(body.decode("utf-8", errors="replace"), url, meta["fetchedAt"])
+            result = parse_listing(decode_html(body, meta.get("contentType", "")), url, meta["fetchedAt"])
             if expected is None:
                 expected = result["advertisedCount"]
             elif expected != result["advertisedCount"]:
@@ -456,16 +493,41 @@ def pillow_runtime():
     return Image, ImageOps
 
 
-def optimize_image(client, item):
+def existing_image_size(path, thumb, Image):
+    try:
+        with Image.open(path) as main_image, Image.open(thumb) as thumbnail:
+            main_image.load()
+            thumbnail.load()
+            if main_image.format != "WEBP" or thumbnail.format != "WEBP" or max(main_image.size) > 1200 or max(thumbnail.size) > 320:
+                return None
+            return main_image.size
+    except (OSError, ValueError):
+        return None
+
+
+def optimize_image(client, item, previous=None):
     if not item["imageSource"] or item["imageNeedsReview"]:
         return item, None
-    path = SITE / "assets/catalog" / (item["id"] + ".webp")
-    thumb = path.with_name(item["id"] + "-320.webp")
+    if not re.fullmatch(r"loretta-(?:[0-9]+|url-[a-f0-9]{12})", item["id"]):
+        return item, {"id": item["id"], "url": item["imageSource"], "reason": "Invalid catalogue image ID"}
+    # A photo changed at the source must not reuse an old same-product filename.
+    # URL hashing keeps old deployed snapshots internally consistent too.
+    image_key = hashlib.sha256(item["imageSource"].encode()).hexdigest()[:12]
+    path = SITE / "assets/catalog" / (item["id"] + "-" + image_key + ".webp")
+    thumb = path.with_name(path.stem + "-320.webp")
     Image, ImageOps = pillow_runtime()
     try:
-        if path.exists() and thumb.exists():
-            with Image.open(path) as existing:
-                width, height = existing.size
+        old = previous or {}
+        size = None
+        if old.get("imageSource") == item["imageSource"] and all(re.fullmatch(r"assets/catalog/[a-zA-Z0-9_-]+\.webp", old.get(key) or "") for key in ("image", "thumbnail")):
+            old_path, old_thumb = SITE / old["image"], SITE / old["thumbnail"]
+            size = existing_image_size(old_path, old_thumb, Image)
+            if size:
+                path, thumb = old_path, old_thumb
+        if size is None:
+            size = existing_image_size(path, thumb, Image)
+        if size:
+            width, height = size
         else:
             body, meta = client.get(item["imageSource"], image=True)
             with Image.open(io.BytesIO(body)) as opened:
@@ -494,6 +556,106 @@ def catalog_is_recent(data, max_age_hours=24):
         return False
 
 
+class DeploymentCatalogNotFound(OSError):
+    """Only the deployed catalogue JSON returned HTTP 404 (not an asset)."""
+
+
+def valid_webp_file(path):
+    try:
+        with path.open("rb") as image_file:
+            header = image_file.read(12)
+        return len(header) == 12 and header[:4] == b"RIFF" and header[8:12] == b"WEBP" and int.from_bytes(header[4:8], "little") + 8 == path.stat().st_size
+    except OSError:
+        return False
+
+
+def bind_initial_images(items, manifest_path):
+    """One-time, explicit adoption of the first CI run's provenance-bound files.
+
+    This is deliberately separate from ordinary refresh behavior. The approved
+    manifest identifies immutable local bytes from the original import. A fresh
+    listing must confirm the same SKU and the shop's product-linked image URL.
+    The resolved evidence remains in QA; daily refresh never enables this flag.
+    """
+    manifest = json.loads(manifest_path.read_text("utf-8-sig"))
+    provenance = manifest.get("provenance", {})
+    if manifest.get("version") != 1 or manifest.get("purpose") != "one-time-initial-ci-image-adoption" or provenance.get("githubRunId") != "44085884185" or not re.fullmatch(r"6fffdb4[a-f0-9]{0,33}", provenance.get("gitCommit", "")):
+        raise ValueError("The initial-image manifest is not the approved first-import provenance")
+    by_id = {item["id"]: item for item in items}
+    previous, accepted, rejected = {}, [], []
+    seen = set()
+    Image, _ = pillow_runtime()
+    for entry in manifest.get("items", []):
+        item_id = entry.get("id", "")
+        try:
+            if item_id in seen or not re.fullmatch(r"loretta-[0-9]+", item_id):
+                raise ValueError("Invalid or duplicated manifest SKU")
+            seen.add(item_id)
+            item = by_id.get(item_id)
+            if item is None:
+                raise ValueError("SKU not present in the newly collected in-scope listings")
+            if item["imageNeedsReview"]:
+                raise ValueError("Product photograph currently requires visual review")
+            image_source = item.get("imageSource")
+            product_id = item.get("sourceProductId")
+            if not image_source or not product_id or not str(product_id).isdigit():
+                raise ValueError("New listing does not provide a verifiable source image/product ID")
+            image_url = canonical_url(image_source)
+            if urlsplit(image_url).path not in (f"/pics/cache/985_v_{product_id}.jpg", f"/pics/cache/378_v_{product_id}.jpg"):
+                raise ValueError("Image URL does not match the new listing's product identifier")
+            if entry.get("image") != f"assets/catalog/{item_id}.webp" or entry.get("thumbnail") != f"assets/catalog/{item_id}-320.webp":
+                raise ValueError("Manifest does not refer to first-run legacy filenames")
+            for key, hash_key in (("image", "sha256"), ("thumbnail", "thumbnailSha256")):
+                path = SITE / entry[key]
+                if not valid_webp_file(path) or hashlib.sha256(path.read_bytes()).hexdigest() != entry.get(hash_key):
+                    raise ValueError(f"First-run {key} is missing, damaged or changed")
+            size = existing_image_size(SITE / entry["image"], SITE / entry["thumbnail"], Image)
+            if not size or list(size) != [entry.get("width"), entry.get("height")]:
+                raise ValueError("First-run image dimensions do not match the manifest")
+            adopted = {"imageSource": image_source, "image": entry["image"], "thumbnail": entry["thumbnail"], "width": size[0], "height": size[1], "photos": []}
+            previous[item_id] = adopted
+            accepted.append({**entry, "brand": item["brand"], "model": item["model"], "source": item["source"], "imageSource": image_source, "sourceProductId": product_id, "listingCheckedAt": item["checkedAt"], "evidence": "First CI asset hash and SKU match; current public listing confirms product ID and source image URL. The original CI did not retain its URL manifest; this is an explicit one-time provenance binding, not a byte comparison with a new image download."})
+        except (ValueError, OSError, KeyError) as exc:
+            rejected.append({"id": item_id, "reason": str(exc)})
+    atomic_json(QA / "initial-images-resolved.json", {"version": 1, "resolvedAt": utc_now(), "provenance": provenance, "acceptedCount": len(accepted), "rejectedCount": len(rejected), "items": accepted, "rejected": rejected})
+    return previous
+
+
+def validate_complete_snapshot(data, require_local_assets=False):
+    if data.get("version") != 1 or data.get("source", {}).get("id") != "loretta" or not isinstance(data.get("items"), list) or not data["items"] or not data.get("coverage", {}).get("complete"):
+        raise ValueError("Not a complete Loretta v1 snapshot")
+    stamp = datetime.fromisoformat(data["checkedAt"].replace("Z", "+00:00"))
+    if stamp.tzinfo is None:
+        raise ValueError("Snapshot timestamp needs a timezone")
+    if data["coverage"].get("uniqueProducts") != len(data["items"]):
+        raise ValueError("Snapshot item count does not match coverage")
+    seen = set()
+    for item in data["items"]:
+        if not re.fullmatch(r"loretta-(?:[0-9]+|url-[a-f0-9]{12})", item.get("id", "")) or item["id"] in seen:
+            raise ValueError("Invalid or duplicated snapshot item ID")
+        seen.add(item["id"])
+        if not item.get("title") or not item.get("brand"):
+            raise ValueError("Snapshot item title/brand is missing")
+        canonical_url(item["source"])
+        if item.get("priceCurrency", "RUB") != "RUB":
+            raise ValueError("Unexpected snapshot price currency")
+        for key in ("priceRub", "oldPriceRub"):
+            value = item.get(key)
+            if value is not None and (isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0):
+                raise ValueError("Invalid snapshot price")
+        for key in ("image", "thumbnail"):
+            relative = item.get(key)
+            if relative is None:
+                continue
+            if not re.fullmatch(r"assets/catalog/[a-zA-Z0-9_-]+\.webp", relative):
+                raise ValueError(f"Unrecognized deployment asset path: {relative}")
+            if require_local_assets and not (SITE / relative).is_file():
+                raise ValueError(f"Repository seed image is missing: {relative}")
+            if require_local_assets:
+                if not valid_webp_file(SITE / relative):
+                    raise ValueError(f"Repository seed image has an invalid WebP container: {relative}")
+
+
 def restore_deployed(base_url, target):
     """Restore last published data and missing assets before source refresh.
 
@@ -515,12 +677,17 @@ def restore_deployed(base_url, target):
                 raise ValueError("Deployment asset exceeds 15 MB")
             return payload
 
-    remote = json.loads(read("data/catalog.json").decode("utf-8-sig"))
-    if remote.get("version") != 1 or remote.get("source", {}).get("id") != "loretta" or not isinstance(remote.get("items"), list) or not remote.get("coverage", {}).get("complete"):
-        raise ValueError("Deployment catalogue is not a complete Loretta v1 snapshot")
+    try:
+        remote = json.loads(read("data/catalog.json").decode("utf-8-sig"))
+    except HTTPError as exc:
+        if exc.code == 404:
+            raise DeploymentCatalogNotFound("Deployed data/catalog.json returned HTTP 404") from exc
+        raise
+    validate_complete_snapshot(remote)
     if target.exists():
         local = json.loads(target.read_text("utf-8-sig"))
         if local.get("checkedAt", "") > remote.get("checkedAt", "") and local.get("coverage", {}).get("complete"):
+            validate_complete_snapshot(local, require_local_assets=True)
             remote = local
     missing = set()
     for item in remote["items"]:
@@ -530,15 +697,18 @@ def restore_deployed(base_url, target):
                 continue
             if not re.fullmatch(r"assets/catalog/[a-zA-Z0-9_-]+\.webp", relative):
                 raise ValueError(f"Unrecognized deployment asset path: {relative}")
-            if not (SITE / relative).is_file():
+            if not valid_webp_file(SITE / relative):
                 missing.add(relative)
     for relative in sorted(missing):
         body = read(relative)
-        if not body.startswith(b"RIFF") or body[8:12] != b"WEBP":
+        if not body.startswith(b"RIFF") or body[8:12] != b"WEBP" or int.from_bytes(body[4:8], "little") + 8 != len(body):
             raise ValueError(f"Deployment asset is not WebP: {relative}")
         path = SITE / relative
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(body)
+        temp = path.with_suffix(path.suffix + ".tmp")
+        temp.write_bytes(body)
+        temp.replace(path)
+    validate_complete_snapshot(remote, require_local_assets=True)
     atomic_json(target, remote)
     return remote, len(missing)
 
@@ -550,10 +720,16 @@ def main(argv=None):
     parser.add_argument("--resume", action="store_true", help="Reparse cached pages and finish images even when the current snapshot is younger than 24h")
     parser.add_argument("--no-images", action="store_true", help="Collect full listing data without fetching/optimizing images")
     parser.add_argument("--deployed", metavar="HTTPS_URL", help="Restore published data and missing assets from the HTTPS tights-guide/ base directory")
+    parser.add_argument("--restore-only", action="store_true", help="Require --deployed; restore/validate the published catalogue and stop without collecting source pages")
+    parser.add_argument("--initial-image-manifest", type=Path, help="Explicit one-time first-CI asset adoption; only for the approved review workflow, never regular updates")
     parser.add_argument("--tls12", action="store_true", help="Limit TLS to 1.2 for incompatible local transports; certificates are still verified")
     parser.add_argument("--workers", type=int, default=4, choices=range(1, 5))
     parser.add_argument("--cache", type=Path, default=QA / "http-cache")
     args = parser.parse_args(argv)
+    if args.restore_only and not args.deployed:
+        parser.error("--restore-only requires --deployed")
+    if args.restore_only and args.initial_image_manifest:
+        parser.error("--initial-image-manifest is incompatible with --restore-only")
     QA.mkdir(parents=True, exist_ok=True)
     started = utc_now()
     old_catalog_path = SITE / "data/catalog.json"
@@ -561,10 +737,29 @@ def main(argv=None):
         try:
             _, restored_assets = restore_deployed(args.deployed, old_catalog_path)
             print(f"Restored deployed catalogue; fetched {restored_assets} missing assets", flush=True)
+        except DeploymentCatalogNotFound as exc:
+            try:
+                seed = json.loads(old_catalog_path.read_text("utf-8-sig"))
+                validate_complete_snapshot(seed, require_local_assets=True)
+            except Exception as seed_error:
+                atomic_json(QA / "restore-error.json", {"checkedAt": started, "url": args.deployed, "error": str(exc), "seedError": str(seed_error), "fatal": True})
+                print(f"Deployment is absent and no complete repository seed is available: {seed_error}", flush=True)
+                return 3
+            print("Deployed catalogue returned HTTP 404; using the validated complete repository seed for the first publication", flush=True)
         except Exception as exc:
-            atomic_json(QA / "restore-error.json", {"checkedAt": started, "url": args.deployed, "error": str(exc)})
+            atomic_json(QA / "restore-error.json", {"checkedAt": started, "url": args.deployed, "error": str(exc), "fatal": True})
             print(f"Deployment restore failed; published data left untouched: {exc}", flush=True)
-            return 2
+            return 3
+    if args.restore_only:
+        try:
+            restored = json.loads(old_catalog_path.read_text("utf-8-sig"))
+            validate_complete_snapshot(restored, require_local_assets=True)
+        except Exception as exc:
+            atomic_json(QA / "restore-error.json", {"checkedAt": started, "url": args.deployed, "error": str(exc), "fatal": True})
+            print(f"Restored catalogue failed local asset validation: {exc}", flush=True)
+            return 3
+        print(f"Restored and validated {len(restored['items'])} catalogue models for publication", flush=True)
+        return 0
     if old_catalog_path.exists() and not (args.refresh or args.resume or args.offline):
         previous_data = json.loads(old_catalog_path.read_text("utf-8-sig"))
         if catalog_is_recent(previous_data):
@@ -574,7 +769,7 @@ def main(argv=None):
     report = {"startedAt": started, "source": BASE, "failedUrls": []}
     try:
         body, meta = client.get(BASE)
-        tree = TreeParser(body.decode("utf-8", errors="replace")).root
+        tree = TreeParser(decode_html(body, meta.get("contentType", ""))).root
         categories, brands = discover_categories(tree), collect_brands(tree)
         if len(categories) < 40:
             raise ValueError(f"Menu discovery found only {len(categories)} categories; refusing a partial import")
@@ -602,35 +797,32 @@ def main(argv=None):
     previous = {}
     if old_catalog_path.exists():
         previous = {row["id"]: row for row in json.loads(old_catalog_path.read_text("utf-8-sig")).get("items", [])}
+    if args.initial_image_manifest:
+        try:
+            initial_images = bind_initial_images(items, args.initial_image_manifest)
+            for item_id, adoption in initial_images.items():
+                old = previous.get(item_id, {})
+                # Existing publication evidence always takes precedence. A known
+                # old URL mismatch may never be bypassed by the bootstrap flag.
+                if old.get("image") or (old.get("imageSource") and old["imageSource"] != adoption["imageSource"]):
+                    continue
+                previous[item_id] = {**old, **adoption}
+            print(f"Verified {len(initial_images)} first-CI image pairs against hashes and fresh listing identifiers", flush=True)
+        except Exception as exc:
+            print(f"Initial-image provenance validation failed; published catalogue preserved: {exc}", flush=True)
+            return 3
     for item in items:
         if item["id"] in previous:
             item["packageId"] = previous[item["id"]].get("packageId")
-    if not args.no_images:
-        pillow_runtime()
-        with ThreadPoolExecutor(max_workers=args.workers) as executor:
-            futures = [executor.submit(optimize_image, client, item) for item in items]
-            for done, future in enumerate(as_completed(futures), 1):
-                _, error = future.result()
-                if error:
-                    image_errors.append(error)
-                if done % 100 == 0 or done == len(items):
-                    print(f"Images {done}/{len(items)}, failures {len(image_errors)}", flush=True)
-    else:
-        # A data-only refresh retains already optimized, same-source photos.
-        for item in items:
-            old = previous.get(item["id"], {})
-            if old.get("imageSource") == item["imageSource"] and not item["imageNeedsReview"]:
-                for key in ("image", "thumbnail", "width", "height", "photos"):
-                    if key in old:
-                        item[key] = old[key]
     summaries = sorted([row[0] for row in results], key=lambda row: row["url"])
     failed = [error for cat in summaries for error in cat["errors"]]
+    if not items:
+        failed.append({"url": BASE, "reason": "No in-scope products collected; refusing an empty replacement"})
     complete = not failed and not unknown_brands
     coverage = {
         "complete": complete, "categories": len(categories), "categoriesComplete": sum(cat["complete"] for cat in summaries),
         "pages": sum(len(cat["pages"]) for cat in summaries), "listedOccurrences": sum(cat["cardCount"] for cat in summaries),
         "uniqueProducts": len(items), "excludedUnrelatedProducts": len(excluded),
-        "images": sum(bool(item["image"]) for item in items), "imageFailures": len(image_errors),
         "imagesAwaitingReview": sum(item["imageNeedsReview"] for item in items),
         "byKind": dict(sorted(Counter(item["productKind"] for item in items).items())),
         "byBrand": dict(sorted(Counter(item["brand"] for item in items).items())),
@@ -641,11 +833,44 @@ def main(argv=None):
     # Reprocessing cached images must not make old prices appear newly checked.
     checked_at = max((page["checkedAt"] for category in summaries for page in category["pages"]), default=started)
     output = {"version": 1, "source": {"id": "loretta", "name": "Лоретта", "url": BASE}, "checkedAt": checked_at, "coverage": coverage, "items": items}
-    atomic_json(QA / "catalog-candidate.json", output)
-    report.update({"finishedAt": utc_now(), **coverage, "categoryDetails": summaries, "failedUrls": failed, "imageErrors": image_errors, "excludedProducts": excluded, "conflicts": conflicts, "unknownBrands": unknown_brands, "networkRequests": client.network_count, "cacheHits": client.cache_count, "published": complete})
-    atomic_json(QA / "coverage-report.json", report)
+
+    def checkpoint(phase, done=0, finished=False):
+        coverage.update({"images": sum(bool(item["image"]) for item in items), "imageFailures": len(image_errors), "imagePhaseComplete": finished})
+        atomic_json(QA / "catalog-candidate.json", output)
+        report.update({**coverage, "phase": phase, "lastUpdatedAt": utc_now(), "imageJobsCompleted": done, "imageJobsTotal": 0 if args.no_images else len(items), "categoryDetails": summaries, "failedUrls": failed, "imageErrors": image_errors, "excludedProducts": excluded, "conflicts": conflicts, "unknownBrands": unknown_brands, "networkRequests": client.network_count, "cacheHits": client.cache_count, "published": False})
+        if finished:
+            report["finishedAt"] = utc_now()
+        atomic_json(QA / "coverage-report.json", report)
+
+    # The review candidate is useful even when a long image phase is interrupted.
+    # This is not the published JSON; its data dates are still actual HTTP dates.
+    checkpoint("listing_complete")
+    print(f"Listings complete: {len(items)} unique models, {len(failed)} source errors, {len(unknown_brands)} unresolved brands. Review candidate saved.", flush=True)
+    done = 0
+    if not args.no_images:
+        pillow_runtime()
+        with ThreadPoolExecutor(max_workers=args.workers) as executor:
+            futures = [executor.submit(optimize_image, client, item, previous.get(item["id"])) for item in items]
+            for done, future in enumerate(as_completed(futures), 1):
+                _, error = future.result()
+                if error:
+                    image_errors.append(error)
+                if done % 100 == 0 or done == len(items):
+                    checkpoint("images_in_progress", done)
+                    print(f"Images {done}/{len(items)}, failures {len(image_errors)}", flush=True)
+    else:
+        # A data-only refresh retains already optimized, same-source photos.
+        for item in items:
+            old = previous.get(item["id"], {})
+            if old.get("imageSource") == item["imageSource"] and not item["imageNeedsReview"]:
+                for key in ("image", "thumbnail", "width", "height", "photos"):
+                    if key in old:
+                        item[key] = old[key]
+    checkpoint("finished", done, finished=True)
     if complete:
         atomic_json(old_catalog_path, output)
+        report["published"] = True
+        atomic_json(QA / "coverage-report.json", report)
         print(f"Published {len(items)} unique products, {coverage['images']} images", flush=True)
     else:
         print(f"NOT PUBLISHED: {len(failed)} category errors, {len(unknown_brands)} unresolved brands. Previous published catalogue preserved.", flush=True)

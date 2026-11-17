@@ -3,5 +3,12 @@
 !test_parser.py
 !coverage-report.json
 !README.md
+!IMPORT-NOTES.md
+!make_contact_sheets.py
 !approved-packaging.json
 !visual-review.json
+!initial-images-manifest.json
+!initial-images-resolved.json
+!make_initial_image_manifest.py
+!measure_image_transport.py
+!network-probe.json
