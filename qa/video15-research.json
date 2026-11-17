@@ -1,0 +1,3251 @@
+{
+  "checkedAt": "2026-11-16T12:53:07+00:00",
+  "videos": [
+    {
+      "requested": "Светлана Макарова",
+      "id": "G6m9vzvaGoc",
+      "expectedChannelId": "UC1DZTK2DAylpWtucMcZSXOw",
+      "url": "https://www.youtube.com/watch?v=G6m9vzvaGoc",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DG6m9vzvaGoc&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "Идеальные Колготки для Любого Образа | 8 секретных формул ношения цветных колготок  |",
+        "author_name": "Светлана Макарова | Персональный стилист | ",
+        "author_url": "https://www.youtube.com/@SvetlanaMakarovaStyle",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/G6m9vzvaGoc/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/G6m9vzvaGoc?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Идеальные Колготки для Любого Образа | 8 секретных формул ношения цветных колготок  |\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=G6m9vzvaGoc",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "Анастасия Оделс",
+      "id": "yqTK5Gs0qmA",
+      "expectedChannelId": "UCtuUdhlMTAz9dleiMB3v58w",
+      "url": "https://www.youtube.com/watch?v=yqTK5Gs0qmA",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DyqTK5Gs0qmA&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "КОЛГОТКИ: КАК ВЫБРАТЬ, КАК СОЧЕТАТЬ и КАК НОСИТЬ | Стилист Анастасия Оделс",
+        "author_name": "Анастасия Оделс",
+        "author_url": "https://www.youtube.com/@odels",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/yqTK5Gs0qmA/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/yqTK5Gs0qmA?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"КОЛГОТКИ: КАК ВЫБРАТЬ, КАК СОЧЕТАТЬ и КАК НОСИТЬ | Стилист Анастасия Оделс\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=yqTK5Gs0qmA",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "Лирия Хольдина",
+      "id": "qlPJ4PhnNWo",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=qlPJ4PhnNWo",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DqlPJ4PhnNWo&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "Как подобрать колготки и гармонично встроить их в свой образ? Капроновые, плотные, цветные колготки.",
+        "author_name": "Liria Kholdina",
+        "author_url": "https://www.youtube.com/@LiriaKholdina",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/qlPJ4PhnNWo/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/qlPJ4PhnNWo?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Как подобрать колготки и гармонично встроить их в свой образ? Капроновые, плотные, цветные колготки.\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=qlPJ4PhnNWo",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "Olga_Delevsky",
+      "id": "yJ_D-39z7eg",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=yJ_D-39z7eg",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DyJ_D-39z7eg&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "Как выбрать и с чем носить колготки? Актуальные колготки 2021 советы Стилиста!",
+        "author_name": "IQ Style School. Школа стиля Ольги Делевски",
+        "author_url": "https://www.youtube.com/@Olga_Delevsky",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/yJ_D-39z7eg/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/yJ_D-39z7eg?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Как выбрать и с чем носить колготки? Актуальные колготки 2021 советы Стилиста!\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=yJ_D-39z7eg",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "KseniyaShirshova",
+      "id": "24E0r4MRLuI",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=24E0r4MRLuI",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D24E0r4MRLuI&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "Колготки – как правильно подобрать колготки в школу, университет, на работу, на выход",
+        "author_name": "Kseniya Shirshova (Vostrikova)",
+        "author_url": "https://www.youtube.com/@KseniyaShirshova",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/24E0r4MRLuI/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/24E0r4MRLuI?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Колготки – как правильно подобрать колготки в школу, университет, на работу, на выход\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=24E0r4MRLuI",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "Cassie Clarke",
+      "id": "fVNOZltsqo4",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=fVNOZltsqo4",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DfVNOZltsqo4&format=json",
+      "oembedStatus": {
+        "status": 403,
+        "error": "HTTP 403"
+      }
+    },
+    {
+      "requested": "Kerina Wang",
+      "id": "I85twyDA_-g",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=I85twyDA_-g",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DI85twyDA_-g&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "15 Tights Outfit Ideas | How to style tights lookbook",
+        "author_name": "Kerina Wang",
+        "author_url": "https://www.youtube.com/@KerinaWang",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/I85twyDA_-g/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/I85twyDA_-g?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"15 Tights Outfit Ideas | How to style tights lookbook\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=I85twyDA_-g",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "Kerina Wang",
+      "id": "fVRy95vrAZ4",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=fVRy95vrAZ4",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DfVRy95vrAZ4&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "Tights Outfit Ideas | How to style tights in the cold",
+        "author_name": "Kerina Wang",
+        "author_url": "https://www.youtube.com/@KerinaWang",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/fVRy95vrAZ4/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/fVRy95vrAZ4?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Tights Outfit Ideas | How to style tights in the cold\"></iframe>"
+      }
+    },
+    {
+      "requested": "CalzedoniaOfficial",
+      "id": "8ruf9D3Cu4c",
+      "expectedChannelId": "UCoZE4fZMjf0CbZGBlbneNDQ",
+      "url": "https://www.youtube.com/watch?v=8ruf9D3Cu4c",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D8ruf9D3Cu4c&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "HOW TO STYLE TIGHTS",
+        "author_name": "CalzedoniaOfficial",
+        "author_url": "https://www.youtube.com/@CalzedoniaOfficial",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/8ruf9D3Cu4c/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/8ruf9D3Cu4c?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"HOW TO STYLE TIGHTS\"></iframe>"
+      }
+    },
+    {
+      "requested": "Luxe Mia ASMR",
+      "id": "TVDNAIs4N7Q",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=TVDNAIs4N7Q",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DTVDNAIs4N7Q&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "Satisfying nylon tights ASMR with Mia | Relaxing nylon tights No Talking no Music",
+        "author_name": "Luxe Mia ASMR",
+        "author_url": "https://www.youtube.com/@LuxeMiaASMR-vz1sm",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/TVDNAIs4N7Q/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/TVDNAIs4N7Q?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Satisfying nylon tights ASMR with Mia | Relaxing nylon tights No Talking no Music\"></iframe>"
+      }
+    },
+    {
+      "requested": "ASMR by Chinese Girl",
+      "id": "0GwaAwg5NCA",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=0GwaAwg5NCA",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D0GwaAwg5NCA&format=json",
+      "oembedStatus": {
+        "status": 403,
+        "error": "HTTP 403"
+      }
+    },
+    {
+      "requested": "Sweet Deep ASMR",
+      "id": "kzbUxpc-vkQ",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=kzbUxpc-vkQ",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DkzbUxpc-vkQ&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "ASMR Scratching & Ripping Fishnet Tights SOUNDS | No Talking 💤",
+        "author_name": "SweetDeep ASMR",
+        "author_url": "https://www.youtube.com/@sweetdeepasmr",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/kzbUxpc-vkQ/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/kzbUxpc-vkQ?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"ASMR Scratching &amp; Ripping Fishnet Tights SOUNDS | No Talking 💤\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=kzbUxpc-vkQ",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "ASMR Kate Lullaby",
+      "id": "FvqmyWTU3bM",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=FvqmyWTU3bM",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DFvqmyWTU3bM&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "Nylon Tights, Heels and Soft Voice 🖤",
+        "author_name": "ASMR Kate Lullaby",
+        "author_url": "https://www.youtube.com/@ASMRKateLullaby",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/FvqmyWTU3bM/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/FvqmyWTU3bM?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Nylon Tights, Heels and Soft Voice 🖤\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=FvqmyWTU3bM",
+        "status": 0,
+        "error": "network unavailable"
+      }
+    },
+    {
+      "requested": "Sleepy Beauty ASMR",
+      "id": "sVlD9Ok0xy0",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=sVlD9Ok0xy0",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DsVlD9Ok0xy0&format=json",
+      "oembedStatus": {
+        "status": 404,
+        "error": "HTTP 404"
+      }
+    },
+    {
+      "requested": "Russian ASMR (anonymous request)",
+      "id": "zu8UTjg3E4U",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=zu8UTjg3E4U",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dzu8UTjg3E4U&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "АСМР  СКРЕТЧИНГ  ПО КОЛГОТКАМ ТКАНИ ОДЕЖДЕ | ASMR SCRATCHING TIGHTS",
+        "author_name": "ASMR CHeeks",
+        "author_url": "https://www.youtube.com/@ASMRCHeeks",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/zu8UTjg3E4U/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/zu8UTjg3E4U?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"АСМР  СКРЕТЧИНГ  ПО КОЛГОТКАМ ТКАНИ ОДЕЖДЕ | ASMR SCRATCHING TIGHTS\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=zu8UTjg3E4U",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "Больше чем стиль",
+      "id": "adj7nIdbrXc",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=adj7nIdbrXc",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dadj7nIdbrXc&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "Колготки.  Цветные колготки. С чем носить .",
+        "author_name": "Больше чем стиль",
+        "author_url": "https://www.youtube.com/@smileggal",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/adj7nIdbrXc/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/adj7nIdbrXc?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Колготки.  Цветные колготки. С чем носить .\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=adj7nIdbrXc",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "layla (not Layla Fashion)",
+      "id": "FVDXcK_7HVo",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=FVDXcK_7HVo",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DFVDXcK_7HVo&format=json",
+      "oembedStatus": {
+        "status": 403,
+        "error": "HTTP 403"
+      }
+    },
+    {
+      "requested": "Annika Victoria",
+      "id": "jAovDlIn6CA",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=jAovDlIn6CA",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DjAovDlIn6CA&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "Upcycling Tights & A Lookbook! | Style Pile #15",
+        "author_name": "Annika Victoria",
+        "author_url": "https://www.youtube.com/@AnnikaVictoria24",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/jAovDlIn6CA/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/jAovDlIn6CA?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Upcycling Tights &amp; A Lookbook! | Style Pile #15\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=jAovDlIn6CA",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "Tinkerbell",
+      "id": "vbIbX589Idc",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=vbIbX589Idc",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DvbIbX589Idc&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "Product review of pantyhose/tights from Calzedonia | Invisible 20 Denier Sheer Tights (seamless)",
+        "author_name": "Tinkerbell",
+        "author_url": "https://www.youtube.com/@T1nkerbell01",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/vbIbX589Idc/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/vbIbX589Idc?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Product review of pantyhose/tights from Calzedonia | Invisible 20 Denier Sheer Tights (seamless)\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=vbIbX589Idc",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "Multi-brand test",
+      "id": "Lhb91O9w5wk",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=Lhb91O9w5wk",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DLhb91O9w5wk&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "Finding the strongest tights? | wear test",
+        "author_name": "401 Money Gang",
+        "author_url": "https://www.youtube.com/@RebeccaRat",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/Lhb91O9w5wk/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/Lhb91O9w5wk?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Finding the strongest tights? | wear test\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=Lhb91O9w5wk",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "Sheertex test",
+      "id": "s5RVt62Scgc",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=s5RVt62Scgc",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Ds5RVt62Scgc&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "SHEERTEX REVIEW | Breaking the unbreakable tights, wear test & try on",
+        "author_name": "Samantha Yonge",
+        "author_url": "https://www.youtube.com/@SamanthaYonge",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/s5RVt62Scgc/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/s5RVt62Scgc?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"SHEERTEX REVIEW | Breaking the unbreakable tights, wear test &amp; try on\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=s5RVt62Scgc",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    },
+    {
+      "requested": "Kira's Nylons",
+      "id": "MD_NUowADjw",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=MD_NUowADjw",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DMD_NUowADjw&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "ASMR 🎧 No Talking 🤫 Starry Nylon Tights Scratching 🌟 Fabric Sounds 🧦",
+        "author_name": "Kira's Nylons",
+        "author_url": "https://www.youtube.com/@KirasNylons",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/MD_NUowADjw/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/MD_NUowADjw?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"ASMR 🎧 No Talking 🤫 Starry Nylon Tights Scratching 🌟 Fabric Sounds 🧦\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=MD_NUowADjw",
+        "status": 0,
+        "error": "network unavailable"
+      }
+    },
+    {
+      "requested": "Gentle Whispering ASMR (additional textile research)",
+      "id": "599LMnGLC9k",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=599LMnGLC9k",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D599LMnGLC9k&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "Fancy Fabrics ○ ASMR",
+        "author_name": "Gentle Whispering ASMR",
+        "author_url": "https://www.youtube.com/@GentleWhisperingASMR",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/599LMnGLC9k/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/599LMnGLC9k?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Fancy Fabrics ○ ASMR\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=599LMnGLC9k",
+        "status": 0,
+        "error": "network unavailable"
+      }
+    },
+    {
+      "requested": "WhispersRed ASMR (additional textile research)",
+      "id": "l790AoYh1HE",
+      "expectedChannelId": "",
+      "url": "https://www.youtube.com/watch?v=l790AoYh1HE",
+      "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dl790AoYh1HE&format=json",
+      "oembedStatus": {
+        "status": 200
+      },
+      "oembed": {
+        "title": "What's in my bag... ASMR with zips sounds, fabrics & soft speaking",
+        "author_name": "WhispersRed ASMR",
+        "author_url": "https://www.youtube.com/@WhispersRedASMR",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/l790AoYh1HE/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/l790AoYh1HE?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"What&#39;s in my bag... ASMR with zips sounds, fabrics &amp; soft speaking\"></iframe>"
+      },
+      "publicPage": {
+        "url": "https://www.youtube.com/watch?v=l790AoYh1HE",
+        "status": 302,
+        "error": "HTTP 302"
+      }
+    }
+  ],
+  "channels": [
+    {
+      "name": "TightsTV The Tight Spot",
+      "url": "https://www.youtube.com/channel/UCdGZ5AxDylcpE8fW2cwmQBw",
+      "channelId": "UCdGZ5AxDylcpE8fW2cwmQBw",
+      "publicPage": {
+        "url": "https://www.youtube.com/channel/UCdGZ5AxDylcpE8fW2cwmQBw",
+        "status": 200,
+        "metadata": {
+          "og:title": "TightsTV",
+          "og:url": "https://www.youtube.com/channel/UCdGZ5AxDylcpE8fW2cwmQBw",
+          "name": "TightsTV"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCdGZ5AxDylcpE8fW2cwmQBw"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCdGZ5AxDylcpE8fW2cwmQBw"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdGZ5AxDylcpE8fW2cwmQBw",
+        "status": 200,
+        "channelId": "dGZ5AxDylcpE8fW2cwmQBw",
+        "title": "TightsTV",
+        "author": "TightsTV",
+        "entries": [
+          {
+            "id": "gGl0XpMBEBw",
+            "title": "Wolford Blossom Tights | Beautiful Floral Stay-Up Effect",
+            "publishedAt": "2026-10-07T13:33:15+00:00"
+          },
+          {
+            "id": "71oeQ7_-2kc",
+            "title": "Wolford Dotted Garter Belt Tights | Elegant Polka Dot Suspender Look",
+            "publishedAt": "2026-10-07T13:31:10+00:00"
+          },
+          {
+            "id": "lcnGZvmn50Q",
+            "title": "Wolford Infinite Wrap Mock Suspender Tights | 40 Denier Luxury TightsYouTube videos",
+            "publishedAt": "2026-10-07T13:28:51+00:00"
+          },
+          {
+            "id": "aALKsap8Xaw",
+            "title": "FALKE Holly Lace Tights | The Tight Spot",
+            "publishedAt": "2026-07-22T13:37:30+00:00"
+          },
+          {
+            "id": "4LXH0iUGcEo",
+            "title": "Falke Holly Over The Knee Lace Tights | The Tight Spot",
+            "publishedAt": "2026-07-22T13:33:13+00:00"
+          },
+          {
+            "id": "nE438wFbqYw",
+            "title": "The power of glossy tights ⚡ #summerstyle #glossyelegance",
+            "publishedAt": "2026-06-24T11:10:21+00:00"
+          },
+          {
+            "id": "QJ7zOQesXGU",
+            "title": "Sun-kissed legs, liquid shine ✨ Shop the gloss via the link in our bio!",
+            "publishedAt": "2026-06-05T17:00:17+00:00"
+          },
+          {
+            "id": "WT13LpkLbjA",
+            "title": "VIP discount OFF Oroblu Hosiery for a limited time only! Use code OROBLU at checkout 🛒 link in bio!",
+            "publishedAt": "2026-06-04T17:00:23+00:00"
+          },
+          {
+            "id": "r1y3XHGXom8",
+            "title": "Tonight’s your last chance… 🔥 Shop 20% OFF all Miss Naughty hosiery with code MN20 🖤 link in bio!",
+            "publishedAt": "2026-06-02T15:00:03+00:00"
+          },
+          {
+            "id": "_EbG6SxrHjY",
+            "title": "Go on… be a little extra 😏🖤 link in our bio to shop!",
+            "publishedAt": "2026-05-31T14:00:21+00:00"
+          },
+          {
+            "id": "US5fkNbBAx0",
+            "title": "A good pair of black tights changes everything 🖤  shop yours via the link in our bio!",
+            "publishedAt": "2026-05-29T16:00:02+00:00"
+          },
+          {
+            "id": "tADUjRhfaQ8",
+            "title": "This glow has a deadline ⏰✨20% OFF Pearl & Poseidon ends tonight - link in our bio!",
+            "publishedAt": "2026-05-26T13:07:10+00:00"
+          },
+          {
+            "id": "e_7wGn-uo5E",
+            "title": "Glossed up & unstoppable ✨ Shop at TheTightSpot.com!",
+            "publishedAt": "2026-05-25T17:00:18+00:00"
+          },
+          {
+            "id": "hpMIlT8AAjQ",
+            "title": "Sexy Gloss mode: ON ✨🔥 Shop 20% OFF Pearl & Poseidon with code PP20 at checkout! Link in our bio!",
+            "publishedAt": "2026-05-24T15:00:12+00:00"
+          },
+          {
+            "id": "Og9wKh5OV-A",
+            "title": "Cecilia de Rafael Eterno Super Lucido 10 Shiny Tights | The Tight Spot",
+            "publishedAt": "2026-05-23T12:00:37+00:00"
+          }
+        ]
+      },
+      "sampleOembed": {
+        "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DgGl0XpMBEBw&format=json",
+        "videoId": "gGl0XpMBEBw",
+        "authorUrl": "https://www.youtube.com/@TightsTV",
+        "author": "TightsTV",
+        "title": "Wolford Blossom Tights | Beautiful Floral Stay-Up Effect",
+        "checkedAt": "2026-11-16T13:05:37Z"
+      }
+    },
+    {
+      "name": "Layla Fashion",
+      "url": "https://www.youtube.com/@layla_fashion",
+      "channelId": "UCxL5Q1badukzLkDOF7hIuaA",
+      "publicPage": {
+        "url": "https://www.youtube.com/@layla_fashion",
+        "status": 200,
+        "metadata": {
+          "og:title": "Layla Fashion",
+          "og:url": "https://www.youtube.com/channel/UCxL5Q1badukzLkDOF7hIuaA",
+          "name": "Layla Fashion"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCxL5Q1badukzLkDOF7hIuaA"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCxL5Q1badukzLkDOF7hIuaA"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxL5Q1badukzLkDOF7hIuaA",
+        "status": 200,
+        "channelId": "xL5Q1badukzLkDOF7hIuaA",
+        "title": "Layla Fashion",
+        "author": "Layla Fashion",
+        "entries": [
+          {
+            "id": "1ZahZGSaP0Q",
+            "title": "These Tights Feel Like a Fluffy Blanket!",
+            "publishedAt": "2026-11-13T15:00:34+00:00"
+          },
+          {
+            "id": "4UVskXpYz6A",
+            "title": "Surprise Pantyhose Unboxing! Fiore, Charnos & The Tight Spot",
+            "publishedAt": "2026-11-06T17:44:03+00:00"
+          },
+          {
+            "id": "msRc8NJun90",
+            "title": "My ENTIRE Pantyhose Collection! Wolford, Fishnets & More",
+            "publishedAt": "2026-10-30T15:30:11+00:00"
+          },
+          {
+            "id": "JGen798BxFw",
+            "title": "Layering Red & Black Pantyhose for a Goth Look",
+            "publishedAt": "2026-10-23T15:00:13+00:00"
+          },
+          {
+            "id": "JXdUv9eaWcw",
+            "title": "Two pairs of tights, is that okay?",
+            "publishedAt": "2026-10-20T14:30:36+00:00"
+          },
+          {
+            "id": "SFYiV6tGb1U",
+            "title": "Pink frilly skirt",
+            "publishedAt": "2026-10-17T15:15:32+00:00"
+          },
+          {
+            "id": "wSJy6GplRUY",
+            "title": "Styling Wolford Velvet Deluxe 50 for Cosplay",
+            "publishedAt": "2026-10-16T15:15:35+00:00"
+          },
+          {
+            "id": "fORQIQp5X6M",
+            "title": "Am I cute?  #highheels",
+            "publishedAt": "2026-10-12T01:04:54+00:00"
+          },
+          {
+            "id": "TJjuCZHW4Jg",
+            "title": "Brown Pantyhose Completely Changed This Look",
+            "publishedAt": "2026-10-09T15:00:29+00:00"
+          },
+          {
+            "id": "1gQQb9FLn68",
+            "title": "Tan vs Leopard Pantyhose | Which Looks Better?",
+            "publishedAt": "2026-10-02T15:15:10+00:00"
+          },
+          {
+            "id": "p72ejOIoogI",
+            "title": "That feeling when it's cold out  #dresstryon",
+            "publishedAt": "2026-09-30T15:15:23+00:00"
+          },
+          {
+            "id": "7ACHd6I8ChE",
+            "title": "I Didn’t Think I’d Like These… But I Was Wrong",
+            "publishedAt": "2026-09-25T15:15:32+00:00"
+          },
+          {
+            "id": "Gu19TMOIV3Y",
+            "title": "Platino Amore 15 Denier Tights Review & Try-On",
+            "publishedAt": "2026-09-18T15:30:39+00:00"
+          },
+          {
+            "id": "_wrht8GrdS4",
+            "title": "Cute & Girly Office Outfit Try-On! (Major Clueless Vibes)",
+            "publishedAt": "2026-09-11T15:00:04+00:00"
+          },
+          {
+            "id": "1vZpMMS6KgE",
+            "title": "How I Style Sheer White Mini Skirts & Floral Garter Tights",
+            "publishedAt": "2026-09-04T15:07:51+00:00"
+          }
+        ]
+      },
+      "sampleOembed": {
+        "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D1ZahZGSaP0Q&format=json",
+        "videoId": "1ZahZGSaP0Q",
+        "authorUrl": "https://www.youtube.com/@layla_fashion",
+        "author": "Layla Fashion",
+        "title": "These Tights Feel Like a Fluffy Blanket!",
+        "checkedAt": "2026-11-16T13:03:38Z"
+      }
+    },
+    {
+      "name": "Sheertex",
+      "url": "https://www.youtube.com/@sheertex",
+      "channelId": "UCi8Iy9BQyr3caO4mk7zKMnA",
+      "publicPage": {
+        "url": "https://www.youtube.com/@sheertex",
+        "status": 200,
+        "metadata": {
+          "og:title": "Sheertex",
+          "og:url": "https://www.youtube.com/channel/UCi8Iy9BQyr3caO4mk7zKMnA",
+          "name": "Sheertex"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCi8Iy9BQyr3caO4mk7zKMnA"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCi8Iy9BQyr3caO4mk7zKMnA"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCi8Iy9BQyr3caO4mk7zKMnA",
+        "status": 200,
+        "channelId": "i8Iy9BQyr3caO4mk7zKMnA",
+        "title": "Sheertex",
+        "author": "Sheertex",
+        "entries": [
+          {
+            "id": "pH3K8dYbez8",
+            "title": "Really strong tights, for all. #iwearsheertex",
+            "publishedAt": "2025-10-03T16:43:39+00:00"
+          },
+          {
+            "id": "Y6c4QDmPkzo",
+            "title": "Really strong tights, for all. #iwearsheertex",
+            "publishedAt": "2025-09-09T15:23:29+00:00"
+          },
+          {
+            "id": "O2H7SgwtIEI",
+            "title": "NOT SHEERTEX",
+            "publishedAt": "2024-10-21T17:30:10+00:00"
+          },
+          {
+            "id": "lWkRkuE8PWw",
+            "title": "SHEERTEX STUDIO",
+            "publishedAt": "2024-09-03T13:23:53+00:00"
+          },
+          {
+            "id": "06sPuQofgDU",
+            "title": "Sheertex - Made to Rewear",
+            "publishedAt": "2024-08-15T14:57:49+00:00"
+          },
+          {
+            "id": "KD29CsfjLwI",
+            "title": "Strength Sessions: Summer Edition",
+            "publishedAt": "2024-08-08T15:08:48+00:00"
+          },
+          {
+            "id": "VirBmKokQx4",
+            "title": "Chaos Adjacent - Sheertex",
+            "publishedAt": "2024-05-08T14:34:40+00:00"
+          },
+          {
+            "id": "SW6sdWrvsMM",
+            "title": "Sheertex - Strength has Sprung",
+            "publishedAt": "2024-03-27T13:47:36+00:00"
+          },
+          {
+            "id": "gh_ekLsJMu0",
+            "title": "Sheertex - The Final Boss",
+            "publishedAt": "2024-03-23T17:53:06+00:00"
+          },
+          {
+            "id": "ruxoPkUz1zA",
+            "title": "Strength Sessions: UFC Edition - Tatiana Suarez",
+            "publishedAt": "2024-03-21T19:42:01+00:00"
+          },
+          {
+            "id": "YzFLFy0JXu4",
+            "title": "Strength Sessions: UFC Edition - Joselyne Edwards",
+            "publishedAt": "2024-03-21T19:37:55+00:00"
+          },
+          {
+            "id": "CUBN4EbKJGg",
+            "title": "Strength Session: UFC Edition - Vanessa Demopoulos",
+            "publishedAt": "2024-03-21T19:34:53+00:00"
+          },
+          {
+            "id": "GVZfrbvimoE",
+            "title": "SHEERTEX IS B-CORP CERTIFIED",
+            "publishedAt": "2024-02-05T18:59:03+00:00"
+          },
+          {
+            "id": "eH-X1ImmHPM",
+            "title": "Hide the Pain Harold's first trip to Montreal with Sheertex",
+            "publishedAt": "2023-08-26T18:46:23+00:00"
+          },
+          {
+            "id": "opjFUd5GBl0",
+            "title": "PAINFULLY STRONG TIGHTS - SHEERTEX",
+            "publishedAt": "2023-08-25T13:00:44+00:00"
+          }
+        ]
+      },
+      "sampleOembed": {
+        "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DpH3K8dYbez8&format=json",
+        "videoId": "pH3K8dYbez8",
+        "authorUrl": "https://www.youtube.com/@sheertex",
+        "author": "Sheertex",
+        "title": "Really strong tights, for all. #iwearsheertex",
+        "checkedAt": "2026-11-16T13:03:38Z"
+      }
+    },
+    {
+      "name": "Glamissima",
+      "url": "https://www.youtube.com/@Glamissima",
+      "channelId": "UCpLLCQlTQsN5B7kxp0GuutQ",
+      "publicPage": {
+        "url": "https://www.youtube.com/@Glamissima",
+        "status": 200,
+        "metadata": {
+          "og:title": "Glamissima Official",
+          "og:url": "https://www.youtube.com/channel/UCpLLCQlTQsN5B7kxp0GuutQ",
+          "name": "Glamissima Official"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCpLLCQlTQsN5B7kxp0GuutQ"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCpLLCQlTQsN5B7kxp0GuutQ"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCpLLCQlTQsN5B7kxp0GuutQ",
+        "status": 200,
+        "channelId": "pLLCQlTQsN5B7kxp0GuutQ",
+        "title": "Glamissima Official",
+        "author": "Glamissima Official",
+        "entries": [
+          {
+            "id": "0QA2LAUewnw",
+            "title": "Leg Avenue Bicolor Tights and Annes Seamed Hold-ups Review | Fede and Honey",
+            "publishedAt": "2026-11-14T12:47:57+00:00"
+          },
+          {
+            "id": "aXD2pTFjuQM",
+            "title": "Leg Avenue Black Floral Fishnet Tights Review | Honey",
+            "publishedAt": "2026-11-12T16:02:33+00:00"
+          },
+          {
+            "id": "ou-hoNoom_4",
+            "title": "Calzedonia Strong Sculpt Modelling Tights Review | VideoGirlAry",
+            "publishedAt": "2026-11-09T14:37:58+00:00"
+          },
+          {
+            "id": "3fgWLNO5WMU",
+            "title": "Leg Avenue Black Patterned Fishnet Tights Review | Marla",
+            "publishedAt": "2026-11-06T13:25:34+00:00"
+          },
+          {
+            "id": "Vdst3DHFSNU",
+            "title": "Passion Black Glitter Pattern Pantyhose Review | Chiara",
+            "publishedAt": "2026-10-31T09:16:33+00:00"
+          },
+          {
+            "id": "bgOjCJbGPr4",
+            "title": "Wolford Satin Touch 20den Caramel Review | Gina",
+            "publishedAt": "2026-10-26T15:57:08+00:00"
+          },
+          {
+            "id": "mdIk4599HJU",
+            "title": "Goldenpoint 8 Denier Sheer Tights Review | Silvia",
+            "publishedAt": "2026-10-21T12:08:16+00:00"
+          },
+          {
+            "id": "gKyG7hGU8bc",
+            "title": "Gabriella Nova Polka Dot Tights Review | Sara",
+            "publishedAt": "2026-10-11T10:18:29+00:00"
+          },
+          {
+            "id": "OPYqE20p6J0",
+            "title": "Chilirose black hold ups with back seam review | Fede",
+            "publishedAt": "2026-10-09T10:39:32+00:00"
+          },
+          {
+            "id": "ot7r6O_SGjw",
+            "title": "HTRUIYATY Oil Shiny Dance Tights Review | Bonnie",
+            "publishedAt": "2026-10-06T13:37:12+00:00"
+          },
+          {
+            "id": "XVqDzhBhYJA",
+            "title": "Ballerina's Secret Black Secret Tights Review | Diana",
+            "publishedAt": "2026-09-25T18:55:21+00:00"
+          },
+          {
+            "id": "sim2bAcw4Co",
+            "title": "Veneziana Nude Fishnet Hold-ups Review | Honey",
+            "publishedAt": "2026-09-19T17:05:44+00:00"
+          },
+          {
+            "id": "xGYKQbuzp3c",
+            "title": "Calzedonia Totally Invisible Black Seamless Pantyhose Review | Marla",
+            "publishedAt": "2026-09-11T08:11:43+00:00"
+          },
+          {
+            "id": "PtTiFnDl82A",
+            "title": "Ballerina's Secret Black Sheer Pantyhose Review | Fede and Honey",
+            "publishedAt": "2026-09-04T17:01:17+00:00"
+          },
+          {
+            "id": "bb7BW-5H0ag",
+            "title": "Falke Seidenglatt 15den Black Hold-Ups Review | Gina",
+            "publishedAt": "2026-09-01T13:37:01+00:00"
+          }
+        ]
+      },
+      "sampleOembed": {
+        "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D0QA2LAUewnw&format=json",
+        "videoId": "0QA2LAUewnw",
+        "authorUrl": "https://www.youtube.com/@Glamissima",
+        "author": "Glamissima Official",
+        "title": "Leg Avenue Bicolor Tights and Annes Seamed Hold-ups Review | Fede and Honey",
+        "checkedAt": "2026-11-16T13:03:38Z"
+      }
+    },
+    {
+      "name": "Cassie Clarke",
+      "url": "https://www.youtube.com/@cassieclarke",
+      "channelId": "",
+      "publicPage": {
+        "url": "https://www.youtube.com/@cassieclarke",
+        "status": 404,
+        "error": "HTTP 404"
+      }
+    },
+    {
+      "name": "ASMR by Chinese Girl",
+      "url": "https://www.youtube.com/@ASMRbyChineseGirl",
+      "channelId": "",
+      "publicPage": {
+        "url": "https://www.youtube.com/@ASMRbyChineseGirl",
+        "status": 404,
+        "error": "HTTP 404"
+      }
+    },
+    {
+      "name": "SweetDeep ASMR",
+      "url": "https://www.youtube.com/@sweetdeepasmr",
+      "channelId": "UCoQmaExns-hwxu62s1ViZCA",
+      "publicPage": {
+        "url": "https://www.youtube.com/@sweetdeepasmr",
+        "status": 200,
+        "metadata": {
+          "og:title": "SweetDeep ASMR",
+          "og:url": "https://www.youtube.com/channel/UCoQmaExns-hwxu62s1ViZCA",
+          "name": "SweetDeep ASMR"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCoQmaExns-hwxu62s1ViZCA"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCoQmaExns-hwxu62s1ViZCA"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCoQmaExns-hwxu62s1ViZCA",
+        "status": 200,
+        "channelId": "oQmaExns-hwxu62s1ViZCA",
+        "title": "SweetDeep ASMR",
+        "author": "SweetDeep ASMR",
+        "entries": [
+          {
+            "id": "y3uckdzi_lQ",
+            "title": "ASMR Superman Cosplay Tight Costume 🦸🏻‍♂️ FABRIC SCRATCHING SOUNDS | No Talking",
+            "publishedAt": "2026-11-08T21:51:32+00:00"
+          },
+          {
+            "id": "2qKzMKM0OFQ",
+            "title": "ASMR Halloween Cosplay 🎃Fishnet Stockings Scratching SOUNDS 💀| No Talking 💤👻",
+            "publishedAt": "2026-11-01T21:54:06+00:00"
+          },
+          {
+            "id": "p0D0-3HhnPU",
+            "title": "ASMR LEGENDARY Jeans Back Scratching & Lace Fabric Sounds  | No Talking ⚡️",
+            "publishedAt": "2026-10-28T19:48:17+00:00"
+          },
+          {
+            "id": "F4Qz9S7FjR8",
+            "title": "ASMR White Fishnet Stockings Scratching SOUNDS ✨| No Talking 💤",
+            "publishedAt": "2026-10-18T23:06:26+00:00"
+          },
+          {
+            "id": "p95tNxtDnvU",
+            "title": "ASMR Rhinestone Fishnet Tights ✨ | Scratching Sounds | No Talking 💤",
+            "publishedAt": "2026-10-11T22:35:26+00:00"
+          },
+          {
+            "id": "cryo1V4MKo8",
+            "title": "ASMR Batman Tight Cosplay Costume 🦇🦸🏻‍♂️BEST FABRIC SCRATCHING SOUNDS 🖤  No Talking",
+            "publishedAt": "2026-10-01T21:36:51+00:00"
+          },
+          {
+            "id": "FfK__j7XYC4",
+            "title": "ASMR 🕷️🕸️BEST FABRIC SCRATCHING SOUNDS | Tight Cosplay Costume 🦸🏻‍♂️",
+            "publishedAt": "2026-08-16T19:45:20+00:00"
+          },
+          {
+            "id": "vX8QcA84jnQ",
+            "title": "ASMR Lace Fishnet Stockings Scratching & Ripping SOUNDS | No Talking 💤",
+            "publishedAt": "2026-08-09T22:37:01+00:00"
+          },
+          {
+            "id": "MI31zuHKo54",
+            "title": "ASMR BEST SOUNDS of Jeans Back and Fabric Scratching Sounds | No Talking ⚡️",
+            "publishedAt": "2026-07-12T19:28:13+00:00"
+          },
+          {
+            "id": "YcVGs8OrUyY",
+            "title": "ASMR White Fishnet Stockings | Fabric Scratching Sounds | No Talking 💤",
+            "publishedAt": "2026-07-04T19:00:35+00:00"
+          },
+          {
+            "id": "0lvsnLwZX40",
+            "title": "ASMR BEST SOUNDS of White Lace and Jeans Back Scratching Sounds | No Talking 💤",
+            "publishedAt": "2026-06-27T19:00:39+00:00"
+          },
+          {
+            "id": "yN81HFhICh8",
+            "title": "ASMR Tight Cosplay Costume 🦸‍♀️🌟 BEST FABRIC SCRATCHING SOUNDS | No Talking ⚡️",
+            "publishedAt": "2026-06-20T19:19:46+00:00"
+          },
+          {
+            "id": "XVQXEdqoB9Y",
+            "title": "ASMR BEST SCRATCHING Fishnet Stockings SOUNDS | Cosplay | No Talking 💤",
+            "publishedAt": "2026-06-15T20:58:35+00:00"
+          },
+          {
+            "id": "SyXa4So30XM",
+            "title": "ASMR Tight Cosplay Costume 🕷️ BEST FABRIC SCRATCHING SOUNDS | No Talking",
+            "publishedAt": "2026-06-10T21:01:01+00:00"
+          },
+          {
+            "id": "saVcoLYT6js",
+            "title": "ASMR BEST SOUNDS Scratching & Ripping Fishnet Lace Stockings | No Talking 💤",
+            "publishedAt": "2026-05-24T21:12:56+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ASMR Fuyu (existing selection)",
+      "url": "https://www.youtube.com/@asmrfuyu800",
+      "channelId": "UC98T-GUCry4ss7GPmqVc5Qg",
+      "publicPage": {
+        "url": "https://www.youtube.com/@asmrfuyu800",
+        "status": 200,
+        "metadata": {
+          "og:title": "ASMR Fuyu",
+          "og:url": "https://www.youtube.com/channel/UC98T-GUCry4ss7GPmqVc5Qg",
+          "name": "ASMR Fuyu"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UC98T-GUCry4ss7GPmqVc5Qg"
+        ],
+        "canonical": "https://www.youtube.com/channel/UC98T-GUCry4ss7GPmqVc5Qg"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC98T-GUCry4ss7GPmqVc5Qg",
+        "status": 200,
+        "channelId": "98T-GUCry4ss7GPmqVc5Qg",
+        "title": "ASMR Fuyu",
+        "author": "ASMR Fuyu",
+        "entries": [
+          {
+            "id": "RKgV_4dm4fA",
+            "title": "ASMR Français | Tapping pour se relaxer (différentes textures)",
+            "publishedAt": "2022-08-06T20:00:06+00:00"
+          },
+          {
+            "id": "EoGHGdJ3o2I",
+            "title": "日本語ASMR | 優しいハンドサウンドとマウスサウンドで眠らせてあげる～😴",
+            "publishedAt": "2022-07-06T19:56:32+00:00"
+          },
+          {
+            "id": "zd7-n0pbiAs",
+            "title": "ASMR Français | Hand sounds et chuchotement apaisant",
+            "publishedAt": "2020-01-26T20:30:02+00:00"
+          },
+          {
+            "id": "00MzzRIx_3M",
+            "title": "日本語ASMR | ハンドムーブメントと「ありがとうございます」☼♪",
+            "publishedAt": "2020-01-24T12:30:00+00:00"
+          },
+          {
+            "id": "bOI8ErqaQ6Q",
+            "title": "癒される日本語ASMR（囁き声、マウスサウンド、タッピング）♥",
+            "publishedAt": "2020-01-06T11:00:09+00:00"
+          },
+          {
+            "id": "rvoQ87qofic",
+            "title": "[ASMR Français] Chuchotement \"inaudible\" et mots déclencheurs",
+            "publishedAt": "2019-10-04T19:00:07+00:00"
+          },
+          {
+            "id": "_qEPpaIR_DY",
+            "title": "【ASMR 日本語】一緒にお祭りに行きましょう！（ロールプレイ♪）",
+            "publishedAt": "2019-09-06T12:00:07+00:00"
+          },
+          {
+            "id": "zelMlV1iNFA",
+            "title": "[ASMR English] Tingly Kisses for Relaxation ❤ w/ Tapping & Whispering",
+            "publishedAt": "2019-08-23T12:00:10+00:00"
+          },
+          {
+            "id": "WX7WBIjA2SM",
+            "title": "【ASMR 日本語】メイクアップルーティン！GRWM Make-up ♥",
+            "publishedAt": "2019-08-09T12:00:08+00:00"
+          },
+          {
+            "id": "gz118NtoIW8",
+            "title": "[ASMR Français] 25min de déclencheurs rafraîchissants | Tapping, crinkles (savon, gel...)",
+            "publishedAt": "2019-07-26T13:17:29+00:00"
+          },
+          {
+            "id": "JCk4cttcQLQ",
+            "title": "【ASMR 日本語】登録者一万人質問コーナーパート2！♪",
+            "publishedAt": "2019-04-20T11:30:00+00:00"
+          },
+          {
+            "id": "uyREy-sAUCw",
+            "title": "【ASMR 日本語】登録者一万人質問コーナーパート1！♥",
+            "publishedAt": "2019-04-06T11:30:03+00:00"
+          },
+          {
+            "id": "mJ36SQl7aYo",
+            "title": "[ASMR] Fast Tapping on Bookshelves (DVD, Manga, Books)",
+            "publishedAt": "2019-03-04T11:49:55+00:00"
+          },
+          {
+            "id": "zh9EehqNPQI",
+            "title": "【ASMR 日本語】手と爪の音 ~【音フェチ】",
+            "publishedAt": "2019-02-13T12:00:13+00:00"
+          },
+          {
+            "id": "xqupmYoJVus",
+            "title": "[ASMR Français] ~ SPÉCIALE BOIS ! Tapping, Scratching, Whispering",
+            "publishedAt": "2019-01-24T20:00:04+00:00"
+          }
+        ]
+      },
+      "sampleOembed": {
+        "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DRKgV_4dm4fA&format=json",
+        "videoId": "RKgV_4dm4fA",
+        "authorUrl": "https://www.youtube.com/@asmrfuyu800",
+        "author": "ASMR Fuyu",
+        "title": "ASMR Français | Tapping pour se relaxer (différentes textures)",
+        "checkedAt": "2026-11-16T13:03:38Z"
+      }
+    },
+    {
+      "name": "Gentle Whispering ASMR",
+      "url": "https://www.youtube.com/@GentleWhisperingASMR",
+      "channelId": "UC6gLlIAnzg7eJ8VuXDCZ_vg",
+      "publicPage": {
+        "url": "https://www.youtube.com/@GentleWhisperingASMR",
+        "status": 200,
+        "metadata": {
+          "og:title": "Gentle Whispering ASMR",
+          "og:url": "https://www.youtube.com/channel/UC6gLlIAnzg7eJ8VuXDCZ_vg",
+          "name": "Gentle Whispering ASMR"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UC6gLlIAnzg7eJ8VuXDCZ_vg"
+        ],
+        "canonical": "https://www.youtube.com/channel/UC6gLlIAnzg7eJ8VuXDCZ_vg"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6gLlIAnzg7eJ8VuXDCZ_vg",
+        "status": 200,
+        "channelId": "6gLlIAnzg7eJ8VuXDCZ_vg",
+        "title": "Gentle Whispering ASMR",
+        "author": "Gentle Whispering ASMR",
+        "entries": [
+          {
+            "id": "H8nTcTrqWPk",
+            "title": "Soft & fluffy sounds for sleep • whispered ASMR",
+            "publishedAt": "2026-11-09T22:03:47+00:00"
+          },
+          {
+            "id": "bOalLq561Hk",
+            "title": "Tucking my friend in for sleep • real person ASMR with @FriendswithASMR",
+            "publishedAt": "2026-11-02T17:25:53+00:00"
+          },
+          {
+            "id": "-WT8bbd3OhU",
+            "title": "1 Hour with Aunt Josephine… a Series of Unfortunate ASMR",
+            "publishedAt": "2026-10-28T16:37:24+00:00"
+          },
+          {
+            "id": "u9CuhDXO_j4",
+            "title": "2 HOURS of Halloween magic, whispers & tingles • ASMR",
+            "publishedAt": "2026-10-26T17:31:10+00:00"
+          },
+          {
+            "id": "WkVcCx7Mopk",
+            "title": " I'm taking all that negative energy away • ASMR",
+            "publishedAt": "2026-10-19T17:09:35+00:00"
+          },
+          {
+            "id": "d-kkNzlI5ug",
+            "title": "Close your eyes… let me do your makeup • whispered ASMR",
+            "publishedAt": "2026-10-12T17:00:22+00:00"
+          },
+          {
+            "id": "Kb_jsB_8-_o",
+            "title": "от этих звуков у меня мурашки • АСМР шёпотом",
+            "publishedAt": "2026-10-06T16:00:13+00:00"
+          },
+          {
+            "id": "h0hAOhv90Hk",
+            "title": "these sounds gave me tingles • whispered ASMR",
+            "publishedAt": "2026-10-05T16:51:49+00:00"
+          },
+          {
+            "id": "uKPgbz3ptEk",
+            "title": "Close your eyes… your dreamy spa treatment begins • ASMR",
+            "publishedAt": "2026-09-28T19:54:50+00:00"
+          },
+          {
+            "id": "41Croi-En04",
+            "title": "ASMR Plush Carpet & Shade Consultation | Soft, Classic Style",
+            "publishedAt": "2026-09-21T19:32:38+00:00"
+          },
+          {
+            "id": "hRnNrETYhNY",
+            "title": "Let me check everything very carefully • soft spoken into whispers ASMR",
+            "publishedAt": "2026-09-14T18:28:12+00:00"
+          },
+          {
+            "id": "B8hWTafmZOo",
+            "title": "ASMR perfectionist stylist • hair, jewelry & final touches",
+            "publishedAt": "2026-09-07T16:31:12+00:00"
+          },
+          {
+            "id": "UsD18eeuKo4",
+            "title": "Close your eyes… let me help you sleep • ASMR",
+            "publishedAt": "2026-08-31T16:37:04+00:00"
+          },
+          {
+            "id": "aIIHzpnldBI",
+            "title": "ASMR layering a luxurious guest bed",
+            "publishedAt": "2026-08-24T17:56:02+00:00"
+          },
+          {
+            "id": "MzYGWDTFZas",
+            "title": "ASMR Thrift Shop | Old School",
+            "publishedAt": "2026-08-17T18:04:38+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "WhispersRed ASMR",
+      "url": "https://www.youtube.com/@WhispersRedASMR",
+      "channelId": "UC2nyigZS5YNDrCu_pih809w",
+      "publicPage": {
+        "url": "https://www.youtube.com/@WhispersRedASMR",
+        "status": 200,
+        "metadata": {
+          "og:title": "WhispersRed ASMR",
+          "og:url": "https://www.youtube.com/channel/UC2nyigZS5YNDrCu_pih809w",
+          "name": "WhispersRed ASMR"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UC2nyigZS5YNDrCu_pih809w"
+        ],
+        "canonical": "https://www.youtube.com/channel/UC2nyigZS5YNDrCu_pih809w"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC2nyigZS5YNDrCu_pih809w",
+        "status": 200,
+        "channelId": "2nyigZS5YNDrCu_pih809w",
+        "title": "WhispersRed ASMR",
+        "author": "WhispersRed ASMR",
+        "entries": [
+          {
+            "id": "NW1uOWH8k7I",
+            "title": "This will soothe you into a deep sleep… 💤 Whispered hair brushing personal attention ASMR",
+            "publishedAt": "2026-11-15T18:59:10+00:00"
+          },
+          {
+            "id": "h7qfQX3XOMg",
+            "title": "The most relaxing hotel check-in… 🛎️ Dreams Hotel personal attention ASMR for deep sleep w/ Malcolm",
+            "publishedAt": "2026-11-08T18:51:52+00:00"
+          },
+          {
+            "id": "D_Zm2yAcOB4",
+            "title": "Instant Nervous System Reset for Sleep… Soft Spoken Himalayan Singing Bowl Meditation ASMR 💤 1 Hour",
+            "publishedAt": "2026-11-01T19:52:21+00:00"
+          },
+          {
+            "id": "OxVJ1_WEbhE",
+            "title": "Deep Sleep in Minutes... Instantly Soothing Personal Treatment | ASMR",
+            "publishedAt": "2026-10-25T18:33:12+00:00"
+          },
+          {
+            "id": "9P1WGolB_RU",
+            "title": "The sleepiest plant shop… 🌿 Personal attention ASMR for deep sleep",
+            "publishedAt": "2026-10-18T17:54:17+00:00"
+          },
+          {
+            "id": "pjjjAvtgMiU",
+            "title": "So much personal attention... the most relaxing ASMR session 💤",
+            "publishedAt": "2026-10-11T19:21:20+00:00"
+          },
+          {
+            "id": "YFI8FFIP5ng",
+            "title": "2.5 hours of the most gorgeous ASMR sounds... no talking",
+            "publishedAt": "2026-10-04T19:31:06+00:00"
+          },
+          {
+            "id": "MNfbb_7Sr8Y",
+            "title": "Sensitive catalogue sales personal attention appointment ✨ ASMR",
+            "publishedAt": "2026-09-27T18:47:36+00:00"
+          },
+          {
+            "id": "-YvejPtAdvw",
+            "title": "Traditional style tingles... a show and tell of my singing bowl collection [old school ASMR]",
+            "publishedAt": "2026-09-20T19:26:01+00:00"
+          },
+          {
+            "id": "zj0fJJMOBLU",
+            "title": "Hair brushing & oiling 💤 soft spoken scalp scratching and personal attention ASMR",
+            "publishedAt": "2026-09-13T18:24:25+00:00"
+          },
+          {
+            "id": "LNiqUyt-mEE",
+            "title": "The ultimate tuck in for sleep 💤 ASMR full body massage with blanket sounds and soft speaking",
+            "publishedAt": "2026-09-06T18:15:22+00:00"
+          },
+          {
+            "id": "g0cQZMgYA0I",
+            "title": "ASMR Snooze Spa 💤 Personal Attention Appointment for Bedtime",
+            "publishedAt": "2026-08-29T18:15:22+00:00"
+          },
+          {
+            "id": "MdafK71TbtE",
+            "title": "Unboxing a HUGE gift... cardboard, products and packaging sounds ✨ ASMR",
+            "publishedAt": "2026-08-23T18:13:21+00:00"
+          },
+          {
+            "id": "uz8x3YjoSY0",
+            "title": "Deeply relaxing healing touch ✨ softly spoken ASMR with whispers and personal attention",
+            "publishedAt": "2026-08-16T17:36:21+00:00"
+          },
+          {
+            "id": "ag3x3HaCloU",
+            "title": "Deep rest with crystals... macro study ASMR and quiet reading for sleep",
+            "publishedAt": "2026-08-09T18:41:22+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Светлана Макарова | Персональный стилист | ",
+      "url": "https://www.youtube.com/@SvetlanaMakarovaStyle",
+      "channelId": "UC1DZTK2DAylpWtucMcZSXOw",
+      "publicPage": {
+        "url": "https://www.youtube.com/@SvetlanaMakarovaStyle",
+        "status": 200,
+        "metadata": {
+          "og:title": "Светлана Макарова | Персональный стилист | ",
+          "og:url": "https://www.youtube.com/channel/UC1DZTK2DAylpWtucMcZSXOw",
+          "name": "Светлана Макарова | Персональный стилист | "
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UC1DZTK2DAylpWtucMcZSXOw"
+        ],
+        "canonical": "https://www.youtube.com/channel/UC1DZTK2DAylpWtucMcZSXOw"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC1DZTK2DAylpWtucMcZSXOw",
+        "status": 200,
+        "channelId": "1DZTK2DAylpWtucMcZSXOw",
+        "title": "Светлана Макарова | Персональный стилист | ",
+        "author": "Светлана Макарова | Персональный стилист | ",
+        "entries": [
+          {
+            "id": "dc_dZEFp2CU",
+            "title": "ИИ фотосессии - будущее модной индустрии! Пора и вам научиться!",
+            "publishedAt": "2026-10-16T15:00:11+00:00"
+          },
+          {
+            "id": "IMOtG4vzZUw",
+            "title": "Собираюсь на сеанс практической магии с девчонками!",
+            "publishedAt": "2026-10-14T14:30:06+00:00"
+          },
+          {
+            "id": "nl9bQq8Oupg",
+            "title": "Если Вы считаете что в России нет хороших дизайнеров, то Вы их просто незнаете!",
+            "publishedAt": "2026-10-12T15:00:38+00:00"
+          },
+          {
+            "id": "VMNvGU9dV1Y",
+            "title": "Этот аксессуар в твоем гардеробе заменит тысячи других!",
+            "publishedAt": "2026-10-10T15:00:07+00:00"
+          },
+          {
+            "id": "xemRBzM6N0k",
+            "title": "Все вещи есть, но классные комплекты в голове не складываются? Что делать?",
+            "publishedAt": "2026-10-08T14:15:07+00:00"
+          },
+          {
+            "id": "bMXkaIqE2tk",
+            "title": "Показ Стаса Лопаткина на Московской неделе моды 2026!",
+            "publishedAt": "2026-10-06T15:15:37+00:00"
+          },
+          {
+            "id": "zxP_LD6RKV0",
+            "title": "Примерка коллекции \"SOL\" до московской недели моды!",
+            "publishedAt": "2026-10-05T15:15:27+00:00"
+          },
+          {
+            "id": "iCZN-KAlZME",
+            "title": "Откуда взялась ирония на показе Стаса Лопаткина?",
+            "publishedAt": "2026-10-04T14:45:01+00:00"
+          },
+          {
+            "id": "B4iDm60x3Xs",
+            "title": "Чему посвящен показ Стаса Лопаткина на московской неделе моды 2026?",
+            "publishedAt": "2026-10-03T15:00:25+00:00"
+          },
+          {
+            "id": "cCCqE00Wtuk",
+            "title": "Мужчина это тот кто не носит юбки?",
+            "publishedAt": "2026-10-02T15:00:32+00:00"
+          },
+          {
+            "id": "5f_Bt3YxRlc",
+            "title": "Сборы на московскую неделю моды 2026",
+            "publishedAt": "2026-10-01T15:00:14+00:00"
+          },
+          {
+            "id": "E7ybkL246Rk",
+            "title": "Как сделать легкий макияж на работу за 10 минут?",
+            "publishedAt": "2026-09-30T15:30:30+00:00"
+          },
+          {
+            "id": "-45sq4zmu84",
+            "title": "Закулисье Московской недели моды 2026 - Показ Олега Левицкого!",
+            "publishedAt": "2026-09-29T15:00:23+00:00"
+          },
+          {
+            "id": "ssMGGiXKIOw",
+            "title": "Как создать бренд с нуля сегодня?",
+            "publishedAt": "2026-09-26T16:00:23+00:00"
+          },
+          {
+            "id": "gkN8CBiAm-I",
+            "title": "Два года без продаж: что было не так?!",
+            "publishedAt": "2026-09-24T16:00:05+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Светлана Макарова",
+      "url": "https://www.youtube.com/channel/UC1DZTK2DAylpWtucMcZSXOw",
+      "channelId": "UC1DZTK2DAylpWtucMcZSXOw",
+      "publicPage": {
+        "url": "https://www.youtube.com/channel/UC1DZTK2DAylpWtucMcZSXOw",
+        "status": 200,
+        "metadata": {
+          "og:title": "Светлана Макарова | Персональный стилист | ",
+          "og:url": "https://www.youtube.com/channel/UC1DZTK2DAylpWtucMcZSXOw",
+          "name": "Светлана Макарова | Персональный стилист | "
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UC1DZTK2DAylpWtucMcZSXOw"
+        ],
+        "canonical": "https://www.youtube.com/channel/UC1DZTK2DAylpWtucMcZSXOw"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC1DZTK2DAylpWtucMcZSXOw",
+        "status": 200,
+        "channelId": "1DZTK2DAylpWtucMcZSXOw",
+        "title": "Светлана Макарова | Персональный стилист | ",
+        "author": "Светлана Макарова | Персональный стилист | ",
+        "entries": [
+          {
+            "id": "dc_dZEFp2CU",
+            "title": "ИИ фотосессии - будущее модной индустрии! Пора и вам научиться!",
+            "publishedAt": "2026-10-16T15:00:11+00:00"
+          },
+          {
+            "id": "IMOtG4vzZUw",
+            "title": "Собираюсь на сеанс практической магии с девчонками!",
+            "publishedAt": "2026-10-14T14:30:06+00:00"
+          },
+          {
+            "id": "nl9bQq8Oupg",
+            "title": "Если Вы считаете что в России нет хороших дизайнеров, то Вы их просто незнаете!",
+            "publishedAt": "2026-10-12T15:00:38+00:00"
+          },
+          {
+            "id": "VMNvGU9dV1Y",
+            "title": "Этот аксессуар в твоем гардеробе заменит тысячи других!",
+            "publishedAt": "2026-10-10T15:00:07+00:00"
+          },
+          {
+            "id": "xemRBzM6N0k",
+            "title": "Все вещи есть, но классные комплекты в голове не складываются? Что делать?",
+            "publishedAt": "2026-10-08T14:15:07+00:00"
+          },
+          {
+            "id": "bMXkaIqE2tk",
+            "title": "Показ Стаса Лопаткина на Московской неделе моды 2026!",
+            "publishedAt": "2026-10-06T15:15:37+00:00"
+          },
+          {
+            "id": "zxP_LD6RKV0",
+            "title": "Примерка коллекции \"SOL\" до московской недели моды!",
+            "publishedAt": "2026-10-05T15:15:27+00:00"
+          },
+          {
+            "id": "iCZN-KAlZME",
+            "title": "Откуда взялась ирония на показе Стаса Лопаткина?",
+            "publishedAt": "2026-10-04T14:45:01+00:00"
+          },
+          {
+            "id": "B4iDm60x3Xs",
+            "title": "Чему посвящен показ Стаса Лопаткина на московской неделе моды 2026?",
+            "publishedAt": "2026-10-03T15:00:25+00:00"
+          },
+          {
+            "id": "cCCqE00Wtuk",
+            "title": "Мужчина это тот кто не носит юбки?",
+            "publishedAt": "2026-10-02T15:00:32+00:00"
+          },
+          {
+            "id": "5f_Bt3YxRlc",
+            "title": "Сборы на московскую неделю моды 2026",
+            "publishedAt": "2026-10-01T15:00:14+00:00"
+          },
+          {
+            "id": "E7ybkL246Rk",
+            "title": "Как сделать легкий макияж на работу за 10 минут?",
+            "publishedAt": "2026-09-30T15:30:30+00:00"
+          },
+          {
+            "id": "-45sq4zmu84",
+            "title": "Закулисье Московской недели моды 2026 - Показ Олега Левицкого!",
+            "publishedAt": "2026-09-29T15:00:23+00:00"
+          },
+          {
+            "id": "ssMGGiXKIOw",
+            "title": "Как создать бренд с нуля сегодня?",
+            "publishedAt": "2026-09-26T16:00:23+00:00"
+          },
+          {
+            "id": "gkN8CBiAm-I",
+            "title": "Два года без продаж: что было не так?!",
+            "publishedAt": "2026-09-24T16:00:05+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Анастасия Оделс",
+      "url": "https://www.youtube.com/@odels",
+      "channelId": "UCtuUdhlMTAz9dleiMB3v58w",
+      "publicPage": {
+        "url": "https://www.youtube.com/@odels",
+        "status": 200,
+        "metadata": {
+          "og:title": "Анастасия Оделс",
+          "og:url": "https://www.youtube.com/channel/UCtuUdhlMTAz9dleiMB3v58w",
+          "name": "Анастасия Оделс"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCtuUdhlMTAz9dleiMB3v58w"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCtuUdhlMTAz9dleiMB3v58w"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtuUdhlMTAz9dleiMB3v58w",
+        "status": 200,
+        "channelId": "tuUdhlMTAz9dleiMB3v58w",
+        "title": "Анастасия Оделс",
+        "author": "Анастасия Оделс",
+        "entries": [
+          {
+            "id": "OucJ-c4gRSo",
+            "title": "5 сентября 2026 г.",
+            "publishedAt": "2026-09-05T10:01:15+00:00"
+          },
+          {
+            "id": "8hTfEsae8vk",
+            "title": "Новый гардероб к осени. Шопинг влог в DAISYKNIT и LIME | Анастасия Оделс",
+            "publishedAt": "2026-08-05T11:00:37+00:00"
+          },
+          {
+            "id": "oftwMVRKYy4",
+            "title": "Покупки в LIME: комплекты на каждый день и для особого случая | Анастасия Оделс",
+            "publishedAt": "2026-07-24T17:21:46+00:00"
+          },
+          {
+            "id": "E73abLqPmjM",
+            "title": "Что купить летом и не пожалеть? MANEKEN BRAND и LIME. Шопинг-влог | Анастасия Оделс",
+            "publishedAt": "2026-06-18T11:52:11+00:00"
+          },
+          {
+            "id": "fFlwwDCX58o",
+            "title": "SHOPPING VLOG. Что купить к лету: стильные находки без лишних трат. LIME. MAAG | Анастасия Оделс",
+            "publishedAt": "2026-05-26T15:30:15+00:00"
+          },
+          {
+            "id": "8aCQ_qmOf6w",
+            "title": "ШОПИНГ-ВЛОГ В МОСКВЕ: ЧТО КУПИТЬ НА ВЕСНУ 2026 | DAISYKNIT, LIME | Анастасия Оделс",
+            "publishedAt": "2026-04-06T14:00:24+00:00"
+          },
+          {
+            "id": "L-CTSYDIkAE",
+            "title": "МАРК ШАГАЛ: как искусство изменило мою жизнь | мой первый арт-вечер | Анастасия Оделс",
+            "publishedAt": "2026-03-26T11:32:24+00:00"
+          },
+          {
+            "id": "MmhgLpG1I-o",
+            "title": "Стоимость  - 35 тыс. Осталось 2 места. Чтобы записаться пишите в ЛС или  на почту odels.pr@yandex.ru",
+            "publishedAt": "2026-02-22T13:12:20+00:00"
+          },
+          {
+            "id": "O6lLETVyoQ4",
+            "title": "Шикарные луки на Новый год и каникулы: нарядно, тепло, дорого | Анастасия Оделс",
+            "publishedAt": "2025-12-23T13:53:57+00:00"
+          },
+          {
+            "id": "TBu6MZ9ecK4",
+            "title": "ЭТО ПРОСТО ВАУ! ОБРАЗЫ НА НОВЫЙ ГОД 2026 и КОРПОРАТИВ. LIME. Love Republic | Анастасия Оделс",
+            "publishedAt": "2025-12-11T15:37:19+00:00"
+          },
+          {
+            "id": "nBurCtIZECs",
+            "title": "ЧТО надеть на Новый год 2026 и корпоратив. Daisyknit. Lime | Анастасия Оделс",
+            "publishedAt": "2025-12-03T15:01:40+00:00"
+          },
+          {
+            "id": "gG9YujfiPlI",
+            "title": "😳 Отняли одежду во время примерки | Анастасия Оделс",
+            "publishedAt": "2025-11-28T14:45:05+00:00"
+          },
+          {
+            "id": "_jqw2-m0SWs",
+            "title": "Как выглядеть ДОРОГО зимой? Мой шопинг-челлендж в Авиапарке | Анастасия Оделс",
+            "publishedAt": "2025-11-25T14:00:06+00:00"
+          },
+          {
+            "id": "2FFY1gbg9wc",
+            "title": "28 ноября состоится фотодень! 📸  кто хочет-пишите мне в инстаграмм или на почту odels.pr@yandex.ru",
+            "publishedAt": "2025-11-13T11:48:16+00:00"
+          },
+          {
+            "id": "_Y664EkfsgU",
+            "title": "Звезды, завтра снимаю спецвыпуск про верхнюю одежду, пишите в комментарии что для вас посмотреть ❤️",
+            "publishedAt": "2025-11-11T15:27:20+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Анастасия Оделс",
+      "url": "https://www.youtube.com/channel/UCtuUdhlMTAz9dleiMB3v58w",
+      "channelId": "UCtuUdhlMTAz9dleiMB3v58w",
+      "publicPage": {
+        "url": "https://www.youtube.com/channel/UCtuUdhlMTAz9dleiMB3v58w",
+        "status": 0,
+        "error": "network unavailable"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtuUdhlMTAz9dleiMB3v58w",
+        "status": 200,
+        "channelId": "tuUdhlMTAz9dleiMB3v58w",
+        "title": "Анастасия Оделс",
+        "author": "Анастасия Оделс",
+        "entries": [
+          {
+            "id": "OucJ-c4gRSo",
+            "title": "5 сентября 2026 г.",
+            "publishedAt": "2026-09-05T10:01:15+00:00"
+          },
+          {
+            "id": "8hTfEsae8vk",
+            "title": "Новый гардероб к осени. Шопинг влог в DAISYKNIT и LIME | Анастасия Оделс",
+            "publishedAt": "2026-08-05T11:00:37+00:00"
+          },
+          {
+            "id": "oftwMVRKYy4",
+            "title": "Покупки в LIME: комплекты на каждый день и для особого случая | Анастасия Оделс",
+            "publishedAt": "2026-07-24T17:21:46+00:00"
+          },
+          {
+            "id": "E73abLqPmjM",
+            "title": "Что купить летом и не пожалеть? MANEKEN BRAND и LIME. Шопинг-влог | Анастасия Оделс",
+            "publishedAt": "2026-06-18T11:52:11+00:00"
+          },
+          {
+            "id": "fFlwwDCX58o",
+            "title": "SHOPPING VLOG. Что купить к лету: стильные находки без лишних трат. LIME. MAAG | Анастасия Оделс",
+            "publishedAt": "2026-05-26T15:30:15+00:00"
+          },
+          {
+            "id": "8aCQ_qmOf6w",
+            "title": "ШОПИНГ-ВЛОГ В МОСКВЕ: ЧТО КУПИТЬ НА ВЕСНУ 2026 | DAISYKNIT, LIME | Анастасия Оделс",
+            "publishedAt": "2026-04-06T14:00:24+00:00"
+          },
+          {
+            "id": "L-CTSYDIkAE",
+            "title": "МАРК ШАГАЛ: как искусство изменило мою жизнь | мой первый арт-вечер | Анастасия Оделс",
+            "publishedAt": "2026-03-26T11:32:24+00:00"
+          },
+          {
+            "id": "MmhgLpG1I-o",
+            "title": "Стоимость  - 35 тыс. Осталось 2 места. Чтобы записаться пишите в ЛС или  на почту odels.pr@yandex.ru",
+            "publishedAt": "2026-02-22T13:12:20+00:00"
+          },
+          {
+            "id": "O6lLETVyoQ4",
+            "title": "Шикарные луки на Новый год и каникулы: нарядно, тепло, дорого | Анастасия Оделс",
+            "publishedAt": "2025-12-23T13:53:57+00:00"
+          },
+          {
+            "id": "TBu6MZ9ecK4",
+            "title": "ЭТО ПРОСТО ВАУ! ОБРАЗЫ НА НОВЫЙ ГОД 2026 и КОРПОРАТИВ. LIME. Love Republic | Анастасия Оделс",
+            "publishedAt": "2025-12-11T15:37:19+00:00"
+          },
+          {
+            "id": "nBurCtIZECs",
+            "title": "ЧТО надеть на Новый год 2026 и корпоратив. Daisyknit. Lime | Анастасия Оделс",
+            "publishedAt": "2025-12-03T15:01:40+00:00"
+          },
+          {
+            "id": "gG9YujfiPlI",
+            "title": "😳 Отняли одежду во время примерки | Анастасия Оделс",
+            "publishedAt": "2025-11-28T14:45:05+00:00"
+          },
+          {
+            "id": "_jqw2-m0SWs",
+            "title": "Как выглядеть ДОРОГО зимой? Мой шопинг-челлендж в Авиапарке | Анастасия Оделс",
+            "publishedAt": "2025-11-25T14:00:06+00:00"
+          },
+          {
+            "id": "2FFY1gbg9wc",
+            "title": "28 ноября состоится фотодень! 📸  кто хочет-пишите мне в инстаграмм или на почту odels.pr@yandex.ru",
+            "publishedAt": "2025-11-13T11:48:16+00:00"
+          },
+          {
+            "id": "_Y664EkfsgU",
+            "title": "Звезды, завтра снимаю спецвыпуск про верхнюю одежду, пишите в комментарии что для вас посмотреть ❤️",
+            "publishedAt": "2025-11-11T15:27:20+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Liria Kholdina",
+      "url": "https://www.youtube.com/@LiriaKholdina",
+      "channelId": "UC-sZ2H9Y6hCYkuHNTf7EpBQ",
+      "publicPage": {
+        "url": "https://www.youtube.com/@LiriaKholdina",
+        "status": 200,
+        "metadata": {
+          "og:title": "Liria Kholdina",
+          "og:url": "https://www.youtube.com/channel/UC-sZ2H9Y6hCYkuHNTf7EpBQ",
+          "name": "Liria Kholdina"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UC-sZ2H9Y6hCYkuHNTf7EpBQ"
+        ],
+        "canonical": "https://www.youtube.com/channel/UC-sZ2H9Y6hCYkuHNTf7EpBQ"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC-sZ2H9Y6hCYkuHNTf7EpBQ",
+        "status": 200,
+        "channelId": "-sZ2H9Y6hCYkuHNTf7EpBQ",
+        "title": "Liria Kholdina",
+        "author": "Liria Kholdina",
+        "entries": [
+          {
+            "id": "tnU_4z1B3cQ",
+            "title": "11 базовых привычек процветающей женщины",
+            "publishedAt": "2026-11-16T10:41:36+00:00"
+          },
+          {
+            "id": "kiHx9a19zko",
+            "title": "Этот приём меняет состояние за 5 секунд",
+            "publishedAt": "2026-10-30T14:01:49+00:00"
+          },
+          {
+            "id": "rBrq39N1OY4",
+            "title": "Это должно быть в wish-листе каждой женщины",
+            "publishedAt": "2026-10-28T13:49:24+00:00"
+          },
+          {
+            "id": "TAn5G54nhiE",
+            "title": "Почему в тяжёлые периоды я становлюсь ещё красивее",
+            "publishedAt": "2026-10-26T13:14:19+00:00"
+          },
+          {
+            "id": "C6kNmXiqHc4",
+            "title": "Ты ещё не видела себя во всём своём великолепии",
+            "publishedAt": "2026-10-22T12:21:44+00:00"
+          },
+          {
+            "id": "ozKUNEW8PNo",
+            "title": "Важное приглашение для вас❣️",
+            "publishedAt": "2026-10-20T12:36:11+00:00"
+          },
+          {
+            "id": "sq74y0UMo4g",
+            "title": "Никогда не плати собой за любовь",
+            "publishedAt": "2026-10-17T12:25:08+00:00"
+          },
+          {
+            "id": "zDE52vli2t0",
+            "title": "Ты больше не сможешь смотреть на свою жизнь по-старому, когда увидишь это",
+            "publishedAt": "2026-10-15T06:00:24+00:00"
+          },
+          {
+            "id": "LWl2noCscUk",
+            "title": "Секрет людей, которые берут от жизни всё",
+            "publishedAt": "2026-10-13T07:00:18+00:00"
+          },
+          {
+            "id": "k955rh9d-ag",
+            "title": "Один вопрос, который меняет всё #состояние",
+            "publishedAt": "2026-10-08T07:00:22+00:00"
+          },
+          {
+            "id": "Mj9c0n3qS2U",
+            "title": "Что носить осенью: готовые схемы #стилист #outfitideas #outfitinspo #fallfashion",
+            "publishedAt": "2026-09-30T15:00:38+00:00"
+          },
+          {
+            "id": "bWA6Sy6g32Q",
+            "title": "Стильный кейп из шарфа за 1 минуту #стилист #styletips #stylehacks #scarftutorial",
+            "publishedAt": "2026-09-30T13:00:30+00:00"
+          },
+          {
+            "id": "NBQDrW7qtL0",
+            "title": "Находки клуба DTI: примерка в 2MOOD #стилист #ootd #shopping #outfit #outfitinspo",
+            "publishedAt": "2026-09-30T07:04:13+00:00"
+          },
+          {
+            "id": "eSb3ZnDx12k",
+            "title": "Стайлхак: как изменить силуэт брюк #стилист #туториалодежда #styletips #stylehacks",
+            "publishedAt": "2026-09-29T15:00:35+00:00"
+          },
+          {
+            "id": "b5yjoY503Gw",
+            "title": "20 лет я занималась стилем, но теперь всё изменилось",
+            "publishedAt": "2026-09-29T13:00:14+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IQ Style School. Школа стиля Ольги Делевски",
+      "url": "https://www.youtube.com/@Olga_Delevsky",
+      "channelId": "UCVL-KVo_ZjQuP8VpwgABisQ",
+      "publicPage": {
+        "url": "https://www.youtube.com/@Olga_Delevsky",
+        "status": 200,
+        "metadata": {
+          "og:title": "IQ Style School. Школа стиля Ольги Делевски",
+          "og:url": "https://www.youtube.com/channel/UCVL-KVo_ZjQuP8VpwgABisQ",
+          "name": "IQ Style School. Школа стиля Ольги Делевски"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCVL-KVo_ZjQuP8VpwgABisQ"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCVL-KVo_ZjQuP8VpwgABisQ"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVL-KVo_ZjQuP8VpwgABisQ",
+        "status": 200,
+        "channelId": "VL-KVo_ZjQuP8VpwgABisQ",
+        "title": "IQ Style School. Школа стиля Ольги Делевски",
+        "author": "IQ Style School. Школа стиля Ольги Делевски",
+        "entries": [
+          {
+            "id": "QHttb3udbWQ",
+            "title": "Как носить одежду с рисунком в 40+? #одежда #аксессуары #образжизни #стильжизни",
+            "publishedAt": "2026-11-16T12:00:04+00:00"
+          },
+          {
+            "id": "9CiGdkgKYNY",
+            "title": "Хватит выглядеть в декрете, как ломовая лошадь #одежда #аксессуары #образжизни #стильжизни",
+            "publishedAt": "2026-11-16T10:31:19+00:00"
+          },
+          {
+            "id": "bYjowAFE0x4",
+            "title": "Если ваш муж не олигарх, опасно так делать #одежда #аксессуары #образжизни #стильжизни",
+            "publishedAt": "2026-11-16T08:24:09+00:00"
+          },
+          {
+            "id": "CpQ4QCg5NNM",
+            "title": "«Вы за деньги одеваете?» Как я стала первым стилистом в городе | Ольга Делевски",
+            "publishedAt": "2026-11-16T07:40:58+00:00"
+          },
+          {
+            "id": "_sHJH6Cdbjc",
+            "title": "Как скрыть живот одеждой после 40? #одежда #аксессуары #образжизни #стильжизни",
+            "publishedAt": "2026-11-14T04:00:30+00:00"
+          },
+          {
+            "id": "35GLlzPLk-I",
+            "title": "Так обманывают себя 90% женщин #одежда #аксессуары #образжизни #стильжизни",
+            "publishedAt": "2026-11-14T03:00:35+00:00"
+          },
+          {
+            "id": "qfI8MWHtD90",
+            "title": "Джинсы с эффектом лифтинга: как выбрать? #одежда #аксессуары #образжизни #стильжизни",
+            "publishedAt": "2026-11-14T02:00:38+00:00"
+          },
+          {
+            "id": "YtoYAcrqmk8",
+            "title": "Минус 10 лет бесплатно: 5 способов #одежда #аксессуары #образжизни #стильжизни",
+            "publishedAt": "2026-11-13T13:21:16+00:00"
+          },
+          {
+            "id": "5LIbKpt1J-k",
+            "title": "Что носить полным женщинам, чтобы выглядеть со вкусом? #стильжизни #модныепоказы #образжизни #мода",
+            "publishedAt": "2026-11-13T09:15:26+00:00"
+          },
+          {
+            "id": "ErXQXuAJ8jQ",
+            "title": "Как выглядите - так и живёте! Почему вы застряли в одних джинсах #стильжизни #образжизни #мода",
+            "publishedAt": "2026-11-13T06:00:16+00:00"
+          },
+          {
+            "id": "KpG7yxK0DJY",
+            "title": "Эти слова выдают в вас скучное население #одежда #аксессуары #образжизни #стильжизни",
+            "publishedAt": "2026-11-13T03:10:07+00:00"
+          },
+          {
+            "id": "106n9XH7IWQ",
+            "title": "Как носить джинсы в 40+: 5 способов #стильжизни #модныепоказы #образжизни #стиль #мода",
+            "publishedAt": "2026-11-12T18:00:21+00:00"
+          },
+          {
+            "id": "I8Jcv8E21MQ",
+            "title": "Не носите эти вещи, чтобы не выглядеть старше #стильжизни #модныепоказы #образжизни #стиль #мода",
+            "publishedAt": "2026-11-12T15:00:25+00:00"
+          },
+          {
+            "id": "CSTYw8Q4iXg",
+            "title": "Как выглядеть дорого без брендовых вещей?  #одежда #аксессуары #образжизни #стильжизни",
+            "publishedAt": "2026-11-12T12:36:50+00:00"
+          },
+          {
+            "id": "CGYOqWUkXRo",
+            "title": "Эта одежда прибавит вес и возраст после 40 #одежда #аксессуары #образжизни #стильжизни",
+            "publishedAt": "2026-11-12T07:00:09+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Kseniya Shirshova (Vostrikova)",
+      "url": "https://www.youtube.com/@KseniyaShirshova",
+      "channelId": "UChBKPr6rRi2HY5d92sUxh2A",
+      "publicPage": {
+        "url": "https://www.youtube.com/@KseniyaShirshova",
+        "status": 200,
+        "metadata": {
+          "og:title": "Kseniya Shirshova (Vostrikova)",
+          "og:url": "https://www.youtube.com/channel/UChBKPr6rRi2HY5d92sUxh2A",
+          "name": "Kseniya Shirshova (Vostrikova)"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UChBKPr6rRi2HY5d92sUxh2A"
+        ],
+        "canonical": "https://www.youtube.com/channel/UChBKPr6rRi2HY5d92sUxh2A"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChBKPr6rRi2HY5d92sUxh2A",
+        "status": 200,
+        "channelId": "hBKPr6rRi2HY5d92sUxh2A",
+        "title": "Kseniya Shirshova (Vostrikova)",
+        "author": "Kseniya Shirshova (Vostrikova)",
+        "entries": [
+          {
+            "id": "jhUy0YwaFC0",
+            "title": "Я на кухне, меня не беспокоить",
+            "publishedAt": "2026-11-15T07:17:27+00:00"
+          },
+          {
+            "id": "P-dKI71xpVo",
+            "title": "Буфет 🍽️",
+            "publishedAt": "2026-11-07T10:56:08+00:00"
+          },
+          {
+            "id": "2_aRQBz72ZI",
+            "title": "осенние дела, декорирую новый буфет",
+            "publishedAt": "2026-11-07T09:41:24+00:00"
+          },
+          {
+            "id": "nZkaHzv_xUQ",
+            "title": "играю со своей одеждой 👉🏽👈🏽",
+            "publishedAt": "2026-11-01T14:12:28+00:00"
+          },
+          {
+            "id": "QVNvXmsA0dE",
+            "title": "октябрь на календаре, я отправляюсь на рынок",
+            "publishedAt": "2026-10-17T07:00:15+00:00"
+          },
+          {
+            "id": "SnalA7xkmEk",
+            "title": "я и ранняя осень 🤞🏽🍂",
+            "publishedAt": "2026-09-27T09:18:45+00:00"
+          },
+          {
+            "id": "JTFBowouzyI",
+            "title": "осваиваю загородную жизнь 🍂",
+            "publishedAt": "2026-09-27T08:26:28+00:00"
+          },
+          {
+            "id": "UlkzVMQWiCc",
+            "title": "я переезжаю! 📦",
+            "publishedAt": "2026-08-23T06:16:44+00:00"
+          },
+          {
+            "id": "mzFz8HRNpgs",
+            "title": "ретроспектива июня 🥀",
+            "publishedAt": "2026-07-12T05:24:42+00:00"
+          },
+          {
+            "id": "uiG9qxA0s1k",
+            "title": "винтажные покупки, PR от брендов, все, что я буду носить летом 🩴  🩴",
+            "publishedAt": "2026-06-17T10:09:11+00:00"
+          },
+          {
+            "id": "ZeKD4Lmnwfs",
+            "title": "оформляю свою квартиру (винтажные светильники/картины/ковры) 🛋🛋",
+            "publishedAt": "2026-05-21T08:12:00+00:00"
+          },
+          {
+            "id": "Ai7KygZcgcA",
+            "title": "маленькая жизнь (апрельский влог)",
+            "publishedAt": "2026-04-10T13:56:41+00:00"
+          },
+          {
+            "id": "UUlQx_UVjyM",
+            "title": "делаю свой дом отражением себя",
+            "publishedAt": "2026-03-15T08:56:57+00:00"
+          },
+          {
+            "id": "nrsNk4RYGIo",
+            "title": "моя любовь со Шри-Ланкой вышла на новый уровень",
+            "publishedAt": "2026-02-07T05:52:14+00:00"
+          },
+          {
+            "id": "xLziUjgAb_4",
+            "title": "январские выходные у родителей",
+            "publishedAt": "2026-01-31T16:29:24+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Kerina Wang",
+      "url": "https://www.youtube.com/@KerinaWang",
+      "channelId": "UCa9siXYE9McabZSTOkhnUtg",
+      "publicPage": {
+        "url": "https://www.youtube.com/@KerinaWang",
+        "status": 200,
+        "metadata": {
+          "og:title": "Kerina Wang",
+          "og:url": "https://www.youtube.com/channel/UCa9siXYE9McabZSTOkhnUtg",
+          "name": "Kerina Wang"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCa9siXYE9McabZSTOkhnUtg"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCa9siXYE9McabZSTOkhnUtg"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCa9siXYE9McabZSTOkhnUtg",
+        "status": 200,
+        "channelId": "a9siXYE9McabZSTOkhnUtg",
+        "title": "Kerina Wang",
+        "author": "Kerina Wang",
+        "entries": [
+          {
+            "id": "3VmUvYtzmlU",
+            "title": "the last one tho 🫪 @missrosierofficial_mr code Kerina20 for 20% off! #missrosier",
+            "publishedAt": "2026-11-14T18:18:34+00:00"
+          },
+          {
+            "id": "78EKokOKfBQ",
+            "title": "products that actually made a difference for hair growth!!",
+            "publishedAt": "2026-11-13T20:05:48+00:00"
+          },
+          {
+            "id": "bZvx460V5dg",
+            "title": "is it too early for holiday hair? 🖤",
+            "publishedAt": "2026-11-13T19:13:49+00:00"
+          },
+          {
+            "id": "5oDMK9MvHEw",
+            "title": "it's a skort and my legs are just long 🫨",
+            "publishedAt": "2026-11-11T23:11:53+00:00"
+          },
+          {
+            "id": "QhHLibYilFw",
+            "title": "How would they know?",
+            "publishedAt": "2026-11-09T17:25:32+00:00"
+          },
+          {
+            "id": "l5R0gBxmZEA",
+            "title": "Is it a compliment? ￼",
+            "publishedAt": "2026-11-03T17:43:37+00:00"
+          },
+          {
+            "id": "IjHuethGmwo",
+            "title": "Link in pinned comment!!",
+            "publishedAt": "2026-11-02T19:31:32+00:00"
+          },
+          {
+            "id": "kjNh4b3sgOs",
+            "title": "Multitasking baddie mom",
+            "publishedAt": "2026-11-01T01:11:04+00:00"
+          },
+          {
+            "id": "iSbxM4gEzGs",
+            "title": "my ex is SOOO hot 🥵",
+            "publishedAt": "2026-10-31T15:58:37+00:00"
+          },
+          {
+            "id": "ZIz1gmL9zeo",
+            "title": "Ready for my mission 🖤",
+            "publishedAt": "2026-10-28T19:05:10+00:00"
+          },
+          {
+            "id": "jyCBZmLcLhg",
+            "title": "IS THIS ACCURATE 🫪",
+            "publishedAt": "2026-10-28T18:01:27+00:00"
+          },
+          {
+            "id": "o7Q08H9_Dqs",
+            "title": "Lisa Makeup tutorial!!!",
+            "publishedAt": "2026-10-28T15:04:15+00:00"
+          },
+          {
+            "id": "tB4kKqVVO5g",
+            "title": "Hey Ed maybe you should try the Arencia NAD+ Booster shot",
+            "publishedAt": "2026-10-27T21:43:08+00:00"
+          },
+          {
+            "id": "MtglOmNPric",
+            "title": "If my dresses were loot",
+            "publishedAt": "2026-10-26T21:13:46+00:00"
+          },
+          {
+            "id": "bUwyUcFQHXE",
+            "title": "Layer SMART, not hard! Links in pinned comment!",
+            "publishedAt": "2026-10-26T18:57:00+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CalzedoniaOfficial",
+      "url": "https://www.youtube.com/channel/UCoZE4fZMjf0CbZGBlbneNDQ",
+      "channelId": "UCoZE4fZMjf0CbZGBlbneNDQ",
+      "publicPage": {
+        "url": "https://www.youtube.com/channel/UCoZE4fZMjf0CbZGBlbneNDQ",
+        "status": 0,
+        "error": "network unavailable"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCoZE4fZMjf0CbZGBlbneNDQ",
+        "status": 200,
+        "channelId": "oZE4fZMjf0CbZGBlbneNDQ",
+        "title": "CalzedoniaOfficial",
+        "author": "CalzedoniaOfficial",
+        "entries": [
+          {
+            "id": "efrrmzoIA2E",
+            "title": "Sheer Tights: The Perfect Tights for Every Occasion | Calzedonia",
+            "publishedAt": "2026-10-12T13:26:29+00:00"
+          },
+          {
+            "id": "CQu5pHHkA0I",
+            "title": "Opaque Tights: Find the Right Coverage You | Calzedonia",
+            "publishedAt": "2026-10-12T13:24:29+00:00"
+          },
+          {
+            "id": "iNjv0X3loYA",
+            "title": "Shaping Tights: Find the Right Support & Fit for You | Calzedonia",
+            "publishedAt": "2026-10-12T13:21:59+00:00"
+          },
+          {
+            "id": "Qg26g0HwX3A",
+            "title": "Thermal Tights: How to Stay Warm with Sheer Tights | Calzedonia",
+            "publishedAt": "2026-10-12T13:18:35+00:00"
+          },
+          {
+            "id": "eXtxikA6iUU",
+            "title": "Invisible Tights: How to Get a No-Show Look with Seamless Tights| Calzedonia",
+            "publishedAt": "2026-10-12T13:15:08+00:00"
+          },
+          {
+            "id": "7jtfXT577FI",
+            "title": "How to Find Your Tights Size & How to Wear Tights | Calzedonia",
+            "publishedAt": "2026-10-12T13:12:21+00:00"
+          },
+          {
+            "id": "ijIf7dm4DSw",
+            "title": "NEW RELAXED PANTS CALZEDONIA",
+            "publishedAt": "2026-09-18T07:21:10+00:00"
+          },
+          {
+            "id": "46RGZP-nB6I",
+            "title": "How to Find Your Bikini Bottom Fit: Different Coverage Options | Calzedonia",
+            "publishedAt": "2026-07-24T09:24:57+00:00"
+          },
+          {
+            "id": "MRC2Mb30iPk",
+            "title": "How to Choose the Perfect Bikini Top Style & Effect | Calzedonia",
+            "publishedAt": "2026-07-24T09:21:49+00:00"
+          },
+          {
+            "id": "DIuUq8o7PVU",
+            "title": "How to Find Your Perfect Bikini Size | Calzedonia",
+            "publishedAt": "2026-07-24T09:14:08+00:00"
+          },
+          {
+            "id": "qxST2ySlSpY",
+            "title": "CALZEDONIA NEW SUMMER COLLECTION",
+            "publishedAt": "2026-05-14T09:24:25+00:00"
+          },
+          {
+            "id": "AZ9VIJfa0tw",
+            "title": "CALZEDONIA SUMMER 2026 - PREMIUM FIT",
+            "publishedAt": "2026-04-28T08:09:20+00:00"
+          },
+          {
+            "id": "2TwccBuvZNQ",
+            "title": "NEW MAKE UP EFFECT TIGHTS - LEG PERFECTOR CALZEDONIA",
+            "publishedAt": "2026-03-27T13:25:03+00:00"
+          },
+          {
+            "id": "uJCjWLIxweM",
+            "title": "CALZEDONIA FASHION TIGHTS -  NEW SPRING COLLECTION",
+            "publishedAt": "2026-02-24T09:22:24+00:00"
+          },
+          {
+            "id": "c1ckxi2Fxxs",
+            "title": "Calzedonia Party collection",
+            "publishedAt": "2025-12-03T08:08:19+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ASMR Kate Lullaby",
+      "url": "https://www.youtube.com/@ASMRKateLullaby",
+      "channelId": "UCFpoq__nUyfqIU3iyXQj76A",
+      "publicPage": {
+        "url": "https://www.youtube.com/@ASMRKateLullaby",
+        "status": 200,
+        "metadata": {
+          "og:title": "ASMR Kate Lullaby",
+          "og:url": "https://www.youtube.com/channel/UCFpoq__nUyfqIU3iyXQj76A",
+          "name": "ASMR Kate Lullaby"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCFpoq__nUyfqIU3iyXQj76A"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCFpoq__nUyfqIU3iyXQj76A"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFpoq__nUyfqIU3iyXQj76A",
+        "status": 200,
+        "channelId": "Fpoq__nUyfqIU3iyXQj76A",
+        "title": "ASMR Kate Lullaby",
+        "author": "ASMR Kate Lullaby",
+        "entries": [
+          {
+            "id": "L4HwNakG0zI",
+            "title": "The Office Siren✨👠 Secretary Outfit with Heels & Nylon Stockings",
+            "publishedAt": "2026-11-07T15:04:00+00:00"
+          },
+          {
+            "id": "-d6AlRZP0To",
+            "title": "Would you get any work done?😏 #officesiren #secretary #stockings #legs #nylon",
+            "publishedAt": "2026-11-06T16:59:33+00:00"
+          },
+          {
+            "id": "S1-gE0477d8",
+            "title": "Here's your treat 😏🖤 #stockings #highheels #nylon #legs #heels #goddess",
+            "publishedAt": "2026-10-30T19:00:24+00:00"
+          },
+          {
+            "id": "TcJbh5p8sNU",
+            "title": "Wearing these Halloween stockings to break hearts ❤️ #stockings #legs #halloween #goddess",
+            "publishedAt": "2026-10-21T17:25:54+00:00"
+          },
+          {
+            "id": "FjUL-s1hmEQ",
+            "title": "ASMR Halloween Spells 🔮 Nylon Stockings, Gloves Sounds & Personal Attention",
+            "publishedAt": "2026-10-16T16:59:06+00:00"
+          },
+          {
+            "id": "6j-CeewMDLo",
+            "title": "Nylon sounds, sheer pantyhose ✨",
+            "publishedAt": "2026-10-02T17:03:58+00:00"
+          },
+          {
+            "id": "xL2DztjOXTk",
+            "title": "Do you like the heels sound? 👠 #walkinginheels #heels #tights #nylon #legs",
+            "publishedAt": "2026-09-27T18:42:34+00:00"
+          },
+          {
+            "id": "D-5NZPTkPsQ",
+            "title": "I like to have some fun 😎🖤 #nylon #stockings #highheels #brunette #goddess #longlegs",
+            "publishedAt": "2026-09-13T15:11:44+00:00"
+          },
+          {
+            "id": "1hLc4Zohkss",
+            "title": "Chill with me ✨ #legs #tights #heels #nylon",
+            "publishedAt": "2026-08-05T16:48:47+00:00"
+          },
+          {
+            "id": "PulUDJmmJo4",
+            "title": "Heels on or heels off? 🖤👠 #heels #legs #stockings #nylon #goddess",
+            "publishedAt": "2026-07-24T16:59:32+00:00"
+          },
+          {
+            "id": "V4THeVkRE-I",
+            "title": "Flaunting my vintage stockings 🖤👠 #nylon #stockings  #heels #legs #tights #highheels",
+            "publishedAt": "2026-07-09T19:12:39+00:00"
+          },
+          {
+            "id": "zBmo3hnNFbE",
+            "title": "Football skills that are net worthy 😉⚽️ #worldcup2026 #legs #fifa2026 #fishnets #heels",
+            "publishedAt": "2026-07-07T19:34:46+00:00"
+          },
+          {
+            "id": "_AxMP1zeiZM",
+            "title": "Dangling ... 👠 #heels #nylon #tights  #legs #stockings",
+            "publishedAt": "2026-07-06T20:02:31+00:00"
+          },
+          {
+            "id": "pzo-eNhEwsM",
+            "title": "Who scores? 👣⚽️  #worldcup #worldcup2026  #nylon #tights #legs #heels #football #fifa2026",
+            "publishedAt": "2026-07-03T15:56:12+00:00"
+          },
+          {
+            "id": "bRSOWHhT5Ug",
+            "title": "Night walk, heels, pier ✨👠 #heels #legs #girl #walking",
+            "publishedAt": "2026-06-24T18:34:28+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ASMR CHeeks",
+      "url": "https://www.youtube.com/@ASMRCHeeks",
+      "channelId": "UCWMhB_iUo7n5b0dkdby1Suw",
+      "publicPage": {
+        "url": "https://www.youtube.com/@ASMRCHeeks",
+        "status": 200,
+        "metadata": {
+          "og:title": "ASMR CHeeks",
+          "og:url": "https://www.youtube.com/channel/UCWMhB_iUo7n5b0dkdby1Suw",
+          "name": "ASMR CHeeks"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCWMhB_iUo7n5b0dkdby1Suw"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCWMhB_iUo7n5b0dkdby1Suw"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWMhB_iUo7n5b0dkdby1Suw",
+        "status": 200,
+        "channelId": "WMhB_iUo7n5b0dkdby1Suw",
+        "title": "ASMR CHeeks",
+        "author": "ASMR CHeeks",
+        "entries": [
+          {
+            "id": "45RasDuoHfw",
+            "title": "АСМР МАССАЖ ЛИЦА СЕСТРЕНКЕ  | ASMR FACE MASSAGE FOR MY SISTER",
+            "publishedAt": "2026-11-15T17:00:19+00:00"
+          },
+          {
+            "id": "EVYzEiJCRJo",
+            "title": "АСМР ВЛАЖНЫЕ ТРИГГЕРЫ  ЗВУК МОКРЫХ РУК  КРЕМ  ГЕЛЬ МИСТ | ASMR WET TRIGGERS, WET HAND SOUNDS",
+            "publishedAt": "2026-11-08T18:00:39+00:00"
+          },
+          {
+            "id": "SXmqrw2jIRA",
+            "title": "АСМР РИТУАЛЬНЫЕ СВЕЧИ ОЧИСТКА ОТ НЕГАТИВНОЙ ЭНЕРГИИ  | ASMR RITUAL CANDLES CLEANSING NEGATIVE ENERGY",
+            "publishedAt": "2026-10-31T19:00:39+00:00"
+          },
+          {
+            "id": "uW1l3fKPzy0",
+            "title": "АСМР ДЫХАТЕЛЬНАЯ ГИМНАСТИКА  КАК ПРАВИЛЬНО ДЫШАТЬ ASMR BREATHING EXERCISES HOW TO BREATHE CORRECTLY",
+            "publishedAt": "2026-10-25T19:00:20+00:00"
+          },
+          {
+            "id": "V2bwmEklipw",
+            "title": "АСМР ФЛАТТЕРИНГ ВИБРАЦИЯ ЯЗЫКА ЗВУКИ РТА  ПОМУРЧУ ТЕБЕ НА УШКО | ASMR TONGUE FLUTTERS  MOUTH SOUNDS",
+            "publishedAt": "2026-10-18T18:00:02+00:00"
+          },
+          {
+            "id": "cDpi5_U60FU",
+            "title": "АСМР ТЫ ЗАБОЛЕЛ ДЕВУШКА ЗАБОТИТСЯ О ТЕБЕ | ASMR: You're Sick – Girlfriend Takes Care of You",
+            "publishedAt": "2026-10-11T17:00:23+00:00"
+          },
+          {
+            "id": "8xxCRP-oM8Q",
+            "title": "АСМР РАСПАКОВКА ОГРОМНОГО ЛЕДЕНЦА ЛИКИНГ ИТИНГ | ASMR Unboxing a Giant Lollipop: Licking & Eating",
+            "publishedAt": "2026-10-04T17:30:37+00:00"
+          },
+          {
+            "id": "NL6nSepolF0",
+            "title": "ЛУЧШАЯ ПОДРУГА ПРОБУЕТ АСМР | MY BEST FRIEND IS TRYING ASMR",
+            "publishedAt": "2026-09-27T17:00:39+00:00"
+          },
+          {
+            "id": "4rGN-6dRmQQ",
+            "title": "АСМР БЫСТРЫЙ МАКИЯЖ  | ASMR Fast Aggressive Makeup",
+            "publishedAt": "2026-09-20T17:00:29+00:00"
+          },
+          {
+            "id": "EM0XRDiOofg",
+            "title": "АСМР ЛИКИНГ КИСЛЫХ КОНФЕТ  | ASMR Licking Sour Candy",
+            "publishedAt": "2026-09-13T18:30:12+00:00"
+          },
+          {
+            "id": "d6jtaxryvmE",
+            "title": "АСМР  ИНТЕНСИВНЫЙ МАССАЖ ЛИЦА СПОНЖАМИ | ASMR Intense Facial Massage with Sponges",
+            "publishedAt": "2026-09-06T17:00:18+00:00"
+          },
+          {
+            "id": "pEWtMBmQTyE",
+            "title": "АСМР  КОНСУЛЬТАНТ ПОДБИРАЕТ ТЕБЕ АРОМАТ  НА ОСЕНЬ  ШЕПОТ ПЕРСОНАЛЬНОЕ ВНИМАНИЕ | ASMR",
+            "publishedAt": "2026-08-30T16:00:12+00:00"
+          },
+          {
+            "id": "DosvCjMJBy0",
+            "title": "АСМР МАССАЖ МОЗГА ПЕРЕД СНОМ | ASMR BRAIN MASSAGE BEFORE SLEEP",
+            "publishedAt": "2026-08-23T16:00:21+00:00"
+          },
+          {
+            "id": "X2ljKSXD09U",
+            "title": "АСМР ТЫ ИСПАЧКАЛСЯ  #asmr  #асмрчикс",
+            "publishedAt": "2026-08-17T09:30:03+00:00"
+          },
+          {
+            "id": "qzkbT-Zdg_U",
+            "title": "АСМР ТЫ ИСПАЧКАЛСЯ  ОТМОЮ ТЕБЯ  ПАЛЬЧИКОМ | ASMR You got dirty clean you up with a wet finger",
+            "publishedAt": "2026-08-13T16:00:02+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Больше чем стиль",
+      "url": "https://www.youtube.com/@smileggal",
+      "channelId": "UCCuqMOJ5jwGnh-SNQ72LnPw",
+      "publicPage": {
+        "url": "https://www.youtube.com/@smileggal",
+        "status": 200,
+        "metadata": {
+          "og:title": "Больше чем стиль",
+          "og:url": "https://www.youtube.com/channel/UCCuqMOJ5jwGnh-SNQ72LnPw",
+          "name": "Больше чем стиль"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCCuqMOJ5jwGnh-SNQ72LnPw"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCCuqMOJ5jwGnh-SNQ72LnPw"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCCuqMOJ5jwGnh-SNQ72LnPw",
+        "status": 200,
+        "channelId": "CuqMOJ5jwGnh-SNQ72LnPw",
+        "title": "Больше чем стиль",
+        "author": "Больше чем стиль",
+        "entries": [
+          {
+            "id": "bwviDlNUz1k",
+            "title": "Как сделать бедра визуально уже",
+            "publishedAt": "2024-02-25T06:15:01+00:00"
+          },
+          {
+            "id": "wFw68gymte0",
+            "title": "Как сделать ноги визуально стройнее",
+            "publishedAt": "2024-02-18T06:15:02+00:00"
+          },
+          {
+            "id": "bUquQA4BISU",
+            "title": "Что такое рациональный гардероб",
+            "publishedAt": "2024-02-04T06:15:01+00:00"
+          },
+          {
+            "id": "idiFBpyjAy8",
+            "title": "Сочетание цветов в одежде. Розовый + фуксия",
+            "publishedAt": "2024-01-28T06:15:01+00:00"
+          },
+          {
+            "id": "kU_aRwuMOkc",
+            "title": "Как визуально скорректировать непропорционально маленькую голову",
+            "publishedAt": "2024-01-21T06:15:01+00:00"
+          },
+          {
+            "id": "fEdzrGPtW0E",
+            "title": "Сочетание цветов в одежде. Красный и розовый",
+            "publishedAt": "2024-01-17T06:15:00+00:00"
+          },
+          {
+            "id": "_n4XcTgwcm8",
+            "title": "Почему не носятся украшения",
+            "publishedAt": "2024-01-14T06:15:01+00:00"
+          },
+          {
+            "id": "VMWvCBWRA9M",
+            "title": "Как сделать короткие руки визуально длиннее",
+            "publishedAt": "2024-01-10T06:15:02+00:00"
+          },
+          {
+            "id": "8li4f0g1stA",
+            "title": "Обзор бренда Ostin",
+            "publishedAt": "2023-12-27T06:15:00+00:00"
+          },
+          {
+            "id": "AUfB48qhyr8",
+            "title": "Сочетание цветов в одежде. Персиковый пух",
+            "publishedAt": "2023-12-24T06:15:00+00:00"
+          },
+          {
+            "id": "gvo9Z9w_X7U",
+            "title": "Разбор образа",
+            "publishedAt": "2023-12-20T06:15:01+00:00"
+          },
+          {
+            "id": "A9cwJ3scYhM",
+            "title": "Как спрятать выступающий живот",
+            "publishedAt": "2023-12-17T06:15:00+00:00"
+          },
+          {
+            "id": "rLpeGyKY_FQ",
+            "title": "Сочетание цветов в одежде. Красный+зеленый",
+            "publishedAt": "2023-12-13T06:15:03+00:00"
+          },
+          {
+            "id": "-ZdoD_fqlNw",
+            "title": "Как визуально спрятать большую грудь",
+            "publishedAt": "2023-12-10T06:15:00+00:00"
+          },
+          {
+            "id": "dh44-e15dgM",
+            "title": "Сочетание цветов в одежде. Красный+хаки",
+            "publishedAt": "2023-11-29T06:15:02+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Annika Victoria",
+      "url": "https://www.youtube.com/@AnnikaVictoria24",
+      "channelId": "UCqP8HosuK1VRD60wBaEEFtA",
+      "publicPage": {
+        "url": "https://www.youtube.com/@AnnikaVictoria24",
+        "status": 0,
+        "error": "network unavailable"
+      },
+      "verificationNote": "Public channel RSS link resolved during initial 2026-11-16 pass; retry timed out."
+    },
+    {
+      "name": "Tinkerbell",
+      "url": "https://www.youtube.com/@T1nkerbell01",
+      "channelId": "UC3LmX0VVBcQ35nJgKdLtrQQ",
+      "publicPage": {
+        "url": "https://www.youtube.com/@T1nkerbell01",
+        "status": 200,
+        "metadata": {
+          "og:title": "Tinkerbell",
+          "og:url": "https://www.youtube.com/channel/UC3LmX0VVBcQ35nJgKdLtrQQ",
+          "name": "Tinkerbell"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UC3LmX0VVBcQ35nJgKdLtrQQ"
+        ],
+        "canonical": "https://www.youtube.com/channel/UC3LmX0VVBcQ35nJgKdLtrQQ"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC3LmX0VVBcQ35nJgKdLtrQQ",
+        "status": 200,
+        "channelId": "3LmX0VVBcQ35nJgKdLtrQQ",
+        "title": "Tinkerbell",
+        "author": "Tinkerbell",
+        "entries": [
+          {
+            "id": "UZRusph9FW4",
+            "title": "Product Review | Conte Elegant Prestige 20 Den in Beige",
+            "publishedAt": "2026-03-21T22:49:07+00:00"
+          },
+          {
+            "id": "Zvr-087kIY4",
+            "title": "Product Review | G&Y Woman`s Fashion Pantyhose 20 Den in Blue",
+            "publishedAt": "2026-02-23T23:32:48+00:00"
+          },
+          {
+            "id": "weyxQNY9yws",
+            "title": "Product eview | Sofsy The Rita 1.0",
+            "publishedAt": "2026-01-25T00:23:31+00:00"
+          },
+          {
+            "id": "CRN7vDNVpKo",
+            "title": "Product Revie | 4 nylon products from SHEIN",
+            "publishedAt": "2025-10-31T00:00:28+00:00"
+          },
+          {
+            "id": "sMQ5sZ_JjD8",
+            "title": "I`m alive : D",
+            "publishedAt": "2025-10-25T23:46:22+00:00"
+          },
+          {
+            "id": "xZ_mk8DqX_g",
+            "title": "Nylon SHEIN haul | Part 2",
+            "publishedAt": "2025-08-28T15:24:36+00:00"
+          },
+          {
+            "id": "leLm2AVhGAA",
+            "title": "Nylon SHEIN Haul | Part 1",
+            "publishedAt": "2025-08-06T00:55:31+00:00"
+          },
+          {
+            "id": "TrC0WmhNpX8",
+            "title": "Product Review | Bloch Contoursoft Ladies Footed Tight",
+            "publishedAt": "2025-07-21T14:12:37+00:00"
+          },
+          {
+            "id": "d3IcqXoN8AM",
+            "title": "Product review | CdR Gemini 20 in Moreno, Marino and Negro",
+            "publishedAt": "2025-07-08T15:41:48+00:00"
+          },
+          {
+            "id": "ofC3R43WRAY",
+            "title": "Modeling in my patterned black tights | 6 different pairs",
+            "publishedAt": "2025-06-21T02:41:21+00:00"
+          },
+          {
+            "id": "vjUPHSH08lU",
+            "title": "Product review | elly Sefora 30 in Black",
+            "publishedAt": "2025-06-13T19:01:02+00:00"
+          },
+          {
+            "id": "TMZK0s6QfTM",
+            "title": "CdR Super Lusido 20 | ASMR | Nylon sounds, no talking",
+            "publishedAt": "2025-06-07T00:04:03+00:00"
+          },
+          {
+            "id": "-2F0CEBjNHY",
+            "title": "Nylon guess game | Can you guess the danier?",
+            "publishedAt": "2025-05-25T21:43:31+00:00"
+          },
+          {
+            "id": "JQqAUSRzfik",
+            "title": "Aggressive nylon ASMR lol | Calzedonia 8 den, tan + extra tan stockings on hands/arms at the end",
+            "publishedAt": "2025-05-17T22:47:46+00:00"
+          },
+          {
+            "id": "mCGn88B1Xi0",
+            "title": "Product review | Hudson Soft Matt 20",
+            "publishedAt": "2025-05-04T22:05:09+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "401 Money Gang",
+      "url": "https://www.youtube.com/@RebeccaRat",
+      "channelId": "UC1W3dsKohMwDR4el0cYLeiQ",
+      "publicPage": {
+        "url": "https://www.youtube.com/@RebeccaRat",
+        "status": 200,
+        "metadata": {
+          "og:title": "401 Money Gang",
+          "og:url": "https://www.youtube.com/channel/UC1W3dsKohMwDR4el0cYLeiQ",
+          "name": "401 Money Gang"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UC1W3dsKohMwDR4el0cYLeiQ"
+        ],
+        "canonical": "https://www.youtube.com/channel/UC1W3dsKohMwDR4el0cYLeiQ"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC1W3dsKohMwDR4el0cYLeiQ",
+        "status": 200,
+        "channelId": "1W3dsKohMwDR4el0cYLeiQ",
+        "title": "401 Money Gang",
+        "author": "401 Money Gang",
+        "entries": [
+          {
+            "id": "T5P8gWL53wc",
+            "title": "reflections on grief | what I wish I had done, who I wish I could have been",
+            "publishedAt": "2026-10-24T03:11:08+00:00"
+          },
+          {
+            "id": "_VNxobf3od0",
+            "title": "Summer Scenes",
+            "publishedAt": "2026-10-02T02:57:37+00:00"
+          },
+          {
+            "id": "ZshcULAC4wk",
+            "title": "seasick",
+            "publishedAt": "2026-05-20T03:34:07+00:00"
+          },
+          {
+            "id": "1q2Z4jwWSbg",
+            "title": "mARCH 26",
+            "publishedAt": "2026-04-18T22:10:02+00:00"
+          },
+          {
+            "id": "Lhb91O9w5wk",
+            "title": "Finding the strongest tights? | wear test",
+            "publishedAt": "2026-01-19T16:56:50+00:00"
+          },
+          {
+            "id": "MmQxwIEIupg",
+            "title": "I would like to stop saying goodbye",
+            "publishedAt": "2025-05-02T01:21:03+00:00"
+          },
+          {
+            "id": "Iuz5B7exobY",
+            "title": "Cozy Maximalist Decor #shorts #vintage #roomtour",
+            "publishedAt": "2025-01-18T05:30:45+00:00"
+          },
+          {
+            "id": "QF2CFi9VhDs",
+            "title": "Decorating My New Room",
+            "publishedAt": "2025-01-17T06:38:13+00:00"
+          },
+          {
+            "id": "OCV8hfGeVrg",
+            "title": "Sashiko mending and how I fixed my bf's ratty pants",
+            "publishedAt": "2024-10-29T22:39:59+00:00"
+          },
+          {
+            "id": "cxGrbY63ZCM",
+            "title": "I put in my two weeks",
+            "publishedAt": "2024-08-10T01:03:52+00:00"
+          },
+          {
+            "id": "uuss8zDK7ZQ",
+            "title": "Decorating My Cubicle at Work",
+            "publishedAt": "2024-07-05T16:04:13+00:00"
+          },
+          {
+            "id": "CELWfE3wAXE",
+            "title": "What I bought in France: Paris haul/storytime | thrift + flea market + souvenirs",
+            "publishedAt": "2024-05-06T23:42:56+00:00"
+          },
+          {
+            "id": "wQ3NuXFs1Ss",
+            "title": "Bad News...",
+            "publishedAt": "2024-03-04T22:26:55+00:00"
+          },
+          {
+            "id": "aUddvE5P6E0",
+            "title": "Where I've Been",
+            "publishedAt": "2024-02-02T03:05:45+00:00"
+          },
+          {
+            "id": "XX-hGdqOFw8",
+            "title": "What I bought this month | February (NYC thrift/antique haul+)",
+            "publishedAt": "2023-03-15T20:29:29+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Samantha Yonge",
+      "url": "https://www.youtube.com/@SamanthaYonge",
+      "channelId": "UCt29z9MC_AG1MdPnKM6fOOQ",
+      "publicPage": {
+        "url": "https://www.youtube.com/@SamanthaYonge",
+        "status": 200,
+        "metadata": {
+          "og:title": "Samantha Yonge",
+          "og:url": "https://www.youtube.com/channel/UCt29z9MC_AG1MdPnKM6fOOQ",
+          "name": "Samantha Yonge"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCt29z9MC_AG1MdPnKM6fOOQ"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCt29z9MC_AG1MdPnKM6fOOQ"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCt29z9MC_AG1MdPnKM6fOOQ",
+        "status": 200,
+        "channelId": "t29z9MC_AG1MdPnKM6fOOQ",
+        "title": "Samantha Yonge",
+        "author": "Samantha Yonge",
+        "entries": [
+          {
+            "id": "Fk_lrk69DeI",
+            "title": "this skirt might be short but it has the cutest little bloomers under it!",
+            "publishedAt": "2025-08-17T15:12:52+00:00"
+          },
+          {
+            "id": "ORCdGyMz9vA",
+            "title": "Styling the viral Lululemon maxi dress",
+            "publishedAt": "2025-06-28T15:10:18+00:00"
+          },
+          {
+            "id": "RJEa_-EdT6s",
+            "title": "Fairmont with Baby",
+            "publishedAt": "2025-06-04T23:50:18+00:00"
+          },
+          {
+            "id": "1Tz7ILm0cvE",
+            "title": "when I don't know what to wear  #aritzia #fashion",
+            "publishedAt": "2025-05-18T19:06:56+00:00"
+          },
+          {
+            "id": "DWMN1MUCTuc",
+            "title": "dynamite summer try-on haul #dynamitehaul",
+            "publishedAt": "2025-05-10T14:05:46+00:00"
+          },
+          {
+            "id": "tlwl0Ztjr6E",
+            "title": "Packing for Europe with a 9-month-old | VIVAIA try-on",
+            "publishedAt": "2024-11-11T15:01:05+00:00"
+          },
+          {
+            "id": "zJFrba2Ksgo",
+            "title": "day in the life stay at home mom | 8 month old",
+            "publishedAt": "2024-10-12T16:00:56+00:00"
+          },
+          {
+            "id": "Vc0EX4ftf1s",
+            "title": "BECKETT SIMONON SHOES | I tried made-to-order shoes!",
+            "publishedAt": "2024-06-14T16:00:28+00:00"
+          },
+          {
+            "id": "QohmR-Qp3gY",
+            "title": "Day in the life new mom (2 month old baby routine) *realistic* vlog",
+            "publishedAt": "2024-04-16T14:00:30+00:00"
+          },
+          {
+            "id": "CHbVLgO_AeU",
+            "title": "VEHLA DIXIE SUNGLASSES | 2 year review update & unboxing 2 new pairs",
+            "publishedAt": "2024-01-07T21:08:01+00:00"
+          },
+          {
+            "id": "oLr22HDSO6s",
+            "title": "CLOSET DECLUTTER 2023 | Trying everything on!",
+            "publishedAt": "2023-09-03T16:00:36+00:00"
+          },
+          {
+            "id": "eIDVI7A3jUo",
+            "title": "MY JEWELRY COLLECTION | Fave pieces from Mejuri, Linjer, Oura Ring & Pamela Card",
+            "publishedAt": "2023-05-30T16:04:30+00:00"
+          },
+          {
+            "id": "iWNg4Et5HE4",
+            "title": "LINJER JEWELRY REVIEW | Haul + 2 year update",
+            "publishedAt": "2023-04-30T19:48:46+00:00"
+          },
+          {
+            "id": "KIqSQQhQrb0",
+            "title": "SPRING HAUL 2023 | Aritzia, Reformation, Revolve, KOTN | Try-On & Styling",
+            "publishedAt": "2023-04-16T22:05:51+00:00"
+          },
+          {
+            "id": "sxt5F5cLQFk",
+            "title": "LOS ANGELES VLOG | Rosebowl Flea, Runyon, Erewhon ~ trying all the LA Influencer things ~",
+            "publishedAt": "2023-03-12T22:04:25+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Kira's Nylons",
+      "url": "https://www.youtube.com/@KirasNylons",
+      "channelId": "UCpg5AYhcjR77U5-CZCm-CJQ",
+      "publicPage": {
+        "url": "https://www.youtube.com/@KirasNylons",
+        "status": 200,
+        "metadata": {
+          "og:title": "Kira's Nylons",
+          "og:url": "https://www.youtube.com/channel/UCpg5AYhcjR77U5-CZCm-CJQ",
+          "name": "Kira's Nylons"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCpg5AYhcjR77U5-CZCm-CJQ"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCpg5AYhcjR77U5-CZCm-CJQ"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCpg5AYhcjR77U5-CZCm-CJQ",
+        "status": 200,
+        "channelId": "pg5AYhcjR77U5-CZCm-CJQ",
+        "title": "Kira's Nylons",
+        "author": "Kira's Nylons",
+        "entries": [
+          {
+            "id": "kvqjkmMJfgc",
+            "title": "ASMR🎧Gentle Whispering🤫Livestream Replay📺Binaural Tingles✨Relaxing Sleep Sounds🌙",
+            "publishedAt": "2026-11-15T16:30:15+00:00"
+          },
+          {
+            "id": "sk4tuc1TfAs",
+            "title": "ASMR🎧No Talking🤫4-Artist Compilation📺Lotion & Gel Massage💧Head Massage💆Deep Tingles✨Sleep Sounds🌙",
+            "publishedAt": "2026-11-14T16:51:54+00:00"
+          },
+          {
+            "id": "jyHLrmW4YnM",
+            "title": "ASMR🎧Gentle Whispering🤫Multiple Ear Picks🪶Ear Cleaning🦻✨Binaural Tingles🌙Deep Sleep & Relaxation",
+            "publishedAt": "2026-11-12T16:46:13+00:00"
+          },
+          {
+            "id": "g6PyPJgXkes",
+            "title": "ASMR🎧No Talking🤫Nylon Gloves🧤Mic Scratching🎙️Crispy Glove Sounds✨Intense Tingles⚡Binaural Sleep🌙",
+            "publishedAt": "2026-11-11T16:33:58+00:00"
+          },
+          {
+            "id": "SRf7uE3ML2A",
+            "title": "ASMR🎧No Talking🤫Nylon Rubbing & Tapping🖐️Crispy Fabric Sounds✨Tingly Triggers⚡Sleep & Relaxation🌙",
+            "publishedAt": "2026-11-10T16:07:30+00:00"
+          },
+          {
+            "id": "qhr0ZSHnRq0",
+            "title": "ASMR🎧No Talking🤫Ear Massage🦻Nitrile Gloves🧤Gel Pad💧Bare Hand Triggers🖐️Binaural Tingles🌙",
+            "publishedAt": "2026-11-09T16:08:00+00:00"
+          },
+          {
+            "id": "_0OJ5zCzPBs",
+            "title": "ASMR🎧No Talkin🤫Black Nylon Rubbing & Tapping🖐️Crispy Fabric Sound✨Tingly Trigger⚡Sleep & Relaxation🌙",
+            "publishedAt": "2026-11-08T16:25:08+00:00"
+          },
+          {
+            "id": "ugR3xChAUPQ",
+            "title": "ASMR🎧No Talking🤫Layered Nylon Tights Scratching🖐️Crispy Fabric Sounds✨Intense Tingles⚡Relaxation🌙",
+            "publishedAt": "2026-11-07T15:47:04+00:00"
+          },
+          {
+            "id": "T8FTSvfyGO4",
+            "title": "ASMR🎧No Talking🤫Twins Binaural Mouth Sounds👄Double-Sided Triggers✨Tingly Sleep & Relaxation🌙",
+            "publishedAt": "2026-11-06T14:21:20+00:00"
+          },
+          {
+            "id": "qClp7H2MwvU",
+            "title": "ASMR🎧15 Selected Triggers✨Kissing👄Gloves🧤Water💧Sponges🧽Brushing🖌️Mic Rubbing🎤Deep Tingles & Sleep🌙",
+            "publishedAt": "2026-11-05T16:22:45+00:00"
+          },
+          {
+            "id": "OjuqXteC9Xk",
+            "title": "ASMR🎧Livestream Clip📺Intense Ear Triggers⚡Ear Massage🦻Multiple Ear Pick🪶Deep Tingles✨Relaxing Sound🌙",
+            "publishedAt": "2026-11-03T14:53:31+00:00"
+          },
+          {
+            "id": "693GPeOAiE4",
+            "title": "ASMR🎧No Talking🤫White Nylon Tights Scratching🖐️Crispy Fabric Sounds✨Tingly Triggers⚡Sleep & Relax🌙",
+            "publishedAt": "2026-11-02T13:45:41+00:00"
+          },
+          {
+            "id": "05UsLSH4csQ",
+            "title": "ASMR🎧Gentle Whispering🤫Ear Massage🦻Fluffy Ear Pick🪶✨Binaural Tingles🌙Deep Sleep & Relaxation",
+            "publishedAt": "2026-11-01T14:43:24+00:00"
+          },
+          {
+            "id": "f3lTVnGdyYY",
+            "title": "ASMR🎧Gentle Whisper🤫Livestream Recut📺High Heel Triggers👠Nylon Tights Scratching✨Crispy Sound🌙Tingles",
+            "publishedAt": "2026-10-31T14:45:20+00:00"
+          },
+          {
+            "id": "uTW64vkxrxg",
+            "title": "ASMR🎧No Talking🤫Layered Nylon Tights Scratching🖐️Crispy Fabric Sound✨Tingly Trigger🌙Sleep&Relaxation",
+            "publishedAt": "2026-10-29T13:59:51+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CalzedoniaOfficial",
+      "url": "https://www.youtube.com/@CalzedoniaOfficial",
+      "channelId": "UCoZE4fZMjf0CbZGBlbneNDQ",
+      "publicPage": {
+        "url": "https://www.youtube.com/@CalzedoniaOfficial",
+        "status": 200,
+        "metadata": {
+          "og:title": "CalzedoniaOfficial",
+          "og:url": "https://www.youtube.com/channel/UCoZE4fZMjf0CbZGBlbneNDQ",
+          "name": "CalzedoniaOfficial"
+        },
+        "feeds": [
+          "https://www.youtube.com/feeds/videos.xml?channel_id=UCoZE4fZMjf0CbZGBlbneNDQ"
+        ],
+        "canonical": "https://www.youtube.com/channel/UCoZE4fZMjf0CbZGBlbneNDQ"
+      },
+      "feed": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCoZE4fZMjf0CbZGBlbneNDQ",
+        "status": 200,
+        "channelId": "oZE4fZMjf0CbZGBlbneNDQ",
+        "title": "CalzedoniaOfficial",
+        "author": "CalzedoniaOfficial",
+        "entries": [
+          {
+            "id": "efrrmzoIA2E",
+            "title": "Sheer Tights: The Perfect Tights for Every Occasion | Calzedonia",
+            "publishedAt": "2026-10-12T13:26:29+00:00"
+          },
+          {
+            "id": "CQu5pHHkA0I",
+            "title": "Opaque Tights: Find the Right Coverage You | Calzedonia",
+            "publishedAt": "2026-10-12T13:24:29+00:00"
+          },
+          {
+            "id": "iNjv0X3loYA",
+            "title": "Shaping Tights: Find the Right Support & Fit for You | Calzedonia",
+            "publishedAt": "2026-10-12T13:21:59+00:00"
+          },
+          {
+            "id": "Qg26g0HwX3A",
+            "title": "Thermal Tights: How to Stay Warm with Sheer Tights | Calzedonia",
+            "publishedAt": "2026-10-12T13:18:35+00:00"
+          },
+          {
+            "id": "eXtxikA6iUU",
+            "title": "Invisible Tights: How to Get a No-Show Look with Seamless Tights| Calzedonia",
+            "publishedAt": "2026-10-12T13:15:08+00:00"
+          },
+          {
+            "id": "7jtfXT577FI",
+            "title": "How to Find Your Tights Size & How to Wear Tights | Calzedonia",
+            "publishedAt": "2026-10-12T13:12:21+00:00"
+          },
+          {
+            "id": "ijIf7dm4DSw",
+            "title": "NEW RELAXED PANTS CALZEDONIA",
+            "publishedAt": "2026-09-18T07:21:10+00:00"
+          },
+          {
+            "id": "46RGZP-nB6I",
+            "title": "How to Find Your Bikini Bottom Fit: Different Coverage Options | Calzedonia",
+            "publishedAt": "2026-07-24T09:24:57+00:00"
+          },
+          {
+            "id": "MRC2Mb30iPk",
+            "title": "How to Choose the Perfect Bikini Top Style & Effect | Calzedonia",
+            "publishedAt": "2026-07-24T09:21:49+00:00"
+          },
+          {
+            "id": "DIuUq8o7PVU",
+            "title": "How to Find Your Perfect Bikini Size | Calzedonia",
+            "publishedAt": "2026-07-24T09:14:08+00:00"
+          },
+          {
+            "id": "qxST2ySlSpY",
+            "title": "CALZEDONIA NEW SUMMER COLLECTION",
+            "publishedAt": "2026-05-14T09:24:25+00:00"
+          },
+          {
+            "id": "AZ9VIJfa0tw",
+            "title": "CALZEDONIA SUMMER 2026 - PREMIUM FIT",
+            "publishedAt": "2026-04-28T08:09:20+00:00"
+          },
+          {
+            "id": "2TwccBuvZNQ",
+            "title": "NEW MAKE UP EFFECT TIGHTS - LEG PERFECTOR CALZEDONIA",
+            "publishedAt": "2026-03-27T13:25:03+00:00"
+          },
+          {
+            "id": "uJCjWLIxweM",
+            "title": "CALZEDONIA FASHION TIGHTS -  NEW SPRING COLLECTION",
+            "publishedAt": "2026-02-24T09:22:24+00:00"
+          },
+          {
+            "id": "c1ckxi2Fxxs",
+            "title": "Calzedonia Party collection",
+            "publishedAt": "2025-12-03T08:08:19+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Luxe Mia ASMR",
+      "url": "https://www.youtube.com/@LuxeMiaASMR-vz1sm",
+      "channelId": "",
+      "publicPage": {
+        "url": "https://www.youtube.com/@LuxeMiaASMR-vz1sm",
+        "status": 0,
+        "error": "network unavailable"
+      }
+    }
+  ]
+}

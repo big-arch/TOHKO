@@ -27,7 +27,7 @@ jobs:
           node qa/test_video_memory.cjs
           node --test qa/test_assistant.cjs qa/test_assistant_cache.cjs qa/test_assistant14.cjs
           python -m unittest qa/test_assistant_build.py
-          python -m unittest qa/test_video_feed.py
+          python -m unittest qa/test_video_feed.py qa/test_video15.py
       - name: Refresh public videos
         run: python scripts/update-videos.py --deployed
       - name: Refresh fashion headlines
@@ -45,8 +45,8 @@ jobs:
         if: ${{ steps.ai-cache.outcome == 'success' }}
         continue-on-error: true
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_NEWS_ENABLED: ${{ vars.OPENAI_NEWS_ENABLED || 'true' }}
+          # Paid generation stays disabled while assistant work is paused.
+          OPENAI_NEWS_ENABLED: 'false'
         run: |
           if [ -n "$OPENAI_API_KEY" ] && [ "$OPENAI_NEWS_ENABLED" = "true" ]; then
             python -m pip install --disable-pip-version-check -r scripts/requirements-news.txt

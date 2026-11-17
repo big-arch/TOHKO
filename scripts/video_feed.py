@@ -20,6 +20,10 @@ YT_ID = re.compile(r"[A-Za-z0-9_-]{11}\Z")
 VIMEO_ID = re.compile(r"\d{6,12}\Z")
 SUBJECT = re.compile(r"\b(?:tights?|hosiery|pantyhose|stockings?|leggings?)\b|колгот|чулк|легинс", re.I)
 EXCLUDED = re.compile(r"\b(?:nude|naked|fetish|onlyfans|porn|nsfw|lingerie|bikini|swimwear)\b|обнаж|эрот|фетиш|нижнее бель|купальник", re.I)
+ADULT_CONTEXT = re.compile(r"\b(?:onlyfans|fansly|fetish|porn|nsfw|erotic|sexy|sensual|seduc\w*|siren)\b|эрот|фетиш|соблазн", re.I)
+ASMR = re.compile(r"\basmr\b|асмр", re.I)
+TEXTILE = re.compile(r"\b(?:tights?|hosiery|pantyhose|stockings?|nylons?|fabrics?|textiles?|velvet|silk|satin|knitwear|sewing)\b|колгот|чулк|ткан|текстил|шелк|шёлк|бархат|шить", re.I)
+TEXTILE_SOUND = re.compile(r"\b(?:fabrics?|textiles?|sounds?|scratch\w*|rub\w*|rustl\w*|crinkl\w*|fold\w*|unbox\w*|mic|microphone|sewing)\b|ткан|текстил|звук|шорох|шелест|скретч|распаков|шить", re.I)
 TOPICS = (
     ("making", r"\b(?:manufactur\w*|production|factory|craftsmanship|recycl\w*|thread|knitting)\b|производств|фабрик|вязани"),
     ("choice", r"\b(?:how to|size|fit|choose|choosing|coverage|denier|thermal|shaping|sheer|opaque|invisible)\b|как (?:выбрать|носить)|размер|плотност"),
@@ -115,12 +119,21 @@ def identity(url):
     return None
 
 
-def classify(title, description="", publisher=False):
+def classify(title, description="", publisher=False, profile="fashion"):
     # Channel descriptions often mention tights on unrelated videos: require the
     # subject in the title. A publisher Atom entry has a specific article body.
     text = title + " " + description
     evidence = text if publisher else title
-    if not SUBJECT.search(evidence) or EXCLUDED.search(title):
+    if EXCLUDED.search(title) or ADULT_CONTEXT.search(text):
+        return []
+    # Textile ASMR is a separate, opt-in source profile. The subject and the
+    # sound/handling cue must be in the video title, never a channel footer.
+    # Fashion channels also cannot admit unrelated ASMR on a generic keyword.
+    if profile == "textile-asmr" or ASMR.search(title):
+        if not (ASMR.search(title) and TEXTILE.search(title) and TEXTILE_SOUND.search(title)):
+            return []
+        return ["asmr"]
+    if not SUBJECT.search(evidence):
         return []
     topics = [name for name, pattern in TOPICS if re.search(pattern, text, re.I)]
     return topics[:3] or ["choice"]
@@ -129,16 +142,25 @@ def classify(title, description="", publisher=False):
 def validate_config(config):
     if config.get("version") != 1 or not isinstance(config.get("sources"), list):
         raise ValueError("Invalid video source configuration")
-    ids = set()
+    ids, channels = set(), set()
+    if not 1 <= len(config["sources"]) <= 50:
+        raise ValueError("Invalid number of video sources")
     for source in config["sources"]:
         if source["id"] in ids or not re.fullmatch(r"[a-z0-9-]+", source["id"]):
             raise ValueError("Duplicate/invalid source ID")
         ids.add(source["id"])
+        if source.get("profile", "fashion") not in {"fashion", "textile-asmr"}:
+            raise ValueError("Unsupported source topic profile")
+        if source.get("language", "original") not in {"ru", "en", "none", "original"}:
+            raise ValueError("Unsupported source language")
         if source["kind"] == "youtube-atom":
             channel = source.get("channelId", "")
             expected = "https://www.youtube.com/feeds/videos.xml?channel_id=" + channel
             if not re.fullmatch(r"UC[A-Za-z0-9_-]{22}", channel) or source["url"] != expected:
                 raise ValueError("YouTube source must be its verified channel feed")
+            if channel in channels:
+                raise ValueError("Duplicate YouTube channel")
+            channels.add(channel)
         elif source["kind"] == "publisher-atom":
             if not https_url(source["url"], {source["publisherHost"]}):
                 raise ValueError("Publisher feed must stay on its verified domain")
@@ -150,6 +172,8 @@ def validate_config(config):
                             ("maxCandidatesPerSource", 1, 30), ("maxAgeDays", 1, 730)):
         if type(config.get(name)) is not int or not low <= config[name] <= high:
             raise ValueError("Invalid bound: " + name)
+    if type(config.get("maxNewPerSource", 3)) is not int or not 1 <= config.get("maxNewPerSource", 3) <= 12:
+        raise ValueError("Invalid bound: maxNewPerSource")
 
 
 def candidates(raw, source, now, max_age):
@@ -184,8 +208,8 @@ def candidates(raw, source, now, max_age):
             if entry.findtext("yt:channelId", "", NS) != source["channelId"]:
                 continue
             links = [alternate]
-            description = plain(entry.findtext("m:group/m:description", "", NS), 1000)
-        topics = classify(title, description, is_publisher)
+            description = plain(entry.findtext("m:group/m:description", "", NS), 4000)
+        topics = classify(title, description, is_publisher, source.get("profile", "fashion"))
         if not topics:
             continue
         for link in links:
@@ -245,19 +269,21 @@ def verify(candidate, source, raw, now, max_age):
         published, date_source = uploaded[:10], "vimeo:oembed.upload_date (date only)"
         if str(data.get("video_id")) != candidate["providerId"]:
             raise ValueError("Vimeo video ID mismatch")
-    elif not classify(title):
+    elif not classify(title, candidate["description"], profile=source.get("profile", "fashion")):
         raise ValueError("oEmbed title no longer matches the topic")
     is_article = candidate["publisherArticle"]
     # A journal title is more readable than a CMS filename, but keep the
     # original provider title and article URL alongside it.
     display_title = candidate["title"] if is_article else title
     description = plain(data.get("description") or candidate["description"], 300)
+    if candidate["topics"] == ["asmr"]:
+        description = f"Звуки и фактура ткани в видео {plain(data.get('author_name'), 100)}. Начните с комфортной громкости."
     if not description:
         description = f"Видео {plain(data.get('author_name'), 100)}: {display_title}."
     provider, video_id = expected
     ident = "vimeo-" + video_id if provider == "vimeo" else video_id
     result = dict(id=ident, provider=provider, title=display_title, originalTitle=title,
-                  description=description, topics=candidate["topics"], language="original",
+                  description=description, topics=candidate["topics"], language=source.get("language", "original"),
                   kind="Видео издателя" if is_article else "Видео канала",
                   author=plain(data.get("author_name"), 100), authorUrl=data["author_url"],
                   url=candidate["url"], thumbnailSource=thumb,
@@ -281,7 +307,11 @@ def dedup_key(item):
 def collect(config, previous, state, fetch, store_thumbnail, now, force=False):
     validate_config(config)
     old_states = {s["id"]: s for s in state.get("sources", [])}
-    output = list(previous)
+    active_sources = {source["id"] for source in config["sources"]}
+    # A source removed after editorial review must not return from an older
+    # deployed snapshot. Legacy records without a source ID remain compatible.
+    output = [video for video in previous if video.get("addedBy") != "feed" or
+              not video.get("sourceId") or video["sourceId"] in active_sources]
     existing = {v["id"] for v in output}
     keys = {dedup_key(v) for v in output}
     report, total_added, total_success = [], 0, 0
@@ -299,7 +329,7 @@ def collect(config, previous, state, fetch, store_thumbnail, now, force=False):
             transient = None
             for candidate in found[:config["maxCandidatesPerSource"]]:
                 ident = ("vimeo-" if candidate["provider"] == "vimeo" else "") + candidate["providerId"]
-                if ident in existing or total_added >= config["maxNewPerRun"]:
+                if ident in existing or total_added >= config["maxNewPerRun"] or status["added"] >= config.get("maxNewPerSource", 3):
                     continue
                 try:
                     video = verify(candidate, source, fetch(oembed_url(candidate)), now, config["maxAgeDays"])

@@ -13,6 +13,7 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+import time
 from urllib.parse import urlsplit
 
 from video_feed import FetchError, collect, https_url, identity, validate_config
@@ -27,6 +28,7 @@ class Fetcher:
     """Bounded requests, verified TLS, and redirects restricted to known hosts."""
     def __init__(self, config):
         self.calls = 0
+        self.deadline = time.monotonic() + 8 * 60
         self.hosts = {"www.youtube.com", "vimeo.com", "i.ytimg.com", "i.vimeocdn.com", "big-arch.github.io"}
         self.hosts.update(s["publisherHost"] for s in config["sources"] if s.get("publisherHost"))
         self.curl = shutil.which("curl.exe") or shutil.which("curl")
@@ -35,10 +37,14 @@ class Fetcher:
 
     def __call__(self, url, limit=4_000_000):
         for _ in range(3):
+            if time.monotonic() >= self.deadline:
+                raise FetchError()  # Keep the last catalog; retry on a later run.
             if not https_url(url, self.hosts):
                 raise ValueError("Fetch URL is outside the HTTPS allowlist")
             self.calls += 1
-            if self.calls > 90:
+            # Restore up to 60 published previews, then poll the expanded
+            # allowlist and verify up to 12 new items. Still a hard ceiling.
+            if self.calls > 160:
                 raise FetchError()
             try:
                 result = subprocess.run([

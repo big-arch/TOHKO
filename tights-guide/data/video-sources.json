@@ -11,7 +11,10 @@
       "kind": "youtube-atom",
       "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCoZE4fZMjf0CbZGBlbneNDQ",
       "channelId": "UCoZE4fZMjf0CbZGBlbneNDQ",
-      "authorUrls": ["https://www.youtube.com/@CalzedoniaOfficial", "https://www.youtube.com/channel/UCoZE4fZMjf0CbZGBlbneNDQ"],
+      "authorUrls": [
+        "https://www.youtube.com/@CalzedoniaOfficial",
+        "https://www.youtube.com/channel/UCoZE4fZMjf0CbZGBlbneNDQ"
+      ],
       "verifiedAt": "2026-11-16",
       "verificationUrl": "https://www.youtube.com/@CalzedoniaOfficial"
     },
@@ -21,7 +24,9 @@
       "kind": "publisher-atom",
       "url": "https://swedishstockings.com/blogs/journal.atom",
       "publisherHost": "swedishstockings.com",
-      "authorUrls": ["https://vimeo.com/user177971415"],
+      "authorUrls": [
+        "https://vimeo.com/user177971415"
+      ],
       "verifiedAt": "2026-11-16",
       "verificationUrl": "https://swedishstockings.com/blogs/journal"
     },
@@ -31,7 +36,10 @@
       "kind": "youtube-atom",
       "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsLpMbKgAt3MVJ5V0_8PF8A",
       "channelId": "UCsLpMbKgAt3MVJ5V0_8PF8A",
-      "authorUrls": ["https://www.youtube.com/@AlenaVoroncova", "https://www.youtube.com/channel/UCsLpMbKgAt3MVJ5V0_8PF8A"],
+      "authorUrls": [
+        "https://www.youtube.com/@AlenaVoroncova",
+        "https://www.youtube.com/channel/UCsLpMbKgAt3MVJ5V0_8PF8A"
+      ],
       "verifiedAt": "2026-11-16",
       "verificationUrl": "https://www.youtube.com/@AlenaVoroncova"
     },
@@ -41,7 +49,10 @@
       "kind": "youtube-atom",
       "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCl7L-IHdhnuc04rwt7Rq0gw",
       "channelId": "UCl7L-IHdhnuc04rwt7Rq0gw",
-      "authorUrls": ["https://www.youtube.com/@style_support", "https://www.youtube.com/channel/UCl7L-IHdhnuc04rwt7Rq0gw"],
+      "authorUrls": [
+        "https://www.youtube.com/@style_support",
+        "https://www.youtube.com/channel/UCl7L-IHdhnuc04rwt7Rq0gw"
+      ],
       "verifiedAt": "2026-11-16",
       "verificationUrl": "https://www.youtube.com/@style_support"
     },
@@ -51,9 +62,298 @@
       "kind": "youtube-atom",
       "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC2cKk1P411BrWFHigp-G75Q",
       "channelId": "UC2cKk1P411BrWFHigp-G75Q",
-      "authorUrls": ["https://www.youtube.com/@jsemotionblog3802", "https://www.youtube.com/channel/UC2cKk1P411BrWFHigp-G75Q"],
+      "authorUrls": [
+        "https://www.youtube.com/@jsemotionblog3802",
+        "https://www.youtube.com/channel/UC2cKk1P411BrWFHigp-G75Q"
+      ],
       "verifiedAt": "2026-11-16",
       "verificationUrl": "https://www.youtube.com/@jsemotionblog3802"
+    },
+    {
+      "id": "svetlana-makarova-youtube",
+      "name": "Светлана Макарова",
+      "kind": "youtube-atom",
+      "channelId": "UC1DZTK2DAylpWtucMcZSXOw",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC1DZTK2DAylpWtucMcZSXOw",
+      "authorUrls": [
+        "https://www.youtube.com/@SvetlanaMakarovaStyle",
+        "https://www.youtube.com/channel/UC1DZTK2DAylpWtucMcZSXOw"
+      ],
+      "profile": "fashion",
+      "language": "ru",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@SvetlanaMakarovaStyle"
+    },
+    {
+      "id": "anastasia-odels-youtube",
+      "name": "Анастасия Оделс",
+      "kind": "youtube-atom",
+      "channelId": "UCtuUdhlMTAz9dleiMB3v58w",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtuUdhlMTAz9dleiMB3v58w",
+      "authorUrls": [
+        "https://www.youtube.com/@odels",
+        "https://www.youtube.com/channel/UCtuUdhlMTAz9dleiMB3v58w"
+      ],
+      "profile": "fashion",
+      "language": "ru",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@odels"
+    },
+    {
+      "id": "liria-kholdina-youtube",
+      "name": "Лирия Холдина · Dress to Impress",
+      "kind": "youtube-atom",
+      "channelId": "UC-sZ2H9Y6hCYkuHNTf7EpBQ",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC-sZ2H9Y6hCYkuHNTf7EpBQ",
+      "authorUrls": [
+        "https://www.youtube.com/@LiriaKholdina",
+        "https://www.youtube.com/channel/UC-sZ2H9Y6hCYkuHNTf7EpBQ"
+      ],
+      "profile": "fashion",
+      "language": "ru",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@LiriaKholdina"
+    },
+    {
+      "id": "olga-delevsky-youtube",
+      "name": "Школа стиля Ольги Делевски",
+      "kind": "youtube-atom",
+      "channelId": "UCVL-KVo_ZjQuP8VpwgABisQ",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVL-KVo_ZjQuP8VpwgABisQ",
+      "authorUrls": [
+        "https://www.youtube.com/@Olga_Delevsky",
+        "https://www.youtube.com/channel/UCVL-KVo_ZjQuP8VpwgABisQ"
+      ],
+      "profile": "fashion",
+      "language": "ru",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@Olga_Delevsky"
+    },
+    {
+      "id": "kseniya-shirshova-youtube",
+      "name": "Kseniya Shirshova",
+      "kind": "youtube-atom",
+      "channelId": "UChBKPr6rRi2HY5d92sUxh2A",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChBKPr6rRi2HY5d92sUxh2A",
+      "authorUrls": [
+        "https://www.youtube.com/@KseniyaShirshova",
+        "https://www.youtube.com/channel/UChBKPr6rRi2HY5d92sUxh2A"
+      ],
+      "profile": "fashion",
+      "language": "ru",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@KseniyaShirshova"
+    },
+    {
+      "id": "kerina-wang-youtube",
+      "name": "Kerina Wang",
+      "kind": "youtube-atom",
+      "channelId": "UCa9siXYE9McabZSTOkhnUtg",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCa9siXYE9McabZSTOkhnUtg",
+      "authorUrls": [
+        "https://www.youtube.com/@KerinaWang",
+        "https://www.youtube.com/channel/UCa9siXYE9McabZSTOkhnUtg"
+      ],
+      "profile": "fashion",
+      "language": "en",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@KerinaWang"
+    },
+    {
+      "id": "the-tight-spot-youtube",
+      "name": "TightsTV · The Tight Spot",
+      "kind": "youtube-atom",
+      "channelId": "UCdGZ5AxDylcpE8fW2cwmQBw",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdGZ5AxDylcpE8fW2cwmQBw",
+      "authorUrls": [
+        "https://www.youtube.com/@TightsTV",
+        "https://www.youtube.com/channel/UCdGZ5AxDylcpE8fW2cwmQBw"
+      ],
+      "profile": "fashion",
+      "language": "en",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/channel/UCdGZ5AxDylcpE8fW2cwmQBw"
+    },
+    {
+      "id": "layla-fashion-youtube",
+      "name": "Layla Fashion",
+      "kind": "youtube-atom",
+      "channelId": "UCxL5Q1badukzLkDOF7hIuaA",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxL5Q1badukzLkDOF7hIuaA",
+      "authorUrls": [
+        "https://www.youtube.com/@layla_fashion",
+        "https://www.youtube.com/channel/UCxL5Q1badukzLkDOF7hIuaA"
+      ],
+      "profile": "fashion",
+      "language": "en",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@layla_fashion"
+    },
+    {
+      "id": "sheertex-youtube",
+      "name": "Sheertex",
+      "kind": "youtube-atom",
+      "channelId": "UCi8Iy9BQyr3caO4mk7zKMnA",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCi8Iy9BQyr3caO4mk7zKMnA",
+      "authorUrls": [
+        "https://www.youtube.com/@sheertex",
+        "https://www.youtube.com/channel/UCi8Iy9BQyr3caO4mk7zKMnA"
+      ],
+      "profile": "fashion",
+      "language": "en",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@sheertex"
+    },
+    {
+      "id": "glamissima-youtube",
+      "name": "Glamissima",
+      "kind": "youtube-atom",
+      "channelId": "UCpLLCQlTQsN5B7kxp0GuutQ",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCpLLCQlTQsN5B7kxp0GuutQ",
+      "authorUrls": [
+        "https://www.youtube.com/@Glamissima",
+        "https://www.youtube.com/channel/UCpLLCQlTQsN5B7kxp0GuutQ"
+      ],
+      "profile": "fashion",
+      "language": "original",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@Glamissima"
+    },
+    {
+      "id": "asmr-fuyu-youtube",
+      "name": "ASMR Fuyu",
+      "kind": "youtube-atom",
+      "channelId": "UC98T-GUCry4ss7GPmqVc5Qg",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC98T-GUCry4ss7GPmqVc5Qg",
+      "authorUrls": [
+        "https://www.youtube.com/@asmrfuyu800",
+        "https://www.youtube.com/channel/UC98T-GUCry4ss7GPmqVc5Qg"
+      ],
+      "profile": "textile-asmr",
+      "language": "original",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@asmrfuyu800"
+    },
+    {
+      "id": "gentle-whispering-youtube",
+      "name": "Gentle Whispering ASMR",
+      "kind": "youtube-atom",
+      "channelId": "UC6gLlIAnzg7eJ8VuXDCZ_vg",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6gLlIAnzg7eJ8VuXDCZ_vg",
+      "authorUrls": [
+        "https://www.youtube.com/@GentleWhisperingASMR",
+        "https://www.youtube.com/channel/UC6gLlIAnzg7eJ8VuXDCZ_vg"
+      ],
+      "profile": "textile-asmr",
+      "language": "original",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@GentleWhisperingASMR"
+    },
+    {
+      "id": "whispersred-asmr-youtube",
+      "name": "WhispersRed ASMR",
+      "kind": "youtube-atom",
+      "channelId": "UC2nyigZS5YNDrCu_pih809w",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC2nyigZS5YNDrCu_pih809w",
+      "authorUrls": [
+        "https://www.youtube.com/@WhispersRedASMR",
+        "https://www.youtube.com/channel/UC2nyigZS5YNDrCu_pih809w"
+      ],
+      "profile": "textile-asmr",
+      "language": "en",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@WhispersRedASMR"
+    },
+    {
+      "id": "asmr-cheeks-youtube",
+      "name": "ASMR CHeeks",
+      "kind": "youtube-atom",
+      "channelId": "UCWMhB_iUo7n5b0dkdby1Suw",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWMhB_iUo7n5b0dkdby1Suw",
+      "authorUrls": [
+        "https://www.youtube.com/@ASMRCHeeks",
+        "https://www.youtube.com/channel/UCWMhB_iUo7n5b0dkdby1Suw"
+      ],
+      "profile": "textile-asmr",
+      "language": "ru",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@ASMRCHeeks"
+    },
+    {
+      "id": "bolshe-chem-stil-youtube",
+      "name": "Больше чем стиль",
+      "kind": "youtube-atom",
+      "channelId": "UCCuqMOJ5jwGnh-SNQ72LnPw",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCCuqMOJ5jwGnh-SNQ72LnPw",
+      "authorUrls": [
+        "https://www.youtube.com/@smileggal",
+        "https://www.youtube.com/channel/UCCuqMOJ5jwGnh-SNQ72LnPw"
+      ],
+      "profile": "fashion",
+      "language": "ru",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@smileggal"
+    },
+    {
+      "id": "annika-victoria-youtube",
+      "name": "Annika Victoria",
+      "kind": "youtube-atom",
+      "channelId": "UCqP8HosuK1VRD60wBaEEFtA",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqP8HosuK1VRD60wBaEEFtA",
+      "authorUrls": [
+        "https://www.youtube.com/@AnnikaVictoria24",
+        "https://www.youtube.com/channel/UCqP8HosuK1VRD60wBaEEFtA"
+      ],
+      "profile": "fashion",
+      "language": "en",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@AnnikaVictoria24"
+    },
+    {
+      "id": "tinkerbell-youtube",
+      "name": "Tinkerbell",
+      "kind": "youtube-atom",
+      "channelId": "UC3LmX0VVBcQ35nJgKdLtrQQ",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC3LmX0VVBcQ35nJgKdLtrQQ",
+      "authorUrls": [
+        "https://www.youtube.com/@T1nkerbell01",
+        "https://www.youtube.com/channel/UC3LmX0VVBcQ35nJgKdLtrQQ"
+      ],
+      "profile": "fashion",
+      "language": "en",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@T1nkerbell01"
+    },
+    {
+      "id": "401-money-gang-youtube",
+      "name": "401 Money Gang",
+      "kind": "youtube-atom",
+      "channelId": "UC1W3dsKohMwDR4el0cYLeiQ",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC1W3dsKohMwDR4el0cYLeiQ",
+      "authorUrls": [
+        "https://www.youtube.com/@RebeccaRat",
+        "https://www.youtube.com/channel/UC1W3dsKohMwDR4el0cYLeiQ"
+      ],
+      "profile": "fashion",
+      "language": "en",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@RebeccaRat"
+    },
+    {
+      "id": "samantha-yonge-youtube",
+      "name": "Samantha Yonge",
+      "kind": "youtube-atom",
+      "channelId": "UCt29z9MC_AG1MdPnKM6fOOQ",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCt29z9MC_AG1MdPnKM6fOOQ",
+      "authorUrls": [
+        "https://www.youtube.com/@SamanthaYonge",
+        "https://www.youtube.com/channel/UCt29z9MC_AG1MdPnKM6fOOQ"
+      ],
+      "profile": "fashion",
+      "language": "en",
+      "verifiedAt": "2026-11-16",
+      "verificationUrl": "https://www.youtube.com/@SamanthaYonge"
     }
-  ]
+  ],
+  "maxNewPerSource": 3
 }
