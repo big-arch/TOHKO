@@ -1,0 +1,7 @@
+*
+!.gitignore
+!test_parser.py
+!coverage-report.json
+!README.md
+!approved-packaging.json
+!visual-review.json

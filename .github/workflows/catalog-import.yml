@@ -1,0 +1,54 @@
+name: Collect Loretta catalogue for review
+on:
+  push:
+    branches: [codex/loretta-catalog-20261117]
+    paths:
+      - scripts/collect-catalog18.py
+      - qa/catalog18-import/test_parser.py
+      - .github/workflows/catalog-import.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: loretta-review-import
+  cancel-in-progress: false
+jobs:
+  collect:
+    if: github.ref == 'refs/heads/codex/loretta-catalog-20261117'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: codex/loretta-catalog-20261117
+      - name: Install image optimizer
+        run: python -m pip install --disable-pip-version-check 'Pillow>=11.3,<13'
+      - name: Verify public catalogue parser
+        run: python -m unittest discover -s qa/catalog18-import -p 'test_parser.py'
+      - name: Restore resumable source cache
+        uses: actions/cache@v5
+        with:
+          path: qa/catalog18-import/http-cache
+          key: loretta-review-source-v1-${{ github.run_id }}
+          restore-keys: loretta-review-source-v1-
+      - name: Collect public model data and photographs
+        id: collect
+        continue-on-error: true
+        run: python -X utf8 scripts/collect-catalog18.py --workers 4 --resume
+      - name: Save collected files on the review branch
+        if: always()
+        run: |
+          if [ -f tights-guide/data/catalog.json ]; then git add -- tights-guide/data/catalog.json; fi
+          if [ -d tights-guide/assets/catalog ]; then git add -- tights-guide/assets/catalog; fi
+          if [ -f qa/catalog18-import/coverage-report.json ]; then git add -- qa/catalog18-import/coverage-report.json; fi
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Collect Loretta models and images for review'
+            git push origin HEAD:codex/loretta-catalog-20261117
+          fi
+      - name: Report incomplete collection
+        if: steps.collect.outcome == 'failure'
+        run: |
+          echo '::error::Catalogue incomplete. Review the coverage report; no site deployment was requested.'
+          exit 1
