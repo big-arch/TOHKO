@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-17",
+  "items": [
+    {
+      "brand": "Charnos",
+      "slug": "charnos",
+      "country": "Великобритания",
+      "founded": "1936",
+      "title": "Британская чулочная традиция",
+      "paragraphs": [
+        "Charnos отсчитывает свою историю с 1936 года — эта дата указана на официальном сайте и фирменных упаковках. Сегодня марка объединяет прозрачные классические колготки, плотные модели, сетку и фантазийные рисунки. В её каталоге есть также чулки под пояс и на силиконе. Названия Simply Bare, Elegance и 24/7 обозначают разные линии внутри этого ассортимента."
+      ],
+      "sources": [
+        {
+          "title": "Charnos — официальный сайт",
+          "url": "https://charnoshosiery.co.uk/"
+        },
+        {
+          "title": "Tights Tights Tights — каталог Charnos",
+          "url": "https://www.tightstightstights.co.uk/collections/charnos"
+        }
+      ],
+      "photo": {
+        "src": "assets/brands18/charnos.webp",
+        "thumb": "assets/brands18/charnos-480.webp",
+        "width": 768,
+        "height": 576,
+        "source": "https://charnoshosiery.co.uk/",
+        "imageSource": "https://charnoshosiery.co.uk/wp-content/uploads/2024/03/Charnos-Website-Images_06-768x576.jpg",
+        "credit": "Charnos / Charnos · официальный сайт",
+        "license": "Каталожная фотография из указанного источника. Свободная лицензия не заявлена; права принадлежат правообладателю.",
+        "alt": "Прозрачные колготки Charnos на модели в чёрной одежде и туфлях.",
+        "caption": "Charnos · официальная каталожная фотография."
+      }
+    },
+    {
+      "brand": "Platino",
+      "slug": "platino",
+      "country": "Испания",
+      "founded": "",
+      "title": "Прозрачная классика и плотные серии",
+      "paragraphs": [
+        "В каталоге «Лоретты» Platino представлена как испанская марка чулочных изделий. Её ассортимент включает прозрачные колготки Cleancut и Frappe, а также серию Blogger разной плотности. У Cleancut 15 продавец указывает пояс с лазерной обработкой края; у Blogger есть, например, варианты 20 и 100 den. Это краткий профиль ассортимента: год основания здесь не приводится, поскольку доступные источники расходятся в датах."
+      ],
+      "sources": [
+        {
+          "title": "Лоретта — каталог Platino",
+          "url": "https://xn--80ajrmkna.xn--p1ai/brand/platino"
+        },
+        {
+          "title": "Hosieree — Platino Cleancut 15",
+          "url": "https://www.hosieree.com/products/PlatinoCleancut15.html"
+        },
+        {
+          "title": "Hosieree — Platino Blogger 100",
+          "url": "https://www.hosieree.com/products/PlatinoBlogger100.html"
+        }
+      ],
+      "photo": {
+        "src": "assets/brands18/platino.webp",
+        "thumb": "assets/brands18/platino-480.webp",
+        "width": 472,
+        "height": 750,
+        "source": "https://www.hosieree.com/products/PlatinoBlogger70.html",
+        "imageSource": "https://www.hosieree.com/images/products/large/Platino_Blogger70.jpg",
+        "credit": "Platino / Hosieree · карточка модели",
+        "license": "Каталожная фотография из указанного источника. Свободная лицензия не заявлена; права принадлежат правообладателю.",
+        "alt": "Чёрные колготки Platino Blogger 70 в образе с чёрным платьем.",
+        "caption": "Platino · Blogger 70. Каталожная фотография."
+      }
+    },
+    {
+      "brand": "Pearl & Poseidon",
+      "slug": "pearl-poseidon",
+      "country": "США",
+      "founded": "",
+      "title": "Прозрачность, блеск и рисунок",
+      "paragraphs": [
+        "Pearl & Poseidon представляет себя как дизайнерскую марку прозрачных чулочных изделий, белья и аксессуаров; на официальном сайте указан Уэстон, Флорида, США. В коллекции соседствуют гладкие блестящие колготки, бесшовные модели и рисунки — например, горошек Anastasia. Марка отдельно предупреждает, что иллюстрации на упаковке могут обновляться, пока в продаже остаются предыдущие выпуски. Подтверждённая дата основания в проверенных материалах не найдена."
+      ],
+      "sources": [
+        {
+          "title": "Pearl & Poseidon — About Us",
+          "url": "https://pearl-poseidon.com/about-us/"
+        },
+        {
+          "title": "Pearl & Poseidon — официальный каталог колготок",
+          "url": "https://pearl-poseidon.com/shop-by-category/pantyhose-tights/"
+        },
+        {
+          "title": "Pearl & Poseidon — информация об упаковке",
+          "url": "https://pearl-poseidon.com/policies-faqs/"
+        }
+      ],
+      "photo": {
+        "src": "assets/brands18/pearl-poseidon.webp",
+        "thumb": "assets/brands18/pearl-poseidon-480.webp",
+        "width": 420,
+        "height": 600,
+        "source": "https://pearl-poseidon.com/anastasia",
+        "imageSource": "https://cdn11.bigcommerce.com/s-hsjclliq8t/images/stencil/600x600/products/127/2075/Anastasia_Nude_Comp__43352.1783987211.jpg?c=1",
+        "credit": "Pearl & Poseidon / Pearl & Poseidon · официальный каталог",
+        "license": "Каталожная фотография из указанного источника. Свободная лицензия не заявлена; права принадлежат правообладателю.",
+        "alt": "Колготки Pearl & Poseidon Anastasia в горошек: каталожные виды спереди и сзади.",
+        "caption": "Pearl & Poseidon · Anastasia. Официальная каталожная фотография."
+      }
+    }
+  ]
+}

@@ -48,6 +48,8 @@
 @media(max-width:360px){.pack-detail{padding:18px}.pack-looks-grid{gap:16px 10px}.pack-looks h3{font-size:17px}.pack-photo-bar{padding:8px}.pack-photo-info h2{font-size:18px}}
 
 /* A brand's own history and imagery replace unrelated gallery suggestions. */
+.pack-retail .pack-price-source{display:block;margin-top:8px}
+.pack-retail{padding:18px 0;border-block:1px solid #d5cbc1;margin:20px 0}.pack-retail:empty{display:none}.pack-retail>a{display:inline-block;font-size:13px;margin-top:12px}.pack-retail-price{margin-top:12px;line-height:1.5}.pack-retail-price>p{margin:0}.pack-retail-price strong{font-size:18px;font-weight:550}.pack-retail-price span{font-size:13px;color:#7d4656;white-space:nowrap}.pack-retail-price small{display:block;font-size:10px;color:#75675e;margin-top:4px}.pack-detail .pack-price-note{font-size:11px;line-height:1.65;color:#75675e;margin:12px 0 0}
 .pack-brand-story{border-top:1px solid #d5cbc1;padding-top:26px;margin-top:8px}
 .pack-brand-story,.pack-looks{scroll-margin-top:84px}
 .pack-brand-story[hidden],.pack-brand-figure[hidden],.pack-looks[hidden],.pack-photo-navigation[hidden]{display:none}

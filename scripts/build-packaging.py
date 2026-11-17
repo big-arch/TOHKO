@@ -57,7 +57,9 @@ for story in stories['items']:
         assert photo[key].startswith('assets/') and asset.is_relative_to(S.resolve()) and asset.is_file(),photo[key]
 assert set(brands)<=story_brands,'Missing brand stories: '+', '.join(sorted(set(brands)-story_brands))
 (S/'data/brand-stories.js').write_text('window.TONKO_BRAND_STORIES = '+json.dumps(stories,ensure_ascii=False).replace('<','\\u003c')+';\n',encoding='utf-8')
-version=hashlib.sha256(b''.join((S/path).read_bytes() for path in ('data/packaging.js','data/package-looks.js','data/brand-stories.js','packaging.js','packaging.css'))).hexdigest()[:12]
+price_assets=('data/catalog-prices.js','data/exchange-rate.js','catalog.js')
+price_assets=tuple(path for path in price_assets if (S/path).exists())
+version=hashlib.sha256(b''.join((S/path).read_bytes() for path in ('data/packaging.js','data/package-looks.js','data/brand-stories.js','packaging.js','packaging.css')+price_assets)).hexdigest()[:12]
 def card(r):
     return f'<article class="pack-card"><a class="pack-open" href="{esc(r["image"])}" data-pack="{esc(r["id"])}" aria-label="Рассмотреть упаковку: {esc(r["title"])}"><img src="{esc(r["thumbnail"])}" alt="Упаковка {esc(r["title"])}" width="{r["width"]}" height="{r["height"]}" loading="lazy" decoding="async"></a><h3>{esc(r["title"])}</h3></article>'
 def group(brand):
@@ -75,6 +77,8 @@ body=f'''<section class="portal-container pack-intro"><p class="portal-eyebrow">
 <section class="portal-container pack-about"><h2>Что можно прочитать на упаковке</h2><div><p>Сопоставьте название модели, состав, размерную сетку и обозначения ухода. Число DEN описывает линейную плотность нити; оно само по себе не гарантирует одинаковую прозрачность, тепло или прочность у разных изделий.</p><p>Архив объединяет фотографии упаковок, фирменные вкладыши и их каталожные изображения. Дизайн меняется со временем и может отличаться по рынкам. Плотность в фильтре извлечена из названия карточки: сверяйте её с самой упаковкой. Каталог пополняется и не является полным реестром всех выпусков.</p><a href="brands.html">Читать о брендах →</a></div></section>
 <dialog class="pack-dialog" id="pack-dialog" aria-labelledby="pack-title"><div class="pack-dialog-bar"><span id="pack-position"></span><button type="button" id="pack-close" autofocus>Закрыть ×</button></div><div class="pack-dialog-layout"><div class="pack-image-area" id="pack-image-area"><img id="pack-full" alt=""></div><div class="pack-detail"><p class="portal-eyebrow" id="pack-label"></p><h2 id="pack-title"></h2><p id="pack-caption"></p><p class="pack-source-note">Изображение бренда из каталога. Актуальный состав и размеры уточняйте по упаковке конкретной пары.</p><div id="pack-variants"></div><a id="pack-source" target="_blank" rel="noopener noreferrer">Карточка источника ↗</a><div class="pack-dialog-actions"><button type="button" id="pack-previous" aria-label="Предыдущая упаковка">←</button><button type="button" id="pack-zoom" aria-pressed="false">Увеличить</button><button type="button" id="pack-next" aria-label="Следующая упаковка">→</button></div></div></div></dialog>'''
 body=body.replace('<div id="pack-variants"></div>','<dl class="pack-facts" id="pack-facts"></dl><div id="pack-variants"></div>')
+if price_assets:
+    body=body.replace('<dl class="pack-facts"', '<div class="pack-retail" id="pack-retail"></div><dl class="pack-facts"',1)
 brand_section='''<section class="pack-brand-story" id="pack-brand-story" aria-labelledby="pack-brand-story-title" hidden>
 <div class="pack-brand-story-heading"><p class="portal-eyebrow" id="pack-brand-story-meta"></p><h3 id="pack-brand-story-title"></h3><p class="pack-brand-story-subtitle" id="pack-brand-story-subtitle"></p></div>
 <figure class="pack-brand-figure"><button type="button" class="pack-brand-photo-open" id="pack-brand-photo-open" aria-label="Увеличить фотографию бренда"><img id="pack-brand-photo" alt="" decoding="async"><span aria-hidden="true">↗</span></button><figcaption><span id="pack-brand-photo-caption"></span><small id="pack-brand-photo-credit"></small></figcaption></figure>
@@ -88,7 +92,8 @@ text=re.sub(r'<main\b[^>]*>.*?</main>',lambda _:'<main id="content">'+body+'</ma
 text=re.sub(r'<title>.*?</title>','<title>Упаковки колготок по брендам и моделям — ТОНКО</title>',text)
 text=re.sub(r'<meta property="og:title" content="[^"]*">','<meta property="og:title" content="Архив упаковок колготок — ТОНКО">',text)
 text=re.sub(r'<meta name="description" content="[^"]*">',f'<meta name="description" content="Архив ТОНКО: {len(rows)} изображений упаковок колготок, {len(brands)} брендов. Поиск, фильтры, увеличение и ссылки на источники.">',text)
-text=text.replace('</head>',f'<link rel="stylesheet" href="packaging.css?v={version}"></head>').replace('</body>',f'<script src="data/packaging.js?v={version}"></script><script src="data/package-looks.js?v={version}"></script><script src="data/brand-stories.js?v={version}"></script><script src="packaging.js?v={version}"></script></body>')
+price_scripts=''.join(f'<script src="{path}?v={version}"></script>' for path in price_assets)
+text=text.replace('</head>',f'<link rel="stylesheet" href="packaging.css?v={version}"></head>').replace('</body>',f'<script src="data/packaging.js?v={version}"></script><script src="data/package-looks.js?v={version}"></script><script src="data/brand-stories.js?v={version}"></script>'+price_scripts+f'<script src="packaging.js?v={version}"></script></body>')
 (S/'packaging.html').write_text(text,encoding='utf-8')
 for path in ([S/'packaging.html'] if args.packaging_only else S.glob('*.html')):
     t=path.read_text(encoding='utf-8')

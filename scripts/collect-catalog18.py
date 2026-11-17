@@ -767,7 +767,9 @@ def restore_deployed(base_url, target):
     validate_complete_snapshot(remote)
     if target.exists():
         local = json.loads(target.read_text("utf-8-sig"))
-        if local.get("checkedAt", "") > remote.get("checkedAt", "") and local.get("coverage", {}).get("complete"):
+        # Image enrichment and manual review keep the source-fact timestamp.
+        # At equal timestamps retain the validated repository snapshot.
+        if local.get("checkedAt", "") >= remote.get("checkedAt", "") and local.get("coverage", {}).get("complete"):
             validate_complete_snapshot(local, require_local_assets=True)
             remote = local
     missing = set()

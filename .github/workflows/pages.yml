@@ -15,12 +15,14 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 18
+    timeout-minutes: 25
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
+      - name: Install catalogue image dependency
+        run: python -m pip install --disable-pip-version-check 'Pillow>=11.3,<13'
       - name: Verify content and assistant
         run: |
           python -m unittest discover -s qa -p 'test_news*.py'
@@ -28,6 +30,14 @@ jobs:
           node --test qa/test_assistant.cjs qa/test_assistant_cache.cjs qa/test_assistant14.cjs
           python -m unittest qa/test_assistant_build.py
           python -m unittest qa/test_video_feed.py qa/test_video15.py qa/test_video16.py qa/test_video17.py
+          python -m unittest qa/test_exchange18.py qa/test_catalog18_links.py qa/test_catalog18_ui.py
+          python -m unittest discover -s qa/catalog18-import -p 'test_parser.py'
+          node --test qa/test_catalog18_ui.cjs
+      - name: Restore the latest complete dated catalogue
+        run: python scripts/collect-catalog18.py --deployed https://big-arch.github.io/TOHKO/ --restore-only
+      - name: Refresh official USD reference rate
+        continue-on-error: true
+        run: python scripts/update-exchange-rate.py --deployed
       - name: Refresh public videos
         run: python scripts/update-videos.py --deployed
       - name: Refresh fashion headlines
@@ -65,10 +75,13 @@ jobs:
         run: echo '::warning::AI stage unavailable; publishing ready articles and retaining pending discoveries for retry.'
       - name: Build news and packaging pages
         run: |
+          python scripts/build-catalog-links.py
+          python scripts/build-catalog.py
           python scripts/build-packaging.py
           python scripts/build-videos.py
           python scripts/build-style-photos.py
           python scripts/build-home-news.py
+          python scripts/link-catalog.py
           python scripts/build-assistant.py --inject
       - name: Check local links and JavaScript
         run: |
@@ -91,16 +104,17 @@ jobs:
       - uses: actions/checkout@v6
         with:
           ref: main
+          fetch-depth: 0
       - name: Check recovery snapshot interval
         id: due
         run: |
-          age=$(( $(date +%s) - $(git log -1 --format=%ct) ))
+          age=$(( $(date +%s) - $(git log -1 --format=%ct -- tights-guide/data/news.json tights-guide/data/videos.json tights-guide/data/video-feed-state.json) ))
           if [ "$age" -ge 604800 ]; then echo 'save=true' >> "$GITHUB_OUTPUT"; fi
       - name: Preserve published feed history
         if: ${{ steps.due.outputs.save == 'true' }}
         run: |
           python scripts/save-published-snapshot.py
-          git add tights-guide/data/news.json tights-guide/data/videos.json tights-guide/data/video-feed-state.json tights-guide/assets/videos-new
+          git add tights-guide/data/news.json tights-guide/data/videos.json tights-guide/data/video-feed-state.json tights-guide/assets/videos-new tights-guide/data/catalog.json tights-guide/data/exchange-rate.json tights-guide/assets/catalog
           if ! git diff --cached --quiet; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'

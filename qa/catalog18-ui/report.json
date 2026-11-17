@@ -1,0 +1,156 @@
+{
+  "fixture": false,
+  "models": 1565,
+  "brands": 83,
+  "viewports": [
+    {
+      "viewport": 320,
+      "document": 320,
+      "columns": 2,
+      "directoryOpen": false,
+      "imageFit": "contain"
+    },
+    {
+      "viewport": 390,
+      "document": 390,
+      "columns": 2,
+      "directoryOpen": false,
+      "imageFit": "contain"
+    },
+    {
+      "viewport": 768,
+      "document": 768,
+      "columns": 3,
+      "directoryOpen": false,
+      "imageFit": "contain"
+    },
+    {
+      "viewport": 1440,
+      "document": 1440,
+      "columns": 4,
+      "directoryOpen": true,
+      "imageFit": "contain"
+    }
+  ],
+  "checks": [
+    "48-card initial DOM, all source brands and meaningful counts",
+    "320/390/768/1440 layout, no horizontal overflow, contained images",
+    "load-more adds at most 48 and focuses the first new card",
+    "global ascending/descending price sort crosses brands",
+    "combined filters, URL reload, empty result and reset",
+    "unknown prices remain unknown with no fake USD",
+    "dialog title/source, keyboard wrap, Escape, focus restoration",
+    "product deep link opens even outside the first rendered page",
+    "malformed/future exchange data leaves functioning RUB catalogue",
+    "data loading failure retains useful SSR cards and seller links",
+    "no-JavaScript initial catalogue and factual subset explanation",
+    "sidebar counts explicitly refer to Loretta; SSR and JS missing-photo labels say Photo temporarily unavailable"
+  ],
+  "errors": [],
+  "integration": {
+    "matches": 357,
+    "checks": [
+      "static first 48 and hydrated default order agree for real Latin/Cyrillic brands",
+      "new catalogue link appears once in every shared navigation; mobile menu and active page work at all four widths",
+      "every actual archive match renders the same RUB/USD/date as its catalogue model; unmatched and unknown prices stay absent",
+      "real known/unknown/long-title archive links open the exact product and return to its linked archive entry; image and price source links remain distinct",
+      "long real model name, price and sources fit archive details at 320/390/768/1440",
+      "Aristoc, Charnos, Platino and Pearl & Poseidon: correct story text, dates from data, sources, captions, decoded brand photos, nested viewer and Escape focus restoration"
+    ],
+    "errors": [],
+    "browserWarnings": [
+      {
+        "url": "http://127.0.0.1:58847/catalog.html",
+        "message": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "stack": ""
+      },
+      {
+        "url": "http://127.0.0.1:58847/catalog.html",
+        "message": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "stack": ""
+      },
+      {
+        "url": "http://127.0.0.1:58847/catalog.html",
+        "message": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "stack": ""
+      },
+      {
+        "url": "http://127.0.0.1:58847/catalog.html?product=loretta-210777",
+        "message": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "stack": ""
+      },
+      {
+        "url": "http://127.0.0.1:58847/packaging.html?pack=pkg-681dde1271",
+        "message": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "stack": ""
+      },
+      {
+        "url": "http://127.0.0.1:58847/catalog.html?product=loretta-254216",
+        "message": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "stack": ""
+      }
+    ],
+    "archiveCardsChecked": 596,
+    "baselineBrowserMessages": [
+      {
+        "url": "http://127.0.0.1:58847/brands.html",
+        "message": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "stack": ""
+      }
+    ],
+    "navigationPages": 29,
+    "knownPrices": 342,
+    "unknownPrices": 15,
+    "brandStories": [
+      {
+        "brand": "Aristoc",
+        "archivePackages": 38,
+        "heading": "История Aristoc",
+        "paragraphs": 2,
+        "sources": 3,
+        "photoDecoded": true,
+        "nestedViewerFocusRestored": true
+      },
+      {
+        "brand": "Charnos",
+        "archivePackages": 20,
+        "heading": "История Charnos",
+        "paragraphs": 1,
+        "sources": 2,
+        "photoDecoded": true,
+        "nestedViewerFocusRestored": true
+      },
+      {
+        "brand": "Platino",
+        "archivePackages": 20,
+        "heading": "О бренде Platino",
+        "paragraphs": 1,
+        "sources": 3,
+        "photoDecoded": true,
+        "nestedViewerFocusRestored": true
+      },
+      {
+        "brand": "Pearl & Poseidon",
+        "archivePackages": 32,
+        "heading": "О бренде Pearl & Poseidon",
+        "paragraphs": 1,
+        "sources": 3,
+        "photoDecoded": true,
+        "nestedViewerFocusRestored": true
+      }
+    ],
+    "archivePackages": 1041,
+    "archiveBrands": 39
+  },
+  "checkedAt": "2026-11-17T14:27:03.014351+00:00",
+  "catalogSnapshot": {
+    "complete": true,
+    "categories": 66,
+    "categoriesComplete": 66,
+    "images": 1465,
+    "imageFailures": 0,
+    "imagesAwaitingReview": 100,
+    "sha256": "1115bfe20133209bd63fa97631ffb80d8d3fbe236924ed76c4a0020a010731cc"
+  },
+  "decodedCatalogueFiles": 2930
+}

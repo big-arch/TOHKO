@@ -364,6 +364,34 @@ class ImageRefreshTests(unittest.TestCase):
 
 
 class DeploymentSafetyTests(unittest.TestCase):
+    def test_restore_prefers_local_enrichment_at_equal_timestamp_but_newer_remote_wins(self):
+        with tempfile.TemporaryDirectory() as directory:
+            site = Path(directory)
+            target = site / "data/catalog.json"
+            target.parent.mkdir(parents=True)
+            image = "assets/catalog/loretta-123.webp"
+            thumbnail = "assets/catalog/loretta-123-320.webp"
+            Image, _ = catalog.pillow_runtime()
+            for relative in (image, thumbnail):
+                path = site / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                Image.new("RGB", (24, 32), "red").save(path, "WEBP")
+            local = {"version": 1, "source": {"id": "loretta"}, "checkedAt": STAMP, "coverage": {"complete": True, "uniqueProducts": 1}, "items": [{"id": "loretta-123", "brand": "Platino", "title": "Platino Test", "source": URL + "/platino_test", "priceRub": 800, "image": image, "thumbnail": thumbnail, "imageNeedsReview": False, "packagingId": "pkg-loretta-123"}]}
+            remote = json.loads(json.dumps(local))
+            remote["items"][0].update({"image": None, "thumbnail": None, "imageNeedsReview": True, "packagingId": None, "priceRub": 900})
+            for remote_stamp, expected in (("2026-11-16T00:00:00Z", local), (STAMP, local), ("2026-11-18T00:00:00Z", remote)):
+                with self.subTest(remote_checked_at=remote_stamp):
+                    remote["checkedAt"] = remote_stamp
+                    target.write_text(json.dumps(local), encoding="utf-8")
+                    response = io.BytesIO(json.dumps(remote).encode("utf-8"))
+                    response.url = "https://example.org/tights-guide/data/catalog.json"
+                    with patch.object(catalog, "SITE", site), patch.object(catalog, "urlopen", return_value=response) as request:
+                        chosen, fetched = catalog.restore_deployed("https://example.org/tights-guide/", target)
+                    self.assertEqual(chosen, expected)
+                    self.assertEqual(json.loads(target.read_text("utf-8")), expected)
+                    self.assertEqual(fetched, 0)
+                    request.assert_called_once()
+
     def test_restore_only_does_not_create_source_client_even_for_old_snapshot(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

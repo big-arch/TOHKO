@@ -1,0 +1,47 @@
+{
+  "checked": "2026-11-17",
+  "brand": "Aristoc",
+  "foundedFieldMeaning": "1924 — год регистрации товарного знака; предшествующая фабрика основана в 1919 году.",
+  "historySource": {
+    "title": "Derbyshire Record Office — архив Courtaulds, фонд D6996",
+    "url": "https://calmview.derbyshire.gov.uk/calmview/Record.aspx?src=CalmView.Catalog&id=D6996"
+  },
+  "confirmedHistory": {
+    "factoryOpened": 1919,
+    "location": "Langley Mill, Derbyshire",
+    "trademarkRegistered": 1924,
+    "brandPromotionStarted": 1926,
+    "companyRenamed": 1934
+  },
+  "currentStatus": {
+    "ceasedTradingDate": "2026-05-14",
+    "enteredLiquidationDate": "2026-05-14",
+    "source": "https://www.aristoc.com/",
+    "note": "Подтверждено текущим официальным уведомлением; действующее производство не утверждается."
+  },
+  "photo": {
+    "source": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/klassika-13-40-den/aristoc_asl8",
+    "imageSource": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_1078312.jpg",
+    "model": "ASL8",
+    "den": 30,
+    "reusedLocalCatalogAsset": "assets/catalog/loretta-94045.webp",
+    "classification": "catalog-model-photo",
+    "visuallyChecked": true,
+    "noExplicitNudity": true,
+    "brandingRemoved": false,
+    "mainSha256": "c7bb5fb2bdf87a098b2d96cbbd5d2ffd7e96a6691a611f44df2c9d4c000ee1dc",
+    "width": 600,
+    "height": 773
+  },
+  "validation": {
+    "storyJsonValid": true,
+    "imageFilesPresent": true,
+    "mainPhotoBytes": 18722,
+    "thumbnailBytes": 12670
+  },
+  "notes": [
+    "Описание истории у UK Tights не использовано; этот источник подтверждает только ассортимент.",
+    "Из трёх уже скачанных фотографий Лоретты выбран ASL8 на тёплом коричневом фоне.",
+    "Общие approved-records.json и brand-stories.json не изменены."
+  ]
+}

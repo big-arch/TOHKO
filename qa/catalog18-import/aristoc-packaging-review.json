@@ -1,0 +1,56 @@
+{
+  "reviewedAt": "2026-11-17T14:06:53.985739+00:00",
+  "catalogueModels": 44,
+  "approved": 38,
+  "excludedPhotos": [
+    {
+      "catalogId": "loretta-20313",
+      "model": "Aag6",
+      "image": "assets/catalog/loretta-20313.webp",
+      "source": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/kashemirovye/aristoc_aag6",
+      "reason": "Обычная фотография изделия на модели; печатный вкладыш или упаковка не показаны."
+    },
+    {
+      "catalogId": "loretta-94047",
+      "model": "Asl1",
+      "image": "assets/catalog/loretta-94047.webp",
+      "source": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/cvetnye/aristoc_asl1",
+      "reason": "Обычная фотография изделия на модели; печатный вкладыш или упаковка не показаны."
+    },
+    {
+      "catalogId": "loretta-94045",
+      "model": "Asl8",
+      "image": "assets/catalog/loretta-94045.webp",
+      "source": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/klassika-13-40-den/aristoc_asl8",
+      "reason": "Обычная фотография изделия на модели; печатный вкладыш или упаковка не показаны."
+    },
+    {
+      "catalogId": "loretta-260534",
+      "model": "Atj3",
+      "image": "assets/catalog/loretta-260534.webp",
+      "source": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/kruzhevnye/aristoc_atj3",
+      "reason": "Обычная фотография изделия на модели; печатный вкладыш или упаковка не показаны."
+    },
+    {
+      "catalogId": "loretta-148815",
+      "model": "Auj4",
+      "image": "assets/catalog/loretta-148815.webp",
+      "source": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-fantaziya/geometricheckiy-risunok/aristoc_auj4",
+      "reason": "Обычная фотография изделия на модели; печатный вкладыш или упаковка не показаны."
+    },
+    {
+      "catalogId": "loretta-306361",
+      "model": "Ayr5 Polka Dot",
+      "image": "assets/catalog/loretta-306361.webp",
+      "source": "https://xn--80ajrmkna.xn--p1ai/catalog/chulki-na-silikone/s-risunkom/aristoc_ayr5-polka-dot",
+      "reason": "Обычная фотография изделия на модели; печатный вкладыш или упаковка не показаны."
+    }
+  ],
+  "duplicatesAlreadyInProduction": [],
+  "duplicateImageHashes": [],
+  "contactSheets": [
+    "contact-aristoc/catalog18-001.jpg",
+    "contact-aristoc/catalog18-002.jpg"
+  ],
+  "productionArchiveChanged": false
+}

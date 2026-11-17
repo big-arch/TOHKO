@@ -10,3 +10,17 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# Public-catalog research bodies/cache stay local; retain maintained QA/evidence.
+qa/catalog18-import/*
+!qa/catalog18-import/test_parser.py
+!qa/catalog18-import/IMPORT-NOTES.md
+!qa/catalog18-import/make_contact_sheets.py
+!qa/catalog18-import/coverage-report.json
+!qa/catalog18-import/initial-images-manifest.json
+!qa/catalog18-import/initial-images-resolved.json
+!qa/catalog18-import/make_initial_image_manifest.py
+!qa/catalog18-import/measure_image_transport.py
+!qa/catalog18-import/network-probe.json
+!qa/catalog18-import/approved-packaging.json
+!qa/catalog18-import/aristoc-packaging-review.json

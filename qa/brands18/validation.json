@@ -1,0 +1,34 @@
+{
+  "packagingCount": 72,
+  "brandCounts": {
+    "Charnos": 20,
+    "Platino": 20,
+    "Pearl & Poseidon": 32
+  },
+  "productKinds": {
+    "колготки": 62,
+    "чулки": 10
+  },
+  "uniqueIds": true,
+  "uniqueTitles": true,
+  "uniqueImageHashes": true,
+  "reviewedInputMatchesRecords": true,
+  "allInputsVisuallyApproved": true,
+  "productionIdCollisions": [],
+  "integratedRecordsUnchanged": 72,
+  "missingAssetPaths": [],
+  "wrongDimensions": [],
+  "unreferencedPackagingAssets": [],
+  "storyCount": 3,
+  "storyPhotoPathsExist": true,
+  "publishedImageFileCount": 150,
+  "publishedImageBytes": 4278652,
+  "checked": "2026-11-17",
+  "notes": [
+    "Все 38 снимков Charnos из UK Tights исключены как обычные фотографии на модели.",
+    "1 модель носков Platino исключена по области запроса.",
+    "Варианты цвета и размера не создают отдельные записи.",
+    "6 дополнительных упаковок Platino из Senorella визуально проверены; коллаж Reductor 538 с чужим вкладышем исключён.",
+    "Дополнительные карточки Elegant Up не дали скачиваемого материала из-за просроченного TLS-сертификата; проверка TLS сохранена."
+  ]
+}

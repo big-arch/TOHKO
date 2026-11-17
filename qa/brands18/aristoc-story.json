@@ -1,0 +1,37 @@
+{
+  "brand": "Aristoc",
+  "slug": "aristoc",
+  "country": "Великобритания",
+  "founded": "1924",
+  "title": "Чулочная традиция Дербишира",
+  "paragraphs": [
+    "История Aristoc связана с чулочной фабрикой A. E. Allen & Co., открытой в 1919 году в Лэнгли-Милл, Дербишир. Название Aristoc зарегистрировали как товарный знак в 1924 году, а активно продвигать его начали в 1926-м. В 1934 году компания получила имя Aristoc. Позднее ассортимент марки объединил прозрачные и плотные колготки, чулки и модели с коррекцией силуэта.",
+    "Согласно уведомлению на официальном сайте, 14 мая 2026 года Aristoc прекратила торговлю и вступила в процедуру ликвидации. Фотографии и упаковки в этом разделе документируют коллекции марки."
+  ],
+  "sources": [
+    {
+      "title": "Derbyshire Record Office — архив Courtaulds, фонд D6996",
+      "url": "https://calmview.derbyshire.gov.uk/calmview/Record.aspx?src=CalmView.Catalog&id=D6996"
+    },
+    {
+      "title": "Aristoc — официальное уведомление о прекращении торговли",
+      "url": "https://www.aristoc.com/"
+    },
+    {
+      "title": "UK Tights — ассортимент Aristoc",
+      "url": "https://www.uktights.com/aristoc"
+    }
+  ],
+  "photo": {
+    "src": "assets/brands18/aristoc.webp",
+    "thumb": "assets/brands18/aristoc-480.webp",
+    "width": 600,
+    "height": 773,
+    "source": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/klassika-13-40-den/aristoc_asl8",
+    "imageSource": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_1078312.jpg",
+    "credit": "Aristoc / Лоретта · карточка модели",
+    "license": "Каталожная фотография из указанного источника. Свободная лицензия не заявлена; права принадлежат правообладателю.",
+    "alt": "Тёмные полупрозрачные колготки Aristoc ASL8 и туфли на каблуках на тёплом коричневом фоне.",
+    "caption": "Aristoc · ASL8, 30 den. Каталожная фотография."
+  }
+}

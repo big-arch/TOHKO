@@ -19,8 +19,9 @@ python -X utf8 qa/catalog18-import/test_parser.py
 
 ## Scope and completeness
 
-The source menu supplies 62 public subcategories: classic tights, patterned
-tights, children's tights, hold-up stockings and suspender stockings. Other
+The import covers four aggregate parent listings plus 62 public subcategories:
+classic tights, patterned tights, children's tights, hold-up stockings and
+suspender stockings (66 source paths in total). Other
 underwear, socks, knee-highs and leggings categories are outside scope. Mixed
 listings are classified from their source facts; unrelated leggings etc. are
 listed in the exclusion report. A nylon accessory is never silently relabelled
@@ -32,6 +33,11 @@ actual first two pages, the collector can read the final public page directly.
 Every category must have exactly the advertised unique product count, and the
 report records every fetched URL, date, count and skipped redundant page count.
 A standard noncumulative listing is followed page by page.
+
+If the advertised counter changes during a category crawl, only that category
+is retried once with fresh HTML bypassing its cache. The previous discrepancy
+is retained in the audit report. A second discrepancy remains a failure; counts
+are never silently accepted or adjusted to fit collected records.
 
 Duplicates are merged by source SKU, internal product ID and product URL slug.
 Category memberships remain attached to one product. Prices, old prices and
@@ -127,3 +133,22 @@ and Windows curl requests intermittently failed during TLS handshake, before
 receiving HTML. Strict TLS 1.2 did not resolve the local failure. Network settings
 were not changed. The incomplete local crawl is not a complete published import;
 a full successful run in a working environment is required.
+
+## Completed source snapshot
+
+Run 44100260248 completed on 2026-11-17 at 14:22 UTC. All 66 listings
+(62 subdivisions and 4 parent lists) reconcile with the source counters:
+1,565 distinct models, 83 brands, 1,267 prices and no unresolved brands,
+duplicate identifiers or failed URLs. The 1,465 publishable photographs and
+their thumbnails decode successfully (2,930 local WebP files); 100 source
+photographs await review. No image download failed in the completed run.
+
+The daily process uses curl with a minimum one-second request interval and
+reuses unchanged valid photographs. Restore-only publication compares source
+check dates; a valid local seed wins ties so a later photo review or completed
+download is not reverted by an older publication with the same fact date.
+
+Thirty-eight Aristoc packaging photographs were reviewed separately and added
+to the packaging archive. Six ordinary Aristoc model photographs were excluded
+from that count. See `approved-packaging.json` and
+`aristoc-packaging-review.json` for the decisions and source attribution.

@@ -1,0 +1,36 @@
+{
+  "checked": "2026-11-17",
+  "spelling": {
+    "requested": "Charous",
+    "confirmedBrand": "Charnos",
+    "resolution": "Вероятная опечатка, не подтверждённое второе название. Отдельная чулочная марка Charous не найдена.",
+    "source": "https://charnoshosiery.co.uk/"
+  },
+  "charnos": {
+    "founded": "1936",
+    "source": "https://charnoshosiery.co.uk/",
+    "primaryEvidence": "Официальный сайт: since 1936; та же дата читается на упаковках."
+  },
+  "platino": {
+    "founded": null,
+    "reason": "Лоретта и Hosieree указывают 1921; UK Tights и The Tight Spot — 1927. Первичный источник с датой не подтверждён. Старый официальный домен platino.com.es теперь содержит посторонний сайт казино и не используется как источник.",
+    "sources": [
+      "https://xn--80ajrmkna.xn--p1ai/brand/platino",
+      "https://www.hosieree.com/brands/Platino.html",
+      "https://www.uktights.com/platino",
+      "https://www.thetightspot.com/brand/platino-tights"
+    ]
+  },
+  "pearl-poseidon": {
+    "founded": null,
+    "source": "https://pearl-poseidon.com/about-us/",
+    "primaryEvidence": "About Us описывает ассортимент; футер указывает Weston, Florida, USA. Год основания отсутствует."
+  },
+  "thor": {
+    "classification": "мужской нейлоновый аксессуар",
+    "packagingAdded": false,
+    "den": null,
+    "source": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/muzhskie-kolgotki/pearl-poseidon_thor",
+    "note": "Не включён в архив колготок; тип изделия не определяется по разделу магазина. Цену этот набор не экспортирует."
+  }
+}

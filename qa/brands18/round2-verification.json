@@ -1,0 +1,14 @@
+{
+  "checked": "2026-11-17",
+  "added": 3,
+  "oldRecordsUnchanged": 69,
+  "oldPackagingAssetHashesUnchanged": 138,
+  "newIds": [
+    "pkg-6f2d3b98f7",
+    "pkg-72a39b2375",
+    "pkg-02a54f5d6e"
+  ],
+  "source": "Strumpfoase · действующие публичные карточки моделей",
+  "visualContactSheet": "qa/brands18/approved-contact-04.jpg",
+  "note": "Прежние production-записи не изменены. Три дополнения доступны отдельно в new-platino-records.json."
+}

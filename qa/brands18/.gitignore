@@ -1,0 +1,7 @@
+# Transient public-source research; published assets and review manifests remain.
+pages/
+candidates/
+*-result.json
+charnos-products.json
+*-candidates-contact-*.jpg
+history-candidates-contact-*.jpg

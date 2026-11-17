@@ -9,6 +9,23 @@
   const looks=window.TONKO_PACKAGE_LOOKS?.items||[];
   const exactKey=v=>normal(String(v||'')).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zа-я0-9]+/g,' ').trim();
   const stories=new Map((window.TONKO_BRAND_STORIES?.items||[]).map(story=>[exactKey(story.brand),story]));
+  const priceIndex=window.TONKO_CATALOG_PRICES||{matches:{},brands:[]},priceHelpers=window.TONKO_CATALOG_HELPERS;
+  const rate=window.TONKO_EXCHANGE_RATE;
+  function priceMarkup(r){
+    const offer=priceIndex.matches?.[r.id];
+    if(!offer||!priceHelpers?.validPrice(offer.priceRub))return '';
+    const price=priceHelpers.priceText(offer,rate),state=priceHelpers.freshness(offer.checkedAt);
+    const stamp=new Date(offer.checkedAt),day=state!=='unknown'&&Number.isFinite(stamp.getTime())?new Intl.DateTimeFormat('ru-RU',{timeZone:'Europe/Moscow'}).format(stamp):'дата не указана';
+    return `<div class="pack-retail-price"><p><strong>${esc(price.rub)}</strong>${price.usd?` <span>${esc(price.usd)}</span>`:''}</p><small>Лоретта · ${esc(day)}${state==='stale'?' · цена требует обновления':''}${offer.availability==='out_of_stock'?' · нет в наличии':''}</small></div>`;
+  }
+  function renderPrice(r){
+    const target=$('pack-retail');if(!target)return;
+    const offer=priceIndex.matches?.[r.id],brand=priceIndex.brands.find(b=>exactKey(b)===exactKey(r.brand));
+    const query=new URLSearchParams(offer?{product:offer.catalogId}:brand?{brand}:{q:r.brand});
+    target.innerHTML=priceMarkup(r)+`<a href="catalog.html?${esc(query.toString())}">${offer?'Модель, цена и наличие':brand?'Модели бренда и цены':'Найти модель в каталоге'} →</a>`;
+    if(offer?.source?.startsWith('https://'))target.insertAdjacentHTML('beforeend',`<a class="pack-price-source" href="${esc(offer.source)}" target="_blank" rel="noopener noreferrer">Цена у «Лоретты» ↗</a>`);
+    if(offer)target.insertAdjacentHTML('beforeend','<p class="pack-price-note">Цена модели у продавца. Цвет, размер и выпуск упаковки могут отличаться. Доллары — справочный пересчёт по курсу Банка России.</p>');
+  }
   const photoDialog=$('pack-photo-dialog');
   function keepDialogFocus(e,modal){if(e.key!=='Tab')return;const controls=[...modal.querySelectorAll('button:not([disabled]),a[href],summary,input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>{const closed=el.closest('details:not([open])');return el.getClientRects().length&&(!closed||closed.querySelector('summary')?.contains(el));});if(!controls.length)return;const first=controls[0],last=controls[controls.length-1];if(e.shiftKey&&(document.activeElement===first||!modal.contains(document.activeElement))){e.preventDefault();last.focus();}else if(!e.shiftKey&&(document.activeElement===last||!modal.contains(document.activeElement))){e.preventDefault();first.focus();}}
   function findLooks(r){return looks.find(x=>Array.isArray(x.packageIds)&&x.packageIds.includes(r.id)&&exactKey(x.exactMatch?.brand)===exactKey(r.brand)&&x.exactMatch?.den===r.den);}
@@ -16,7 +33,7 @@
     const story=stories.get(exactKey(r.brand)),section=$('pack-brand-story');
     section.hidden=!story;section.dataset.brand=story?.brand||'';brandPhoto=null;
     if(!story){$('pack-brand-photo').removeAttribute('src');return;}
-    $('pack-brand-story-title').textContent='История '+story.brand;
+    $('pack-brand-story-title').textContent=(story.founded?'История ':'О бренде ')+story.brand;
     $('pack-brand-story-meta').textContent=[story.country,story.founded].filter(Boolean).join(' · ');
     $('pack-brand-story-meta').hidden=!$('pack-brand-story-meta').textContent;
     $('pack-brand-story-subtitle').textContent=story.title;
@@ -35,6 +52,7 @@
     const matched=findLooks(r),kind=r.productKind||'колготки';
     $('pack-facts').innerHTML=`<div><dt>Тип изделия</dt><dd>${esc(kind)}</dd></div><div><dt>DEN в названии</dt><dd>${r.den===null?'Не указано':esc(r.den)+' DEN'}</dd></div>`;
     renderStory(r);
+    renderPrice(r);
     activePhotos=matched?.photos?.length?matched.photos.map(p=>({...p,matchType:'exact'})):[];
     document.querySelector('.pack-looks').hidden=!activePhotos.length;
     $('pack-looks-title').textContent=matched?'На модели: '+matched.model:'';
@@ -49,7 +67,7 @@
   if(rows.some(r=>r.brand===params.get('brand')))$('pack-brand').value=params.get('brand');
   if(['thin','medium','dense','unknown'].includes(params.get('den')))$('pack-den').value=params.get('den');
   function url(){const u=new URL(location.href);for(const [k,v] of Object.entries({q:$('pack-search').value.trim(),brand:$('pack-brand').value,den:$('pack-den').value})){if(v&&v!=='all')u.searchParams.set(k,v);else u.searchParams.delete(k);}history.replaceState(null,'',u);}
-  function card(r){return `<article class="pack-card"><a class="pack-open" href="${esc(r.image)}" data-pack="${esc(r.id)}" aria-label="Рассмотреть упаковку: ${esc(r.title)}"><img src="${esc(r.thumbnail)}" alt="Упаковка ${esc(r.title)}" width="${r.width}" height="${r.height}" loading="lazy" decoding="async"></a><h3>${esc(r.title)}</h3></article>`;}
+  function card(r){return `<article class="pack-card"><a class="pack-open" href="${esc(r.image)}" data-pack="${esc(r.id)}" aria-label="Рассмотреть упаковку: ${esc(r.title)}"><img src="${esc(r.thumbnail)}" alt="Упаковка ${esc(r.title)}" width="${r.width}" height="${r.height}" loading="lazy" decoding="async"></a><h3>${esc(r.title)}</h3>${priceMarkup(r)}</article>`;}
   function brandUrl(brand){const u=new URL(location.href);u.searchParams.delete('pack');if(brand==='all')u.searchParams.delete('brand');else u.searchParams.set('brand',brand);u.hash='package-archive';return u.pathname+u.search+u.hash;}
   function render(update=true){
     const q=normal($('pack-search').value.trim()),brand=$('pack-brand').value,den=$('pack-den').value;
