@@ -84,6 +84,12 @@ class CurlTransportTests(unittest.TestCase):
 
 
 class ParserTests(unittest.TestCase):
+    def test_named_cyrillic_brands_have_distinct_source_based_slugs(self):
+        inteks = catalog.brand_slug("Интекс", catalog.BASE + "catalog/kolgotki-klassika/dlya-beremennyh/inteks_ikb-1r1k")
+        hoh = catalog.brand_slug("ХОХ", catalog.BASE + "catalog/detskoe/kolgotki/hoh_dk-1311")
+        self.assertEqual((inteks, hoh), ("inteks", "hoh"))
+        self.assertNotEqual(inteks, hoh)
+
     def test_discovery_includes_four_parent_listings_and_only_childrens_tights(self):
         html = '<a href="/catalog/kolgotki-klassika/tonkie">Тонкие</a><a href="/catalog/detskoe/kolgotki">Колготки</a><a href="/catalog/detskoe/noski">Носки</a>'
         categories = catalog.discover_categories(catalog.TreeParser(html).root)
@@ -283,6 +289,19 @@ class ImageRefreshTests(unittest.TestCase):
         self.assertIsNone(error)
         self.assertEqual(row["image"], self.previous["image"])
         self.assertEqual((row["width"], row["height"]), (24, 32))
+
+    def test_reviewed_source_exclusion_keeps_product_and_price_but_clears_photo(self):
+        row = {**self.item(), "imageSource": catalog.BASE + "pics/cache/985_v_1267492.jpg", "priceRub": 800, "model": "0108 High Pantyhose", "image": self.previous["image"], "thumbnail": self.previous["thumbnail"]}
+        class NoNetwork:
+            def get(self, *args, **kwargs):
+                raise AssertionError("Excluded source photograph must not be fetched")
+        result, error = catalog.optimize_image(NoNetwork(), row, self.previous)
+        self.assertIsNone(error)
+        self.assertEqual(result["priceRub"], 800)
+        self.assertEqual(result["model"], "0108 High Pantyhose")
+        self.assertTrue(result["imageNeedsReview"])
+        self.assertIsNone(result["image"])
+        self.assertIsNone(result["thumbnail"])
 
     def test_changed_source_gets_new_file_and_new_photo(self):
         buffer = io.BytesIO()

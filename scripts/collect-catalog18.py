@@ -48,6 +48,11 @@ GROUPS = {
     "detskoe": "Детское",
 }
 CANONICAL_BRANDS = {"omsa": "OMSA", "oroblu": "Oroblù", "falke": "FALKE", "dim": "DIM"}
+# Explicit visual review, independent of product metadata/price collection.
+# Keep these product records; never substitute a different model's photograph.
+SOURCE_IMAGE_EXCLUSIONS = {
+    BASE + "pics/cache/985_v_1267492.jpg": "Visual review: explicit full-body sheer photograph with a genital censor mark; unsuitable for this catalogue's product photography.",
+}
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 
 
@@ -98,6 +103,25 @@ def normalized(value):
 
 def slug(value):
     return re.sub(r"[^a-z0-9]+", "-", normalized(value)).strip("-")
+
+
+def brand_slug(brand, source):
+    if not brand:
+        return "unknown"
+    value = slug(brand)
+    if value:
+        return value
+    # Cyrillic brands already have the shop's ASCII URL prefix (Интекс/inteks,
+    # ХОХ/hoh). Do not merge distinct named brands under one 'unknown' slug.
+    prefix = source.rsplit("/", 1)[-1].split("_", 1)[0]
+    return prefix if re.fullmatch(r"[a-z0-9][a-z0-9-]*", prefix) else "brand-" + hashlib.sha256(brand.encode()).hexdigest()[:12]
+
+
+def apply_image_review(item):
+    reason = SOURCE_IMAGE_EXCLUSIONS.get(item.get("imageSource"))
+    if reason:
+        item.update({"imageNeedsReview": True, "imageReviewReason": reason, "image": None, "thumbnail": None, "width": 0, "height": 0, "photos": []})
+    return item
 
 
 def canonical_url(value, base=BASE):
@@ -526,7 +550,8 @@ def merge_records(results, brands):
         if not brand:
             unknown_brands.append({"id": record["id"], "title": record["title"], "source": record["source"]})
         record.update(classification)
-        record.update({"brand": brand or "Не указан", "brandSlug": slug(brand) or "unknown", "model": model, "priceCurrency": "RUB", "sourceName": "Лоретта", "image": None, "thumbnail": None, "width": 0, "height": 0, "photos": [], "packageId": None})
+        record.update({"brand": brand or "Не указан", "brandSlug": brand_slug(brand, record["source"]), "model": model, "priceCurrency": "RUB", "sourceName": "Лоретта", "image": None, "thumbnail": None, "width": 0, "height": 0, "photos": [], "packageId": None})
+        apply_image_review(record)
         facts = [record["productKind"].capitalize()]
         if record["den"]:
             facts.append(f"{record['den']} DEN")
@@ -561,6 +586,7 @@ def existing_image_size(path, thumb, Image):
 
 
 def optimize_image(client, item, previous=None):
+    apply_image_review(item)
     if not item["imageSource"] or item["imageNeedsReview"]:
         return item, None
     if not re.fullmatch(r"loretta-(?:[0-9]+|url-[a-f0-9]{12})", item["id"]):
@@ -780,8 +806,11 @@ def main(argv=None):
     parser.add_argument("--tls12", action="store_true", help="Limit TLS to 1.2 for incompatible local transports; certificates are still verified")
     parser.add_argument("--transport", choices=("urllib", "curl"), default="urllib", help="Public-source HTTP transport for both HTML and images; curl keeps certificate verification enabled")
     parser.add_argument("--workers", type=int, default=4, choices=range(1, 5))
+    parser.add_argument("--request-interval", type=float, default=0.30, help="Minimum seconds between public-source request starts (0.3 to 5)")
     parser.add_argument("--cache", type=Path, default=QA / "http-cache")
     args = parser.parse_args(argv)
+    if not math.isfinite(args.request_interval) or not 0.3 <= args.request_interval <= 5:
+        parser.error("--request-interval must be between 0.3 and 5 seconds")
     if args.restore_only and not args.deployed:
         parser.error("--restore-only requires --deployed")
     if args.restore_only and args.initial_image_manifest:
@@ -821,7 +850,7 @@ def main(argv=None):
         if catalog_is_recent(previous_data):
             print(f"Complete catalogue already checked at {previous_data['checkedAt']}; daily refresh skipped", flush=True)
             return 0
-    client = PublicClient(args.cache, refresh=args.refresh, offline=args.offline, tls12=args.tls12, transport=args.transport)
+    client = PublicClient(args.cache, refresh=args.refresh, offline=args.offline, tls12=args.tls12, transport=args.transport, delay=args.request_interval)
     report = {"startedAt": started, "source": BASE, "failedUrls": []}
     try:
         body, meta = client.get(BASE)

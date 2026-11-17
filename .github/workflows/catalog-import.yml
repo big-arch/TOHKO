@@ -11,7 +11,7 @@ on:
 permissions:
   contents: write
 env:
-  CATALOG_IMAGES: 'false'
+  CATALOG_IMAGES: 'true'
 concurrency:
   group: loretta-review-import
   cancel-in-progress: false
@@ -55,7 +55,7 @@ jobs:
         id: collect
         if: steps.listings.outcome == 'success' && env.CATALOG_IMAGES == 'true'
         continue-on-error: true
-        run: timeout --signal=INT 70m python -X utf8 scripts/collect-catalog18.py --workers 4 --resume
+        run: timeout --signal=INT 70m python -X utf8 scripts/collect-catalog18.py --workers 4 --resume --transport curl --request-interval 1
       - name: Preserve resumable cache after any collection outcome
         if: always()
         uses: actions/cache/save@v5
