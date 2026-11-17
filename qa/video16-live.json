@@ -1,0 +1,2385 @@
+{
+  "checkedAt": "2026-11-17T10:48:33+00:00",
+  "site": "https://big-arch.github.io/TOHKO/",
+  "requests": {
+    "videos.html": [
+      {
+        "httpStatus": 0,
+        "curlExit": 28
+      },
+      {
+        "httpStatus": 200,
+        "curlExit": 0
+      }
+    ],
+    "data/videos.json": [
+      {
+        "httpStatus": 0,
+        "curlExit": 28
+      },
+      {
+        "httpStatus": 200,
+        "curlExit": 0
+      }
+    ],
+    "data/video-sources.json": [
+      {
+        "httpStatus": 0,
+        "curlExit": 28
+      },
+      {
+        "httpStatus": 200,
+        "curlExit": 0
+      }
+    ],
+    "data/video-feed-state.json": [
+      {
+        "httpStatus": 0,
+        "curlExit": 28
+      },
+      {
+        "httpStatus": 200,
+        "curlExit": 0
+      }
+    ],
+    "data/videos.js": [
+      {
+        "httpStatus": 200,
+        "curlExit": 0
+      }
+    ]
+  },
+  "totalVideos": 101,
+  "uniqueVideos": 101,
+  "sourceCount": 31,
+  "sourceChannels": [
+    {
+      "id": "calzedonia-youtube",
+      "name": "CalzedoniaOfficial",
+      "channelId": "UCoZE4fZMjf0CbZGBlbneNDQ"
+    },
+    {
+      "id": "swedish-journal",
+      "name": "Swedish Stockings",
+      "channelId": null
+    },
+    {
+      "id": "alena-youtube",
+      "name": "Alena Vorontsova",
+      "channelId": "UCsLpMbKgAt3MVJ5V0_8PF8A"
+    },
+    {
+      "id": "style-support-youtube",
+      "name": "Алла Науменко",
+      "channelId": "UCl7L-IHdhnuc04rwt7Rq0gw"
+    },
+    {
+      "id": "jsemotion-youtube",
+      "name": "JsEmotion BLOG",
+      "channelId": "UC2cKk1P411BrWFHigp-G75Q"
+    },
+    {
+      "id": "svetlana-makarova-youtube",
+      "name": "Светлана Макарова",
+      "channelId": "UC1DZTK2DAylpWtucMcZSXOw"
+    },
+    {
+      "id": "anastasia-odels-youtube",
+      "name": "Анастасия Оделс",
+      "channelId": "UCtuUdhlMTAz9dleiMB3v58w"
+    },
+    {
+      "id": "liria-kholdina-youtube",
+      "name": "Лирия Холдина · Dress to Impress",
+      "channelId": "UC-sZ2H9Y6hCYkuHNTf7EpBQ"
+    },
+    {
+      "id": "olga-delevsky-youtube",
+      "name": "Школа стиля Ольги Делевски",
+      "channelId": "UCVL-KVo_ZjQuP8VpwgABisQ"
+    },
+    {
+      "id": "kseniya-shirshova-youtube",
+      "name": "Kseniya Shirshova",
+      "channelId": "UChBKPr6rRi2HY5d92sUxh2A"
+    },
+    {
+      "id": "kerina-wang-youtube",
+      "name": "Kerina Wang",
+      "channelId": "UCa9siXYE9McabZSTOkhnUtg"
+    },
+    {
+      "id": "the-tight-spot-youtube",
+      "name": "TightsTV · The Tight Spot",
+      "channelId": "UCdGZ5AxDylcpE8fW2cwmQBw"
+    },
+    {
+      "id": "layla-fashion-youtube",
+      "name": "Layla Fashion",
+      "channelId": "UCxL5Q1badukzLkDOF7hIuaA"
+    },
+    {
+      "id": "sheertex-youtube",
+      "name": "Sheertex",
+      "channelId": "UCi8Iy9BQyr3caO4mk7zKMnA"
+    },
+    {
+      "id": "glamissima-youtube",
+      "name": "Glamissima",
+      "channelId": "UCpLLCQlTQsN5B7kxp0GuutQ"
+    },
+    {
+      "id": "asmr-fuyu-youtube",
+      "name": "ASMR Fuyu",
+      "channelId": "UC98T-GUCry4ss7GPmqVc5Qg"
+    },
+    {
+      "id": "gentle-whispering-youtube",
+      "name": "Gentle Whispering ASMR",
+      "channelId": "UC6gLlIAnzg7eJ8VuXDCZ_vg"
+    },
+    {
+      "id": "whispersred-asmr-youtube",
+      "name": "WhispersRed ASMR",
+      "channelId": "UC2nyigZS5YNDrCu_pih809w"
+    },
+    {
+      "id": "asmr-cheeks-youtube",
+      "name": "ASMR CHeeks",
+      "channelId": "UCWMhB_iUo7n5b0dkdby1Suw"
+    },
+    {
+      "id": "bolshe-chem-stil-youtube",
+      "name": "Больше чем стиль",
+      "channelId": "UCCuqMOJ5jwGnh-SNQ72LnPw"
+    },
+    {
+      "id": "annika-victoria-youtube",
+      "name": "Annika Victoria",
+      "channelId": "UCqP8HosuK1VRD60wBaEEFtA"
+    },
+    {
+      "id": "tinkerbell-youtube",
+      "name": "Tinkerbell",
+      "channelId": "UC3LmX0VVBcQ35nJgKdLtrQQ"
+    },
+    {
+      "id": "401-money-gang-youtube",
+      "name": "401 Money Gang",
+      "channelId": "UC1W3dsKohMwDR4el0cYLeiQ"
+    },
+    {
+      "id": "samantha-yonge-youtube",
+      "name": "Samantha Yonge",
+      "channelId": "UCt29z9MC_AG1MdPnKM6fOOQ"
+    },
+    {
+      "id": "poppy-attic-youtube",
+      "name": "Poppy Attic",
+      "channelId": "UCSLsvKPINbLUT97CmIUDsDg"
+    },
+    {
+      "id": "dasha-daiz-youtube",
+      "name": "Dasha Daiz",
+      "channelId": "UCXhzA1n1QB-NeRUVeY4Aotg"
+    },
+    {
+      "id": "funkyredfox-youtube",
+      "name": "FunkyRedFox",
+      "channelId": "UC0r2YufaAJBvVfI5P_nwGaA"
+    },
+    {
+      "id": "funhose-studios-youtube",
+      "name": "Funhose Studios",
+      "channelId": "UCH8avm5-L7_hCEijqkFXN2Q"
+    },
+    {
+      "id": "legs-by-layla-youtube",
+      "name": "Legs by Layla",
+      "channelId": "UCaBOu_8GmuCVvhmFzQiQhiA"
+    },
+    {
+      "id": "peyton-kinsly-youtube",
+      "name": "Peyton Kinsly",
+      "channelId": "UCmT-pkVxrRQf7YTnY3DvgBQ"
+    },
+    {
+      "id": "oona-linna-youtube",
+      "name": "OonaLinna",
+      "channelId": "UC2EG9xxty8hileqH3z1ejSQ"
+    }
+  ],
+  "requestedAuthorCounts": {
+    "legslavish": 1,
+    "PoppyAttic": 5,
+    "Dashadaiz": 5,
+    "funkyredfoxx": 6,
+    "FunhoseStudios": 4,
+    "legsbylayla": 3,
+    "OonaLinna": 0,
+    "peytonkinsly": 1
+  },
+  "requestedAuthorVideos": {
+    "legslavish": [
+      "iayHHSfIiKg"
+    ],
+    "PoppyAttic": [
+      "UqqfxflUeKw",
+      "zGJ9utIwP64",
+      "5Z_E3EFnEUM",
+      "If8WhJwiYsM",
+      "RtnZIiNb7mo"
+    ],
+    "Dashadaiz": [
+      "ro2D5SMSwGY",
+      "O3-nEUl9bFs",
+      "eR21-yHN7cA",
+      "N4gBqi18clk",
+      "0JYamXw7jiQ"
+    ],
+    "funkyredfoxx": [
+      "651KEH195ZE",
+      "6tPc0nykS_k",
+      "_d3dURpReBo",
+      "AY72V-uDWnI",
+      "CZYpf9iATaw",
+      "wx3TPfV7mGI"
+    ],
+    "FunhoseStudios": [
+      "r1TSpXpRbhw",
+      "7aAdEV-V2yc",
+      "XcOu7MbJpwA",
+      "V--1r2RysSc"
+    ],
+    "legsbylayla": [
+      "pSNv4IEC1zc",
+      "tYoCQxDY0lI",
+      "b9X7XiQoZ44"
+    ],
+    "OonaLinna": [],
+    "peytonkinsly": [
+      "Y-S28ALI3ZE"
+    ]
+  },
+  "baselineTotal": 64,
+  "baselineMissing": [],
+  "manualSeedTotal": 18,
+  "manualSeedMissing": [],
+  "jsonJsMatch": true,
+  "htmlCards": 101,
+  "htmlSourceVersion": [
+    "4fa6b0053e58",
+    "4fa6b0053e58",
+    "4fa6b0053e58"
+  ],
+  "state": {
+    "version": 1,
+    "checkedAt": "2026-11-17T10:43:50Z",
+    "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+    "added": 5,
+    "autoVideos": 49,
+    "totalVideos": 101,
+    "sources": [
+      {
+        "id": "calzedonia-youtube",
+        "name": "CalzedoniaOfficial",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCoZE4fZMjf0CbZGBlbneNDQ",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 8,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "swedish-journal",
+        "name": "Swedish Stockings",
+        "url": "https://swedishstockings.com/blogs/journal.atom",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 4,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "alena-youtube",
+        "name": "Alena Vorontsova",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsLpMbKgAt3MVJ5V0_8PF8A",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "style-support-youtube",
+        "name": "Алла Науменко",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCl7L-IHdhnuc04rwt7Rq0gw",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "jsemotion-youtube",
+        "name": "JsEmotion BLOG",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC2cKk1P411BrWFHigp-G75Q",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "svetlana-makarova-youtube",
+        "name": "Светлана Макарова",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC1DZTK2DAylpWtucMcZSXOw",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "anastasia-odels-youtube",
+        "name": "Анастасия Оделс",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtuUdhlMTAz9dleiMB3v58w",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "liria-kholdina-youtube",
+        "name": "Лирия Холдина · Dress to Impress",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC-sZ2H9Y6hCYkuHNTf7EpBQ",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "olga-delevsky-youtube",
+        "name": "Школа стиля Ольги Делевски",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVL-KVo_ZjQuP8VpwgABisQ",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "kseniya-shirshova-youtube",
+        "name": "Kseniya Shirshova",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChBKPr6rRi2HY5d92sUxh2A",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "kerina-wang-youtube",
+        "name": "Kerina Wang",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCa9siXYE9McabZSTOkhnUtg",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "the-tight-spot-youtube",
+        "name": "TightsTV · The Tight Spot",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdGZ5AxDylcpE8fW2cwmQBw",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 3,
+        "candidates": 10,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "layla-fashion-youtube",
+        "name": "Layla Fashion",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxL5Q1badukzLkDOF7hIuaA",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 9,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "sheertex-youtube",
+        "name": "Sheertex",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCi8Iy9BQyr3caO4mk7zKMnA",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 2,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "glamissima-youtube",
+        "name": "Glamissima",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCpLLCQlTQsN5B7kxp0GuutQ",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 11,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "asmr-fuyu-youtube",
+        "name": "ASMR Fuyu",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC98T-GUCry4ss7GPmqVc5Qg",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "gentle-whispering-youtube",
+        "name": "Gentle Whispering ASMR",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6gLlIAnzg7eJ8VuXDCZ_vg",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "whispersred-asmr-youtube",
+        "name": "WhispersRed ASMR",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC2nyigZS5YNDrCu_pih809w",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "asmr-cheeks-youtube",
+        "name": "ASMR CHeeks",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWMhB_iUo7n5b0dkdby1Suw",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "bolshe-chem-stil-youtube",
+        "name": "Больше чем стиль",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCCuqMOJ5jwGnh-SNQ72LnPw",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "annika-victoria-youtube",
+        "name": "Annika Victoria",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqP8HosuK1VRD60wBaEEFtA",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "tinkerbell-youtube",
+        "name": "Tinkerbell",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC3LmX0VVBcQ35nJgKdLtrQQ",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 4,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "401-money-gang-youtube",
+        "name": "401 Money Gang",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC1W3dsKohMwDR4el0cYLeiQ",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 1,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "samantha-yonge-youtube",
+        "name": "Samantha Yonge",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCt29z9MC_AG1MdPnKM6fOOQ",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "poppy-attic-youtube",
+        "name": "Poppy Attic",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSLsvKPINbLUT97CmIUDsDg",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 2,
+        "candidates": 5,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "dasha-daiz-youtube",
+        "name": "Dasha Daiz",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXhzA1n1QB-NeRUVeY4Aotg",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 5,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "funkyredfox-youtube",
+        "name": "FunkyRedFox",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC0r2YufaAJBvVfI5P_nwGaA",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 6,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "funhose-studios-youtube",
+        "name": "Funhose Studios",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCH8avm5-L7_hCEijqkFXN2Q",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 3,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "legs-by-layla-youtube",
+        "name": "Legs by Layla",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCaBOu_8GmuCVvhmFzQiQhiA",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 2,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "peyton-kinsly-youtube",
+        "name": "Peyton Kinsly",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmT-pkVxrRQf7YTnY3DvgBQ",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 1,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      },
+      {
+        "id": "oona-linna-youtube",
+        "name": "OonaLinna",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC2EG9xxty8hileqH3z1ejSQ",
+        "lastAttemptAt": "2026-11-17T10:43:50Z",
+        "added": 0,
+        "candidates": 0,
+        "rejected": 0,
+        "status": "ok",
+        "failures": 0,
+        "lastSuccessfulAt": "2026-11-17T10:43:50Z",
+        "nextRetryAt": null,
+        "error": null
+      }
+    ]
+  },
+  "previewPaths": [
+    "assets/video/8ruf9D3Cu4c.jpg",
+    "assets/video/LdfM-MckAf4.jpg",
+    "assets/video/QpApOq2Q0l8.jpg",
+    "assets/video/d2aX0wwfPJM.jpg",
+    "assets/video/efrrmzoIA2E.jpg",
+    "assets/video/eqnpEWFyvHY.jpg",
+    "assets/video/fW5YzXtsF-A.jpg",
+    "assets/video/gkbMiMVNwyg.jpg",
+    "assets/video/pHSBU0U3940.jpg",
+    "assets/video/snag-details.jpg",
+    "assets/video/snag-motion.jpg",
+    "assets/video/tSa26mVW5gM.jpg",
+    "assets/video/vimeo-1100274499.jpg",
+    "assets/video/vimeo-1102160026.jpg",
+    "assets/video/vimeo-1104089394.jpg",
+    "assets/video/vimeo-1225879573.jpg",
+    "assets/video/vimeo-1241278134.jpg",
+    "assets/video/xws7aTD4kPU.jpg",
+    "assets/videos-new/0JYamXw7jiQ.jpg",
+    "assets/videos-new/0QA2LAUewnw.jpg",
+    "assets/videos-new/1ZahZGSaP0Q.jpg",
+    "assets/videos-new/1gQQb9FLn68.jpg",
+    "assets/videos-new/1vZpMMS6KgE.jpg",
+    "assets/videos-new/24E0r4MRLuI.jpg",
+    "assets/videos-new/2TwccBuvZNQ.jpg",
+    "assets/videos-new/3fgWLNO5WMU.jpg",
+    "assets/videos-new/4LXH0iUGcEo.jpg",
+    "assets/videos-new/4UVskXpYz6A.jpg",
+    "assets/videos-new/599LMnGLC9k.jpg",
+    "assets/videos-new/5Z_E3EFnEUM.jpg",
+    "assets/videos-new/651KEH195ZE.jpg",
+    "assets/videos-new/6tPc0nykS_k.jpg",
+    "assets/videos-new/71oeQ7_-2kc.jpg",
+    "assets/videos-new/7aAdEV-V2yc.jpg",
+    "assets/videos-new/7jtfXT577FI.jpg",
+    "assets/videos-new/AY72V-uDWnI.jpg",
+    "assets/videos-new/CQu5pHHkA0I.jpg",
+    "assets/videos-new/CZYpf9iATaw.jpg",
+    "assets/videos-new/G6m9vzvaGoc.jpg",
+    "assets/videos-new/Gu19TMOIV3Y.jpg",
+    "assets/videos-new/I85twyDA_-g.jpg",
+    "assets/videos-new/If8WhJwiYsM.jpg",
+    "assets/videos-new/JGen798BxFw.jpg",
+    "assets/videos-new/JXdUv9eaWcw.jpg",
+    "assets/videos-new/Lhb91O9w5wk.jpg",
+    "assets/videos-new/N4gBqi18clk.jpg",
+    "assets/videos-new/O3-nEUl9bFs.jpg",
+    "assets/videos-new/PtTiFnDl82A.jpg",
+    "assets/videos-new/Qg26g0HwX3A.jpg",
+    "assets/videos-new/RtnZIiNb7mo.jpg",
+    "assets/videos-new/TJjuCZHW4Jg.jpg",
+    "assets/videos-new/TMZK0s6QfTM.jpg",
+    "assets/videos-new/TVDNAIs4N7Q.jpg",
+    "assets/videos-new/TrC0WmhNpX8.jpg",
+    "assets/videos-new/US5fkNbBAx0.jpg",
+    "assets/videos-new/UqqfxflUeKw.jpg",
+    "assets/videos-new/V--1r2RysSc.jpg",
+    "assets/videos-new/Vdst3DHFSNU.jpg",
+    "assets/videos-new/WT13LpkLbjA.jpg",
+    "assets/videos-new/XVqDzhBhYJA.jpg",
+    "assets/videos-new/XcOu7MbJpwA.jpg",
+    "assets/videos-new/Y-S28ALI3ZE.jpg",
+    "assets/videos-new/Zvr-087kIY4.jpg",
+    "assets/videos-new/_d3dURpReBo.jpg",
+    "assets/videos-new/aALKsap8Xaw.jpg",
+    "assets/videos-new/aXD2pTFjuQM.jpg",
+    "assets/videos-new/adj7nIdbrXc.jpg",
+    "assets/videos-new/b9X7XiQoZ44.jpg",
+    "assets/videos-new/eR21-yHN7cA.jpg",
+    "assets/videos-new/eXtxikA6iUU.jpg",
+    "assets/videos-new/fVRy95vrAZ4.jpg",
+    "assets/videos-new/gGl0XpMBEBw.jpg",
+    "assets/videos-new/gKyG7hGU8bc.jpg",
+    "assets/videos-new/iNjv0X3loYA.jpg",
+    "assets/videos-new/iayHHSfIiKg.jpg",
+    "assets/videos-new/jAovDlIn6CA.jpg",
+    "assets/videos-new/l790AoYh1HE.jpg",
+    "assets/videos-new/lcnGZvmn50Q.jpg",
+    "assets/videos-new/mdIk4599HJU.jpg",
+    "assets/videos-new/msRc8NJun90.jpg",
+    "assets/videos-new/nE438wFbqYw.jpg",
+    "assets/videos-new/ofC3R43WRAY.jpg",
+    "assets/videos-new/ot7r6O_SGjw.jpg",
+    "assets/videos-new/ou-hoNoom_4.jpg",
+    "assets/videos-new/pH3K8dYbez8.jpg",
+    "assets/videos-new/pSNv4IEC1zc.jpg",
+    "assets/videos-new/qlPJ4PhnNWo.jpg",
+    "assets/videos-new/r1TSpXpRbhw.jpg",
+    "assets/videos-new/r1y3XHGXom8.jpg",
+    "assets/videos-new/ro2D5SMSwGY.jpg",
+    "assets/videos-new/s5RVt62Scgc.jpg",
+    "assets/videos-new/tYoCQxDY0lI.jpg",
+    "assets/videos-new/uJCjWLIxweM.jpg",
+    "assets/videos-new/vbIbX589Idc.jpg",
+    "assets/videos-new/vimeo-1224898418.jpg",
+    "assets/videos-new/wx3TPfV7mGI.jpg",
+    "assets/videos-new/xGYKQbuzp3c.jpg",
+    "assets/videos-new/yJ_D-39z7eg.jpg",
+    "assets/videos-new/yqTK5Gs0qmA.jpg",
+    "assets/videos-new/zGJ9utIwP64.jpg",
+    "assets/videos-new/zu8UTjg3E4U.jpg"
+  ],
+  "sourceStateCount": 31,
+  "sourceStateStatus": {
+    "ok": 31
+  },
+  "snapshotConsistent": true,
+  "previewCheckCompletedAt": "2026-11-17T10:50:30+00:00",
+  "previewChecks": [
+    {
+      "path": "assets/video/8ruf9D3Cu4c.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 33822,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/LdfM-MckAf4.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 20738,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/QpApOq2Q0l8.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 26941,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/d2aX0wwfPJM.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 7490,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/efrrmzoIA2E.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 8615,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/eqnpEWFyvHY.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 37928,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/fW5YzXtsF-A.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 28362,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/gkbMiMVNwyg.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 23413,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/pHSBU0U3940.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 29022,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/snag-details.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 63892,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/snag-motion.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 35911,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/tSa26mVW5gM.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 28777,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/vimeo-1100274499.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 103071,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/vimeo-1102160026.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 88404,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/vimeo-1104089394.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 102341,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/vimeo-1225879573.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 120600,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/vimeo-1241278134.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 63410,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/video/xws7aTD4kPU.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 33896,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/0JYamXw7jiQ.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 18928,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/0QA2LAUewnw.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 17439,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/1ZahZGSaP0Q.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 13053,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/1gQQb9FLn68.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 13917,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/1vZpMMS6KgE.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 9782,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/24E0r4MRLuI.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 17008,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/2TwccBuvZNQ.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 9416,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/3fgWLNO5WMU.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 20467,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/4LXH0iUGcEo.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 9597,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/4UVskXpYz6A.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 13202,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/599LMnGLC9k.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 26627,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/5Z_E3EFnEUM.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 12463,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/651KEH195ZE.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 20226,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/6tPc0nykS_k.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 19129,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/71oeQ7_-2kc.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 7822,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/7aAdEV-V2yc.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 15236,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/7jtfXT577FI.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 9990,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/AY72V-uDWnI.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 18268,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/CQu5pHHkA0I.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 7725,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/CZYpf9iATaw.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 15895,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/G6m9vzvaGoc.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 30602,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/Gu19TMOIV3Y.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 8655,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/I85twyDA_-g.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 29167,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/If8WhJwiYsM.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 17613,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/JGen798BxFw.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 11426,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/JXdUv9eaWcw.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 5980,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/Lhb91O9w5wk.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 17291,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/N4gBqi18clk.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 29756,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/O3-nEUl9bFs.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 15826,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/PtTiFnDl82A.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 14873,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/Qg26g0HwX3A.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 8665,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/RtnZIiNb7mo.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 9911,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/TJjuCZHW4Jg.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 11361,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/TMZK0s6QfTM.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 9018,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/TVDNAIs4N7Q.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 21053,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/TrC0WmhNpX8.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 29633,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/US5fkNbBAx0.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 15562,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/UqqfxflUeKw.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 11178,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/V--1r2RysSc.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 18016,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/Vdst3DHFSNU.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 11521,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/WT13LpkLbjA.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 11600,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/XVqDzhBhYJA.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 19239,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/XcOu7MbJpwA.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 17279,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/Y-S28ALI3ZE.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 17461,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/Zvr-087kIY4.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 17975,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/_d3dURpReBo.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 15793,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/aALKsap8Xaw.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 15641,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/aXD2pTFjuQM.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 15192,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/adj7nIdbrXc.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 23917,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/b9X7XiQoZ44.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 7771,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/eR21-yHN7cA.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 15266,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/eXtxikA6iUU.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 8552,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/fVRy95vrAZ4.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 35354,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/gGl0XpMBEBw.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 10233,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/gKyG7hGU8bc.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 11996,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/iNjv0X3loYA.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 9203,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/iayHHSfIiKg.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 9260,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/jAovDlIn6CA.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 43659,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/l790AoYh1HE.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 18735,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/lcnGZvmn50Q.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 5350,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/mdIk4599HJU.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 13297,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/msRc8NJun90.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 13316,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/nE438wFbqYw.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 5886,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/ofC3R43WRAY.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 8462,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/ot7r6O_SGjw.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 14096,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/ou-hoNoom_4.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 11341,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/pH3K8dYbez8.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 10620,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/pSNv4IEC1zc.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 8323,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/qlPJ4PhnNWo.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 29454,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/r1TSpXpRbhw.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 15556,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/r1y3XHGXom8.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 9087,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/ro2D5SMSwGY.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 29449,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/s5RVt62Scgc.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 25052,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/tYoCQxDY0lI.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 11289,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/uJCjWLIxweM.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 7351,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/vbIbX589Idc.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 32444,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/vimeo-1224898418.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 61489,
+      "attempts": [
+        {
+          "httpStatus": 0,
+          "curlExit": 28
+        },
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/wx3TPfV7mGI.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 18170,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/xGYKQbuzp3c.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 20881,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/yJ_D-39z7eg.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 26514,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/yqTK5Gs0qmA.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 22267,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/zGJ9utIwP64.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 12588,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    },
+    {
+      "path": "assets/videos-new/zu8UTjg3E4U.jpg",
+      "verified": true,
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "contentLength": 21236,
+      "attempts": [
+        {
+          "httpStatus": 200,
+          "curlExit": 0
+        }
+      ]
+    }
+  ],
+  "previewSummary": {
+    "total": 101,
+    "verified": 101,
+    "http404": [],
+    "unverified": []
+  },
+  "baselineIds": [
+    "snag-motion",
+    "snag-details",
+    "0QA2LAUewnw",
+    "1ZahZGSaP0Q",
+    "aXD2pTFjuQM",
+    "ou-hoNoom_4",
+    "4UVskXpYz6A",
+    "msRc8NJun90",
+    "CQu5pHHkA0I",
+    "iNjv0X3loYA",
+    "Qg26g0HwX3A",
+    "eXtxikA6iUU",
+    "7jtfXT577FI",
+    "gGl0XpMBEBw",
+    "71oeQ7_-2kc",
+    "lcnGZvmn50Q",
+    "vimeo-1224898418",
+    "2TwccBuvZNQ",
+    "uJCjWLIxweM",
+    "pH3K8dYbez8",
+    "vimeo-1100274499",
+    "vimeo-1102160026",
+    "vimeo-1104089394",
+    "vimeo-1225879573",
+    "vimeo-1241278134",
+    "8ruf9D3Cu4c",
+    "gkbMiMVNwyg",
+    "fW5YzXtsF-A",
+    "xws7aTD4kPU",
+    "eqnpEWFyvHY",
+    "pHSBU0U3940",
+    "efrrmzoIA2E",
+    "d2aX0wwfPJM",
+    "LdfM-MckAf4",
+    "QpApOq2Q0l8",
+    "tSa26mVW5gM",
+    "G6m9vzvaGoc",
+    "yqTK5Gs0qmA",
+    "qlPJ4PhnNWo",
+    "yJ_D-39z7eg",
+    "24E0r4MRLuI",
+    "I85twyDA_-g",
+    "TVDNAIs4N7Q",
+    "zu8UTjg3E4U",
+    "adj7nIdbrXc",
+    "jAovDlIn6CA",
+    "vbIbX589Idc",
+    "Lhb91O9w5wk",
+    "s5RVt62Scgc",
+    "599LMnGLC9k",
+    "fVRy95vrAZ4",
+    "l790AoYh1HE",
+    "3fgWLNO5WMU",
+    "Vdst3DHFSNU",
+    "JGen798BxFw",
+    "mdIk4599HJU",
+    "JXdUv9eaWcw",
+    "TJjuCZHW4Jg",
+    "aALKsap8Xaw",
+    "4LXH0iUGcEo",
+    "nE438wFbqYw",
+    "Zvr-087kIY4",
+    "TrC0WmhNpX8",
+    "ofC3R43WRAY"
+  ],
+  "manualSeedIds": [
+    "iayHHSfIiKg",
+    "5Z_E3EFnEUM",
+    "If8WhJwiYsM",
+    "RtnZIiNb7mo",
+    "O3-nEUl9bFs",
+    "eR21-yHN7cA",
+    "N4gBqi18clk",
+    "0JYamXw7jiQ",
+    "AY72V-uDWnI",
+    "CZYpf9iATaw",
+    "wx3TPfV7mGI",
+    "7aAdEV-V2yc",
+    "XcOu7MbJpwA",
+    "V--1r2RysSc",
+    "pSNv4IEC1zc",
+    "tYoCQxDY0lI",
+    "b9X7XiQoZ44",
+    "Y-S28ALI3ZE"
+  ],
+  "sourceIdsUnique": true,
+  "sourceStateIdsMatch": true
+}

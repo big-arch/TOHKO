@@ -23,8 +23,7 @@
 .pack-facts div{min-width:0}
 .pack-facts dt{font-size:11px;color:#7a6b60;margin-bottom:5px}
 .pack-facts dd{margin:0;font-size:14px;line-height:1.5;overflow-wrap:anywhere}
-.pack-styling h3,.pack-looks h3{font-size:18px;font-weight:550;line-height:1.35;margin:0 0 10px}
-.pack-styling{margin:24px 0}.pack-styling p{margin:0}
+.pack-looks h3{font-size:18px;font-weight:550;line-height:1.35;margin:0 0 10px}
 .pack-looks{padding-top:24px;border-top:1px solid #d5cbc1}
 .pack-detail .pack-looks-note{font-size:12px;color:#6b5f55;line-height:1.65;margin:0 0 16px}
 .pack-looks-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}.pack-looks-grid[hidden]{display:none}
@@ -47,3 +46,23 @@
 .pack-photo-dialog :focus-visible{outline:2px solid #834c56;outline-offset:3px}
 @media(max-width:700px){.pack-dialog-layout{grid-template-columns:1fr}.pack-image-area{position:static;height:50dvh;min-height:230px;padding:18px}.pack-detail{padding:22px}.pack-dialog-bar{padding-inline:14px}.pack-photo-info{padding:16px}.pack-photo-stage{padding:10px}.pack-photo-stage img{max-height:60dvh}}
 @media(max-width:360px){.pack-detail{padding:18px}.pack-looks-grid{gap:16px 10px}.pack-looks h3{font-size:17px}.pack-photo-bar{padding:8px}.pack-photo-info h2{font-size:18px}}
+
+/* A brand's own history and imagery replace unrelated gallery suggestions. */
+.pack-brand-story{border-top:1px solid #d5cbc1;padding-top:26px;margin-top:8px}
+.pack-brand-story,.pack-looks{scroll-margin-top:84px}
+.pack-brand-story[hidden],.pack-brand-figure[hidden],.pack-looks[hidden],.pack-photo-navigation[hidden]{display:none}
+.pack-brand-story-heading{margin-bottom:20px}
+.pack-detail .pack-brand-story-heading .portal-eyebrow{font-size:10px;letter-spacing:.13em;margin:0 0 10px;color:#7d4656}
+.pack-brand-story h3{font-size:clamp(24px,2.2vw,32px);line-height:1.18;letter-spacing:-.035em;font-weight:500;margin:0 0 12px;overflow-wrap:anywhere}
+.pack-detail .pack-brand-story-subtitle{font-size:14px;margin:0;color:#75675e;line-height:1.55}
+.pack-brand-figure{margin:0 0 24px}
+.pack-dialog .pack-brand-photo-open{position:relative;display:block;width:100%;padding:0;border:0;background:#ebe5dd;overflow:hidden}
+.pack-brand-photo-open img{display:block;width:100%;height:auto;max-height:640px;object-fit:contain}
+.pack-brand-photo-open span{position:absolute;bottom:12px;right:12px;display:grid;place-items:center;width:38px;height:38px;background:#f8f4ef;color:#342c27;border:1px solid #bfb1a5;border-radius:50%;font-size:20px}
+.pack-brand-figure figcaption{font-size:11px;color:#75675e;line-height:1.55;margin-top:10px}
+.pack-brand-figure figcaption small{display:block;font-size:10px;margin-top:5px}
+.pack-detail .pack-brand-story-text p{font-size:15px;line-height:1.75;margin:0 0 16px}
+.pack-brand-story-sources{border-top:1px solid #d5cbc1;font-size:12px;margin:20px 0 30px;padding-top:12px}
+.pack-brand-story-sources summary{cursor:pointer;min-height:36px;line-height:1.6;list-style-position:inside;display:list-item}
+.pack-brand-story-sources a{overflow-wrap:anywhere}
+@media(max-width:700px){.pack-brand-story h3{font-size:27px}.pack-brand-photo-open img{max-height:660px}.pack-brand-story{padding-top:24px}}

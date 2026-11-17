@@ -1,0 +1,7 @@
+# Temporary source downloads, exploratory sheets and optional PDF runtime stay local.
+*
+!.gitignore
+!approved-*.json
+!import-report.json
+!validation-report.json
+!reviewed-*.jpg

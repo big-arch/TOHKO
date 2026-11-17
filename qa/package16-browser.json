@@ -1,0 +1,73 @@
+{
+  "brands": [
+    "Conte",
+    "Elledue",
+    "FALKE",
+    "Filodoro",
+    "Fiore",
+    "Gabriella",
+    "Gatta",
+    "Giulia",
+    "Giulietta",
+    "Glamour",
+    "Golden Lady",
+    "Incanto",
+    "Innamore",
+    "Le Bourget",
+    "Levante",
+    "Minimi",
+    "OMSA",
+    "ORO",
+    "Omero",
+    "Oroblù",
+    "Philippe Matignon",
+    "Sisi",
+    "Swedish Stockings",
+    "Trasparenze",
+    "Wolford",
+    "Knittex",
+    "Marilyn",
+    "Mona",
+    "Veneziana"
+  ],
+  "exactModels": 30,
+  "packageCount": 810,
+  "unrelatedGalleryRequests": 0,
+  "viewports": [
+    {
+      "width": 320,
+      "overflow": false,
+      "brandPhotoZoom": true,
+      "focusRestored": true
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "brandPhotoZoom": true,
+      "focusRestored": true
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "brandPhotoZoom": true,
+      "focusRestored": true
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "brandPhotoZoom": true,
+      "focusRestored": true
+    }
+  ],
+  "javascriptErrors": [],
+  "url": "Ephemeral localhost HTTP server; external requests blocked",
+  "checkedAt": "2026-11-17T11:07:00Z",
+  "brandFilters": [
+    "Knittex",
+    "Marilyn",
+    "Mona",
+    "Veneziana"
+  ],
+  "explicitStockingType": true,
+  "closedDetailsFocusTrap": true
+}

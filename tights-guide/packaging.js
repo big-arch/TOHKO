@@ -5,38 +5,43 @@
   const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const normal=v=>v.toLocaleLowerCase('ru').replaceAll('ё','е');
   const brands=[...new Set(rows.map(r=>r.brand))];
-  const dialog=$('pack-dialog');let shown=rows,current=0,opener=null,oldOverflow='',activePhotos=[],photoIndex=0;
+  const dialog=$('pack-dialog');let shown=rows,current=0,opener=null,oldOverflow='',activePhotos=[],viewerPhotos=[],brandPhoto=null,photoIndex=0;
   const looks=window.TONKO_PACKAGE_LOOKS?.items||[];
   const exactKey=v=>normal(String(v||'')).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zа-я0-9]+/g,' ').trim();
+  const stories=new Map((window.TONKO_BRAND_STORIES?.items||[]).map(story=>[exactKey(story.brand),story]));
   const photoDialog=$('pack-photo-dialog');
-  document.querySelector('.pack-looks').after(document.querySelector('.pack-styling'));
-  function keepDialogFocus(e,modal){if(e.key!=='Tab')return;const controls=[...modal.querySelectorAll('button:not([disabled]),a[href],summary,input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>el.getClientRects().length);if(!controls.length)return;const first=controls[0],last=controls[controls.length-1];if(e.shiftKey&&(document.activeElement===first||!modal.contains(document.activeElement))){e.preventDefault();last.focus();}else if(!e.shiftKey&&(document.activeElement===last||!modal.contains(document.activeElement))){e.preventDefault();first.focus();}}
-  let stylePhotos=window.TONKO_STYLE_PHOTOS?.items||[],stylesReady=null;
+  function keepDialogFocus(e,modal){if(e.key!=='Tab')return;const controls=[...modal.querySelectorAll('button:not([disabled]),a[href],summary,input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>{const closed=el.closest('details:not([open])');return el.getClientRects().length&&(!closed||closed.querySelector('summary')?.contains(el));});if(!controls.length)return;const first=controls[0],last=controls[controls.length-1];if(e.shiftKey&&(document.activeElement===first||!modal.contains(document.activeElement))){e.preventDefault();last.focus();}else if(!e.shiftKey&&(document.activeElement===last||!modal.contains(document.activeElement))){e.preventDefault();first.focus();}}
   function findLooks(r){return looks.find(x=>Array.isArray(x.packageIds)&&x.packageIds.includes(r.id)&&exactKey(x.exactMatch?.brand)===exactKey(r.brand)&&x.exactMatch?.den===r.den);}
-  function suggestions(r){
-    if(r.productKind==='легинсы')return 'Попробуйте удлинённый жакет или свободный трикотаж и лаконичную обувь. Посадку и длину сверяйте с карточкой модели.';
-    if(r.productKind==='гольфы')return 'Попробуйте миди или укороченные брюки с лоферами. Проверьте, где заканчивается манжета и видна ли она в движении.';
-    if(r.den===null)return 'Начните с одного акцента: рисунка, цвета или фактуры. Подберите спокойную одежду и проверьте сочетание при дневном свете.';
-    if(r.den<=20)return 'Тонкие колготки можно сочетать с платьем, юбкой или строгими шортами. Для спокойного образа подберите близкий к обуви оттенок.';
-    if(r.den<=50)return 'Попробуйте юбку миди, жакет или трикотажное платье. Оттенок обуви в тон колготкам помогает собрать цельное сочетание.';
-    return 'Попробуйте плотный трикотаж, шерстяную юбку или свободные шорты с ботинками. Гладкая одежда уравновесит выраженную фактуру.';
-  }
-  function inspiration(r){
-    const hints=r.den!==null&&r.den<=20?['sheer','тонкие','прозрачные']:r.den!==null&&r.den>=60?['opaque','плотные','трикотаж']:['tights','колготки','skirt','юбка'];
-    return stylePhotos.filter(p=>p.src&&p.thumb).map(p=>({p,score:(p.tags||[]).filter(t=>hints.some(h=>normal(String(t)).includes(h))).length})).sort((a,b)=>b.score-a.score).slice(0,2).map(({p})=>({...p,matchType:'inspiration'}));
+  function renderStory(r){
+    const story=stories.get(exactKey(r.brand)),section=$('pack-brand-story');
+    section.hidden=!story;section.dataset.brand=story?.brand||'';brandPhoto=null;
+    if(!story){$('pack-brand-photo').removeAttribute('src');return;}
+    $('pack-brand-story-title').textContent='История '+story.brand;
+    $('pack-brand-story-meta').textContent=[story.country,story.founded].filter(Boolean).join(' · ');
+    $('pack-brand-story-meta').hidden=!$('pack-brand-story-meta').textContent;
+    $('pack-brand-story-subtitle').textContent=story.title;
+    $('pack-brand-story-text').innerHTML=story.paragraphs.map(paragraph=>`<p>${esc(paragraph)}</p>`).join('');
+    $('pack-brand-story-sources').innerHTML=story.sources.map(source=>`<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title)} ↗</a>`).join('');
+    const photo=story.photo,image=$('pack-brand-photo');
+    document.querySelector('.pack-brand-figure').hidden=!photo;
+    if(!photo){image.removeAttribute('src');return;}
+    image.src=photo.src;image.alt=photo.alt;image.width=photo.width;image.height=photo.height;
+    $('pack-brand-photo-open').setAttribute('aria-label','Увеличить фотографию '+story.brand);
+    $('pack-brand-photo-caption').textContent=photo.caption;
+    $('pack-brand-photo-credit').textContent=photo.credit;
+    brandPhoto={...photo,title:story.brand+' · фотография бренда',sourceLabel:photo.credit,matchType:'brand'};
   }
   function renderDetails(r){
     const matched=findLooks(r),kind=r.productKind||'колготки';
     $('pack-facts').innerHTML=`<div><dt>Тип изделия</dt><dd>${esc(kind)}</dd></div><div><dt>DEN в названии</dt><dd>${r.den===null?'Не указано':esc(r.den)+' DEN'}</dd></div>`;
-    $('pack-styling').textContent=suggestions(r);
-    activePhotos=matched?.photos?.length?matched.photos.map(p=>({...p,matchType:'exact'})):inspiration(r);
-    $('pack-looks-title').textContent=matched?'На модели: '+matched.model:'Идеи сочетаний';
-    $('pack-looks-note').textContent=matched?'Каталожные фотографии этой модели. Источник подтверждает название; цвет и выпуск могут отличаться от упаковки.':activePhotos.length?'Проверенных дополнительных фото этой модели пока нет. Ниже — идеи сочетаний: бренд и модель колготок на этих снимках могут отличаться.':'Проверенных дополнительных фото этой модели пока нет. Используйте идею сочетания выше и ссылку на карточку источника.';
-    $('pack-looks-grid').innerHTML=activePhotos.map((p,i)=>`<figure class="pack-look"><button type="button" class="pack-look-open" data-look-index="${i}" aria-label="Увеличить: ${esc(p.alt||p.title)}"><img src="${esc(p.thumb||p.src)}" alt="${esc(p.alt||p.title)}" width="${Number(p.width)||600}" height="${Number(p.height)||800}" loading="${i<2?'eager':'lazy'}" decoding="async"><span aria-hidden="true">↗</span></button><figcaption>${esc(p.caption||p.title)}${p.matchType==='inspiration'?'<small>Идея сочетания · другая или неустановленная модель</small>':''}</figcaption></figure>`).join('');
-    $('pack-looks-grid').hidden=!activePhotos.length;
-    if(!matched&&!stylePhotos.length&&!stylesReady){stylesReady=fetch('data/style-photos.json').then(res=>res.ok?res.json():null).then(data=>{stylePhotos=Array.isArray(data?.items)?data.items:[];if(dialog.open&&shown[current])renderDetails(shown[current]);}).catch(()=>{});}
+    renderStory(r);
+    activePhotos=matched?.photos?.length?matched.photos.map(p=>({...p,matchType:'exact'})):[];
+    document.querySelector('.pack-looks').hidden=!activePhotos.length;
+    $('pack-looks-title').textContent=matched?'На модели: '+matched.model:'';
+    $('pack-looks-note').textContent=matched?'Каталожные фотографии этой модели. Цвет и выпуск могут отличаться от упаковки.':'';
+    $('pack-looks-grid').innerHTML=activePhotos.map((p,i)=>`<figure class="pack-look"><button type="button" class="pack-look-open" data-look-index="${i}" aria-label="Увеличить: ${esc(p.alt||p.title)}"><img src="${esc(p.thumb||p.src)}" alt="${esc(p.alt||p.title)}" width="${Number(p.width)||600}" height="${Number(p.height)||800}" loading="lazy" decoding="async"><span aria-hidden="true">↗</span></button><figcaption>${esc(p.caption||p.title)}</figcaption></figure>`).join('');
   }
-  function displayPhoto(index){photoIndex=(index+activePhotos.length)%activePhotos.length;const p=activePhotos[photoIndex];if(!p)return;$('pack-photo-full').src=p.src;$('pack-photo-full').alt=p.alt||p.title;$('pack-photo-title').textContent=p.title;$('pack-photo-caption').textContent=p.caption||p.alt;$('pack-photo-source').href=p.source;$('pack-photo-source').textContent=(p.sourceLabel||p.credit||'Источник фотографии')+' ↗';$('pack-photo-match').textContent=p.matchType==='exact'?'Фотография конкретной модели':'Идея сочетания · это не подтверждённое фото выбранной модели';$('pack-photo-position').textContent=`${photoIndex+1} / ${activePhotos.length}`;$('pack-photo-previous').disabled=$('pack-photo-next').disabled=activePhotos.length<2;}
+  function displayPhoto(index){if(!viewerPhotos.length)return;photoIndex=(index+viewerPhotos.length)%viewerPhotos.length;const p=viewerPhotos[photoIndex];$('pack-photo-full').src=p.src;$('pack-photo-full').alt=p.alt||p.title;$('pack-photo-title').textContent=p.title;$('pack-photo-caption').textContent=p.caption||p.alt;$('pack-photo-source').href=p.source;$('pack-photo-source').textContent=(p.sourceLabel||p.credit||'Источник фотографии')+' ↗';$('pack-photo-match').textContent=p.matchType==='exact'?'Фотография конкретной модели':'Фотография бренда · модель может отличаться от выбранной упаковки';$('pack-photo-position').textContent=`${photoIndex+1} / ${viewerPhotos.length}`;$('pack-photo-previous').disabled=$('pack-photo-next').disabled=viewerPhotos.length<2;$('pack-photo-previous').parentElement.hidden=viewerPhotos.length<2;}
   const limits=new Map();
   $('pack-directory').open=!matchMedia('(max-width:800px)').matches;
   const params=new URLSearchParams(location.search);
@@ -56,7 +61,7 @@
       const group=shown.filter(r=>r.brand===b);if(!group.length)return '';groupCount++;
       const limit=limits.get(b)||(brand==='all'?4:36),part=group.slice(0,limit);visible+=part.length;
       const slug=group[0].brandSlug;
-      const kindNote=group.some(r=>r.productKind&&r.productKind!=='колготки')?`<p class="pack-kind-note">Типы изделий: ${['колготки','гольфы','легинсы'].map(kind=>[kind,group.filter(r=>(r.productKind||'колготки')===kind).length]).filter(([,count])=>count).map(([kind,count])=>`${kind} — ${count}`).join(', ')}.</p>`:'';
+      const kindNote=group.some(r=>r.productKind&&r.productKind!=='колготки')?`<p class="pack-kind-note">Типы изделий: ${['колготки','чулки','гольфы','легинсы'].map(kind=>[kind,group.filter(r=>(r.productKind||'колготки')===kind).length]).filter(([,count])=>count).map(([kind,count])=>`${kind} — ${count}`).join(', ')}.</p>`:'';
       return `<section class="pack-brand-section" data-brand-section="${esc(b)}" aria-labelledby="brand-${esc(slug)}"><header class="pack-brand-heading"><h2 id="brand-${esc(slug)}">${esc(b)}</h2><p>Показано ${part.length} из ${group.length}</p></header>${kindNote}<div class="pack-grid">${part.map(card).join('')}</div>${part.length<group.length?`<button class="pack-more" type="button" data-more-brand="${esc(b)}">Показать ещё ${Math.min(brand==='all'?12:36,group.length-part.length)} <span class="pack-more-brand">· ${esc(b)}</span></button>`:''}</section>`;
     }).join('');
     $('pack-count').textContent=shown.length?`Найдено ${shown.length} · брендов: ${groupCount} · показано ${visible}`:'Ничего не найдено. Попробуйте другой бренд или название.';
@@ -79,7 +84,8 @@
   $('pack-close').onclick=()=>dialog.close();dialog.addEventListener('close',()=>{document.documentElement.style.overflow=oldOverflow;const u=new URL(location.href);u.searchParams.delete('pack');history.replaceState(null,'',u);opener?.focus({preventScroll:true});});
   function change(n){if(shown.length){current=(current+n+shown.length)%shown.length;display();if(dialog.open&&!dialog.contains(document.activeElement))$(n<0?'pack-previous':'pack-next').focus();}}
   $('pack-previous').onclick=()=>change(-1);$('pack-next').onclick=()=>change(1);
-  $('pack-looks-grid').addEventListener('click',e=>{const button=e.target.closest('[data-look-index]');if(!button)return;displayPhoto(Number(button.dataset.lookIndex));photoDialog.showModal();});
+  $('pack-looks-grid').addEventListener('click',e=>{const button=e.target.closest('[data-look-index]');if(!button)return;viewerPhotos=activePhotos;displayPhoto(Number(button.dataset.lookIndex));photoDialog.showModal();});
+  $('pack-brand-photo-open').onclick=()=>{if(!brandPhoto)return;viewerPhotos=[brandPhoto];displayPhoto(0);photoDialog.showModal();};
   $('pack-photo-close').onclick=()=>photoDialog.close();
   $('pack-photo-previous').onclick=()=>displayPhoto(photoIndex-1);$('pack-photo-next').onclick=()=>displayPhoto(photoIndex+1);
   photoDialog.addEventListener('keydown',e=>{keepDialogFocus(e,photoDialog);if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();e.stopPropagation();displayPhoto(photoIndex+(e.key==='ArrowLeft'?-1:1));}});

@@ -1,0 +1,8 @@
+# Intermediate downloads and rejected photo candidates remain local.
+*
+!.gitignore
+!validate.py
+!write-report.py
+!verification.json
+!selected-photo-evidence.json
+!selected-*.jpg

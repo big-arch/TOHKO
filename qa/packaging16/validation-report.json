@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "baselineRecords": 715,
+  "totalRecords": 810,
+  "addedRecords": 95,
+  "oldRecordsUnchanged": 715,
+  "brands": 29,
+  "newBrands": {
+    "Knittex": 20,
+    "Marilyn": 35,
+    "Mona": 19,
+    "Veneziana": 21
+  },
+  "productKinds": {
+    "колготки": 89,
+    "чулки": 5,
+    "гольфы": 1
+  },
+  "unknownDen": 11,
+  "localWebpFiles": 190,
+  "assetBytes": 5808372,
+  "checks": [
+    "preserved all prior records verbatim",
+    "unique global ids",
+    "unique new image hashes",
+    "all local WebP decoded",
+    "dimensions match metadata",
+    "thumbnail bound 320x440",
+    "HTTPS source and imageSource",
+    "manual visual review of package or branded insert"
+  ]
+}

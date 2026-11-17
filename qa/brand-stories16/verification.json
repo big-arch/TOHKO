@@ -1,0 +1,324 @@
+{
+  "checkedAt": "2026-11-17",
+  "histories": 29,
+  "photos": 26,
+  "photoExceptions": [
+    "Elledue",
+    "Giulietta",
+    "ORO"
+  ],
+  "archivePackages": 810,
+  "archiveBrands": 29,
+  "missingArchiveBrands": [],
+  "awaitingArchiveImport": [],
+  "rows": [
+    {
+      "brand": "Conte",
+      "words": 60,
+      "inArchive": true,
+      "sourceCount": 1,
+      "photo": true,
+      "src": "assets/package-looks/pl-53195a928a51.webp",
+      "width": 1200,
+      "height": 1600,
+      "sha256": "700bd80193eae5d524d84a5652892d7d7b45b5c8b2aed3d4a9d1c162f48d60c9"
+    },
+    {
+      "brand": "Elledue",
+      "words": 44,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": false
+    },
+    {
+      "brand": "FALKE",
+      "words": 57,
+      "inArchive": true,
+      "sourceCount": 1,
+      "photo": true,
+      "src": "assets/package-looks/pl-2158dc909b46.webp",
+      "width": 610,
+      "height": 732,
+      "sha256": "410920b0407e4a61a0aeb18fd5f7a31d580a04b8a001689d507d2251a03137ba"
+    },
+    {
+      "brand": "Filodoro",
+      "words": 65,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/brand-stories/filodoro-clio.webp",
+      "width": 923,
+      "height": 1200,
+      "sha256": "0a5e8896390a99f074ad2faffe2cb58b6ac05324d73804fd487805046647d403"
+    },
+    {
+      "brand": "Fiore",
+      "words": 59,
+      "inArchive": true,
+      "sourceCount": 1,
+      "photo": true,
+      "src": "assets/package-looks/pl-747f51c9ccfa.webp",
+      "width": 1200,
+      "height": 1600,
+      "sha256": "2e7c5da3972a6e1df852e67bdbc25eb8f0f683908f33a93ebf65f79ea5d2578a"
+    },
+    {
+      "brand": "Gabriella",
+      "words": 60,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/responsive/gabriella-arctic-960.webp",
+      "width": 960,
+      "height": 640,
+      "sha256": "89c42bd32cc79812bf965a174e58d635bff0cdd9d82875874f46c55016e206cc"
+    },
+    {
+      "brand": "Gatta",
+      "words": 57,
+      "inArchive": true,
+      "sourceCount": 1,
+      "photo": true,
+      "src": "assets/package-looks/pl-a9b3d8a21bee.webp",
+      "width": 500,
+      "height": 700,
+      "sha256": "f4f2325a74237dada2dc8e02228b91fb7af6ac91d7cd959729562e15521cf457"
+    },
+    {
+      "brand": "Giulia",
+      "words": 55,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/package-looks/pl-729711413e7a.webp",
+      "width": 504,
+      "height": 700,
+      "sha256": "ec6264d40b34bb6df3605fa9067e76ca4ff62010df900073386868b15a9851ad"
+    },
+    {
+      "brand": "Giulietta",
+      "words": 37,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": false
+    },
+    {
+      "brand": "Glamour",
+      "words": 43,
+      "inArchive": true,
+      "sourceCount": 3,
+      "photo": true,
+      "src": "assets/brand-stories/glamour-tiamo-20.webp",
+      "width": 600,
+      "height": 866,
+      "sha256": "de55a12f36b8bd5fb65575379af91aa48420022e49ef30c3c27d6675b50c7f2d"
+    },
+    {
+      "brand": "Golden Lady",
+      "words": 59,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/responsive/golden-lady-studio-960.webp",
+      "width": 960,
+      "height": 864,
+      "sha256": "1ce2246c02a135d194bb87708d677b957b3d32b6b09aa1a4dcae672dc11b2d68"
+    },
+    {
+      "brand": "Incanto",
+      "words": 56,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/brand-stories/incanto-dots-main.webp",
+      "width": 942,
+      "height": 1200,
+      "sha256": "1940f2b5e5877947bdfefa9caba88711d98acddb858ad161932e39f7b7791af5"
+    },
+    {
+      "brand": "Innamore",
+      "words": 57,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/brand-stories/innamore-body-slim.webp",
+      "width": 600,
+      "height": 866,
+      "sha256": "319655293a5be9fd4c22dd891b020688fe913e0dd9a5f00f03e11272d270bc97"
+    },
+    {
+      "brand": "Le Bourget",
+      "words": 59,
+      "inArchive": true,
+      "sourceCount": 3,
+      "photo": true,
+      "src": "assets/package-looks/pl-f464d9cc2549.webp",
+      "width": 900,
+      "height": 1200,
+      "sha256": "81d5bfd6c674ea173d31437e9c1a9a4127a4fe4dce594885910e47eb12b4f271"
+    },
+    {
+      "brand": "Levante",
+      "words": 52,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/brand-stories/levante-suede-navy.webp",
+      "width": 720,
+      "height": 928,
+      "sha256": "0cab2b39f4cede3cb7f50fe2465ab30719d293beb9c5e985ddb1cb3411397b40"
+    },
+    {
+      "brand": "Minimi",
+      "words": 45,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/brand-stories/minimi-la-luna.webp",
+      "width": 744,
+      "height": 992,
+      "sha256": "ec58992300336ebf99ae6104942261cd3b4f51883e27fd8dde255c2df387aeef"
+    },
+    {
+      "brand": "OMSA",
+      "words": 56,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/responsive/omsa-studio-960.webp",
+      "width": 960,
+      "height": 864,
+      "sha256": "1e05a14d6d73d01e49427836c5ecc4ec0d0b411c9a7650d3097122f2836e30c5"
+    },
+    {
+      "brand": "ORO",
+      "words": 56,
+      "inArchive": true,
+      "sourceCount": 3,
+      "photo": false
+    },
+    {
+      "brand": "Omero",
+      "words": 54,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/brand-stories/omero-retina-10.webp",
+      "width": 730,
+      "height": 1200,
+      "sha256": "f844479d9732dd54acbf87989bdb6f2729392dd69799ae5f960c51fe5d90583e"
+    },
+    {
+      "brand": "Oroblù",
+      "words": 59,
+      "inArchive": true,
+      "sourceCount": 1,
+      "photo": true,
+      "src": "assets/package-looks/pl-6777fcf1a7e8.webp",
+      "width": 750,
+      "height": 1000,
+      "sha256": "1c3d68867f2975d5ec9d1330bb673e7c0780b0be2212c3f169beeb97b224d908"
+    },
+    {
+      "brand": "Philippe Matignon",
+      "words": 58,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/responsive/pm-sheer-960.webp",
+      "width": 960,
+      "height": 993,
+      "sha256": "22bba87320f193add9746753d124b6a838a027103118b8ee2ef1bf405eb2235a"
+    },
+    {
+      "brand": "Sisi",
+      "words": 58,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/brand-stories/sisi-video-cover.webp",
+      "width": 874,
+      "height": 1200,
+      "sha256": "f523ba1ffd50745b5af323aa01a2e736827876b87f32a74f50d0e41146a7470f"
+    },
+    {
+      "brand": "Swedish Stockings",
+      "words": 59,
+      "inArchive": true,
+      "sourceCount": 1,
+      "photo": true,
+      "src": "assets/responsive/swedish-rib-960.webp",
+      "width": 960,
+      "height": 540,
+      "sha256": "30451f26c2b3aeba41591a510588eb7ac7f8c2ae26c9f66d687e30577523aa99"
+    },
+    {
+      "brand": "Trasparenze",
+      "words": 57,
+      "inArchive": true,
+      "sourceCount": 1,
+      "photo": true,
+      "src": "assets/package-looks/pl-ec013dfaaa10.webp",
+      "width": 500,
+      "height": 700,
+      "sha256": "51f0d14726140e36d4ca87776a6e1bdb5d89d85036783f01ebf2799a94da748c"
+    },
+    {
+      "brand": "Wolford",
+      "words": 62,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/package-looks/pl-7204181bd30b.webp",
+      "width": 500,
+      "height": 667,
+      "sha256": "2b62b0e37b467c5c336fef2e0cc54f061b32163e40fd8e167f02222781dac643"
+    },
+    {
+      "brand": "Knittex",
+      "words": 60,
+      "inArchive": true,
+      "sourceCount": 3,
+      "photo": true,
+      "src": "assets/responsive/noq-lace-960.webp",
+      "width": 960,
+      "height": 1440,
+      "sha256": "fc39a5eb850cbeca97074684543bf2fe26c77344649fd9c712c06c521f046f31"
+    },
+    {
+      "brand": "Marilyn",
+      "words": 55,
+      "inArchive": true,
+      "sourceCount": 1,
+      "photo": true,
+      "src": "assets/brand-stories/marilyn-gucci-g46.webp",
+      "width": 565,
+      "height": 800,
+      "sha256": "f6ea51be22df4b6f521ea62af038736b92d75514a72e9bb25610d27857382f0c"
+    },
+    {
+      "brand": "Mona",
+      "words": 48,
+      "inArchive": true,
+      "sourceCount": 2,
+      "photo": true,
+      "src": "assets/brand-stories/mona-cursor-60.webp",
+      "width": 500,
+      "height": 720,
+      "sha256": "8b50662346aea68357be42d8360db4f0aaaf21f3ef8488cacdb29701708aeb5c"
+    },
+    {
+      "brand": "Veneziana",
+      "words": 45,
+      "inArchive": true,
+      "sourceCount": 3,
+      "photo": true,
+      "src": "assets/brand-stories/veneziana-73358a8da6.webp",
+      "width": 598,
+      "height": 800,
+      "sha256": "c6f4a3b8dabcbb9136f5b78b8ed71ff1824ce9e056e69546a360b0b498efa72f"
+    }
+  ],
+  "errors": []
+}
