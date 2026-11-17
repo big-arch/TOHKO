@@ -20,13 +20,16 @@ NOW = datetime(2026, 11, 17, 12, tzinfo=timezone.utc)
 class PublicationDateTests(unittest.TestCase):
     def test_only_explicit_valid_publication_dates_are_recognized(self):
         for bad in (None, '', 0, 'not a date', '2026-02-30', '2026-11-17T12:00:00',
-                    '2026-11-17T24:00:00Z', '0000-01-01'):
+                    '2026-11-17T24:00:00Z', '2026-11-17T24:00Z',
+                    '2026-11-17T12:60Z', '2026-11-17T12:00:60Z',
+                    '2026-11-17T12:00:00+01:99', '2026-11-17T12:00:00+24:00', '0000-01-01'):
             with self.subTest(bad=bad):
                 self.assertIsNone(publication_time(bad))
                 self.assertNotIn('<time', publication_markup(bad, NOW))
                 self.assertIn('Дата публикации не указана', publication_markup(bad, NOW))
         self.assertEqual(publication_time('2026-11-17'), NOW.replace(hour=0))
         self.assertEqual(publication_time('2026-11-17T15:00:00+03:00'), NOW)
+        self.assertEqual(publication_time('2026-11-17T15:00+03:00'), NOW)
 
     def test_seven_day_window_excludes_future_and_exact_expiry(self):
         for delta, expected in ((timedelta(seconds=1), False), (timedelta(0), True),

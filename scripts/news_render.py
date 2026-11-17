@@ -13,6 +13,13 @@ def publication_time(value):
     """Only an explicit publication date is usable; never borrow a check/import time."""
     if not isinstance(value,str) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,6})?)?(?:Z|[+-]\d{2}:\d{2}))?',value):
         return None
+    if len(value)>10:
+        # Keep the same clock bounds as the browser, even if Python normalizes 24:00.
+        clock=re.match(r'(\d{2}):(\d{2})(?::(\d{2}))?',value[11:])
+        if any(int(part or 0)>limit for part,limit in zip(clock.groups(),(23,59,59))):
+            return None
+        if value[-1]!='Z' and (int(value[-5:-3])>23 or int(value[-2:])>59):
+            return None
     try:
         stamp=datetime.fromisoformat(value.replace('Z','+00:00'))
         return stamp.replace(tzinfo=timezone.utc) if stamp.tzinfo is None else stamp.astimezone(timezone.utc)

@@ -11,6 +11,7 @@ PUBLICATION_PATTERN = re.compile(r'\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d
 def publication_time(value):
  """Use only explicit source dates; date-only values sort at midnight UTC."""
  if not isinstance(value, str) or not PUBLICATION_PATTERN.fullmatch(value):return None
+ if len(value)>10 and (int(value[11:13])>23 or int(value[14:16])>59 or int(value[17:19])>59):return None
  if len(value)>10 and value[-1]!='Z' and (int(value[-5:-3])>23 or int(value[-2:])>59):return None
  try:
   parsed=datetime.fromisoformat(value.replace('Z','+00:00'))
