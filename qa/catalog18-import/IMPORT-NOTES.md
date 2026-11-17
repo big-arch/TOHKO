@@ -48,6 +48,13 @@ have bounded retries; eight consecutive failed requests open a circuit breaker.
 TLS certificates are verified. `--tls12` limits TLS to version 1.2 for an
 incompatible local transport, without disabling verification.
 
+`--transport curl` optionally uses the installed curl executable for both source
+HTML and image requests. It keeps TLS verification, HTTPS-only redirects, the
+same response-size limits, cache and retries. Bodies are written only to bounded
+temporary cache files; subprocess stdout contains metadata. The default remains
+Python urllib, and transport choice does not change source URLs or network
+settings.
+
 A complete snapshot less than 24 hours old skips collection. `--refresh` forces
 fresh HTML. `--resume` reparses still-valid cached HTML and completes images.
 `--offline` makes no network requests. `--no-images` is a data-only run and retains
@@ -97,6 +104,15 @@ constructions retain their facts but their photos await review.
 When a source photo URL changes, its new filename contains the URL hash. The old
 photo cannot be assigned to the new URL if the replacement download fails.
 Unchanged source URLs keep valid existing local image paths.
+
+The first review CI timed out after downloading 648 image pairs before saving
+its product JSON. `initial-images-manifest.json` pins their Git blobs and SHA256
+checksums to run 44085884185 / commit 6fffdb4. Only the explicitly enabled
+`--initial-image-manifest` review flag can bind these first-run legacy filenames
+to matching SKUs and source product/image identifiers from a new listing. The
+resolved evidence is saved separately; normal daily refresh never uses this
+exception. This initial binding is documented as provenance reconciliation, not
+as a claimed byte comparison against newly downloaded originals.
 
 Catalogue product photos do not automatically become packaging archive entries.
 Packaging must be identified visually and separately approved in the packaging

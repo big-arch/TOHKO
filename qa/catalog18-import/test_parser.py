@@ -7,6 +7,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
+from types import SimpleNamespace
 
 SCRIPT = Path(__file__).resolve().parents[2] / "scripts/collect-catalog18.py"
 spec = importlib.util.spec_from_file_location("catalog18", SCRIPT)
@@ -40,7 +41,60 @@ class FakeClient:
         return self.pages[url].encode(), {"fetchedAt": STAMP}
 
 
+class CurlTransportTests(unittest.TestCase):
+    def test_curl_keeps_tls_limits_argv_and_cache_for_html_and_images(self):
+        calls = []
+        def run(command, **kwargs):
+            calls.append(command)
+            self.assertFalse(kwargs["shell"])
+            self.assertEqual(kwargs["timeout"], 45)
+            self.assertNotIn("--insecure", command)
+            self.assertIn("--disable", command)
+            self.assertEqual(command[command.index("--proto") + 1], "=https")
+            self.assertEqual(command[command.index("--proto-redir") + 1], "=https")
+            body = b"image fixture" if "/pics/" in command[-1] else b'<div class="card-item">/catalog/</div>'
+            Path(command[command.index("--output") + 1]).write_bytes(body)
+            return SimpleNamespace(returncode=0, stdout=json.dumps({"http_code": 200, "url_effective": command[-1], "content_type": "image/jpeg" if "/pics/" in command[-1] else "text/html; charset=utf-8", "time_total": 0.1}), stderr="")
+        with tempfile.TemporaryDirectory() as directory, patch.object(catalog.shutil, "which", return_value="curl"), patch.object(catalog.subprocess, "run", side_effect=run):
+            cache = Path(directory)
+            client = catalog.PublicClient(cache, transport="curl", delay=0)
+            html, meta = client.get(URL)
+            again, cached_meta = client.get(URL)
+            image, _ = client.get(catalog.BASE + "pics/cache/985_v_123.jpg", image=True)
+            client.get(URL, force_refresh=True)
+            self.assertEqual(html, again)
+            self.assertEqual(meta["fetchedAt"], cached_meta["fetchedAt"])
+            self.assertEqual(meta["transport"], "curl")
+            self.assertEqual(len(calls), 3)
+            self.assertEqual(calls[0][calls[0].index("--max-filesize") + 1], "50000000")
+            self.assertEqual(calls[1][calls[1].index("--max-filesize") + 1], "15000000")
+            self.assertEqual(image, b"image fixture")
+            self.assertEqual(list(cache.glob("*.download")), [])
+
+    def test_curl_foreign_final_host_is_rejected_and_temp_body_removed(self):
+        def run(command, **kwargs):
+            Path(command[command.index("--output") + 1]).write_bytes(b"untrusted redirect")
+            return SimpleNamespace(returncode=0, stdout=json.dumps({"http_code": 200, "url_effective": "https://example.org/image.jpg"}), stderr="")
+        with tempfile.TemporaryDirectory() as directory, patch.object(catalog.shutil, "which", return_value="curl"), patch.object(catalog.subprocess, "run", side_effect=run):
+            cache = Path(directory)
+            client = catalog.PublicClient(cache, transport="curl")
+            with self.assertRaises(ValueError):
+                client.curl_get(catalog.BASE + "pics/cache/985_v_123.jpg", image=True)
+            self.assertEqual(list(cache.iterdir()), [])
+
+
 class ParserTests(unittest.TestCase):
+    def test_discovery_includes_four_parent_listings_and_only_childrens_tights(self):
+        html = '<a href="/catalog/kolgotki-klassika/tonkie">Тонкие</a><a href="/catalog/detskoe/kolgotki">Колготки</a><a href="/catalog/detskoe/noski">Носки</a>'
+        categories = catalog.discover_categories(catalog.TreeParser(html).root)
+        urls = {item["url"] for item in categories}
+        self.assertEqual(len(categories), 6)
+        self.assertEqual(sum(item["scopeLevel"] == "parent" for item in categories), 4)
+        self.assertIn(catalog.BASE + "catalog/chulki-pod-poyas", urls)
+        self.assertIn(catalog.BASE + "catalog/detskoe/kolgotki", urls)
+        self.assertNotIn(catalog.BASE + "catalog/detskoe", urls)
+        self.assertNotIn(catalog.BASE + "catalog/detskoe/noski", urls)
+
     def test_windows1251_header_preserves_russian_text_and_prices(self):
         html = page(card(description="Мужские колготки, прозрачные.", density="Плотность: 20 den"), 1)
         decoded = catalog.decode_html(html.encode("windows-1251"), "text/html; charset=windows-1251")
@@ -118,6 +172,40 @@ class ParserTests(unittest.TestCase):
         self.assertFalse(summary["complete"])
         self.assertEqual(summary["collectedCount"], 1)
         self.assertEqual(summary["advertisedCount"], 21)
+
+    def test_inventory_counter_change_retries_only_that_category_with_fresh_html(self):
+        next_url = URL + "/filter/page=1"
+        two = card(sku="1") + card(sku="2")
+        calls = []
+        class ChangingInventory:
+            def get(self, url, force_refresh=False):
+                calls.append((url, force_refresh))
+                if force_refresh:
+                    html = page(two, 2)
+                else:
+                    html = page(two, 3, next_url) if url == URL else page(two, 2)
+                return html.encode(), {"fetchedAt": STAMP}
+        summary, items, _ = catalog.crawl_category(ChangingInventory(), {"url": URL, "name": "Мужские колготки"})
+        self.assertTrue(summary["complete"])
+        self.assertEqual(summary["advertisedCount"], 2)
+        self.assertTrue(summary["freshRetry"]["succeeded"])
+        self.assertEqual(summary["freshRetry"]["previousAdvertisedCount"], 3)
+        self.assertEqual(calls, [(URL, False), (next_url, False), (URL, True)])
+
+    def test_second_inventory_counter_change_still_fails_after_one_retry(self):
+        next_url = URL + "/filter/page=1"
+        two = card(sku="1") + card(sku="2")
+        calls = []
+        class AlwaysChanging:
+            def get(self, url, force_refresh=False):
+                calls.append((url, force_refresh))
+                html = page(two, 3, next_url) if url == URL else page(two, 2)
+                return html.encode(), {"fetchedAt": STAMP}
+        summary, _, _ = catalog.crawl_category(AlwaysChanging(), {"url": URL, "name": "Мужские колготки"})
+        self.assertFalse(summary["complete"])
+        self.assertFalse(summary["freshRetry"]["succeeded"])
+        self.assertEqual(len(calls), 4)
+        self.assertEqual(sum(fresh for _, fresh in calls), 2)
 
     def test_duplicate_sku_merges_categories_and_keeps_accessory_type(self):
         records = catalog.parse_listing(page(card(), 1), URL, STAMP)["items"]

@@ -23,8 +23,11 @@ import math
 import os
 from pathlib import Path
 import re
+import shutil
 import ssl
+import subprocess
 import sys
+import tempfile
 import threading
 import time
 import unicodedata
@@ -164,24 +167,54 @@ class TreeParser(HTMLParser):
 
 
 class PublicClient:
-    def __init__(self, cache, refresh=False, offline=False, delay=0.30, tls12=False):
+    def __init__(self, cache, refresh=False, offline=False, delay=0.30, tls12=False, transport="urllib"):
         self.cache, self.refresh, self.offline, self.delay = cache, refresh, offline, delay
         self.cache.mkdir(parents=True, exist_ok=True)
         self.lock, self.last_request = threading.Lock(), 0.0
         self.network_count, self.cache_count = 0, 0
         self.failures = 0
+        self.transport, self.tls12 = transport, tls12
+        self.curl = shutil.which("curl.exe" if os.name == "nt" else "curl") if transport == "curl" else None
+        if transport == "curl" and not self.curl:
+            raise OSError("--transport curl requested but curl is not installed")
         self.context = ssl.create_default_context()
         if tls12:
             self.context.maximum_version = ssl.TLSVersion.TLSv1_2
 
-    def get(self, url, image=False):
+    def curl_get(self, url, image=False):
+        limit = 15_000_000 if image else 50_000_000
+        descriptor, filename = tempfile.mkstemp(prefix="http-", suffix=".download", dir=self.cache)
+        os.close(descriptor)
+        path = Path(filename)
+        try:
+            # Disable implicit curlrc options so TLS checks/output limits cannot
+            # silently be weakened by unrelated local command-line preferences.
+            command = [self.curl, "--disable", "--silent", "--show-error", "--location", "--max-redirs", "5", "--proto", "=https", "--proto-redir", "=https", "--connect-timeout", "15", "--max-time", "45", "--max-filesize", str(limit), "--user-agent", "Mozilla/5.0 (compatible; TONKO-Public-Catalog/1.0; public catalog research)", "--header", "Accept: " + ("image/*" if image else "text/html,application/xhtml+xml"), "--output", str(path), "--write-out", "%{json}"]
+            if self.tls12:
+                command.extend(["--tls-max", "1.2"])
+            command.append(url)
+            completed = subprocess.run(command, capture_output=True, text=True, timeout=45, shell=False)
+            if completed.returncode:
+                raise OSError(f"curl exit {completed.returncode}: {completed.stderr.strip()[:600]}")
+            metadata = json.loads(completed.stdout)
+            if int(metadata.get("http_code", 0)) != 200:
+                raise OSError(f"curl HTTP status {metadata.get('http_code')}")
+            final = canonical_url(metadata.get("url_effective") or url)
+            if path.stat().st_size > limit:
+                raise ValueError("Response exceeded the import safety limit")
+            body = path.read_bytes()
+            return body, {"url": url, "finalUrl": final, "fetchedAt": utc_now(), "contentType": metadata.get("content_type") or "", "transport": "curl", "requestSeconds": metadata.get("time_total"), "bytes": len(body)}
+        finally:
+            path.unlink(missing_ok=True)
+
+    def get(self, url, image=False, force_refresh=False):
         url = canonical_url(url)
         key = hashlib.sha256(url.encode()).hexdigest()
         path, meta_path = self.cache / (key + ".bin"), self.cache / (key + ".json")
         if path.exists() and meta_path.exists():
             meta = json.loads(meta_path.read_text("utf-8"))
             age = time.time() - path.stat().st_mtime
-            if image or self.offline or (not self.refresh and age < 86400):
+            if self.offline or (not force_refresh and (image or (not self.refresh and age < 86400))):
                 with self.lock:
                     self.cache_count += 1
                 return path.read_bytes(), meta
@@ -198,21 +231,23 @@ class PublicClient:
                         time.sleep(wait)
                     self.last_request = time.monotonic()
                     self.network_count += 1
-                request = Request(url, headers={
-                    "User-Agent": "Mozilla/5.0 (compatible; TONKO-Public-Catalog/1.0; public catalog research)",
-                    "Accept": "image/*" if image else "text/html,application/xhtml+xml",
-                })
-                with urlopen(request, timeout=45, context=self.context) as response:
-                    final = canonical_url(response.url)
-                    # Loretta's paginated HTML is cumulative: the last page can
-                    # contain hundreds of cards. The bounded larger HTML limit
-                    # allows one final page instead of repeatedly fetching prefixes.
-                    body = response.read(15_000_001 if image else 50_000_001)
-                    if len(body) > (15_000_000 if image else 50_000_000):
-                        raise ValueError("Response exceeded the import safety limit")
-                    if not image and b"card-item" not in body and b"/catalog/" not in body:
-                        raise ValueError("Unexpected HTML: category/catalog markup is absent")
-                    meta = {"url": url, "finalUrl": final, "fetchedAt": utc_now(), "contentType": response.headers.get("Content-Type", "")}
+                if self.transport == "curl":
+                    body, meta = self.curl_get(url, image=image)
+                else:
+                    request = Request(url, headers={
+                        "User-Agent": "Mozilla/5.0 (compatible; TONKO-Public-Catalog/1.0; public catalog research)",
+                        "Accept": "image/*" if image else "text/html,application/xhtml+xml",
+                    })
+                    request_started = time.monotonic()
+                    with urlopen(request, timeout=45, context=self.context) as response:
+                        final = canonical_url(response.url)
+                        # Last cumulative pages can contain hundreds of cards.
+                        body = response.read(15_000_001 if image else 50_000_001)
+                        meta = {"url": url, "finalUrl": final, "fetchedAt": utc_now(), "contentType": response.headers.get("Content-Type", ""), "transport": "urllib", "requestSeconds": round(time.monotonic() - request_started, 4), "bytes": len(body)}
+                if len(body) > (15_000_000 if image else 50_000_000):
+                    raise ValueError("Response exceeded the import safety limit")
+                if not image and b"card-item" not in body and b"/catalog/" not in body:
+                    raise ValueError("Unexpected HTML: category/catalog markup is absent")
                 temp = path.with_suffix(".tmp")
                 temp.write_bytes(body)
                 temp.replace(path)
@@ -230,7 +265,13 @@ class PublicClient:
 
 
 def discover_categories(tree):
-    categories = {}
+    # Parent URLs are real aggregate product listings, and can contain products
+    # not assigned to any visible child category. Children's other goods remain
+    # excluded: only the dedicated children's tights subcategory is in scope.
+    categories = {
+        canonical_url(f"catalog/{group}"): {"name": label + " · все модели", "url": canonical_url(f"catalog/{group}"), "scopeLevel": "parent"}
+        for group, label in GROUPS.items() if group != "detskoe"
+    }
     for anchor in tree.walk("a"):
         href = anchor.attrs.get("href", "")
         parts = urlsplit(href).path.strip("/").split("/")
@@ -240,7 +281,7 @@ def discover_categories(tree):
             url = canonical_url(href)
             label = clean(anchor.text())
             if label:
-                categories[url] = {"name": GROUPS[parts[1]] + " · " + label, "url": url}
+                categories[url] = {"name": GROUPS[parts[1]] + " · " + label, "url": url, "scopeLevel": "subcategory"}
     return sorted(categories.values(), key=lambda row: row["url"])
 
 
@@ -334,7 +375,7 @@ def parse_listing(html, url, checked_at):
     return {"items": items, "advertisedCount": advertised, "next": next_url, "brands": collect_brands(tree)}
 
 
-def crawl_category(client, category):
+def crawl_category_once(client, category, force_refresh=False):
     url, visited, records, brands, pages, errors = category["url"], set(), [], set(), [], []
     expected = None
     first_page_size, cumulative, skipped_pages = None, False, 0
@@ -345,7 +386,7 @@ def crawl_category(client, category):
             break
         visited.add(url)
         try:
-            body, meta = client.get(url)
+            body, meta = client.get(url, force_refresh=True) if force_refresh else client.get(url)
             result = parse_listing(decode_html(body, meta.get("contentType", "")), url, meta["fetchedAt"])
             if expected is None:
                 expected = result["advertisedCount"]
@@ -379,6 +420,20 @@ def crawl_category(client, category):
         errors.append({"url": category["url"], "reason": f"Coverage mismatch: expected {expected}, collected {len(unique)} unique products"})
     summary = {**category, "advertisedCount": expected, "collectedCount": len(unique), "cardCount": len(records), "pages": pages, "paginationMode": "cumulative" if cumulative else "standard", "redundantIntermediatePagesSkipped": skipped_pages, "complete": not errors, "errors": errors}
     return summary, records, brands
+
+
+def crawl_category(client, category):
+    first = crawl_category_once(client, category)
+    summary = first[0]
+    changed_during_crawl = any(error["reason"] == "Advertised count changed during pagination" for error in summary["errors"])
+    if changed_during_crawl and not getattr(client, "offline", False):
+        # Inventory may change while the last cumulative page is being fetched.
+        # Retry only this category once, bypassing its cached HTML throughout.
+        # A second mismatch still fails; no count discrepancy is waived.
+        second = crawl_category_once(client, category, force_refresh=True)
+        second[0]["freshRetry"] = {"attempted": True, "reason": "Advertised count changed during pagination", "previousAdvertisedCount": summary["advertisedCount"], "previousCollectedCount": summary["collectedCount"], "previousErrors": summary["errors"], "previousPages": summary["pages"], "succeeded": second[0]["complete"]}
+        return second
+    return first
 
 
 def split_brand(title, source, brands):
@@ -723,6 +778,7 @@ def main(argv=None):
     parser.add_argument("--restore-only", action="store_true", help="Require --deployed; restore/validate the published catalogue and stop without collecting source pages")
     parser.add_argument("--initial-image-manifest", type=Path, help="Explicit one-time first-CI asset adoption; only for the approved review workflow, never regular updates")
     parser.add_argument("--tls12", action="store_true", help="Limit TLS to 1.2 for incompatible local transports; certificates are still verified")
+    parser.add_argument("--transport", choices=("urllib", "curl"), default="urllib", help="Public-source HTTP transport for both HTML and images; curl keeps certificate verification enabled")
     parser.add_argument("--workers", type=int, default=4, choices=range(1, 5))
     parser.add_argument("--cache", type=Path, default=QA / "http-cache")
     args = parser.parse_args(argv)
@@ -765,7 +821,7 @@ def main(argv=None):
         if catalog_is_recent(previous_data):
             print(f"Complete catalogue already checked at {previous_data['checkedAt']}; daily refresh skipped", flush=True)
             return 0
-    client = PublicClient(args.cache, refresh=args.refresh, offline=args.offline, tls12=args.tls12)
+    client = PublicClient(args.cache, refresh=args.refresh, offline=args.offline, tls12=args.tls12, transport=args.transport)
     report = {"startedAt": started, "source": BASE, "failedUrls": []}
     try:
         body, meta = client.get(BASE)
@@ -819,8 +875,10 @@ def main(argv=None):
     if not items:
         failed.append({"url": BASE, "reason": "No in-scope products collected; refusing an empty replacement"})
     complete = not failed and not unknown_brands
+    parent_only = [item for item in items if item["categories"] and all(len(urlsplit(category["url"]).path.strip("/").split("/")) == 2 for category in item["categories"])]
     coverage = {
         "complete": complete, "categories": len(categories), "categoriesComplete": sum(cat["complete"] for cat in summaries),
+        "parentListings": sum(cat.get("scopeLevel") == "parent" for cat in summaries), "subcategories": sum(cat.get("scopeLevel") == "subcategory" for cat in summaries), "parentOnlyProducts": len(parent_only),
         "pages": sum(len(cat["pages"]) for cat in summaries), "listedOccurrences": sum(cat["cardCount"] for cat in summaries),
         "uniqueProducts": len(items), "excludedUnrelatedProducts": len(excluded),
         "imagesAwaitingReview": sum(item["imageNeedsReview"] for item in items),
@@ -828,7 +886,7 @@ def main(argv=None):
         "byBrand": dict(sorted(Counter(item["brand"] for item in items).items())),
         "byAvailability": dict(sorted(Counter(item["availability"] for item in items).items())),
         "pricesAvailable": sum(item["priceRub"] is not None for item in items),
-        "scope": "Все публичные подкатегории колготок классика, колготок фантазия, детских колготок, чулок на силиконе и чулок под пояс из меню Лоретты. Остальные группы не входят в охват.",
+        "scope": "Все публичные родительские и дочерние листинги колготок классика, колготок фантазия, чулок на силиконе и чулок под пояс, а также отдельная подкатегория детских колготок. Остальные группы не входят в охват.",
     }
     # Reprocessing cached images must not make old prices appear newly checked.
     checked_at = max((page["checkedAt"] for category in summaries for page in category["pages"]), default=started)
@@ -837,7 +895,7 @@ def main(argv=None):
     def checkpoint(phase, done=0, finished=False):
         coverage.update({"images": sum(bool(item["image"]) for item in items), "imageFailures": len(image_errors), "imagePhaseComplete": finished})
         atomic_json(QA / "catalog-candidate.json", output)
-        report.update({**coverage, "phase": phase, "lastUpdatedAt": utc_now(), "imageJobsCompleted": done, "imageJobsTotal": 0 if args.no_images else len(items), "categoryDetails": summaries, "failedUrls": failed, "imageErrors": image_errors, "excludedProducts": excluded, "conflicts": conflicts, "unknownBrands": unknown_brands, "networkRequests": client.network_count, "cacheHits": client.cache_count, "published": False})
+        report.update({**coverage, "phase": phase, "lastUpdatedAt": utc_now(), "imageJobsCompleted": done, "imageJobsTotal": 0 if args.no_images else len(items), "categoryDetails": summaries, "failedUrls": failed, "imageErrors": image_errors, "excludedProducts": excluded, "conflicts": conflicts, "unknownBrands": unknown_brands, "parentOnlyItems": [{"id": item["id"], "brand": item["brand"], "model": item["model"], "source": item["source"]} for item in parent_only], "networkRequests": client.network_count, "cacheHits": client.cache_count, "published": False})
         if finished:
             report["finishedAt"] = utc_now()
         atomic_json(QA / "coverage-report.json", report)
