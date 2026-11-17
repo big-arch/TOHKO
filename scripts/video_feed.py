@@ -19,6 +19,9 @@ NS = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/sche
 YT_ID = re.compile(r"[A-Za-z0-9_-]{11}\Z")
 VIMEO_ID = re.compile(r"\d{6,12}\Z")
 SUBJECT = re.compile(r"\b(?:tights?|hosiery|pantyhose|stockings?|leggings?)\b|колгот|чулк|легинс", re.I)
+REVIEW_SUBJECT = re.compile(r"\b(?:tights?|hosiery|pantyhose|stockings?|leggings?|nylons?|fishnets?)\b|колгот|чулк|легинс", re.I)
+REVIEW_CUE = re.compile(r"\b(?:reviews?|try[ -]?on|styl(?:e|ing)|layer(?:ing)?|how to|tips?|tricks?|haul|compar(?:e|ing|ison)|versus|vs|guide|unboxing)\b|обзор|примерк|стилиз|сочетан|наслоен|лайфхак|как (?:выбрать|носить)", re.I)
+NUDE_COLOUR = re.compile(r"\bnude(?:[ -](?:tone|colou?red))?[ -]+(?=tights?\b|pantyhose\b|stockings?\b|nylons?\b)", re.I)
 EXCLUDED = re.compile(r"\b(?:nude|naked|fetish|onlyfans|porn|nsfw|lingerie|bikini|swimwear)\b|обнаж|эрот|фетиш|нижнее бель|купальник", re.I)
 ADULT_CONTEXT = re.compile(r"\b(?:onlyfans|fansly|fetish|porn|nsfw|erotic|sexy|sensual|seduc\w*|siren)\b|эрот|фетиш|соблазн", re.I)
 ASMR = re.compile(r"\basmr\b|асмр", re.I)
@@ -124,7 +127,17 @@ def classify(title, description="", publisher=False, profile="fashion"):
     # subject in the title. A publisher Atom entry has a specific article body.
     text = title + " " + description
     evidence = text if publisher else title
-    if EXCLUDED.search(title) or ADULT_CONTEXT.search(text):
+    # New mixed-format channels opt into a narrower title rule: an identified
+    # hosiery item plus an explicit review, try-on or styling/tutorial cue.
+    # A channel footer or hashtag-only short is not evidence of a review.
+    review_profile = profile == "fashion-review"
+    review_title = re.sub(r"(?<!\w)#[\w-]+", " ", title) if review_profile else title
+    if review_profile and not (REVIEW_SUBJECT.search(review_title) and REVIEW_CUE.search(review_title)):
+        return []
+    # "Nude stockings" names a colour. Permit only that exact garment context
+    # in the reviewed fashion profile; naked/nude people remain excluded.
+    exclusion_title = NUDE_COLOUR.sub("beige ", title) if review_profile else title
+    if EXCLUDED.search(exclusion_title) or ADULT_CONTEXT.search(text):
         return []
     # Textile ASMR is a separate, opt-in source profile. The subject and the
     # sound/handling cue must be in the video title, never a channel footer.
@@ -133,7 +146,7 @@ def classify(title, description="", publisher=False, profile="fashion"):
         if not (ASMR.search(title) and TEXTILE.search(title) and TEXTILE_SOUND.search(title)):
             return []
         return ["asmr"]
-    if not SUBJECT.search(evidence):
+    if not (REVIEW_SUBJECT if review_profile else SUBJECT).search(evidence):
         return []
     topics = [name for name, pattern in TOPICS if re.search(pattern, text, re.I)]
     return topics[:3] or ["choice"]
@@ -149,7 +162,7 @@ def validate_config(config):
         if source["id"] in ids or not re.fullmatch(r"[a-z0-9-]+", source["id"]):
             raise ValueError("Duplicate/invalid source ID")
         ids.add(source["id"])
-        if source.get("profile", "fashion") not in {"fashion", "textile-asmr"}:
+        if source.get("profile", "fashion") not in {"fashion", "fashion-review", "textile-asmr"}:
             raise ValueError("Unsupported source topic profile")
         if source.get("language", "original") not in {"ru", "en", "none", "original"}:
             raise ValueError("Unsupported source language")
@@ -254,7 +267,8 @@ def verify(candidate, source, raw, now, max_age):
     if not https_url(thumb, {"i.ytimg.com", "i.vimeocdn.com"}):
         raise ValueError("Thumbnail is outside the official CDN allowlist")
     title = plain(data.get("title"), 200)
-    if not title or EXCLUDED.search(title):
+    exclusion_title = NUDE_COLOUR.sub("beige ", title) if source.get("profile") == "fashion-review" else title
+    if not title or EXCLUDED.search(exclusion_title):
         raise ValueError("Invalid or excluded video title")
     published = candidate["publishedAt"]
     date_source = "youtube:atom.published"
@@ -278,6 +292,10 @@ def verify(candidate, source, raw, now, max_age):
     description = plain(data.get("description") or candidate["description"], 300)
     if candidate["topics"] == ["asmr"]:
         description = f"Звуки и фактура ткани в видео {plain(data.get('author_name'), 100)}. Начните с комфортной громкости."
+    elif source.get("profile") == "fashion-review":
+        # Do not copy channel promotion, shopping URLs or discount codes into
+        # the public catalogue. Keep the original title and author's link.
+        description = f"Обзор, примерка или сочетания чулочных изделий в видео {plain(data.get('author_name'), 100)}. Характеристики и впечатления относятся к показанным моделям."
     if not description:
         description = f"Видео {plain(data.get('author_name'), 100)}: {display_title}."
     provider, video_id = expected

@@ -353,6 +353,118 @@
       "language": "en",
       "verifiedAt": "2026-11-16",
       "verificationUrl": "https://www.youtube.com/@SamanthaYonge"
+    },
+    {
+      "id": "poppy-attic-youtube",
+      "name": "Poppy Attic",
+      "kind": "youtube-atom",
+      "channelId": "UCSLsvKPINbLUT97CmIUDsDg",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSLsvKPINbLUT97CmIUDsDg",
+      "authorUrls": [
+        "https://www.youtube.com/@PoppyAttic",
+        "https://www.youtube.com/channel/UCSLsvKPINbLUT97CmIUDsDg"
+      ],
+      "profile": "fashion-review",
+      "language": "en",
+      "verifiedAt": "2026-11-17",
+      "verificationUrl": "https://www.youtube.com/@PoppyAttic",
+      "verificationVideo": "https://www.youtube.com/watch?v=5Z_E3EFnEUM"
+    },
+    {
+      "id": "dasha-daiz-youtube",
+      "name": "Dasha Daiz",
+      "kind": "youtube-atom",
+      "channelId": "UCXhzA1n1QB-NeRUVeY4Aotg",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXhzA1n1QB-NeRUVeY4Aotg",
+      "authorUrls": [
+        "https://www.youtube.com/@Dashadaiz",
+        "https://www.youtube.com/channel/UCXhzA1n1QB-NeRUVeY4Aotg"
+      ],
+      "profile": "fashion-review",
+      "language": "en",
+      "verifiedAt": "2026-11-17",
+      "verificationUrl": "https://www.youtube.com/@Dashadaiz",
+      "verificationVideo": "https://www.youtube.com/watch?v=O3-nEUl9bFs"
+    },
+    {
+      "id": "funkyredfox-youtube",
+      "name": "FunkyRedFox",
+      "kind": "youtube-atom",
+      "channelId": "UC0r2YufaAJBvVfI5P_nwGaA",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC0r2YufaAJBvVfI5P_nwGaA",
+      "authorUrls": [
+        "https://www.youtube.com/@funkyredfoxx",
+        "https://www.youtube.com/channel/UC0r2YufaAJBvVfI5P_nwGaA"
+      ],
+      "profile": "fashion-review",
+      "language": "ru",
+      "verifiedAt": "2026-11-17",
+      "verificationUrl": "https://www.youtube.com/@funkyredfoxx",
+      "verificationVideo": "https://www.youtube.com/watch?v=AY72V-uDWnI"
+    },
+    {
+      "id": "funhose-studios-youtube",
+      "name": "Funhose Studios",
+      "kind": "youtube-atom",
+      "channelId": "UCH8avm5-L7_hCEijqkFXN2Q",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCH8avm5-L7_hCEijqkFXN2Q",
+      "authorUrls": [
+        "https://www.youtube.com/@FunhoseStudios",
+        "https://www.youtube.com/channel/UCH8avm5-L7_hCEijqkFXN2Q"
+      ],
+      "profile": "fashion-review",
+      "language": "en",
+      "verifiedAt": "2026-11-17",
+      "verificationUrl": "https://www.youtube.com/@FunhoseStudios",
+      "verificationVideo": "https://www.youtube.com/watch?v=7aAdEV-V2yc"
+    },
+    {
+      "id": "legs-by-layla-youtube",
+      "name": "Legs by Layla",
+      "kind": "youtube-atom",
+      "channelId": "UCaBOu_8GmuCVvhmFzQiQhiA",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCaBOu_8GmuCVvhmFzQiQhiA",
+      "authorUrls": [
+        "https://www.youtube.com/@legsbylayla",
+        "https://www.youtube.com/channel/UCaBOu_8GmuCVvhmFzQiQhiA"
+      ],
+      "profile": "fashion-review",
+      "language": "en",
+      "verifiedAt": "2026-11-17",
+      "verificationUrl": "https://www.youtube.com/@legsbylayla",
+      "verificationVideo": "https://www.youtube.com/watch?v=pSNv4IEC1zc"
+    },
+    {
+      "id": "peyton-kinsly-youtube",
+      "name": "Peyton Kinsly",
+      "kind": "youtube-atom",
+      "channelId": "UCmT-pkVxrRQf7YTnY3DvgBQ",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmT-pkVxrRQf7YTnY3DvgBQ",
+      "authorUrls": [
+        "https://www.youtube.com/@peytonkinsly",
+        "https://www.youtube.com/channel/UCmT-pkVxrRQf7YTnY3DvgBQ"
+      ],
+      "profile": "fashion-review",
+      "language": "en",
+      "verifiedAt": "2026-11-17",
+      "verificationUrl": "https://www.youtube.com/@peytonkinsly",
+      "verificationVideo": "https://www.youtube.com/watch?v=Y-S28ALI3ZE"
+    },
+    {
+      "id": "oona-linna-youtube",
+      "name": "OonaLinna",
+      "kind": "youtube-atom",
+      "channelId": "UC2EG9xxty8hileqH3z1ejSQ",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC2EG9xxty8hileqH3z1ejSQ",
+      "authorUrls": [
+        "https://www.youtube.com/@OonaLinna",
+        "https://www.youtube.com/channel/UC2EG9xxty8hileqH3z1ejSQ"
+      ],
+      "profile": "fashion-review",
+      "language": "en",
+      "verifiedAt": "2026-11-17",
+      "verificationUrl": "https://www.youtube.com/@OonaLinna",
+      "verificationVideo": "https://www.youtube.com/watch?v=JPRIvuKUCyI"
     }
   ],
   "maxNewPerSource": 3
