@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-11-17T13:58:16Z",
+  "startedAt": "2026-11-17T14:10:55Z",
   "source": "https://xn--80ajrmkna.xn--p1ai/",
   "failedUrls": [],
   "complete": true,
@@ -12,7 +12,7 @@
   "listedOccurrences": 3999,
   "uniqueProducts": 1565,
   "excludedUnrelatedProducts": 0,
-  "imagesAwaitingReview": 99,
+  "imagesAwaitingReview": 100,
   "byKind": {
     "аксессуар": 1,
     "колготки": 1304,
@@ -110,11 +110,11 @@
   },
   "pricesAvailable": 1267,
   "scope": "Все публичные родительские и дочерние листинги колготок классика, колготок фантазия, чулок на силиконе и чулок под пояс, а также отдельная подкатегория детских колготок. Остальные группы не входят в охват.",
-  "images": 648,
+  "images": 793,
   "imageFailures": 0,
   "imagePhaseComplete": true,
   "phase": "finished",
-  "lastUpdatedAt": "2026-11-17T13:58:34Z",
+  "lastUpdatedAt": "2026-11-17T14:11:04Z",
   "imageJobsCompleted": 0,
   "imageJobsTotal": 0,
   "categoryDetails": [
@@ -1479,41 +1479,7 @@
       "paginationMode": "cumulative",
       "redundantIntermediatePagesSkipped": 7,
       "complete": true,
-      "errors": [],
-      "freshRetry": {
-        "attempted": true,
-        "reason": "Advertised count changed during pagination",
-        "previousAdvertisedCount": 95,
-        "previousCollectedCount": 94,
-        "previousErrors": [
-          {
-            "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den/filter/page=9",
-            "reason": "Advertised count changed during pagination"
-          },
-          {
-            "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den",
-            "reason": "Coverage mismatch: expected 95, collected 94 unique products"
-          }
-        ],
-        "previousPages": [
-          {
-            "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den",
-            "count": 10,
-            "checkedAt": "2026-11-17T13:46:24Z"
-          },
-          {
-            "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den/filter/page=1",
-            "count": 20,
-            "checkedAt": "2026-11-17T13:47:02Z"
-          },
-          {
-            "url": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/plotnye-ot-50-den/filter/page=9",
-            "count": 94,
-            "checkedAt": "2026-11-17T13:47:51Z"
-          }
-        ],
-        "succeeded": true
-      }
+      "errors": []
     },
     {
       "name": "Колготки классика · с хлопком",
@@ -1732,8 +1698,8 @@
   "conflicts": [],
   "unknownBrands": [],
   "parentOnlyItems": [],
-  "networkRequests": 15,
-  "cacheHits": 119,
+  "networkRequests": 0,
+  "cacheHits": 131,
   "published": true,
-  "finishedAt": "2026-11-17T13:58:34Z"
+  "finishedAt": "2026-11-17T14:11:04Z"
 }

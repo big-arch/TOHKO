@@ -1,58 +1,58 @@
 {
-  "startedAt": "2026-11-17T13:58:34Z",
+  "startedAt": "2026-11-17T14:11:05Z",
   "catalogCheckedAt": "2026-11-17T13:58:30Z",
-  "availableUnpicturedImages": 818,
+  "availableUnpicturedImages": 672,
   "selectedCount": 4,
   "curlVersion": "curl 8.18.0 (x86_64-pc-linux-gnu) libcurl/8.18.0 OpenSSL/3.5.5 zlib/1.3.1 brotli/1.2.0 zstd/1.5.7 libidn2/2.3.8 libpsl/0.21.2 libssh2/1.11.1 nghttp2/1.68.0 librtmp/2.3 mit-krb5/1.22.1 OpenLDAP/2.6.10",
   "curlSupportsHttp2": true,
   "requestLimitSeconds": 45,
   "requests": [
     {
-      "id": "loretta-306592",
-      "brand": "Conte",
-      "url": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_1289926.jpg",
+      "id": "loretta-269607",
+      "brand": "Innamore",
+      "url": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_1252970.jpg",
       "transport": "curl",
       "httpStatus": 200,
       "httpVersion": "1.1",
-      "sizeBytes": 26195,
+      "sizeBytes": 42784,
       "ok": true,
       "exitCode": 0,
-      "dnsSeconds": 0.000783,
-      "connectSeconds": 0.126072,
-      "tlsSeconds": 0.254817,
-      "headersSeconds": 0.380232,
-      "totalSeconds": 0.504988,
-      "wallSeconds": 0.5121
+      "dnsSeconds": 0.482811,
+      "connectSeconds": 0.610775,
+      "tlsSeconds": 0.740415,
+      "headersSeconds": 0.866849,
+      "totalSeconds": 1.116894,
+      "wallSeconds": 1.1256
     },
     {
-      "id": "loretta-254474",
-      "brand": "Omero",
-      "url": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_1237846.jpg",
+      "id": "loretta-60406",
+      "brand": "Oroblù",
+      "url": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_46234.jpg",
       "transport": "urllib",
       "httpStatus": 200,
-      "sizeBytes": 36485,
+      "sizeBytes": 33713,
       "ok": true,
-      "headersSeconds": 0.3805,
+      "headersSeconds": 0.6607,
       "httpVersion": "1.1",
-      "totalSeconds": 0.5042,
-      "wallSeconds": 0.5513
+      "totalSeconds": 0.7926,
+      "wallSeconds": 0.8427
     },
     {
-      "id": "loretta-152070",
+      "id": "loretta-266830",
       "brand": "Pretty Polly",
-      "url": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_1135609.jpg",
+      "url": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_1250193.jpg",
       "transport": "curl",
       "httpStatus": 200,
       "httpVersion": "1.1",
-      "sizeBytes": 50895,
+      "sizeBytes": 50001,
       "ok": true,
       "exitCode": 0,
-      "dnsSeconds": 0.000861,
-      "connectSeconds": 0.120952,
-      "tlsSeconds": 0.244062,
-      "headersSeconds": 0.366796,
-      "totalSeconds": 0.602175,
-      "wallSeconds": 0.6105
+      "dnsSeconds": 0.408216,
+      "connectSeconds": 0.539736,
+      "tlsSeconds": 0.67442,
+      "headersSeconds": 0.806105,
+      "totalSeconds": 1.067125,
+      "wallSeconds": 1.0757
     },
     {
       "id": "loretta-206038",
@@ -62,11 +62,11 @@
       "httpStatus": 200,
       "sizeBytes": 39894,
       "ok": true,
-      "headersSeconds": 0.3841,
+      "headersSeconds": 0.734,
       "httpVersion": "1.1",
-      "totalSeconds": 0.5082,
-      "wallSeconds": 0.5549
+      "totalSeconds": 0.8658,
+      "wallSeconds": 0.9153
     }
   ],
-  "finishedAt": "2026-11-17T13:58:38Z"
+  "finishedAt": "2026-11-17T14:11:10Z"
 }

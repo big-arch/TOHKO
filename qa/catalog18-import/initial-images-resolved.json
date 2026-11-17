@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "resolvedAt": "2026-11-17T13:58:34Z",
+  "resolvedAt": "2026-11-17T14:11:04Z",
   "provenance": {
     "githubRunId": "44085884185",
     "gitCommit": "6fffdb46a161b61c6cf46d541069eed4a550623a",
     "evidence": "Public Loretta photographs downloaded and optimized by the first catalogue CI. Each local file matches the Git blob committed by that run. Its JSON/URL manifest was not retained after timeout; source URLs will be bound explicitly by SKU and source product ID from the next successful listing."
   },
-  "acceptedCount": 648,
-  "rejectedCount": 0,
+  "acceptedCount": 647,
+  "rejectedCount": 1,
   "items": [
     {
       "id": "loretta-103264",
@@ -7768,24 +7768,6 @@
       "evidence": "First CI asset hash and SKU match; current public listing confirms product ID and source image URL. The original CI did not retain its URL manifest; this is an explicit one-time provenance binding, not a byte comparison with a new image download."
     },
     {
-      "id": "loretta-284138",
-      "image": "assets/catalog/loretta-284138.webp",
-      "thumbnail": "assets/catalog/loretta-284138-320.webp",
-      "width": 600,
-      "height": 935,
-      "sha256": "bac7a729fd92d4d0e282029e5eaddfce2baeb7e5b9ac6a0a45165e30fc739819",
-      "thumbnailSha256": "f3ff2636baee067683ad9140460152d82454375319ff6162b04a6aba5b10e9d9",
-      "gitBlob": "6d434020b4eefef41eb9cd5005d19d4968930623",
-      "thumbnailGitBlob": "9534300eb2904fc7b2aa6d2e97216d2907eb41a0",
-      "brand": "Doyeah",
-      "model": "0108 High Pantyhose",
-      "source": "https://xn--80ajrmkna.xn--p1ai/catalog/kolgotki-klassika/blestyaschie/doyeah_0108",
-      "imageSource": "https://xn--80ajrmkna.xn--p1ai/pics/cache/985_v_1267492.jpg",
-      "sourceProductId": "1267492",
-      "listingCheckedAt": "2026-11-17T13:58:30Z",
-      "evidence": "First CI asset hash and SKU match; current public listing confirms product ID and source image URL. The original CI did not retain its URL manifest; this is an explicit one-time provenance binding, not a byte comparison with a new image download."
-    },
-    {
       "id": "loretta-284141",
       "image": "assets/catalog/loretta-284141.webp",
       "thumbnail": "assets/catalog/loretta-284141-320.webp",
@@ -11674,5 +11656,10 @@
       "evidence": "First CI asset hash and SKU match; current public listing confirms product ID and source image URL. The original CI did not retain its URL manifest; this is an explicit one-time provenance binding, not a byte comparison with a new image download."
     }
   ],
-  "rejected": []
+  "rejected": [
+    {
+      "id": "loretta-284138",
+      "reason": "Product photograph currently requires visual review"
+    }
+  ]
 }
