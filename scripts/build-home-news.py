@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 from datetime import datetime
 from news_editorial import apply_editorial
-from news_render import story
+from news_render import story,newest_publications,publication_markup,refresh_publication_badges
 from news_publication import is_ready,sync_publication
 
 ROOT=Path(__file__).resolve().parents[1]/'tights-guide'
@@ -15,13 +15,12 @@ news=json.loads(news_path.read_text(encoding='utf-8')) if news_path.exists() els
 apply_editorial(news)
 sync_publication(news)
 news_path.write_text(json.dumps(news,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-published=[i for i in news.get('items',[]) if is_ready(i)]
+published=newest_publications(i for i in news.get('items',[]) if is_ready(i))
 media={m['id']:m for m in json.loads((ROOT/'data/editorial-media.json').read_text(encoding='utf-8'))}
 
 def card(item):
-    stamp=datetime.fromisoformat(item['publishedAt'].replace('Z','+00:00')).strftime('%d.%m.%Y')
     via=' · через Google News' if item.get('via') else ''
-    return f'''<article class="news-item"><div class="news-meta"><span>{esc(item['source'])}{via}</span><time datetime="{esc(item['publishedAt'])}">{stamp}</time><span>{esc(item['language'].upper())}</span></div><h3><a href="news.html#story-{esc(item['id'])}" data-news-id="{esc(item['id'])}" lang="{'ru' if item.get('displayTitle') else esc(item['language'])}">{esc(item.get('displayTitle') or item['title'])}</a></h3><span class="news-read">Читать на ТОНКО →</span></article>'''
+    return f'''<article class="news-item" data-published-at="{esc(item.get('publishedAt') or '')}"><div class="news-meta"><span>{esc(item['source'])}{via}</span>{publication_markup(item.get('publishedAt'))}<span>{esc(item['language'].upper())}</span></div><h3><a href="news.html#story-{esc(item['id'])}" data-news-id="{esc(item['id'])}" lang="{'ru' if item.get('displayTitle') else esc(item['language'])}">{esc(item.get('displayTitle') or item['title'])}</a></h3><span class="news-read">Читать на ТОНКО →</span></article>'''
 
 stamp=news.get('lastSuccessfulAt')
 checked='Проверка источников ещё не завершена.'
@@ -32,6 +31,7 @@ section=f'''<!-- tonko-news --><section class="portal-container news-section" id
 <div class="news-heading"><div><p class="portal-eyebrow">Лента публикаций</p><h2 id="news-title">Сейчас в<br>чулочной моде.</h2></div><div class="news-heading-note"><p>Коллекции, сочетания и новые взгляды на знакомую вещь. Публикации брендов и модных изданий в одной ленте.</p><p class="news-status" id="news-status" role="status">{esc(checked)}</p></div></div>
 <div class="news-toolbar"><div class="news-filters" role="group" aria-label="Язык источника"><button type="button" data-news-language="all" aria-pressed="true">Все источники</button><button type="button" data-news-language="ru" aria-pressed="false">Русскоязычные</button><button type="button" data-news-language="en" aria-pressed="false">Англоязычные</button></div><button type="button" id="news-refresh">Проверить ленту ↻</button></div>
 <button type="button" id="news-new" hidden>Показать новые публикации</button>
+<p class="publication-order">Сначала новые · «Новое» — публикации за последние 7 дней</p>
 <div id="news-list" class="news-list">{''.join(card(i) for i in published[:6]) or '<p>Готовых публикаций пока нет. Найденные материалы проходят подготовку.</p>'}</div>
 <button type="button" id="news-more" hidden>Ещё публикации ↓</button>
 <details class="news-about"><summary>Как обновляется лента и откуда новости</summary><p>Источники проверяются по расписанию каждые 15 минут. Возможны задержки сервиса и самих изданий. В ленту попадают только подготовленные статьи с текстом: найденный заголовок сначала поступает в очередь, затем проверяется первоисточник и готовится самостоятельный русский пересказ.</p><p>Автоматические тексты помечены «AI-пересказ». Дата рядом с материалом принадлежит источнику; время проверки указано отдельно. Если источник недоступен или данных мало, материал остаётся в очереди с причиной и повторной попыткой. При сбое готовые статьи сохраняются.</p><div id="news-queue"><p>Готово: {news['queue']['ready']}. В подготовке: {news['queue']['pending']}. Требуют повторной проверки: {news['queue']['failed']}.</p></div><ul id="news-sources">{sources}</ul></details>
@@ -66,13 +66,20 @@ text=re.sub(r'<script id="news-seed".*?</script>','',text,flags=re.S)
 text=re.sub(r'<script src="news-reader.js[^\"]*"[^>]*></script>','',text)
 seed=json.dumps(news,ensure_ascii=False).replace('<','\\u003c')
 text=text.replace('<script src="news.js',f'<script id="news-seed" type="application/json">{seed}</script><script src="news-reader.js?v=20261116-12" defer></script><script src="news.js')
-text=re.sub(r'(news-reader\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261116-13',text)
-text=re.sub(r'(news\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261116-13',text)
+text=re.sub(r'(news-reader\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261117-17',text)
+text=re.sub(r'(news\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261117-17',text)
+text=re.sub(r'<script src="publication-dates\.js[^\"]*"[^>]*></script>','',text)
+text=text.replace('</head>','<script src="publication-dates.js?v=20261117-17" defer></script></head>')
 p.write_text(text,encoding='utf-8')
 # A readable, linkable fallback also works without JavaScript.
 stories=[story(i) for i in published]
-fallback=re.sub(r'<main\b[^>]*>.*?</main>',lambda m:'<main id="content" class="portal-container"><h1>В фокусе чулочной моды.</h1>'+''.join(stories)+'</main>',text,flags=re.S)
+fallback=re.sub(r'<main\b[^>]*>.*?</main>',lambda m:'<main id="content" class="portal-container news-archive"><p class="portal-eyebrow">Лента публикаций</p><h1>В фокусе чулочной моды.</h1><p class="publication-order">Сначала новые · «Новое» — публикации за последние 7 дней</p>'+''.join(stories)+'</main>',text,flags=re.S)
 fallback=re.sub(r'<script[^>]*(?:news-seed|news-reader\.js|news\.js)[^>]*>.*?</script>','',fallback,flags=re.S)
 fallback=re.sub(r'<title>.*?</title>','<title>Новости чулочной моды — ТОНКО</title>',fallback)
 (ROOT/'news.html').write_text(fallback,encoding='utf-8')
+for page in [ROOT/'journal.html',*ROOT.glob('read-*.html')]:
+    if page.exists():
+        existing=page.read_text(encoding='utf-8')
+        updated=refresh_publication_badges(existing)
+        if updated!=existing:page.write_text(updated,encoding='utf-8')
 print('Home news and outfit sections generated')

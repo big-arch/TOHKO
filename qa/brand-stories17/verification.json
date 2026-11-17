@@ -1,0 +1,185 @@
+{
+  "histories": 35,
+  "photos": 32,
+  "archivePackages": 931,
+  "archiveBrands": 35,
+  "photoExceptions": [
+    "Elledue",
+    "Giulietta",
+    "ORO"
+  ],
+  "rows": [
+    {
+      "brand": "Conte",
+      "photo": true,
+      "sha256": "700bd80193eae5d524d84a5652892d7d7b45b5c8b2aed3d4a9d1c162f48d60c9"
+    },
+    {
+      "brand": "Elledue",
+      "photo": false
+    },
+    {
+      "brand": "FALKE",
+      "photo": true,
+      "sha256": "410920b0407e4a61a0aeb18fd5f7a31d580a04b8a001689d507d2251a03137ba"
+    },
+    {
+      "brand": "Filodoro",
+      "photo": true,
+      "sha256": "0a5e8896390a99f074ad2faffe2cb58b6ac05324d73804fd487805046647d403"
+    },
+    {
+      "brand": "Fiore",
+      "photo": true,
+      "sha256": "2e7c5da3972a6e1df852e67bdbc25eb8f0f683908f33a93ebf65f79ea5d2578a"
+    },
+    {
+      "brand": "Gabriella",
+      "photo": true,
+      "sha256": "89c42bd32cc79812bf965a174e58d635bff0cdd9d82875874f46c55016e206cc"
+    },
+    {
+      "brand": "Gatta",
+      "photo": true,
+      "sha256": "f4f2325a74237dada2dc8e02228b91fb7af6ac91d7cd959729562e15521cf457"
+    },
+    {
+      "brand": "Giulia",
+      "photo": true,
+      "sha256": "ec6264d40b34bb6df3605fa9067e76ca4ff62010df900073386868b15a9851ad"
+    },
+    {
+      "brand": "Giulietta",
+      "photo": false
+    },
+    {
+      "brand": "Glamour",
+      "photo": true,
+      "sha256": "de55a12f36b8bd5fb65575379af91aa48420022e49ef30c3c27d6675b50c7f2d"
+    },
+    {
+      "brand": "Golden Lady",
+      "photo": true,
+      "sha256": "1ce2246c02a135d194bb87708d677b957b3d32b6b09aa1a4dcae672dc11b2d68"
+    },
+    {
+      "brand": "Incanto",
+      "photo": true,
+      "sha256": "1940f2b5e5877947bdfefa9caba88711d98acddb858ad161932e39f7b7791af5"
+    },
+    {
+      "brand": "Innamore",
+      "photo": true,
+      "sha256": "319655293a5be9fd4c22dd891b020688fe913e0dd9a5f00f03e11272d270bc97"
+    },
+    {
+      "brand": "Le Bourget",
+      "photo": true,
+      "sha256": "81d5bfd6c674ea173d31437e9c1a9a4127a4fe4dce594885910e47eb12b4f271"
+    },
+    {
+      "brand": "Levante",
+      "photo": true,
+      "sha256": "0cab2b39f4cede3cb7f50fe2465ab30719d293beb9c5e985ddb1cb3411397b40"
+    },
+    {
+      "brand": "Minimi",
+      "photo": true,
+      "sha256": "ec58992300336ebf99ae6104942261cd3b4f51883e27fd8dde255c2df387aeef"
+    },
+    {
+      "brand": "OMSA",
+      "photo": true,
+      "sha256": "1e05a14d6d73d01e49427836c5ecc4ec0d0b411c9a7650d3097122f2836e30c5"
+    },
+    {
+      "brand": "ORO",
+      "photo": false
+    },
+    {
+      "brand": "Omero",
+      "photo": true,
+      "sha256": "f844479d9732dd54acbf87989bdb6f2729392dd69799ae5f960c51fe5d90583e"
+    },
+    {
+      "brand": "Oroblù",
+      "photo": true,
+      "sha256": "1c3d68867f2975d5ec9d1330bb673e7c0780b0be2212c3f169beeb97b224d908"
+    },
+    {
+      "brand": "Philippe Matignon",
+      "photo": true,
+      "sha256": "22bba87320f193add9746753d124b6a838a027103118b8ee2ef1bf405eb2235a"
+    },
+    {
+      "brand": "Sisi",
+      "photo": true,
+      "sha256": "f523ba1ffd50745b5af323aa01a2e736827876b87f32a74f50d0e41146a7470f"
+    },
+    {
+      "brand": "Swedish Stockings",
+      "photo": true,
+      "sha256": "30451f26c2b3aeba41591a510588eb7ac7f8c2ae26c9f66d687e30577523aa99"
+    },
+    {
+      "brand": "Trasparenze",
+      "photo": true,
+      "sha256": "51f0d14726140e36d4ca87776a6e1bdb5d89d85036783f01ebf2799a94da748c"
+    },
+    {
+      "brand": "Wolford",
+      "photo": true,
+      "sha256": "2b62b0e37b467c5c336fef2e0cc54f061b32163e40fd8e167f02222781dac643"
+    },
+    {
+      "brand": "Knittex",
+      "photo": true,
+      "sha256": "fc39a5eb850cbeca97074684543bf2fe26c77344649fd9c712c06c521f046f31"
+    },
+    {
+      "brand": "Marilyn",
+      "photo": true,
+      "sha256": "f6ea51be22df4b6f521ea62af038736b92d75514a72e9bb25610d27857382f0c"
+    },
+    {
+      "brand": "Mona",
+      "photo": true,
+      "sha256": "8b50662346aea68357be42d8360db4f0aaaf21f3ef8488cacdb29701708aeb5c"
+    },
+    {
+      "brand": "Veneziana",
+      "photo": true,
+      "sha256": "c6f4a3b8dabcbb9136f5b78b8ed71ff1824ce9e056e69546a360b0b498efa72f"
+    },
+    {
+      "brand": "Calzedonia",
+      "photo": true,
+      "sha256": "5dfb3e807a7801c7c9d6c4591954081ed54315dc8d389a0cf8d9276bb5af8448"
+    },
+    {
+      "brand": "DIM",
+      "photo": true,
+      "sha256": "c1d3bbc1cc0f7477f6fb31112508f30b855f425c92d66023f6c36ecfd5a71666"
+    },
+    {
+      "brand": "Tezenis",
+      "photo": true,
+      "sha256": "3723e59549fb0ac5e55ac4f0cb01257861e0baf10aeae3a09c4ca3e035166bb7"
+    },
+    {
+      "brand": "Pierre Cardin",
+      "photo": true,
+      "sha256": "eb17228ef5bbe7759d6268978a990604a3c5003607885d61a517adcfb9954420"
+    },
+    {
+      "brand": "Intimidea",
+      "photo": true,
+      "sha256": "76e96260cadf0130809f007885feb70ad7133b901ee82612ab1508e1b2828cb5"
+    },
+    {
+      "brand": "Pompea",
+      "photo": true,
+      "sha256": "92508fbcc514574f3b448d6ef5718f607fe10752c38989e22b281e31f8f14a89"
+    }
+  ]
+}

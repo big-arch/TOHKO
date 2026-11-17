@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checks": [
+    "real pages at 320px",
+    "real pages at 390px",
+    "real pages at 768px",
+    "real pages at 1440px",
+    "unsorted feed, ties, unknown/invalid last, language filters, pagination",
+    "mobile modal time, future exclusion, expiry on visibility/pageshow without reset",
+    "manual refresh queues changes and sorts by original publication time",
+    "journal chronology, unknown fallback, themes and saved filter",
+    "older journal metadata cache preserves confirmed SSR dates",
+    "client date validation and exact seven-day boundary",
+    "periodic expiry without interaction; date-only label independent of local timezone",
+    "no-JS home/full-news/journal order and all six reader dates"
+  ],
+  "javascriptErrors": [],
+  "externalRequestsBlocked": 56,
+  "networkPolicy": "All external requests blocked; no provider/AI calls."
+}

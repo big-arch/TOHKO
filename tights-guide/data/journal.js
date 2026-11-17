@@ -7,7 +7,9 @@ window.TONKO_JOURNAL = [
     "description": "Учимся читать блики, прозрачность и цвет на реальной фотографии — и понимаем, чего она не показывает.",
     "image": "cdr-gloss",
     "minutes": 3,
-    "url": "read-light.html"
+    "url": "read-light.html",
+    "publishedAt": "2026-11-15",
+    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py"
   },
   {
     "id": "patterns",
@@ -17,7 +19,9 @@ window.TONKO_JOURNAL = [
     "description": "Масштаб узора, фон и расстояние: три способа внимательнее рассмотреть фантазийные колготки.",
     "image": "noq-lace",
     "minutes": 2,
-    "url": "read-patterns.html"
+    "url": "read-patterns.html",
+    "publishedAt": "2026-11-15",
+    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py"
   },
   {
     "id": "construction",
@@ -27,7 +31,9 @@ window.TONKO_JOURNAL = [
     "description": "Footless, shorty, высокая посадка и бесшовные зоны: разбираем слова, за которыми скрывается конструкция.",
     "image": "spanx-hosiery",
     "minutes": 2,
-    "url": "read-construction.html"
+    "url": "read-construction.html",
+    "publishedAt": "2026-11-15",
+    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py"
   },
   {
     "id": "product-card",
@@ -37,7 +43,9 @@ window.TONKO_JOURNAL = [
     "description": "Состав, размер, DEN, конструкция и уход. Превращаем красивую фотографию в осмысленный выбор.",
     "image": "pm-sheer",
     "minutes": 3,
-    "url": "read-product-card.html"
+    "url": "read-product-card.html",
+    "publishedAt": "2026-11-15",
+    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py"
   },
   {
     "id": "making",
@@ -47,7 +55,9 @@ window.TONKO_JOURNAL = [
     "description": "Три разных масштаба бизнеса: семейное производство, группа брендов и компания с длинным архивом.",
     "image": "swedish-factory",
     "minutes": 3,
-    "url": "read-making.html"
+    "url": "read-making.html",
+    "publishedAt": "2026-11-15",
+    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py"
   },
   {
     "id": "archive",
@@ -57,6 +67,8 @@ window.TONKO_JOURNAL = [
     "description": "Основание, регистрация марки и смена владельца — разные события. Собираем хронологию аккуратно.",
     "image": "falke-first",
     "minutes": 3,
-    "url": "read-archive.html"
+    "url": "read-archive.html",
+    "publishedAt": "2026-11-15",
+    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py"
   }
 ];

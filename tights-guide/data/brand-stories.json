@@ -855,6 +855,187 @@
         "credit": "Veneziana / NBielizna",
         "license": "Каталожная фотография из указанного источника. Свободная лицензия не заявлена; права принадлежат правообладателю."
       }
+    },
+    {
+      "brand": "Calzedonia",
+      "slug": "calzedonia",
+      "country": "Италия",
+      "founded": "1986",
+      "title": "Колготки как самостоятельный модный акцент",
+      "paragraphs": [
+        "История Calzedonia начинается в 1986 году. Компания выросла в Вероне вокруг специализированных магазинов чулочных изделий и пляжной одежды. Колготки стали одной из основ её узнаваемости: прозрачная классика соседствует с сезонными узорами и фактурами. В этом подходе аксессуар получает самостоятельную роль в образе, а ассортимент объединяет повседневные и более выразительные модели."
+      ],
+      "sources": [
+        {
+          "title": "Oniverse — история и специализация Calzedonia",
+          "url": "https://www.oniverse.it/en/the-group/our-brands/calzedonia."
+        },
+        {
+          "title": "Oniverse — о компании",
+          "url": "https://www.oniverse.it/en/the-group/who-we-are"
+        }
+      ],
+      "photo": {
+        "src": "assets/brand-stories/calzedonia-nude-feeling.webp",
+        "thumb": "assets/brand-stories/calzedonia-nude-feeling-480.webp",
+        "width": 857,
+        "height": 1200,
+        "alt": "Прозрачные телесные колготки Calzedonia Nude Feeling 20 с бежевыми туфлями.",
+        "caption": "Calzedonia · Nude Feeling 20. Фотография из официального каталога.",
+        "source": "https://www.calzedonia.com/us/product/nude_feeling_20_denier_sheer_tights-LIC071.html",
+        "imageSource": "https://www.calzedonia.com/dw/image/v2/BJHW_PRD/on/demandware.static/-/Sites-CAL_EC_COM/default/dwf88d4074/images/LIC071315-M.jpg?sfrm=jpeg&sw=1440&q=80",
+        "credit": "Calzedonia",
+        "license": "Каталожное изображение из указанного источника. Свободная лицензия не заявлена; права принадлежат правообладателю."
+      }
+    },
+    {
+      "brand": "DIM",
+      "slug": "dim",
+      "country": "Франция",
+      "title": "От Les Bas Dimanche к Sublim",
+      "paragraphs": [
+        "В хронологии DIM отправной точкой стал 1958 год: Бернар Гиберштейн выпускал чулки без шва под названием Les Bas Dimanche. В 1965-м имя сократилось до DIM, а в 1968-м колготки вошли в историю марки как спутник мини-юбки и свободы движения. Позднее появились самостоятельные серии: Dim Up в 1986 году и прозрачная Sublim в 1991-м. Архивная реклама показывает, как менялась подача привычной вещи."
+      ],
+      "sources": [
+        {
+          "title": "DIM — история марки и рекламный архив",
+          "url": "https://www.dim.com/en-gb/blogs/news/histoire-de-la-marque"
+        }
+      ],
+      "photo": {
+        "src": "assets/brand-stories/dim-sublim.webp",
+        "thumb": "assets/brand-stories/dim-sublim-480.webp",
+        "width": 535,
+        "height": 384,
+        "alt": "Три архивных рекламных кадра DIM Sublim с моделями в прозрачных колготках.",
+        "caption": "DIM · Sublim, 1991. Рекламный архив марки; фотографии Peter Lindbergh.",
+        "source": "https://www.dim.com/en-gb/blogs/news/histoire-de-la-marque",
+        "imageSource": "https://www.dim.com/cdn/shop/files/HISTOIRE_three-sublim.png",
+        "credit": "DIM / Peter Lindbergh",
+        "license": "Каталожное изображение из указанного источника. Свободная лицензия не заявлена; права принадлежат правообладателю."
+      }
+    },
+    {
+      "brand": "Tezenis",
+      "country": "Италия",
+      "founded": "2003",
+      "title": "Ритм меняющегося гардероба",
+      "paragraphs": [
+        "Tezenis появилась в 2003 году внутри группы, известной по Calzedonia. Марка объединила бельё, чулочные изделия, трикотаж и повседневную одежду, сделав акцент на быстро меняющихся коллекциях. В её подаче заметны музыка и молодёжная культура. Колготки здесь становятся частью общего гардероба: рядом с базовой прозрачной парой появляются сезонные цвета и рисунки."
+      ],
+      "sources": [
+        {
+          "title": "Oniverse — Tezenis: история, коллекции и музыка",
+          "url": "https://www.oniverse.it/en/the-group/our-brands/tezenis."
+        }
+      ],
+      "photo": {
+        "src": "assets/brand-stories/tezenis-20-front.webp",
+        "thumb": "assets/brand-stories/tezenis-20-front-480.webp",
+        "width": 800,
+        "height": 1200,
+        "alt": "Телесные прозрачные колготки Tezenis 20 DEN: каталожный снимок ног.",
+        "caption": "Tezenis · 20 DEN. Фотография из официального каталога.",
+        "source": "https://www.tezenis.com/uk/product/20_denier_appearance_sheer_tights-1ZC16B_color_2673.html",
+        "imageSource": "https://www.tezenis.com/dw/image/v2/BCXQ_PRD/on/demandware.static/-/Sites-TEZ_EC_COM/default/dwfe39b69f/images/1ZC16B2673-FI.jpg?sw=1200&sfrm=jpeg",
+        "credit": "Tezenis",
+        "license": "Каталожное изображение из указанного источника. Свободная лицензия не заявлена; права принадлежат правообладателю."
+      }
+    },
+    {
+      "brand": "Pierre Cardin",
+      "country": "Франция",
+      "title": "Имя парижского модного дома",
+      "paragraphs": [
+        "Пьер Карден открыл собственный модный дом в Париже в 1950 году, после работы у Кристиана Диора и Эльзы Скиапарелли. Сегодня его имя встречается и на чулочных изделиях. В этой части архива можно проследить отдельный язык марки — названия моделей, крупную типографику и фотографии, на которых колготки показаны как часть законченного образа. Дата основания дома относится к его истории, а не к выпуску конкретной пары."
+      ],
+      "sources": [
+        {
+          "title": "Pierre Cardin — официальный сайт и история дома",
+          "url": "https://pierrecardin.com/en/"
+        },
+        {
+          "title": "220.lv — Pierre Cardin Rouen 80",
+          "url": "https://220.lv/lv/apgerbi-apavi-aksesuari/sieviesu-apaksvela/zekubikses/zekubikses-sievietem-rouen-nero-8033120612435-melnas-80?id=27499926"
+        }
+      ],
+      "photo": {
+        "src": "assets/brand-stories/pierre-cardin-rouen.webp",
+        "thumb": "assets/brand-stories/pierre-cardin-rouen-480.webp",
+        "width": 698,
+        "height": 889,
+        "alt": "Каталожный кадр Pierre Cardin Rouen 80: модель в тёмных колготках, коротком платье и куртке.",
+        "caption": "Pierre Cardin · Rouen 80. Фирменный каталожный кадр.",
+        "source": "https://220.lv/lv/apgerbi-apavi-aksesuari/sieviesu-apaksvela/zekubikses/zekubikses-sievietem-rouen-nero-8033120612435-melnas-80?id=27499926",
+        "imageSource": "https://lv2.pigugroup.eu/colours/278/043/51/27804351/zekubikses-sievietem-rouen-nero-8033120612435-melnas-80-83d48_original.jpg",
+        "credit": "Pierre Cardin / 220.lv",
+        "license": "Каталожное изображение из указанного источника. Свободная лицензия не заявлена; права принадлежат правообладателю."
+      }
+    },
+    {
+      "brand": "Intimidea",
+      "country": "Италия",
+      "title": "Бесшовная технология и прозрачная классика",
+      "paragraphs": [
+        "Intimidea связана с итальянской группой Norman, специализирующейся на бесшовном трикотаже. В истории группы отмечены открытие Intimidea Sro в Чехии в 2000 году и Intimidea Srl в 2001-м. Ассортимент марки объединяет бельё, одежду и чулочные изделия. В колготках встречаются как повседневные прозрачные модели, так и декоративные решения: например, Couture 20 с широким кружевным поясом."
+      ],
+      "sources": [
+        {
+          "title": "Norman Group — история компании",
+          "url": "https://www.normansrl.com/en/the-company/"
+        },
+        {
+          "title": "Norman Group — бренды и направления Intimidea",
+          "url": "https://www.normansrl.com/en/our-brands/"
+        },
+        {
+          "title": "Hosieree — Intimidea Couture 20",
+          "url": "https://www.hosieree.com/products/IntimideaCouture20Tights.html"
+        }
+      ],
+      "photo": {
+        "src": "assets/brand-stories/intimidea-couture20.webp",
+        "thumb": "assets/brand-stories/intimidea-couture20-480.webp",
+        "width": 470,
+        "height": 640,
+        "alt": "Прозрачные тёмные колготки Intimidea Couture 20 с кружевным поясом и чёрными туфлями.",
+        "caption": "Intimidea · Couture 20. Каталожная фотография.",
+        "source": "https://www.hosieree.com/products/IntimideaCouture20Tights.html",
+        "imageSource": "https://www.hosieree.com/images/products/xxlarge/IntimideaCoutureTights.jpg",
+        "credit": "Intimidea / Hosieree",
+        "license": "Каталожное изображение из указанного источника. Свободная лицензия не заявлена; права принадлежат правообладателю."
+      }
+    },
+    {
+      "brand": "Pompea",
+      "country": "Италия",
+      "founded": "1996",
+      "title": "Из чулочного района Мантуи",
+      "paragraphs": [
+        "Pompea основана в 1996 году в Медоле, в итальянском чулочном районе провинции Мантуя. Компания развивала колготки и бельё, уделяя внимание комфорту и бесшовным технологиям. В 2019 году марку приобрела Fulgar — производитель искусственных волокон. Рядом с повседневными сериями в каталоге Pompea есть фантазийные колготки, где привычное прозрачное полотно становится основой для крупного геометрического рисунка."
+      ],
+      "sources": [
+        {
+          "title": "Pompea — история марки",
+          "url": "https://www.pompea.com/en/pages/il-brand"
+        },
+        {
+          "title": "Pompea — Armonia 35",
+          "url": "https://www.pompea.com/products/collant-velato-armonia-35-denari-con-motivo-di-maxi-rombi-nero"
+        }
+      ],
+      "photo": {
+        "src": "assets/brand-stories/pompea-armonia35.webp",
+        "thumb": "assets/brand-stories/pompea-armonia35-480.webp",
+        "width": 960,
+        "height": 1200,
+        "alt": "Образ Pompea: чёрный жакет и прозрачные колготки Armonia 35 с крупными ромбами.",
+        "caption": "Pompea · Armonia 35. Фотография из официального каталога.",
+        "source": "https://www.pompea.com/products/collant-velato-armonia-35-denari-con-motivo-di-maxi-rombi-nero",
+        "imageSource": "https://cdn.shopify.com/s/files/1/0531/2744/6683/files/90772187P00071CLARMONIANEROPOMPEA03.jpg?v=1791803916",
+        "credit": "Pompea",
+        "license": "Каталожное изображение из указанного источника. Свободная лицензия не заявлена; права принадлежат правообладателю."
+      }
     }
   ]
 }

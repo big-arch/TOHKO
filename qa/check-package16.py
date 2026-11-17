@@ -22,6 +22,9 @@ LOOKS = json.loads((ROOT / 'tights-guide/data/package-looks.json').read_text('ut
 covered = {pid for item in LOOKS for pid in item['packageIds']}
 
 class QuietHandler(SimpleHTTPRequestHandler):
+    # Reuse Chrome's connections during the full archive traversal.
+    protocol_version = 'HTTP/1.1'
+
     def log_message(self, *_):
         pass
 
@@ -31,10 +34,15 @@ class QuietHandler(SimpleHTTPRequestHandler):
         except (BrokenPipeError, ConnectionAbortedError, ConnectionResetError):
             pass  # A completed check navigates away while unrelated lazy images load.
 
+class ArchiveTestServer(ThreadingHTTPServer):
+    request_queue_size = 128
+    daemon_threads = True
+
+
 server = None
 base = os.environ.get('TONKO_TEST_URL')
 if not base:
-    server = ThreadingHTTPServer(('127.0.0.1', 0), partial(QuietHandler, directory=str(ROOT / 'tights-guide')))
+    server = ArchiveTestServer(('127.0.0.1', 0), partial(QuietHandler, directory=str(ROOT / 'tights-guide')))
     Thread(target=server.serve_forever, daemon=True).start()
     base = f'http://127.0.0.1:{server.server_port}/'
 base = base.rstrip('/') + '/'

@@ -19,6 +19,64 @@
   const provider = video => ['vimeo','native'].includes(video.provider) ? video.provider : 'youtube';
   const buttons = [...document.querySelectorAll('[data-video-topic]')];
   const cards = [...document.querySelectorAll('[data-video-card]')];
+  const channelByVideo = new Map(cards.map(card => [card.dataset.videoCard, card.dataset.videoChannel]));
+  const cardByVideo = new Map(cards.map(card => [card.dataset.videoCard, card]));
+  const channels = new Map([...$('video-channel').options].filter(option => option.value !== 'all').map(option => [option.value, option]));
+  const newWindow = 7 * 24 * 60 * 60 * 1000;
+  let newBadgeTimer = 0;
+
+  function publicationTime(value) {
+    // An undated or zone-less timestamp must never acquire the visitor's timezone.
+    if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?(?:Z|[+-]\d{2}:\d{2}))?$/.test(value)) return null;
+    const [year, month, day] = value.slice(0, 10).split('-').map(Number);
+    const calendar = new Date(`${value.slice(0, 10)}T00:00:00Z`);
+    if (year < 1 || calendar.getUTCFullYear() !== year || calendar.getUTCMonth() + 1 !== month || calendar.getUTCDate() !== day) return null;
+    if (value.length > 10 && (Number(value.slice(11, 13)) > 23 || Number(value.slice(14, 16)) > 59 || Number(value.slice(17, 19)) > 59)) return null;
+    const instant = Date.parse(value);
+    return Number.isFinite(instant) ? instant : null;
+  }
+  const publications = new Map(videos.map(video => [video.id, publicationTime(video.publishedAt)]));
+  const originalPosition = new Map(videos.map((video, index) => [video.id, index]));
+  function orderedVideos() {
+    const direction = $('video-sort').value === 'oldest' ? 1 : -1;
+    return [...videos].sort((a, b) => {
+      const left = publications.get(a.id), right = publications.get(b.id);
+      if (left === null || right === null) return left === right ? originalPosition.get(a.id) - originalPosition.get(b.id) : left === null ? 1 : -1;
+      return direction * (left - right) || originalPosition.get(a.id) - originalPosition.get(b.id);
+    });
+  }
+
+  function refreshNewBadges() {
+    clearTimeout(newBadgeTimer);
+    const now = Date.now();
+    let nextChange = now + 24 * 60 * 60 * 1000;
+    for (const badge of document.querySelectorAll('[data-video-new]')) {
+      const instant = publications.get(badge.dataset.videoNew);
+      badge.hidden = instant == null || now < instant || now - instant >= newWindow;
+      if (instant != null) {
+        if (instant > now) nextChange = Math.min(nextChange, instant);
+        if (instant + newWindow > now) nextChange = Math.min(nextChange, instant + newWindow);
+      }
+    }
+    if (!document.hidden) newBadgeTimer = setTimeout(refreshNewBadges, Math.max(1, nextChange - now));
+  }
+
+  function showPublication(video) {
+    const wrapper = $('video-current-publication');
+    const confirmed = publications.get(video.id) !== null;
+    const date = document.createElement(confirmed ? 'time' : 'span');
+    date.className = 'video-published';
+    const archive = video.archive ? 'Архив · ' : '';
+    if (confirmed) {
+      date.dateTime = video.publishedAt;
+      date.textContent = `${archive}${archive ? 'опубликовано' : 'Опубликовано'} ${video.publishedAt.slice(0, 10).split('-').reverse().join('.')}`;
+    } else date.textContent = `${archive}${archive ? 'дата' : 'Дата'} публикации не подтверждена`;
+    const badge = document.createElement('span');
+    badge.className = 'video-new'; badge.dataset.videoNew = video.id; badge.textContent = 'Новое';
+    badge.title = 'Опубликовано за последние 7 дней'; badge.hidden = true;
+    wrapper.replaceChildren(date, badge);
+    refreshNewBadges();
+  }
   const readSaved = () => {
     try {
       const raw = JSON.parse(localStorage.getItem(key) || '[]');
@@ -27,7 +85,7 @@
   };
   const normal = text => text.toLocaleLowerCase('ru').replaceAll('ё', 'е');
   let saved = readSaved();
-  let topic = 'all', savedOnly = false, current = videos[0], shown = [...videos];
+  let topic = 'all', savedOnly = false, current = videos.find(video => video.id === 'snag-motion') || videos.find(video => provider(video) === 'native') || videos[0], shown = [...videos];
   let playing = false, player = null, playerSession = 0, playerTimer = 0, apiPromise = null;
   let vimeoPromise = null;
   const params = new URLSearchParams(location.search);
@@ -36,12 +94,16 @@
   $('video-search').value = params.get('q') || '';
   if (languages[params.get('language')]) $('video-language').value = params.get('language');
   if (['youtube', 'vimeo','native'].includes(params.get('provider'))) $('video-provider').value = params.get('provider');
+  if (channels.has(params.get('channel'))) $('video-channel').value = params.get('channel');
+  if (params.get('sort') === 'oldest') $('video-sort').value = 'oldest';
   current = videos.find(v => v.id === params.get('video')) || current;
 
   function updateURL() {
     const url = new URL(location.href);
     const values = { topic: topic === 'all' ? '' : topic, saved: savedOnly ? '1' : '', q: $('video-search').value.trim(), language: $('video-language').value === 'all' ? '' : $('video-language').value };
     values.provider = $('video-provider').value === 'all' ? '' : $('video-provider').value;
+    values.channel = $('video-channel').value === 'all' ? '' : $('video-channel').value;
+    values.sort = $('video-sort').value === 'oldest' ? 'oldest' : '';
     for (const [name, value] of Object.entries(values)) value ? url.searchParams.set(name, value) : url.searchParams.delete(name);
     history.replaceState(null, '', url);
   }
@@ -49,8 +111,19 @@
   function filter(update = true) {
     const query = normal($('video-search').value.trim());
     const language = $('video-language').value;
-    shown = videos.filter(v => (topic === 'all' || v.topics.includes(topic)) &&
+    const channel = $('video-channel').value;
+    const ordered = orderedVideos();
+    // Move existing cards: their details, saved state and listeners stay intact.
+    for (const [index, video] of ordered.entries()) {
+      const card = cardByVideo.get(video.id);
+      if (!card) continue;
+      const position = $('video-grid').children[index];
+      if (position !== card) $('video-grid').insertBefore(card, position || null);
+      card.querySelector('.video-number').textContent = String(index + 1).padStart(2, '0');
+    }
+    shown = ordered.filter(v => (topic === 'all' || v.topics.includes(topic)) &&
       (!savedOnly || saved.has(v.id)) && (language === 'all' || v.language === language) &&
+      (channel === 'all' || channelByVideo.get(v.id) === channel) &&
       ($('video-provider').value === 'all' || provider(v) === $('video-provider').value) &&
       normal([v.title, v.originalTitle, v.description, v.author].join(' ')).includes(query));
     const visible = new Set(shown.map(v => v.id));
@@ -61,6 +134,17 @@
     $('video-count').textContent = `Показано ${shown.length} из ${videos.length} видео${savedOnly ? ' · Смотреть позже' : ''}`;
     $('video-empty').hidden = shown.length !== 0;
     $('video-empty-text').textContent = savedOnly && saved.size === 0 ? 'Нажмите «Смотреть позже» у интересного ролика. Он появится в вашей подборке.' : 'Попробуйте другую тему, язык или сократите запрос.';
+    const selectedChannel = channels.get(channel);
+    $('video-channel-source').hidden = !selectedChannel;
+    if (selectedChannel) {
+      const { channelName, channelUrl, channelCount } = selectedChannel.dataset;
+      $('video-channel-source').href = channelUrl;
+      $('video-channel-source').textContent = `Канал ${channelName} ↗`;
+      $('video-channel-description').textContent = `${channelName} · ${channelCount} видео в каталоге.`;
+      $('video-count').textContent += ` · ${channelName}`;
+      if (Number(channelCount) === 0) $('video-empty-text').textContent = `В каталоге пока нет видео канала «${channelName}». Можно открыть канал автора или выбрать другой источник.`;
+      else if (!shown.length && !(savedOnly && saved.size === 0)) $('video-empty-text').textContent = 'У этого канала есть видео, но они не подходят под выбранные фильтры. Измените тему, язык, плеер или поисковый запрос.';
+    } else $('video-channel-description').textContent = 'Все каналы и авторы подборки, в том числе пока без видео. Число рядом с названием — ролики в каталоге.';
     $('video-next').disabled = shown.length === 0 || (shown.length === 1 && shown[0].id === current.id);
     for (const button of document.querySelectorAll('[data-video-save]')) {
       const active = saved.has(button.dataset.videoSave);
@@ -251,6 +335,7 @@
     current = video;
     $('video-current-title').textContent = video.title;
     $('video-current-description').textContent = video.description;
+    showPublication(video);
     $('video-current-kind').textContent = `${video.kind} · ${languages[video.language]}`;
     $('video-current-author').textContent = video.author + ' ↗';
     $('video-current-author').href = video.authorUrl;
@@ -332,13 +417,15 @@
   $('video-search').addEventListener('input', () => filter());
   $('video-language').addEventListener('change', () => filter());
   $('video-provider').addEventListener('change', () => filter());
+  $('video-channel').addEventListener('change', () => filter());
+  $('video-sort').addEventListener('change', () => filter());
   $('video-reset').addEventListener('click', () => {
-    topic = 'all'; savedOnly = false; $('video-search').value = ''; $('video-language').value = 'all'; $('video-provider').value = 'all'; filter(); $('video-search').focus();
+    topic = 'all'; savedOnly = false; $('video-search').value = ''; $('video-language').value = 'all'; $('video-provider').value = 'all'; $('video-channel').value = 'all'; $('video-sort').value = 'newest'; filter(); $('video-search').focus();
   });
   $('video-stop').addEventListener('click', () => { poster(); $('video-screen').querySelector('button').focus(); });
   $('video-retry').addEventListener('click', () => selectVideo(current, true));
   $('video-alternative').addEventListener('click', () => {
-    topic = 'all'; savedOnly = false; $('video-search').value = ''; $('video-language').value = 'all'; $('video-provider').value = videos.some(v=>provider(v)==='native')?'native':'vimeo';
+    topic = 'all'; savedOnly = false; $('video-search').value = ''; $('video-language').value = 'all'; $('video-channel').value = 'all'; $('video-provider').value = videos.some(v=>provider(v)==='native')?'native':'vimeo';
     filter(); if (shown.length) selectVideo(shown[0], true);
   });
   $('video-next').addEventListener('click', () => {
@@ -358,6 +445,8 @@
   });
   addEventListener('storage', event => { if (event.key === key || event.key === null) { saved = readSaved(); filter(false); } });
   addEventListener('pagehide', () => { if (playing) poster(); });
+  addEventListener('pageshow', refreshNewBadges);
+  document.addEventListener('visibilitychange', refreshNewBadges);
   for (const element of document.querySelectorAll('.video-tools, .video-player-actions, [data-video-play], [data-video-save]')) element.hidden = false;
   selectVideo(current);
   filter(false);

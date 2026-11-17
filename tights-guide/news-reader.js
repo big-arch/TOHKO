@@ -1,7 +1,6 @@
 /* A small on-site reader. Publisher HTML is never inserted into the page. */
 (() => {
   'use strict';
-  const date = new Intl.DateTimeFormat('ru-RU', {day:'numeric', month:'long', year:'numeric'});
   const el = (tag, text, cls) => { const n=document.createElement(tag); if(text)n.textContent=text; if(cls)n.className=cls; return n; };
   const dialog = el('dialog', '', 'news-reader');
   dialog.setAttribute('aria-labelledby', 'reader-title');
@@ -17,7 +16,9 @@
     const sections=Array.isArray(item.sections)?item.sections:[],expanded=sections.length>0;
     const words=[item.summary||item.excerpt||'',...sections.flatMap(s=>s.paragraphs||[])].join(' ').trim().split(/\s+/).length;
     const article=el('article','','reader-article'),head=el('header','','reader-head');
-    head.append(el('p',item.ai?'ТОНКО / Новости':expanded?'ТОНКО / Разбор':'ТОНКО / Лента','portal-eyebrow'),el('p',`${item.source} · ${date.format(new Date(item.publishedAt))} · ${expanded?Math.max(2,Math.ceil(words/160))+' мин чтения':'Короткая новость'}${item.ai?' · AI-пересказ':''}`,'news-meta'));
+    const meta=el('p','','news-meta');
+    meta.append(el('span',item.source),window.TonkoPublication.create(item.publishedAt),el('span',`${expanded?Math.max(2,Math.ceil(words/160))+' мин чтения':'Короткая новость'}${item.ai?' · AI-пересказ':''}`));
+    head.append(el('p',item.ai?'ТОНКО / Новости':expanded?'ТОНКО / Разбор':'ТОНКО / Лента','portal-eyebrow'),meta);
     const heading=el('h2',item.displayTitle||item.title);heading.id='reader-title';heading.lang=item.displayTitle?'ru':item.language;head.append(heading);
     const lead=el('p',item.summary||item.excerpt||'Издание опубликовало материал на эту тему. В его ленте доступен только заголовок; развёрнутый текст для чтения на ТОНКО пока не подготовлен.','reader-excerpt');lead.lang=item.summary?'ru':item.language;head.append(lead);
     const layout=el('div','','news-story-layout'),copy=el('div','','reader-copy');

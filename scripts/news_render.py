@@ -1,9 +1,45 @@
 """Accessible static equivalent of the on-site reader, including full editorials."""
 from html import escape
 from math import ceil
+from datetime import datetime, timedelta, timezone
+import re
 from urllib.parse import urlsplit
 from news_publication import is_ready
 H=lambda v:escape(str(v),quote=True)
+PUBLICATION_WINDOW = timedelta(days=7)
+MONTHS = ('января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря')
+
+def publication_time(value):
+    """Only an explicit publication date is usable; never borrow a check/import time."""
+    if not isinstance(value,str) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,6})?)?(?:Z|[+-]\d{2}:\d{2}))?',value):
+        return None
+    try:
+        stamp=datetime.fromisoformat(value.replace('Z','+00:00'))
+        return stamp.replace(tzinfo=timezone.utc) if stamp.tzinfo is None else stamp.astimezone(timezone.utc)
+    except (ValueError,OverflowError):
+        return None
+
+def newest_publications(items):
+    """Stable chronological order, with undated materials at the end."""
+    return sorted(items,key=lambda item:publication_time(item.get('publishedAt')) or datetime.min.replace(tzinfo=timezone.utc),reverse=True)
+
+def is_new_publication(value,now=None):
+    stamp=publication_time(value)
+    now=now or datetime.now(timezone.utc)
+    return stamp is not None and timedelta(0)<=now-stamp<PUBLICATION_WINDOW
+
+def publication_markup(value,now=None):
+    stamp=publication_time(value)
+    if stamp is None:
+        return '<span class="publication-meta" data-publication-date=""><span class="publication-undated">Дата публикации не указана</span></span>'
+    label=f'{stamp.day} {MONTHS[stamp.month-1]} {stamp.year}'
+    hidden='' if is_new_publication(value,now) else ' hidden'
+    return f'<span class="publication-meta" data-publication-date="{H(value)}"><span>Опубликовано <time datetime="{H(value)}" aria-label="Дата публикации: {label}">{label}</time></span><span class="publication-new" data-publication-new title="Опубликовано за последние 7 дней"{hidden}>Новое</span></span>'
+
+def refresh_publication_badges(text,now=None):
+    """Refresh already-rendered journal/readers during the normal offline page build."""
+    pattern=r'(<span class="publication-meta" data-publication-date="([^"]+)">.*?<span class="publication-new" data-publication-new title="Опубликовано за последние 7 дней")(?: hidden)?(>Новое</span></span>)'
+    return re.sub(pattern,lambda m:m[1]+('' if is_new_publication(m[2],now) else ' hidden')+m[3],text,flags=re.S)
 
 def link(label,url,cls='reader-source'):
     parsed=urlsplit(url or '')
@@ -30,4 +66,4 @@ def story(item):
     credit='Разбор ТОНКО по указанным источникам. Рекомендации редакции отделены от сообщений изданий.' if sections else 'Короткий анонс из ленты источника. Полный текст издания здесь не перепечатывается.'
     if item.get('ai'):credit='Автоматический пересказ ТОНКО с помощью AI по тексту источника. Может содержать неточности; подробности и актуальные условия — в оригинале.'
     refs=link('Первоисточник: '+item['source'],item.get('publisherUrl') or item['url'])+''.join(link(r['label'],r['url']) for r in item.get('references',[]))
-    return f'''<article class="news-fallback" id="story-{H(item['id'])}"><div class="reader-article"><header class="reader-head"><p class="portal-eyebrow">ТОНКО / {'Разбор' if sections else 'Лента'}</p><p class="news-meta">{H(item['source'])} · {H(item['publishedAt'][:10])} · {length}</p><h2>{H(item.get('displayTitle') or item['title'])}</h2><p class="reader-excerpt">{H(brief)}</p></header><div class="news-story-layout">{visual}<div class="reader-copy">{body}<footer class="reader-credits"><p class="reader-credit">{H(credit)}</p>{refs}</footer></div></div><a class="news-return" href="index.html#fashion-news">← Вернуться к ленте</a></div></article>'''
+    return f'''<article class="news-fallback" id="story-{H(item['id'])}"><div class="reader-article"><header class="reader-head"><p class="portal-eyebrow">ТОНКО / {'Разбор' if sections else 'Лента'}</p><p class="news-meta"><span>{H(item['source'])}</span>{publication_markup(item.get('publishedAt'))}<span>{length}</span></p><h2>{H(item.get('displayTitle') or item['title'])}</h2><p class="reader-excerpt">{H(brief)}</p></header><div class="news-story-layout">{visual}<div class="reader-copy">{body}<footer class="reader-credits"><p class="reader-credit">{H(credit)}</p>{refs}</footer></div></div><a class="news-return" href="index.html#fashion-news">← Вернуться к ленте</a></div></article>'''

@@ -1,0 +1,6 @@
+*
+!.gitignore
+!selected-photo-evidence.json
+!verification.json
+!verify.py
+!selected-*.jpg

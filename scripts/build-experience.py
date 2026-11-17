@@ -2,9 +2,14 @@
 from pathlib import Path
 import json,re,html,math
 from story_content import STORIES,CHRONICLE
+from news_render import newest_publications,publication_markup
 R=Path(__file__).resolve().parents[1]; S=R/'tights-guide'
 M={m['id']:m for m in json.loads((S/'data/editorial-media.json').read_text(encoding='utf-8'))}
 H=html.escape
+# The first edition already carried this date in its readers and journal heading.
+# Evidence: commit a84eb33, scripts/build-experience.py (2026-11-15).
+# New articles must supply their own publishedAt; never inherit the edition date.
+FIRST_EDITION_IDS={'light','patterns','construction','product-card','making','archive'}
 def image(id,eager=False):
  m=M[id];return f'<img src="{m["image"]}" alt="{H(m["alt"])}" width="{m["width"]}" height="{m["height"]}" loading="{"eager" if eager else "lazy"}">'
 def photo(id,caption=None,eager=False):
@@ -19,23 +24,33 @@ def page(file,title,description,body,hero):
  text=re.sub(r'<meta name="description" content="[^"]*">',f'<meta name="description" content="{H(description)}">',text)
  text=re.sub(r'<meta property="og:title" content="[^"]*">',f'<meta property="og:title" content="{H(title)} — ТОНКО">',text)
  text=re.sub(r'<meta property="og:image" content="[^"]*">',f'<meta property="og:image" content="https://big-arch.github.io/TOHKO/{M[hero]["image"]}">',text)
+ if file=='journal.html' or file.startswith('read-'):
+  text=re.sub(r'<script src="publication-dates\.js[^\"]*"[^>]*></script>','',text)
+  text=text.replace('</head>','<script src="publication-dates.js?v=20261117-17" defer></script></head>')
+  if 'href="news.css' not in text:text=text.replace('</head>','<link rel="stylesheet" href="news.css?v=20261117-17"></head>')
+  text=re.sub(r'(news\.css)\?v=[^"\s]+',r'\1?v=20261117-17',text)
  (S/file).write_text(text,encoding='utf-8')
 meta=[]
 for st in STORIES:
  words=sum(len(p.split()) for _,_,paras in st['sections'] for p in paras); st['minutes']=max(2,math.ceil(words/160));st['url']='read-'+st['id']+'.html'
- meta.append({k:st[k] for k in ('id','title','short','theme','description','image','minutes','url')})
+ if 'publishedAt' not in st and st['id'] in FIRST_EDITION_IDS:
+  st['publishedAt']='2026-11-15'
+  st['publicationDateSource']='Дата выпуска и статьи в a84eb33:scripts/build-experience.py'
+ meta.append({k:st.get(k) for k in ('id','title','short','theme','description','image','minutes','url','publishedAt','publicationDateSource')})
+STORIES=newest_publications(STORIES)
+meta=newest_publications(meta)
 (S/'data/journal.js').write_text('window.TONKO_JOURNAL = '+json.dumps(meta,ensure_ascii=False,indent=2)+';\n',encoding='utf-8')
 def row(st):
- return f'''<article class="journal-row" data-story="{st['id']}" data-theme="{st['theme']}" data-reveal><a class="journal-thumb" href="{st['url']}" tabindex="-1" aria-hidden="true">{image(st['image'])}</a><div><p class="portal-eyebrow">{st['theme']} · {st['minutes']} мин</p><h2><a href="{st['url']}">{st['title']}</a></h2><p>{st['description']}</p><div class="journal-row-actions"><a href="{st['url']}">Читать →</a><button type="button" data-save-story="{st['id']}" aria-pressed="false">Сохранить</button></div></div></article>'''
+ return f'''<article class="journal-row" data-story="{st['id']}" data-theme="{st['theme']}" data-published-at="{H(st.get('publishedAt') or '',quote=True)}" data-reveal><a class="journal-thumb" href="{st['url']}" tabindex="-1" aria-hidden="true">{image(st['image'])}</a><div><p class="portal-eyebrow">{st['theme']} · {st['minutes']} мин</p><p class="journal-publication">{publication_markup(st.get('publishedAt'))}</p><h2><a href="{st['url']}">{st['title']}</a></h2><p>{st['description']}</p><div class="journal-row-actions"><a href="{st['url']}">Читать →</a><button type="button" data-save-story="{st['id']}" aria-pressed="false">Сохранить</button></div></div></article>'''
 subnav='<nav class="experience-nav portal-container" aria-label="Исследовать ТОНКО"><a href="journal.html">Журнал</a><a href="textures.html">Под лупой</a><a href="history.html#brand-archive">Хронология</a><a href="lookbook.html?filter=saved">Мои фотографии</a></nav>'
 journal=subnav+f'''<section class="journal-cover portal-container"><div><p class="portal-eyebrow">Журнал ТОНКО · Выпуск 01</p><h1>Смотреть.<br>Читать.<br><em>Замечать.</em></h1><p class="editorial-lead">Как свет становится блеском, нить — полотном, а маленькая мастерская — большой историей.</p><a class="experience-text-link" href="read-light.html">Начать со света и фактуры ↗</a></div>{photo('omsa-studio','Образ OMSA · прозрачность в студийном свете.',True)}</section><div class="portal-container" id="reading-resume" hidden></div>'''
 journal+='''<section class="portal-container reading-routes" aria-labelledby="routes-title" data-reveal><p class="portal-eyebrow">Выберите маршрут</p><h2 id="routes-title">Что хочется понять?</h2><div class="route-options" role="group" aria-label="Маршрут чтения"><button data-route="eye" aria-pressed="true">Развить насмотренность</button><button data-route="choice" aria-pressed="false">Выбрать свою пару</button><button data-route="story" aria-pressed="false">Узнать историю</button></div><div id="route-result" aria-live="polite"><ol><li><a href="read-light.html">Свет и блеск</a></li><li><a href="read-patterns.html">Рисунок и масштаб</a></li><li><a href="textures.html">Рассмотреть под лупой</a></li></ol></div></section>'''
-journal+='<section class="portal-container journal-list-section"><div class="experience-section-title"><h2>Материалы выпуска</h2><p>Авторские разборы ТОНКО · <time datetime="2026-11-15">15 ноября 2026</time></p></div><div class="journal-filters" role="group" aria-label="Фильтр материалов">'+''.join(f'<button type="button" data-journal-filter="{t}" aria-pressed="{str(t=="all").lower()}">{label}</button>' for t,label in [('all','Всё'),('Фактура','Фактура'),('Стиль','Стиль'),('Устройство','Устройство'),('Практика','Практика'),('Индустрия','Индустрия'),('История','История'),('saved','Сохранённое')])+'</div><p id="journal-count" class="experience-small" role="status"></p><div id="journal-list">'+''.join(row(st) for st in STORIES)+'</div><p id="journal-empty" hidden>Пока ничего не сохранено. Нажмите «Сохранить» у интересующего материала.</p></section>'
+journal+='<section class="portal-container journal-list-section"><div class="experience-section-title"><h2>Материалы выпуска</h2><p>Авторские разборы ТОНКО · <time datetime="2026-11-15">15 ноября 2026</time></p></div><div class="journal-filters" role="group" aria-label="Фильтр материалов">'+''.join(f'<button type="button" data-journal-filter="{t}" aria-pressed="{str(t=="all").lower()}">{label}</button>' for t,label in [('all','Всё'),('Фактура','Фактура'),('Стиль','Стиль'),('Устройство','Устройство'),('Практика','Практика'),('Индустрия','Индустрия'),('История','История'),('saved','Сохранённое')])+'</div><p class="publication-order">Сначала новые · «Новое» — публикации за последние 7 дней</p><p id="journal-count" class="experience-small" role="status"></p><div id="journal-list">'+''.join(row(st) for st in STORIES)+'</div><p id="journal-empty" hidden>Пока ничего не сохранено. Нажмите «Сохранить» у интересующего материала.</p></section>'
 journal+='<section class="portal-container further-reading"><h2>За пределами ТОНКО</h2><p>У <a href="https://bracatus.com/" target="_blank" rel="noopener">Bracatus ↗</a> интересны рубрики о коллекциях, истории и практических вопросах. Их журнальная структура стала одним из ориентиров этого раздела. Здесь опубликованы собственные разборы ТОНКО со ссылками на первоисточники.</p></section>'
 page('journal.html','Журнал: смотреть, читать, замечать','Шесть разборов о колготках, маршруты чтения и сохранённые материалы.',journal,'omsa-studio')
 
 for st in STORIES:
- body=f'''<div class="reader-progress" role="progressbar" aria-label="Прочитано статьи" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>{subnav}<article data-reader="{st['id']}"><header class="story-cover portal-container"><div><a href="journal.html" class="experience-back">← Все материалы</a><p class="portal-eyebrow">{st['theme']} · {st['minutes']} мин чтения</p><h1>{st['title']}</h1><p class="editorial-lead">{st['description']}</p><p class="story-byline">Материал ТОНКО · <time datetime="2026-11-15">15 ноября 2026</time></p><button class="experience-button" type="button" data-save-story="{st['id']}" aria-pressed="false">Сохранить</button><a class="reader-resume" href="#section-{st['sections'][0][0]}" hidden>Продолжить с сохранённого места ↓</a></div>{photo(st['image'],eager=True)}</header><div class="reader-layout portal-container"><aside class="reader-aside"><nav aria-label="Оглавление статьи">'''+''.join(f'<a href="#section-{id}">{title}</a>' for id,title,_ in st['sections'])+'''<a href="#article-sources">Источники</a></nav><div class="reader-size" role="group" aria-label="Размер текста"><button type="button" data-reading-size="normal" aria-pressed="true">А</button><button type="button" data-reading-size="large" aria-pressed="false">А+</button></div><p class="experience-small">Место чтения сохраняется в этом браузере.</p></aside><div class="story-prose">'''
+ body=f'''<div class="reader-progress" role="progressbar" aria-label="Прочитано статьи" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>{subnav}<article data-reader="{st['id']}"><header class="story-cover portal-container"><div><a href="journal.html" class="experience-back">← Все материалы</a><p class="portal-eyebrow">{st['theme']} · {st['minutes']} мин чтения</p><h1>{st['title']}</h1><p class="editorial-lead">{st['description']}</p><p class="story-byline">Материал ТОНКО · {publication_markup(st.get("publishedAt"))}</p><button class="experience-button" type="button" data-save-story="{st['id']}" aria-pressed="false">Сохранить</button><a class="reader-resume" href="#section-{st['sections'][0][0]}" hidden>Продолжить с сохранённого места ↓</a></div>{photo(st['image'],eager=True)}</header><div class="reader-layout portal-container"><aside class="reader-aside"><nav aria-label="Оглавление статьи">'''+''.join(f'<a href="#section-{id}">{title}</a>' for id,title,_ in st['sections'])+'''<a href="#article-sources">Источники</a></nav><div class="reader-size" role="group" aria-label="Размер текста"><button type="button" data-reading-size="normal" aria-pressed="true">А</button><button type="button" data-reading-size="large" aria-pressed="false">А+</button></div><p class="experience-small">Место чтения сохраняется в этом браузере.</p></aside><div class="story-prose">'''
  for i,(id,title,paras) in enumerate(st['sections']):
   body+=f'<section class="story-section" id="section-{id}" data-reading-section><p class="section-number">0{i+1}</p><h2>{title}</h2>'+''.join('<p>'+H(p)+'</p>' for p in paras)+'</section>'
   if i==1:body+='<a class="detail-invitation" href="textures.html">Пауза для деталей <span>Приблизить полотно и рассмотреть свет, рисунок и швы ↗</span></a>'
@@ -88,10 +103,11 @@ for p in S.glob('*.html'):
  n=''.join(f'<a href="{u}"'+(' class="active" aria-current="page"' if u==current else '')+f'>{label}</a>' for u,label in nav)
  t=re.sub(r'(<nav\b[^>]*class="portal-nav"[^>]*>).*?</nav>',lambda m:m[1]+n+'</nav>',t,count=1,flags=re.S)
  if 'href="experience.css"' not in t:t=t.replace('</head>','<link rel="stylesheet" href="experience.css"></head>')
- if 'src="experience.js"' not in t:t=t.replace('</body>','<script src="data/journal.js"></script><script src="experience.js"></script></body>')
+ t=re.sub(r'<script src="experience\.js[^\"]*"[^>]*></script>','',t)
+ t=t.replace('</body>','<script src="experience.js?v=20261117-17"></script></body>')
  # Search consumes the journal index synchronously; place it before its consumer.
- t=t.replace('<script src="data/journal.js"></script>','')
- if '<script src="tools.js"></script>' in t:t=t.replace('<script src="tools.js"></script>','<script src="data/journal.js"></script><script src="tools.js"></script>',1)
- else:t=t.replace('<script src="experience.js"></script>','<script src="data/journal.js"></script><script src="experience.js"></script>',1)
+ t=re.sub(r'<script src="data/journal\.js[^\"]*"[^>]*></script>','',t)
+ if '<script src="tools.js"></script>' in t:t=t.replace('<script src="tools.js"></script>','<script src="data/journal.js?v=20261117-17"></script><script src="tools.js"></script>',1)
+ else:t=t.replace('<script src="experience.js?v=20261117-17"></script>','<script src="data/journal.js?v=20261117-17"></script><script src="experience.js?v=20261117-17"></script>',1)
  p.write_text(t,encoding='utf-8')
 print(f'Built journal, {len(STORIES)} articles, texture studio and {len(CHRONICLE)} archive events; linked all pages.')

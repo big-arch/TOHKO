@@ -24,6 +24,22 @@
   }));refreshSaveButtons();
   const filterButtons=$$('[data-journal-filter]');
   let journalFilter='all';
+  function sortJournal(){
+    const list=$('#journal-list'),publication=window.TonkoPublication;
+    if(!list||!publication)return;
+    const byId=new Map(stories.map(story=>[story.id,story]));
+    const rows=[...list.querySelectorAll('[data-story]')];
+    rows.forEach(row=>{
+      const story=byId.get(row.dataset.story);
+      if(story&&Object.prototype.hasOwnProperty.call(story,'publishedAt'))row.dataset.publishedAt=story.publishedAt||'';
+      const meta=row.querySelector('.journal-publication');
+      if(meta)meta.replaceChildren(publication.create(row.dataset.publishedAt));
+    });
+    rows.sort((a,b)=>publication.compareNewest(a.dataset.publishedAt,b.dataset.publishedAt));
+    rows.forEach(row=>list.append(row));
+  }
+  // The shared date script is deferred; run after it without delaying saved filters.
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sortJournal,{once:true});else sortJournal();
   function filterJournal(){
     if(!$('#journal-list'))return;
     let count=0;$$('#journal-list [data-story]').forEach(row=>{const show=journalFilter==='all'||(journalFilter==='saved'?saved.has(row.dataset.story):row.dataset.theme===journalFilter);row.hidden=!show;if(show)count++;});

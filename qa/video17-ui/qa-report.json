@@ -1,0 +1,32 @@
+{
+  "passed": 14,
+  "checks": [
+    "96 cards in publication order; 38 channel options; Snag remains the featured poster",
+    "original publication date or an explicit unknown label on every card; 12 recent badges; original author links preserved",
+    "every configured/manual channel selectable with its full count; empty channel retains source link and a clear empty state",
+    "channel picker has an associated accessible label and works with the keyboard",
+    "both sorting directions persist across reload and keep unknown dates at the bottom",
+    "all existing topic, language and player filters still apply in publication order",
+    "channel + query + topic + language + provider + order + saved selection all survive reload",
+    "existing ?video= deep links keep their selected poster/date, alongside channel/order; no media platform requests before play",
+    "768px: channel, sort, original date and new badge fit without horizontal overflow",
+    "390px: channel, sort, original date and new badge fit without horizontal overflow",
+    "320px: channel, sort, original date and new badge fit without horizontal overflow",
+    "Asia/Tokyo: timezone offsets, invalid/missing/date-only values, stable ties, exact 7-day expiry, future exclusion, visibility/pageshow refresh",
+    "America/Los_Angeles: timezone offsets, invalid/missing/date-only values, stable ties, exact 7-day expiry, future exclusion, visibility/pageshow refresh",
+    "Snag starts as a native HTML5 player and closes back to its poster; external stream never fetched"
+  ],
+  "catalogue": 96,
+  "autoSources": 31,
+  "channels": 38,
+  "emptyChannels": [
+    "OonaLinna"
+  ],
+  "recentAtFixedClock": 12,
+  "clock": "2026-11-17T12:00:00+00:00",
+  "javascriptErrors": [],
+  "externalRequestsBlocked": 21,
+  "externalRequestsAllowed": 0,
+  "playback": "UI only; source streams blocked",
+  "screenshots": "C:\\Users\\Артур\\.codex\\worktrees\\tonko-video-channels\\CODEX_сайт_ТОНКО\\qa\\video17-ui"
+}

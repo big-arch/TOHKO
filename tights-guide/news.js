@@ -4,7 +4,7 @@
   const status=document.getElementById('news-status'), refresh=document.getElementById('news-refresh');
   const fresh=document.getElementById('news-new'), more=document.getElementById('news-more');
   const filters=[...document.querySelectorAll('[data-news-language]')];
-  const format=new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'long',year:'numeric'});
+  const publication=window.TonkoPublication;
   const checkedFormat=new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'});
   let current=null,pending=null,language='all',limit=6,busy=false;
   try{current=validate(JSON.parse(document.getElementById('news-seed').textContent));}catch{}
@@ -18,9 +18,9 @@
   function validate(data){
     if(data.version!==1||!Array.isArray(data.items)||!Array.isArray(data.sources))throw Error('Invalid news data');
     const all=data.items.filter(i=>{
-      try{return typeof i.title==='string'&&i.title.length>0&&new URL(i.url).protocol==='https:'&&Number.isFinite(Date.parse(i.publishedAt));}catch{return false;}
+      try{return typeof i.title==='string'&&i.title.length>0&&new URL(i.url).protocol==='https:';}catch{return false;}
     });
-    data.backlog=all.filter(i=>!ready(i));data.items=all.filter(ready);
+    data.backlog=all.filter(i=>!ready(i));data.items=all.filter(ready).sort((a,b)=>publication.compareNewest(a.publishedAt,b.publishedAt));
     return data;
   }
   function updateStatus(data){
@@ -55,8 +55,8 @@
     const fragment=document.createDocumentFragment();
     items.slice(0,limit).forEach(i=>{
       const article=node('article',null,'news-item'),meta=node('div',null,'news-meta');
-      const time=node('time',format.format(new Date(i.publishedAt)));time.dateTime=i.publishedAt;
-      meta.append(node('span',i.source+(i.via?' · через Google News':'')),time,node('span',i.language==='ru'?'RU':'EN'));
+      article.dataset.publishedAt=i.publishedAt||'';
+      meta.append(node('span',i.source+(i.via?' · через Google News':'')),publication.create(i.publishedAt),node('span',i.language==='ru'?'RU':'EN'));
       const title=node('h3'),link=node('a',i.displayTitle||i.title);
       link.href=`news.html#story-${i.id}`;link.dataset.newsId=i.id;link.lang=i.displayTitle?'ru':i.language==='ru'?'ru':'en';
       title.append(link);article.append(meta,title,node('span',i.ai?'AI-пересказ · Читать →':'Разбор ТОНКО · Читать →','news-read'));fragment.append(article);

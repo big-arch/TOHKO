@@ -24,3 +24,18 @@
  .video-screen>video{display:block;width:100%;height:100%;object-fit:contain;background:#171413}
 
 .video-published{display:block;font-size:11px;color:var(--video-muted);margin-top:8px}.video-feature-copy .video-error-help{font-size:12px;line-height:1.65;color:var(--video-muted)}
+
+.video-channel-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,.45fr);gap:18px;align-items:end}
+.video-channel-row>div{display:grid;gap:9px;min-width:0}.video-channel-row label{font-size:12px;color:var(--video-muted)}
+.video-channel-row select{width:100%;max-width:100%;min-width:0;min-height:46px;padding:10px 12px;border:1px solid var(--video-line);border-radius:0;background:transparent;color:var(--video-ink);font:inherit;font-size:14px}
+.video-channel-row option,.video-search-row option{background:var(--video-paper);color:var(--video-ink)}
+.video-channel-context{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;font-size:11px;line-height:1.7;color:var(--video-muted);margin:12px 0 24px}
+.video-channel-context a{color:var(--video-accent);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
+.video-library input:focus-visible,.video-library select:focus-visible,.video-channel-context a:focus-visible{outline:3px solid var(--video-accent);outline-offset:4px}
+.video-publication{display:flex;align-items:center;flex-wrap:wrap;gap:6px 9px;margin-top:8px;line-height:1.5}
+.video-publication .video-published{margin-top:0}
+.video-new{display:inline-block;border:1px solid var(--video-accent);padding:2px 7px;font-size:10px;font-weight:600;letter-spacing:.025em;color:var(--video-paper);background:var(--video-accent)}
+.video-new[hidden]{display:none}
+.video-publication-note{font-size:11px;line-height:1.7;color:var(--video-muted);margin:22px 0 0}
+.video-publication-note+.video-count{margin-top:10px}
+@media(max-width:540px){.video-channel-row{grid-template-columns:minmax(0,1fr);gap:15px}.video-channel-context{font-size:12px}.video-publication{gap:7px 9px}.video-published{font-size:12px}.video-publication-note{font-size:12px}}
