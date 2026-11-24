@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "checkedAt": "2026-11-16T12:14:48.876796Z",
-  "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
+  "checkedAt": "2026-11-24T16:42:21.242386Z",
+  "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
   "intervalMinutes": 15,
   "sources": [
     {
@@ -9,43 +9,43 @@
       "name": "Google News · выбранные издания",
       "site": "https://news.google.com",
       "language": "mixed",
-      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
+      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
       "status": "ok",
-      "matched": 12
+      "matched": 9
     },
     {
       "id": "whowhatwear",
       "name": "Who What Wear",
       "site": "https://www.whowhatwear.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
+      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
       "status": "ok",
-      "matched": 2
+      "matched": 1
     },
     {
       "id": "fashionunited",
       "name": "FashionUnited",
       "site": "https://fashionunited.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
+      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
       "status": "ok",
-      "matched": 0
+      "matched": 2
     },
     {
       "id": "swedish",
       "name": "Swedish Stockings",
       "site": "https://swedishstockings.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
+      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
       "status": "ok",
-      "matched": 17
+      "matched": 18
     },
     {
       "id": "snag",
       "name": "Snag",
       "site": "https://snagtights.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
+      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
       "status": "ok",
       "matched": 1
     },
@@ -54,16 +54,16 @@
       "name": "Bracatus",
       "site": "https://bracatus.com",
       "language": "ru",
-      "lastSuccessfulAt": "2026-11-16T11:25:40.721673Z",
-      "status": "error",
-      "error": "FetchError"
+      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
+      "status": "ok",
+      "matched": 5
     },
     {
       "id": "better",
       "name": "Better Tights",
       "site": "https://www.bettertights.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
+      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
       "status": "ok",
       "matched": 21
     },
@@ -72,12 +72,695 @@
       "name": "NYLO Journal",
       "site": "https://nylo.us",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-16T12:14:48.876796Z",
+      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
       "status": "ok",
       "matched": 19
     }
   ],
   "items": [
+    {
+      "id": "fb81cdf32b86500f",
+      "title": "Pantyhose under jeans for men: sheer tights with denim and chinos",
+      "url": "https://nylo.us/blogs/journal/pantyhose-under-jeans-men-sheer-tights-denim-chinos",
+      "excerpt": "Sheer pantyhose made for men go under jeans and chinos as readily as under suit trousers. The jean or the chino covers the leg, so the knit shows only at the ankle, between the hem and the shoe. More",
+      "publishedAt": "2026-11-24T15:20:03Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-24T16:42:24.394019Z"
+      }
+    },
+    {
+      "id": "81784c2395fda305",
+      "title": "Немецкий производитель колготок Kunert начал процедуру финансовой реструктуризации",
+      "url": "https://bracatus.com/nemetskij-proizvoditel-kolgotok-kunert-nachal-protseduru-finansovoj-restrukturizatsii",
+      "excerpt": "Компания, выпускающая чулочно-носочные изделия под марками Kunert и Hudson, рассчитывает восстановить финансовую устойчивость. Производство и продажи пока продолжаются в обычном режиме. Сообщение Немецкий производитель колготок Kunert начал процедуру финансовой реструктуризации…",
+      "publishedAt": "2026-11-24T15:17:13Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-24T16:42:24.394019Z"
+      }
+    },
+    {
+      "id": "592234471b519d42",
+      "title": "Российский рынок колготок: почему импорт вытесняет отечественное производство",
+      "url": "https://bracatus.com/rossijskij-rynok-kolgotok-pochemu-import-vytesnyaet-otechestvennoe-proizvodstvo",
+      "excerpt": "Российские фабрики теряют позиции на рынке колготок, хотя спрос на эту продукцию сохраняется. Иностранные производители занимают всё большую долю предложения, а отечественный выпуск сокращается. По данным исследования Tebiz, опубликованным РБК 18 ноября 2026 года, производство…",
+      "publishedAt": "2026-11-24T08:46:31Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-24T16:42:24.394019Z"
+      }
+    },
+    {
+      "id": "a3a5179418e27de7",
+      "title": "Сколько «ден» должно быть в тёплых колготках",
+      "url": "https://bracatus.com/skolko-den-dolzhno-byt-v-tyoplyh-kolgotkah",
+      "excerpt": "Можно выйти зимой на улицу «на 5 минут» и продрогнуть в колготках плотностью 600 DEN, а можно долго и с комфортном прогуливаться по парку в колготках всего лишь 280 DEN. Почему «дены» оказываются разными и сколько «ден» должно быть в хороших, по-зимнему тёплых колготках?…",
+      "publishedAt": "2026-11-23T22:05:29Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-24T05:41:35.258473Z"
+      }
+    },
+    {
+      "id": "44801d0f46a2c75d",
+      "title": "Как подобрать тёплые колготки к зимнему уличному образу 2026-2027: сочетания цветов, плотности, фактур, узоров",
+      "url": "https://bracatus.com/kak-podobrat-tyoplye-kolgotki-k-zimnemu-ulichnomu-obrazu-2026-2027-sochetaniya-tsvetov-plotnosti-faktur-uzorov",
+      "excerpt": "Зимний уличный образ часто превращается в компромисс между комфортом и эстетикой. Нам кажется, что мороз диктует суровые правила, заставляя прятать стиль под десятками слоёв одежды. Но на практике тёплые колготки — это не вынужденная жертва, а мощный стилистический инструмент.…",
+      "publishedAt": "2026-11-23T21:09:20Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-23T21:50:00.868386Z"
+      }
+    },
+    {
+      "id": "ae6f7b26a5795e04",
+      "title": "How to keep pantyhose from rolling down: rise, band and fit",
+      "url": "https://nylo.us/blogs/journal/how-to-keep-pantyhose-from-rolling-down",
+      "excerpt": "If your pantyhose keep rolling down, check three things: that the pair is inside its published height and weight range, where its rise puts the band, and that you brought the band all the way up when you dressed. More",
+      "publishedAt": "2026-11-23T15:16:57Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-23T21:50:00.868386Z"
+      }
+    },
+    {
+      "id": "496b898a5c027a2a",
+      "title": "Spring Fair 2027 adds more than 200 new brands and expands fashion-focused programme",
+      "url": "https://fashionunited.com/news/fairs/spring-fair-2027-adds-more-than-200-new-brands-and-expands-fashion-focused-programme/2026112375899",
+      "excerpt": "Spring Fair 2026. Credits: Spring Fair. British trade fair Spring Fair 2027 has confirmed more than 200 new exhibitors for its February edition, alongside an expanded speaker programme featuring senior retail figures and sessions covering fashion, technology and the future of…",
+      "publishedAt": "2026-11-23T13:26:37Z",
+      "sourceId": "fashionunited",
+      "source": "FashionUnited",
+      "sourceSite": "https://fashionunited.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-23T21:50:00.868386Z"
+      }
+    },
+    {
+      "id": "5ce1d7b0ed30287d",
+      "title": "Тёплые колготки на зиму 2026-2027: состав, плотность, конструкция",
+      "url": "https://bracatus.com/tyoplye-kolgotki-na-zimu-2026-2027-sostav-plotnost-konstruktsiya",
+      "excerpt": "Вы выходите из дома в минус пятнадцать, уверенно рассчитывая на новенькую упаковку с многообещающими «300 DEN» и надписью Thermo, но уже через десять минут ожидания автобуса на ноги начинает неприятно сводить от ледяного пронизывающего ветра. Колготок будто и нет вовсе, и…",
+      "publishedAt": "2026-11-23T09:46:03Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-23T21:50:00.868386Z"
+      }
+    },
+    {
+      "id": "88f3725b9cb13e34",
+      "title": "If You're Going to Wear Leggings This Winter, Don't Make These 4 Shoe Mistakes",
+      "url": "https://www.whowhatwear.com/fashion/shoes/shoes-to-avoid-wearing-with-leggings",
+      "excerpt": "According to a fashion editor.",
+      "publishedAt": "2026-11-23T09:40:00Z",
+      "sourceId": "whowhatwear",
+      "source": "Who What Wear",
+      "sourceSite": "https://www.whowhatwear.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-23T09:49:31.819113Z"
+      }
+    },
+    {
+      "id": "5f157f58742a54c8",
+      "title": "Hosiery manufacturer Kunert aims to restructure under protective shield proceedings",
+      "url": "https://fashionunited.com/news/business/hosiery-manufacturer-kunert-aims-to-restructure-under-protective-shield-proceedings/2026112375889",
+      "excerpt": "Image: Dieter Schütz / pixelio.de Hosiery manufacturer Kunert aims to restructure through so-called protective shield proceedings. As Kunert Fashion GmbH from Immenstadt in Germany's Allgäu region announced, the local court in Kempten has ordered preliminary insolvency in…",
+      "publishedAt": "2026-11-23T07:39:11Z",
+      "sourceId": "fashionunited",
+      "source": "FashionUnited",
+      "sourceSite": "https://fashionunited.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-23T09:49:31.819113Z"
+      }
+    },
+    {
+      "id": "e85a3db0adbfbb21",
+      "title": "В чём разница между одинарным обкрутом эластана, двойным обкрутом и голым эластаном в колготках, и как это влияет на прочность и посадку",
+      "url": "https://bracatus.com/v-chyom-raznitsa-mezhdu-odinarnym-obkrutom-elastana-dvojnym-obkrutom-golym-elastanom-v-kolgotkah-kak-eto-vliyaet-na-prochnost-posadku",
+      "excerpt": "Способ обработки эластановой (лайкровой) нити — главный фактор, определяющий долговечность, тактильную мягкость и внешний вид колготок при одинаковой заявленной плотности (DEN). Сам по себе эластан не используется в чистом виде на 100%, но от того, как именно он соединён с…",
+      "publishedAt": "2026-11-22T21:05:16Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-23T01:38:34.953980Z"
+      }
+    },
+    {
+      "id": "066ba6071fabc9d2",
+      "title": "Обзор новостей чулочно-носочной индустрии за период с 16 по 22 ноября 2026 года",
+      "url": "https://bracatus.com/obzor-novostej-chulochno-nosochnoj-industrii-za-period-s-16-po-22-noyabrya-2026-goda",
+      "excerpt": "На третьей неделе ноября повестка отрасли разделилась между двумя полюсами: в Шанхае открылась главная азиатская выставка текстильного машиностроения с фокусом на переработанное сырье и тонкие переплетения, а в европейском и американском стайлинге окончательно оформился разворот…",
+      "publishedAt": "2026-11-22T15:23:46Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-23T01:38:34.953980Z"
+      }
+    },
+    {
+      "id": "cf822cd9993f0384",
+      "title": "В чём разница между неформованными колготками и моделями с вывязанной пяткой",
+      "url": "https://bracatus.com/v-chyom-raznitsa-mezhdu-neformovannymi-kolgotkami-modelyami-s-vyvyazannoj-pyatkoj",
+      "excerpt": "Конструкция стопы — один из главных маркеров инженерного уровня чулочно-носочного изделия. От того, как оформлены пятка и мысок, зависят анатомическая посадка по ноге, стабильность положения колготок в обуви и устойчивость к протиранию в зонах максимального трения. Сообщение В…",
+      "publishedAt": "2026-11-21T21:04:16Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-22T00:06:47.828039Z"
+      }
+    },
+    {
+      "id": "8213ac86abf418c9",
+      "title": "Тактильный порог: почему колготки из синтетических материалов могут вызывать дискомфорт",
+      "url": "https://bracatus.com/taktilnyj-porog-pochemu-kolgotki-iz-sinteticheskih-materialov-mogut-vyzyvat-diskomfort",
+      "excerpt": "Почему одни люди нормально воспринимают колготки из синтетических волокон, а другим они кажутся очень неприятными на теле? Почему одежда не «уходит в фон», а постоянно напоминает о себе (швы, давление пояса, перепады температуры), и вызывает желание переодеться сразу по…",
+      "publishedAt": "2026-11-21T07:52:29Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-21T12:40:44.457294Z"
+      }
+    },
+    {
+      "id": "a344a56e14c971a7",
+      "title": "Какие бывают швы и как они влияют на комфорт и долговечность колготок",
+      "url": "https://bracatus.com/kakie-byvayut-shvy-kak-oni-vliyayut-na-komfort-dolgovechnost-kolgotok",
+      "excerpt": "При сборке колготок соединительный шов в верхней части (торсе) принимает на себя максимальную механическую нагрузку при движении. От технологии его выполнения напрямую зависят посадка изделия, незаметность под одеждой, комфорт кожи и устойчивость трикотажа к разрывам. Сообщение…",
+      "publishedAt": "2026-11-20T21:05:39Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-20T23:21:39.112783Z"
+      }
+    },
+    {
+      "id": "fdbd22ef996da7ac",
+      "title": "Стоят ли дорогие колготки своих денег",
+      "url": "https://bracatus.com/stoyat-li-dorogie-kolgotki-svoih-deneg",
+      "excerpt": "Стоит ли покупать колготки за 5000–7000 рублей, если обычные за 500–1000 рублей иногда оказываются не менее прочными? Проверяем лабораторные испытания, изучаем отзывы покупателей и выясняем, существуют ли вообще гарантии на чулочно-носочные изделия. Сообщение Стоят ли дорогие…",
+      "publishedAt": "2026-11-20T07:48:29Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-20T08:53:54.167126Z"
+      }
+    },
+    {
+      "id": "9263584115c43754",
+      "title": "Утепление с характером: Shimamura и Hokaron запускают коллаборации с «Историей игрушек 5» и Monchhichi",
+      "url": "https://bracatus.com/uteplenie-s-harakterom-shimamura-i-hokaron-zapuskayut-kollaboratsii-s-istoriej-igrushek-5-i-monchhichi",
+      "excerpt": "Японская сеть Shimamura анонсировала старт продаж — уже 21 ноября — сразу двух лимитированных коллекций утеплённых чулочно-носочных изделий, созданных совместно с термобрендом Hokaron (входит в структуру Lotte). Оба дропа объединяют практичный зимний функционал и узнаваемые…",
+      "publishedAt": "2026-11-20T06:19:08Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-20T08:53:54.167126Z"
+      }
+    },
+    {
+      "id": "94cdb21afd28ab0f",
+      "title": "Not Another Pair of Black Tights—This Color Is So Much Cooler, Especially With This Shoe Trend",
+      "url": "https://www.whowhatwear.com/fashion/celebrity-style/burgundy-tights-trend-jennifer-lopez",
+      "excerpt": "Do as J.Lo does.",
+      "publishedAt": "2026-11-20T00:13:03Z",
+      "sourceId": "whowhatwear",
+      "source": "Who What Wear",
+      "sourceSite": "https://www.whowhatwear.com",
+      "via": null,
+      "language": "en",
+      "illustration": {
+        "src": "https://cdn.mos.cms.futurecdn.net/D7dNRoNXytkgvVY5sKSiDS-1920-80.jpg",
+        "alt": "Иллюстрация к публикации Who What Wear",
+        "caption": "Изображение, приложенное изданием к этой публикации в RSS.",
+        "source": "https://www.whowhatwear.com/fashion/celebrity-style/burgundy-tights-trend-jennifer-lopez"
+      },
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-20T01:22:46.203150Z"
+      }
+    },
+    {
+      "id": "915eead7a70ff52c",
+      "title": "Pre-fall 2027 colour trends: Plum, aubergine and violet are the new neutrals",
+      "url": "https://fashionunited.com/news/fashion/pre-fall-2027-colour-trends-plum-aubergine-and-violet-are-the-new-neutrals/2026111975811",
+      "excerpt": "In Pictures When Barbara Hulanicki shaped the iconic seventies label Biba, she treated rich plums, deep aubergines, and moody violets as everyday base colors rather than occasional accents. She pioneered tonal, head-to-toe dressing, encouraging shoppers to pair plum maxi coats…",
+      "publishedAt": "2026-11-19T17:00:00Z",
+      "sourceId": "fashionunited",
+      "source": "FashionUnited",
+      "sourceSite": "https://fashionunited.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-20T01:22:46.203150Z"
+      }
+    },
+    {
+      "id": "b22cc8891568a408",
+      "title": "Дженнифер Лопес вывела тренд на «голые» колготки за пределы подиума: разбор сливового образа от Marc Jacobs",
+      "url": "https://bracatus.com/dzhennifer-lopes-vyvela-trend-na-golye-kolgotki-za-predely-podiuma-razbor-slivovogo-obraza-ot-marc-jacobs",
+      "excerpt": "Ноябрь в Нью-Йорке редко располагает к экспериментам с полным отказом от привычного «низа», но для Дженнифер Лопес погодная сводка никогда не была весомее подиумной повестки. На запись эфира программы Front Row для радиостанции SiriusXM певица прибыла в тотал-луке из весенней…",
+      "publishedAt": "2026-11-19T14:24:40Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-19T19:10:02.354280Z"
+      }
+    },
+    {
+      "id": "cd5e7f6fb43d88fe",
+      "title": "Dialogues with Sümeyya Donmez",
+      "url": "https://swedishstockings.com/blogs/journal/dialogues-with-sumeyya-donmez",
+      "excerpt": "At the intersection of fashion, science and nature, designer Sümeyya Dönmez explores the transformative potential of materials. Through her signature crystallization technique, she turns everyday textiles into sculptural creations, challenging the way we perceive familiar…",
+      "publishedAt": "2026-11-19T13:03:51Z",
+      "sourceId": "swedish",
+      "source": "Swedish Stockings",
+      "sourceSite": "https://swedishstockings.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-19T19:10:02.354280Z"
+      }
+    },
+    {
+      "id": "3216e5006421e250",
+      "title": "It Girls Are Wearing These Leggings With This Sneaker Color and This Jacket in Winter 2026",
+      "url": "https://www.whowhatwear.com/fashion/celebrity-style/flared-leggings-and-sneakers-winter-outfit-bella-hadid",
+      "excerpt": "Behold Bella Hadid in Aspen.",
+      "publishedAt": "2026-11-18T23:38:50Z",
+      "sourceId": "whowhatwear",
+      "source": "Who What Wear",
+      "sourceSite": "https://www.whowhatwear.com",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-19T02:20:22.338559Z"
+      }
+    },
+    {
+      "id": "989aac4ae6c2f38e",
+      "title": "Почему колготки рвутся: 10 причин, о которых не рассказывают производители",
+      "url": "https://bracatus.com/pochemu-kolgotki-rvutsya-10-prichin-o-kotoryh-ne-rasskazyvayut-proizvoditeli",
+      "excerpt": "На самом деле производители скрывают не все причины, но часть из них просто редко объясняют покупателю, хотя именно эта часть определяет срок службы колготок. Объяснения бывают и такими, что их сложно понять тем, кто далёк от текстильной промышленности, а потому и они…",
+      "publishedAt": "2026-11-18T22:40:10Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-19T02:20:22.338559Z"
+      }
+    },
+    {
+      "id": "131d156dfaa2bd45",
+      "title": "Как появилась ластовица",
+      "url": "https://bracatus.com/kak-poyavilas-lastovitsa",
+      "excerpt": "Маленький ромб из трикотажа, соединяющий два чулка в пару колготок, редко становится предметом разговоров о моде, хотя именно эта деталь в своё время спасла эпоху мини-юбок от конструктивного провала. Ластовица — один из самых недооценённых инженерных элементов в истории одежды:…",
+      "publishedAt": "2026-11-18T21:05:26Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-19T02:20:22.338559Z"
+      }
+    },
+    {
+      "id": "40a29ed336e3d01c",
+      "title": "120 denier tights for men: how the 120D compares with Glamory",
+      "url": "https://nylo.us/blogs/journal/120-denier-tights-for-men-120d-vs-glamory",
+      "excerpt": "Denier is the weight of the yarn, and at 120 denier our 120D Opaque Tights are the most opaque pair we make: matte black, fully footed, Tall only. Here the 120D sits beside Glamory's Microman 100, from each brand's own pages. More",
+      "publishedAt": "2026-11-18T15:43:42Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-18T20:53:39.674928Z"
+      }
+    },
+    {
+      "id": "203a3512477cd60f",
+      "title": "Why Max Mara's New Scent Makes My Everyday Outfits Feel More Elevated",
+      "url": "https://www.whowhatwear.com/beauty/fragrance/max-mara-scent-elevates-any-outfit",
+      "excerpt": "Even if I'm wearing leggings and a sweatshirt.",
+      "publishedAt": "2026-11-18T15:37:06Z",
+      "sourceId": "whowhatwear",
+      "source": "Who What Wear",
+      "sourceSite": "https://www.whowhatwear.com",
+      "via": null,
+      "language": "en",
+      "illustration": {
+        "src": "https://cdn.mos.cms.futurecdn.net/ni8pvUp6ahQuV4dP6ZVLbe-1920-80.jpg",
+        "alt": "Иллюстрация к публикации Who What Wear",
+        "caption": "Изображение, приложенное изданием к этой публикации в RSS.",
+        "source": "https://www.whowhatwear.com/beauty/fragrance/max-mara-scent-elevates-any-outfit"
+      },
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-18T20:53:39.674928Z"
+      }
+    },
+    {
+      "id": "1a1a80fcbe304066",
+      "title": "Дженнифер Лопес в бордовом total look: кружевные колготки как главный модный акцент",
+      "url": "https://bracatus.com/dzhennifer-lopes-v-bordovom-total-look-kruzhevnye-kolgotki-kak-glavnyj-modnyj-aktsent",
+      "excerpt": "15 ноября 2026 года Дженнифер Лопес появилась в Нью-Йорке на мероприятии в культурном центре 92NY, посвящённом концертному фильму The JLo Show: Live in Las Vegas. Для выхода певица выбрала эффектный монохромный образ в оттенках бордо, в котором особенно интересно обыграны…",
+      "publishedAt": "2026-11-18T13:56:02Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-18T20:53:39.674928Z"
+      }
+    },
+    {
+      "id": "070ca73f59c9d63b",
+      "title": "Почему колготки сползают: 9 типичных причин",
+      "url": "https://bracatus.com/pochemu-kolgotki-spolzayut-9-tipichnyh-prichin",
+      "excerpt": "Есть вещи, которые способны испортить даже самый удачный день. Колготки, которые приходится подтягивать каждые полчаса, — одна из них. Сначала незаметно опускается ластовица, затем где-то под коленями образуются складки, а к концу дня пояс оказывается совсем не там, где ему…",
+      "publishedAt": "2026-11-18T11:45:49Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-18T12:28:46.669989Z"
+      }
+    },
+    {
+      "id": "f2e22322ea4d80d5",
+      "title": "Сколько петель должно быть в окружности хороших колготок",
+      "url": "https://bracatus.com/skolko-petel-dolzhno-byt-v-okruzhnosti-horoshih-kolgotok",
+      "excerpt": "Вопрос о количестве петель по окружности колготок относится к фундаментальным принципам структурной инженерии трикотажных изделий, в частности, бесшовных или круговых вязаных чулочных изделий. В отличие от традиционных тканых материалов, в которых используются пересекающиеся…",
+      "publishedAt": "2026-11-17T21:21:23Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-17T22:17:40.846044Z"
+      }
+    },
+    {
+      "id": "4cc1a09539d5d8ab",
+      "title": "Heist начинает производство колготок из старых шин",
+      "url": "https://bracatus.com/heist-nachinaet-proizvodstvo-kolgotok-iz-staryh-shin",
+      "excerpt": "Британский бренд Heist включил в коллекцию колготки из двух видов полиамидной нити итальянской компании Fulgar — Q-NOVA и Q-CYCLE. Один материал производится с использованием собственных производственных отходов Fulgar, другой — с применением пиролизного масла, полученного из…",
+      "publishedAt": "2026-11-17T14:56:23Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-17T22:17:40.846044Z"
+      }
+    },
+    {
+      "id": "218e41aae9745cc5",
+      "title": "Тёплые двухслойные колготки с эффектом прозрачных: почему одни выглядят естественно, а другие — нет",
+      "url": "https://bracatus.com/tyoplye-dvuhslojnye-kolgotki-s-effektom-prozrachnyh-pochemu-odni-vyglyadyat-estestvenno-drugie-net",
+      "excerpt": "Зимой приходится носить громоздкие, объёмные вещи: тяжёлые ботинки или сапоги, пальто, и к этому всему нужно надевать толстые, а не прозрачные тонкие колготки. Те самые, которые делают ноги визуально изящнее, не утяжеляют образ и подходят практически к любой юбке или платью. Но…",
+      "publishedAt": "2026-11-17T10:12:48Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-17T10:44:00.655558Z"
+      }
+    },
+    {
+      "id": "97c9148d57616a98",
+      "title": "Как выбрать колготки из хлопка",
+      "url": "https://bracatus.com/kak-vybrat-kolgotki-iz-hlopka",
+      "excerpt": "Хлопок — интересное волокно, но в колготках из него бывает комфортно в довольно узком диапазоне температур: примерно от +15 до 0 °C. Даже шерсть в этом отношении более универсальна... Лучшее применение простых хлопковых колготок, которое я знаю, — носить их под джинсами примерно…",
+      "publishedAt": "2026-11-16T22:13:45Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T22:32:00.119277Z"
+      }
+    },
+    {
+      "id": "cef9a220f999ab71",
+      "title": "Почему класть колготки в морозилку бессмысленно",
+      "url": "https://bracatus.com/pochemu-klast-kolgotki-v-morozilku-bessmyslenno",
+      "excerpt": "Этт совет Вы могли услышать от старших родственниц или встретить на просторах женских форумов: перед тем как впервые надеть новые капроновые колготки, их нужно смочить водой, запечатать в пакет и отправить на ночь в морозильную камеру. Обещают поистине магический эффект — мол,…",
+      "publishedAt": "2026-11-16T21:05:07Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T22:32:00.119277Z"
+      }
+    },
+    {
+      "id": "70bed01facfc6e85",
+      "title": "Tights and Heels Look Much Chicer Worn in This Very Specific Way",
+      "url": "https://www.whowhatwear.com/fashion/celebrity-style/lace-tights-pointed-toe-heels-trend-jennifer-lopez-2026",
+      "excerpt": "Winter-ready.",
+      "publishedAt": "2026-11-16T13:58:36Z",
+      "sourceId": "whowhatwear",
+      "source": "Who What Wear",
+      "sourceSite": "https://www.whowhatwear.com",
+      "via": null,
+      "language": "en",
+      "illustration": {
+        "src": "https://cdn.mos.cms.futurecdn.net/L8S7ay7ePNqBgo8U2hLqUZ-1920-80.jpg",
+        "alt": "Иллюстрация к публикации Who What Wear",
+        "caption": "Изображение, приложенное изданием к этой публикации в RSS.",
+        "source": "https://www.whowhatwear.com/fashion/celebrity-style/lace-tights-pointed-toe-heels-trend-jennifer-lopez-2026"
+      },
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T22:32:00.119277Z"
+      }
+    },
+    {
+      "id": "34e6555fed5dcbb1",
+      "title": "Утеплённые легинсы или термобельё: в чём разница и что лучше согревает?",
+      "url": "https://bracatus.com/uteplyonnye-leginsy-ili-termobelyo-v-chyom-raznitsa-i-chto-luchshe-sogrevaet",
+      "excerpt": "На первый взгляд, разница между утеплёнными легинсами и термобельём кажется несущественной. И те и другие облегают ноги, закрывают их от холода, могут иметь мягкую внутреннюю поверхность и вполне способны заменить обычные брюки в определённых ситуациях. Но с точки зрения…",
+      "publishedAt": "2026-11-16T12:30:12Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T22:32:00.119277Z"
+      }
+    },
     {
       "id": "de251274a9173ea9",
       "title": "Over-the-Knee Boots and Tights Work, But French Women Know This Swap Does Overtime",
@@ -402,6 +1085,44 @@
       "checked": "2026-11-16"
     },
     {
+      "id": "d65d7f321286dbd8",
+      "title": "Леопардовые колготки осени 2026: как звериный принт избавился от вульгарности и стал новой базой",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQWlpXVm5GS2lrMHdHREE0cEFIaGN2djNCdEhWZS1FQ2J6anJGdGVYdmF2NlJFWVlydFMwdU9yQmZmRXd0a3BjVHg4WURPVjQtN1lMY3l1U0ZwQ19XbGY1VU90NWdlcnBMTVMxT29pX2M0a2xkUk8xVnQ5TnlTcXpYd0RNVWxXVUpvQURLQ0ZjNVdtV2RTM0lHbHYyanZfWE5qUnZRclc4R0ZsaWw2a09SWVhGRk1GMzg?oc=5",
+      "excerpt": "",
+      "publishedAt": "2026-11-15T09:16:05Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T22:32:00.119277Z"
+      }
+    },
+    {
+      "id": "e51bf75bae265958",
+      "title": "Тёплые колготки 2026: от флиса за 600 рублей до мериноса за 7000",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNNjNNaGdVV2pQekNiREtGbTFmSExUUEctUkNZaWJTa0NYeEM3U3RENHh0YjZ5Zjdjc1ZqYmt5dHdGdXZ5aXlpSFFqbUItMWczUW1xS21FNENldFRuQkxDSURIYnBaci1FMWJHQmt4Z1hOelBGVmZmTVM0NnJLNDhtQXZnQzlsQ3FzckE?oc=5",
+      "excerpt": "",
+      "publishedAt": "2026-11-14T21:23:38Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-17T04:47:04.787327Z"
+      }
+    },
+    {
       "id": "526906455127cce3",
       "title": "We Just Tried 13 CSB Best Sellers, From Hailey's Favorite Tank to the Leggings NYC It Girls Swear By",
       "url": "https://www.whowhatwear.com/fashion/athleisure/csb-editor-try-on-2026",
@@ -680,10 +1401,37 @@
       "via": null,
       "language": "en",
       "publication": {
-        "status": "pending",
-        "reason": "awaiting_source",
-        "attempts": 0,
-        "fetchAttempts": 0
+        "status": "ready",
+        "checkedAt": "2026-11-16T12:35:45.143707Z"
+      },
+      "displayTitle": "Sheertex и NYLO: чем отличаются мужские колготки",
+      "summary": "В сравнении, опубликованном журналом NYLO, сопоставлены таблицы размеров и характеристики прозрачных колготок двух марок. Материал основан на страницах брендов, изученных в ноябре 2026 года; NYLO отмечает, что не связан с Sheertex.",
+      "sections": [
+        {
+          "heading": "Размеры и посадка",
+          "paragraphs": [
+            "По данным статьи, размер Classic Sheer Rip-Resist Tights от Sheertex выбирают по весу и буквенной маркировке. NYLO указывает для своих моделей рост и вес, а также положение пояса относительно пупка. Компания выпускает прозрачные варианты плотностью 1, 3 и 10 ден и непрозрачную модель 120 ден.",
+            "Для 10D NYLO приводит диапазон роста 170–188 см и веса 65–95 кг. Модель Comfort Fit рассчитана на тот же рост и вес 80–136 кг; у неё открытая передняя часть. Издание предупреждает, что посадка зависит и от пропорций тела."
+          ]
+        },
+        {
+          "heading": "Характеристики и условия",
+          "paragraphs": [
+            "В статье перечислены различия в конструкции моделей NYLO: плотность, число игл и высота посадки. Например, 10D обозначены как высокая посадка, а бесшовные варианты 1D и 3D — как средняя и низкая соответственно. Эти сведения приведены со страниц самой марки.",
+            "Согласно материалу, Sheertex принимает обратно нераспечатанные изделия в течение 30 дней и описывает 90-дневную гарантию на повреждения, делающие колготки непригодными к носке. У NYLO возврат запечатанных изделий возможен в течение 14 дней; примеренные или ношеные колготки возврату не подлежат."
+          ]
+        }
+      ],
+      "ai": {
+        "model": "gpt-6-luna",
+        "generatedAt": "2026-11-16T12:35:45.143707Z",
+        "sourceWords": 1011
+      },
+      "illustration": {
+        "src": "https://nylo.us/cdn/shop/articles/nylo-journal-cover-standing-01.jpg?v=1794496794&width=1200",
+        "alt": "Ноги в прозрачных тёмных колготках, ступни босые.",
+        "caption": "Фотография этой публикации у издателя. Соответствие теме проверено автоматически.",
+        "source": "https://nylo.us/blogs/journal/sheertex-for-men-how-its-tights-compare-with-nylo"
       }
     },
     {
@@ -894,10 +1642,37 @@
       "via": null,
       "language": "en",
       "publication": {
-        "status": "pending",
-        "reason": "awaiting_source",
-        "attempts": 0,
-        "fetchAttempts": 0
+        "status": "ready",
+        "checkedAt": "2026-11-16T12:35:45.143707Z"
+      },
+      "displayTitle": "Нейлон и спандекс: из чего делают тонкие мужские носки и колготки",
+      "summary": "В статье NYLO Journal объясняет, какую роль играют нейлон и спандекс в тонком трикотажном изделии, и уточняет, что Lycra — торговое название разновидности спандекса, а не отдельное волокно.",
+      "sections": [
+        {
+          "heading": "Два волокна — разные задачи",
+          "paragraphs": [
+            "По описанию издания, нейлон образует основу вязки, а спандекс добавляют для растяжимости. Эластан — другое название спандекса; нейлон также называют полиамидом. Поэтому изделие с маркировкой «нейлон и Lycra» содержит два типа волокон, а не три.",
+            "Показатель denier обозначает вес нити: нить 1D легче 10D. В статье также отмечено, что различия между моделями носков могут включать плотность вязки и число игл, а не только волокна."
+          ]
+        },
+        {
+          "heading": "Примеры изделий и уход",
+          "paragraphs": [
+            "NYLO сообщает, что его тонкие носки и колготки сочетают нейлон со спандексом. Для мужских колготок 10D бренд указывает вязку на 1012 иглах и применение Lycra; утверждения об их эластичности и стойкости к спуску петель относятся к характеристикам, заявленным компанией.",
+            "Для обоих типов изделий издание описывает одинаковый уход: ручная стирка в холодной воде без отбеливателя и сушка вдали от нагрева. Также оно советует не использовать сушильную машину."
+          ]
+        }
+      ],
+      "ai": {
+        "model": "gpt-6-luna",
+        "generatedAt": "2026-11-16T12:35:45.143707Z",
+        "sourceWords": 722
+      },
+      "illustration": {
+        "src": "https://nylo.us/cdn/shop/articles/nylo-journal-cover-wedding-01_f0527f7b-b429-4e17-8541-b9431ce1df76.jpg?v=1794323697&width=1200",
+        "alt": "Мужчина в тёмных брюках, тонких тёмных носках и чёрных туфлях.",
+        "caption": "Фотография этой публикации у издателя. Соответствие теме проверено автоматически.",
+        "source": "https://nylo.us/blogs/journal/nylon-vs-spandex-mens-sheer-tights-socks"
       }
     },
     {
@@ -961,10 +1736,37 @@
       "via": null,
       "language": "en",
       "publication": {
-        "status": "pending",
-        "reason": "awaiting_source",
-        "attempts": 0,
-        "fetchAttempts": 0
+        "status": "ready",
+        "checkedAt": "2026-11-16T12:35:45.143707Z"
+      },
+      "displayTitle": "Тонкие колготки или носки под брюки: в чём разница",
+      "summary": "NYLO сравнивает прозрачные носки и колготки для ношения с брюками и кожаной обувью. Основное отличие — площадь покрытия: носки заканчиваются ниже колена, а колготки доходят до талии.",
+      "sections": [
+        {
+          "heading": "Покрытие и посадка",
+          "paragraphs": [
+            "Носки закрывают стопу и икру; при поднявшейся штанине может быть видна полоска между обувью и краем брюк. Колготки покрывают всю ногу, поэтому отдельной границы ниже колена нет. У носков нет пояса, а у обеих моделей колготок есть мягкая эластичная резинка: у 10D высокая посадка, у 1D — средняя.",
+            "Носки выпускаются в стандартном размере. Колготки подбирают по росту и весу; для модели 1D предусмотрены варианты Standard и Tall. Издание отмечает, что посадка также зависит от длины ног, торса и телосложения."
+          ]
+        },
+        {
+          "heading": "Плотность и особенности моделей",
+          "paragraphs": [
+            "В сравнении представлены изделия 10D и 1D. По данным NYLO, колготки 10D устойчивы к спусканию петель, а у носков 10D есть укреплённый мысок. Колготки 1D описаны как матовые и очень деликатные; носки 1D изготовлены из нейлона и спандекса.",
+            "Носки продаются упаковками по две пары для 10D и по три для 1D; колготки — по одной паре. Для всех четырёх изделий указана ручная стирка в холодной воде и сушка вдали от тепла."
+          ]
+        }
+      ],
+      "ai": {
+        "model": "gpt-6-luna",
+        "generatedAt": "2026-11-16T12:35:45.143707Z",
+        "sourceWords": 964
+      },
+      "illustration": {
+        "src": "https://nylo.us/cdn/shop/articles/nylo-journal-cover-stretch-02.jpg?v=1794237372&width=1200",
+        "alt": "Иллюстрация к материалу: Tights vs socks: sheer tights or sheer dress socks with trousers",
+        "caption": "Обложка этой публикации у издателя.",
+        "source": "https://nylo.us/blogs/journal/tights-vs-socks-sheer-tights-or-sheer-dress-socks"
       }
     },
     {
@@ -979,10 +1781,35 @@
       "via": null,
       "language": "en",
       "publication": {
-        "status": "pending",
-        "reason": "awaiting_source",
-        "attempts": 0,
-        "fetchAttempts": 0
+        "status": "ready",
+        "checkedAt": "2026-11-16T12:35:45.143707Z"
+      },
+      "displayTitle": "Как сушить тонкие колготки после ручной стирки",
+      "summary": "NYLO Journal рекомендует не помещать тонкие колготки и прозрачные носки в сушильную машину — независимо от выбранного режима. По инструкции бренда, изделия следует стирать вручную в холодной воде и сушить на воздухе, вдали от источников тепла.",
+      "sections": [
+        {
+          "heading": "Сушка без нагрева",
+          "paragraphs": [
+            "После стирки колготки можно повесить на сушильную стойку или перекладину либо разложить на плоской поверхности. Их оставляют до полного высыхания, включая пояс. Радиатор, нагретая сушилка для полотенец, поток воздуха от обогревателя и фен не подходят: издание относит их к источникам тепла."
+          ]
+        },
+        {
+          "heading": "Как обойтись без спешки",
+          "paragraphs": [
+            "Быстрого способа высушить изделие авторы не предлагают: вместо нагрева советуют постирать его заранее и оставить на сушилке на достаточное время. Запасная пара позволяет носить одну, пока другая сохнет. Для особо деликатной модели 1D Seamless Sheer Tights бренд отдельно рекомендует осторожное обращение при надевании; правила сушки остаются теми же."
+          ]
+        }
+      ],
+      "ai": {
+        "model": "gpt-6-luna",
+        "generatedAt": "2026-11-16T12:35:45.143707Z",
+        "sourceWords": 865
+      },
+      "illustration": {
+        "src": "https://nylo.us/cdn/shop/articles/nylo-journal-cover-feet-03.jpg?v=1794151194&width=1200",
+        "alt": "Ноги в тонких тёмных полупрозрачных носках",
+        "caption": "Фотография этой публикации у издателя. Соответствие теме проверено автоматически.",
+        "source": "https://nylo.us/blogs/journal/can-you-put-pantyhose-in-the-dryer"
       }
     },
     {
@@ -997,10 +1824,37 @@
       "via": null,
       "language": "en",
       "publication": {
-        "status": "pending",
-        "reason": "awaiting_source",
-        "attempts": 0,
-        "fetchAttempts": 0
+        "status": "ready",
+        "checkedAt": "2026-11-16T12:35:45.143707Z"
+      },
+      "displayTitle": "Мужской образ на День благодарения: роль носков и колготок",
+      "summary": "В статье NYLO предлагает собрать праздничный мужской комплект в стиле smart casual: свитер или рубашка без галстука, чиносы либо шерстяные брюки и кожаные лоферы или ботинки. Отдельное внимание уделено тонким носкам и колготкам, которые становятся заметны у щиколотки, когда приподнимается брючная штанина.",
+      "sections": [
+        {
+          "heading": "Носки или колготки под брюки",
+          "paragraphs": [
+            "Издание советует выбирать короткую посадку брюк, чтобы ткань не собиралась на обуви. Тонкие носки заканчиваются ниже колена, а колготки закрывают всю ногу и остаются под брюками; авторы предлагают выбирать вариант по личным предпочтениям.",
+            "В ассортименте NYLO описаны модели плотностью 1D и 10D. Бренд сообщает, что его носки 10D имеют укреплённый мысок и устойчивы к спуску петель, а колготки 10D также обладают такой устойчивостью. Эти сведения приведены как заявления производителя."
+          ]
+        },
+        {
+          "heading": "Более плотный вариант",
+          "paragraphs": [
+            "Для холодной погоды бренд предлагает непрозрачные колготки 120D. В статье их описывают как плотную модель с закрытой стопой, предназначенную для ношения под брюками или с верхом вроде свитера и блейзера.",
+            "NYLO также рекомендует надевать тонкий трикотаж аккуратно, чтобы не зацепить его ногтями или грубой кожей, и сушить после ручной стирки вдали от источников тепла."
+          ]
+        }
+      ],
+      "ai": {
+        "model": "gpt-6-luna",
+        "generatedAt": "2026-11-16T12:35:45.143707Z",
+        "sourceWords": 1053
+      },
+      "illustration": {
+        "src": "https://cdn.shopify.com/s/files/1/0976/3491/0580/files/NYLO_1D_SEAMLESS_3.jpg?v=1774294750",
+        "alt": "Ноги в чёрных полупрозрачных колготках и коротких чёрных шортах",
+        "caption": "Фотография этой публикации у издателя. Соответствие теме проверено автоматически.",
+        "source": "https://nylo.us/blogs/journal/thanksgiving-outfit-for-men-smart-casual"
       }
     },
     {
@@ -1162,10 +2016,37 @@
       "via": null,
       "language": "en",
       "publication": {
-        "status": "pending",
-        "reason": "awaiting_source",
-        "attempts": 0,
-        "fetchAttempts": 0
+        "status": "ready",
+        "checkedAt": "2026-11-16T12:35:45.143707Z"
+      },
+      "displayTitle": "Wolford и NYLO: чем различаются их тонкие колготки",
+      "summary": "Журнал NYLO сопоставил ассортимент двух брендов по сведениям с их собственных страниц, опубликованным в ноябре 2026 года. Wolford предлагает модели Individual 10 и Luxe 9 в буквенных размерах, а NYLO описывает несколько вариантов мужских колготок с разной плотностью и посадкой.",
+      "sections": [
+        {
+          "heading": "Размеры и условия возврата",
+          "paragraphs": [
+            "В руководстве Wolford указаны рост и вес; Individual 10 доступна от XS до XXL, Luxe 9 — от XS до XL. По данным статьи, Wolford принимает неношеные изделия без повреждений в оригинальной упаковке в течение 30 дней после получения заказа.",
+            "NYLO также публикует диапазоны роста и веса. Для моделей 3D Seamless и 1D предусмотрены размеры Standard и Tall, тогда как у 10D и Comfort Fit указан единый диапазон."
+          ]
+        },
+        {
+          "heading": "Модели NYLO",
+          "paragraphs": [
+            "В статье перечислены 10D, Comfort Fit и 1D плотностью 10, 3 и 1 ден соответственно. У 10D высокая посадка; Comfort Fit выполнена из панелей с U-образным швом и, согласно описанию, предназначена для более широкого диапазона веса. Модель 1D имеет среднюю посадку и, как пишет NYLO, под брюками выглядит как голая нога.",
+            "NYLO также указывает 3D Seamless и непрозрачные колготки 120D. Возврат нераспечатанных изделий в оригинальной упаковке возможен в течение 14 дней после доставки; перед отправкой требуется связаться со службой поддержки."
+          ]
+        }
+      ],
+      "ai": {
+        "model": "gpt-6-luna",
+        "generatedAt": "2026-11-16T12:35:45.143707Z",
+        "sourceWords": 879
+      },
+      "illustration": {
+        "src": "https://nylo.us/cdn/shop/articles/nylo-journal-cover-comfort-fit-01.jpg?v=1793807064&width=1200",
+        "alt": "Крупный план ноги в тонких бежевых колготках, ткань оттянута рукой.",
+        "caption": "Фотография этой публикации у издателя. Соответствие теме проверено автоматически.",
+        "source": "https://nylo.us/blogs/journal/wolford-tights-for-men-vs-nylo"
       }
     },
     {
@@ -1232,7 +2113,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1347,7 +2229,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1365,7 +2248,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1383,7 +2267,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1401,7 +2286,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1419,7 +2305,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1437,7 +2324,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1455,7 +2343,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1473,7 +2362,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1491,7 +2381,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1738,7 +2629,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1756,7 +2648,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1774,7 +2667,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1792,7 +2686,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1865,7 +2760,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1883,7 +2779,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1901,7 +2798,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1919,7 +2817,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1937,7 +2836,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1955,7 +2855,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1973,7 +2874,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -1991,7 +2893,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2009,7 +2912,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2080,7 +2984,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2098,7 +3003,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2116,7 +3022,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2134,7 +3041,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2152,7 +3060,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2212,7 +3121,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2278,7 +3188,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2296,7 +3207,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2410,7 +3322,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2572,7 +3485,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2674,7 +3588,8 @@
         "status": "pending",
         "reason": "awaiting_source",
         "attempts": 0,
-        "fetchAttempts": 0
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-16T12:35:45.143707Z"
       }
     },
     {
@@ -2776,13 +3691,13 @@
   ],
   "aiUsage": {
     "date": "2026-11-16",
-    "calls": 9,
+    "calls": 15,
     "dailyLimit": 60,
     "model": "gpt-6-luna"
   },
   "queue": {
-    "ready": 40,
-    "pending": 40,
+    "ready": 46,
+    "pending": 71,
     "failed": 0
   }
 }
