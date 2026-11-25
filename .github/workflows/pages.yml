@@ -23,16 +23,6 @@ jobs:
       - uses: actions/checkout@v6
       - name: Install catalogue image dependency
         run: python -m pip install --disable-pip-version-check 'Pillow>=11.3,<13'
-      - name: Verify content and assistant
-        run: |
-          python -m unittest discover -s qa -p 'test_news*.py'
-          node qa/test_video_memory.cjs
-          node --test qa/test_assistant.cjs qa/test_assistant_cache.cjs qa/test_assistant14.cjs
-          python -m unittest qa/test_assistant_build.py
-          python -m unittest qa/test_video_feed.py qa/test_video15.py qa/test_video16.py qa/test_video17.py
-          python -m unittest qa/test_exchange18.py qa/test_catalog18_links.py qa/test_catalog18_ui.py
-          python -m unittest discover -s qa/catalog18-import -p 'test_parser.py'
-          node --test qa/test_catalog18_ui.cjs
       - name: Restore the latest complete dated catalogue
         run: python scripts/collect-catalog18.py --deployed https://big-arch.github.io/TOHKO/ --restore-only
       - name: Refresh official USD reference rate
@@ -83,6 +73,17 @@ jobs:
           python scripts/build-home-news.py
           python scripts/link-catalog.py
           python scripts/build-assistant.py --inject
+      # Recovery snapshots update data independently of generated HTML. Verify the built edition.
+      - name: Verify content and assistant
+        run: |
+          python -m unittest discover -s qa -p 'test_news*.py'
+          node qa/test_video_memory.cjs
+          node --test qa/test_assistant.cjs qa/test_assistant_cache.cjs qa/test_assistant14.cjs
+          python -m unittest qa/test_assistant_build.py
+          python -m unittest qa/test_video_feed.py qa/test_video15.py qa/test_video16.py qa/test_video17.py
+          python -m unittest qa/test_exchange18.py qa/test_catalog18_links.py qa/test_catalog18_ui.py
+          python -m unittest discover -s qa/catalog18-import -p 'test_parser.py'
+          node --test qa/test_catalog18_ui.cjs
       - name: Check local links and JavaScript
         run: |
           python scripts/check-site.py
