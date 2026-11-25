@@ -1,0 +1,26 @@
+[
+  {
+    "id": "swedish-stockings",
+    "name": "Swedish Stockings",
+    "language": "en",
+    "kind": "journal",
+    "format": "feed",
+    "url": "https://swedishstockings.com/blogs/journal.atom",
+    "pagePrefix": "https://swedishstockings.com/blogs/journal/",
+    "imagePrefix": "https://cdn.shopify.com/s/files/1/0078/3128/9969/files/",
+    "imagePattern": "(?i)(tights|hosiery|legging|SD-journal)",
+    "include": "(?i)(tights|hosiery|stockings|leggings|thread|AW26|collection|dialogues|changemakers)"
+  },
+  {
+    "id": "gabriella",
+    "name": "Gabriella",
+    "language": "pl",
+    "kind": "journal",
+    "format": "feed",
+    "url": "https://www.gabriella.pl/blogs/gabriella.atom",
+    "pagePrefix": "https://www.gabriella.pl/blogs/gabriella/",
+    "imagePrefix": "https://cdn.shopify.com/s/files/1/0954/8552/6359/files/",
+    "imagePattern": "(?i)(rajstop|dressing_loud)",
+    "include": "(?i)(rajstop|podkolan|dressing loud|kolekcj|leggins)"
+  }
+]

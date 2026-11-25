@@ -1,1 +1,1 @@
-window.TONKO_EXCHANGE_RATE = {"version":1,"base":"USD","quote":"RUB","rubPerUsd":82.5143,"date":"2026-11-17","checkedAt":"2026-11-17T12:32:23.351672+00:00","source":"https://www.cbr.ru/currency_base/daily/?UniDbQuery.Posted=True&UniDbQuery.To=17.11.2026","sourceName":"Банк России"};
+window.TONKO_EXCHANGE_RATE = {"version":1,"base":"USD","quote":"RUB","rubPerUsd":82.1488,"date":"2026-11-24","checkedAt":"2026-11-23T21:49:49.618817+00:00","source":"https://www.cbr.ru/scripts/XML_daily.asp","sourceName":"Банк России"};

@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "checkedAt": "2026-11-24T16:42:21.242386Z",
-  "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
+  "checkedAt": "2026-11-25T21:25:40.120057Z",
+  "lastSuccessfulAt": "2026-11-25T21:25:40.120057Z",
   "intervalMinutes": 15,
   "sources": [
     {
@@ -9,25 +9,25 @@
       "name": "Google News · выбранные издания",
       "site": "https://news.google.com",
       "language": "mixed",
-      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
+      "lastSuccessfulAt": "2026-11-25T21:25:40.120057Z",
       "status": "ok",
-      "matched": 9
+      "matched": 12
     },
     {
       "id": "whowhatwear",
       "name": "Who What Wear",
       "site": "https://www.whowhatwear.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
+      "lastSuccessfulAt": "2026-11-25T21:25:40.120057Z",
       "status": "ok",
-      "matched": 1
+      "matched": 0
     },
     {
       "id": "fashionunited",
       "name": "FashionUnited",
       "site": "https://fashionunited.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
+      "lastSuccessfulAt": "2026-11-25T21:25:40.120057Z",
       "status": "ok",
       "matched": 2
     },
@@ -36,16 +36,16 @@
       "name": "Swedish Stockings",
       "site": "https://swedishstockings.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
+      "lastSuccessfulAt": "2026-11-25T21:25:40.120057Z",
       "status": "ok",
-      "matched": 18
+      "matched": 17
     },
     {
       "id": "snag",
       "name": "Snag",
       "site": "https://snagtights.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
+      "lastSuccessfulAt": "2026-11-25T21:25:40.120057Z",
       "status": "ok",
       "matched": 1
     },
@@ -54,16 +54,16 @@
       "name": "Bracatus",
       "site": "https://bracatus.com",
       "language": "ru",
-      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
-      "status": "ok",
-      "matched": 5
+      "lastSuccessfulAt": "2026-11-25T21:21:35.127711Z",
+      "status": "error",
+      "error": "FetchError"
     },
     {
       "id": "better",
       "name": "Better Tights",
       "site": "https://www.bettertights.com",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
+      "lastSuccessfulAt": "2026-11-25T21:25:40.120057Z",
       "status": "ok",
       "matched": 21
     },
@@ -72,12 +72,107 @@
       "name": "NYLO Journal",
       "site": "https://nylo.us",
       "language": "en",
-      "lastSuccessfulAt": "2026-11-24T16:42:21.242386Z",
+      "lastSuccessfulAt": "2026-11-25T21:25:40.120057Z",
       "status": "ok",
       "matched": 19
     }
   ],
   "items": [
+    {
+      "id": "910ee59f44ba4ae0",
+      "title": "Как за 200 лет изменилась технология производства одежды для ног: от чулок с панталонами до колготок",
+      "url": "https://bracatus.com/kak-za-200-let-izmenilas-tehnologiya-proizvodstva-odezhdy-dlya-nog-ot-chulok-s-pantalonami-kolgotok",
+      "excerpt": "Сегодня достаточно надеть одну пару колготок, чтобы закрыть ноги от талии до кончиков пальцев. Причём можно выбрать практически всё: тонкие прозрачные, плотные хлопковые, шерстяные, флисовые, с начёсом или с имитацией обнажённых ног. Одно изделие заменяет сразу несколько…",
+      "publishedAt": "2026-11-25T21:19:03Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-25T21:21:40.155803Z"
+      }
+    },
+    {
+      "id": "a5095e2f54cc2295",
+      "title": "How to put on pantyhose without snagging them",
+      "url": "https://nylo.us/blogs/journal/how-to-put-on-pantyhose-without-snagging",
+      "excerpt": "Rings and watch off, nails trimmed, gloves on. Then gather one leg down to the toe, set your foot in and work the knit up in short pulls instead of one haul from the waistband. More",
+      "publishedAt": "2026-11-25T15:15:54Z",
+      "sourceId": "nylo",
+      "source": "NYLO Journal",
+      "sourceSite": "https://nylo.us",
+      "via": null,
+      "language": "en",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-25T21:21:40.155803Z"
+      }
+    },
+    {
+      "id": "129314ffe284a015",
+      "title": "Почему утеплённые колготки плохо сидят: 7 конструктивных ошибок",
+      "url": "https://bracatus.com/pochemu-uteplyonnye-kolgotki-ploho-sidyat-7-konstruktivnyh-oshibok",
+      "excerpt": "Мы изучали отзывы и обсуждения на форумах, чтобы понять, почему многие продолжают зимой носить тонкие колготки с юбками или переходят на брюки, но упорно избегают термокологток и подобных тёплых вариантов. Наш вывод — это не покупатель капризный, это производители не всегда…",
+      "publishedAt": "2026-11-25T08:16:47Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-25T21:21:40.155803Z"
+      }
+    },
+    {
+      "id": "91cfd0326173c09a",
+      "title": "Анатомия колготок",
+      "url": "https://bracatus.com/anatomiya-kolgotok",
+      "excerpt": "Колготки кажутся удивительно простым изделием. Две ножки, соединённые общей верхней частью, пояс — и всё. Но за этой кажущейся простотой скрывается довольно сложная конструкция, в которой каждая деталь выполняет свою задачу. Сообщение Анатомия колготок появились сначала на…",
+      "publishedAt": "2026-11-25T06:27:48Z",
+      "sourceId": "bracatus",
+      "source": "Bracatus",
+      "sourceSite": "https://bracatus.com",
+      "via": null,
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-25T21:21:40.155803Z"
+      }
+    },
+    {
+      "id": "2f2564adae744652",
+      "title": "Белые зимние колготки 2026-2027",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5PM3VkeHplS3h6M2hFaXI3cHdPU29SMjJ0OWpPbGhtVFU1eV9VRUdvSFd3N2l1b0h6Zks2UmZNWHY2b09HRjlZYURheVZkSGNMYWc?oc=5",
+      "excerpt": "",
+      "publishedAt": "2026-11-24T21:58:21Z",
+      "sourceId": "google",
+      "source": "bracatuS",
+      "sourceSite": "https://bracatus.com",
+      "via": "Google News",
+      "language": "ru",
+      "publication": {
+        "status": "pending",
+        "reason": "awaiting_source",
+        "attempts": 0,
+        "fetchAttempts": 0,
+        "queuedAt": "2026-11-25T21:21:40.155803Z"
+      }
+    },
     {
       "id": "fb81cdf32b86500f",
       "title": "Pantyhose under jeans for men: sheer tights with denim and chinos",
@@ -2122,7 +2217,7 @@
       "title": "От «панихиды» до ренессанса: эволюция колготок от начала 2000-х до 2026-го",
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNenRFUlgxRWhZYV85ZEpxUmFHbmlzcGkwRTBZYUkzS2VzeFhfX0ZJcFpFQktycnR1b1FvcTNBSGRUNjRhbVdHdjdySnBjaXRZS1dEUHMya2FDXzZ0S0p2WWtpTmEzRXZqRzl2WUszeGEzOUpmR3h2Z0FVQnZyam5GTzV3MmhDaFMtMl9oUFZGcWRrSkxp?oc=5",
       "excerpt": "",
-      "publishedAt": "2026-11-01T21:07:18Z",
+      "publishedAt": "2026-11-02T08:00:00Z",
       "sourceId": "google",
       "source": "bracatuS",
       "sourceSite": "https://bracatus.com",
@@ -3697,7 +3792,7 @@
   },
   "queue": {
     "ready": 46,
-    "pending": 71,
+    "pending": 76,
     "failed": 0
   }
 }

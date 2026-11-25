@@ -80,6 +80,7 @@ class PublicationDateTests(unittest.TestCase):
             scripts = root/'scripts'; scripts.mkdir()
             site = root/'tights-guide'; (site/'data').mkdir(parents=True)
             shutil.copy2(ROOT/'scripts/build-home-news.py', scripts/'build-home-news.py')
+            shutil.copy2(ROOT/'tights-guide/news.js', site/'news.js')
             for name in ('news.json','editorial-media.json','packaging.json'):
                 shutil.copy2(ROOT/'tights-guide/data'/name, site/'data'/name)
             source = json.loads((site/'data/news.json').read_text('utf-8'))

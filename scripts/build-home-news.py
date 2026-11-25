@@ -4,6 +4,7 @@ import json
 import re
 from pathlib import Path
 from datetime import datetime
+from hashlib import sha256
 from news_editorial import apply_editorial
 from news_render import story,newest_publications,publication_markup,refresh_publication_badges
 from news_publication import is_ready,sync_publication
@@ -34,7 +35,7 @@ section=f'''<!-- tonko-news --><section class="portal-container news-section" id
 <p class="publication-order">Сначала новые · «Новое» — публикации за последние 7 дней</p>
 <div id="news-list" class="news-list">{''.join(card(i) for i in published[:6]) or '<p>Готовых публикаций пока нет. Найденные материалы проходят подготовку.</p>'}</div>
 <button type="button" id="news-more" hidden>Ещё публикации ↓</button>
-<details class="news-about"><summary>Как обновляется лента и откуда новости</summary><p>Источники проверяются по расписанию каждые 15 минут. Возможны задержки сервиса и самих изданий. В ленту попадают только подготовленные статьи с текстом: найденный заголовок сначала поступает в очередь, затем проверяется первоисточник и готовится самостоятельный русский пересказ.</p><p>Автоматические тексты помечены «AI-пересказ». Дата рядом с материалом принадлежит источнику; время проверки указано отдельно. Если источник недоступен или данных мало, материал остаётся в очереди с причиной и повторной попыткой. При сбое готовые статьи сохраняются.</p><div id="news-queue"><p>Готово: {news['queue']['ready']}. В подготовке: {news['queue']['pending']}. Требуют повторной проверки: {news['queue']['failed']}.</p></div><ul id="news-sources">{sources}</ul></details>
+<details class="news-about"><summary>Как обновляется лента и откуда новости</summary><p>Источники проверяются по расписанию каждые 15 минут. Возможны задержки сервиса и самих изданий. Новые находки появляются выше в подборке источников: заголовок, короткий фрагмент и ссылка на оригинал. Полные статьи ТОНКО собраны отдельно.</p><p>Обновление работает без платных AI-запросов. Новые автоматические пересказы отключены; ранее подготовленные тексты с пометкой «AI-пересказ» сохранены. Дата рядом с материалом принадлежит источнику; время проверки указано отдельно. При сбое сохраняется предыдущий выпуск.</p><div id="news-queue"><p>Полных статей: {news['queue']['ready']}. Обнаружено без пересказа: {news['queue']['pending'] + news['queue']['failed']}. Тематические анонсы доступны в подборке источников.</p></div><ul id="news-sources">{sources}</ul></details>
 <noscript><p>Показан сохранённый выпуск. Для проверки обновлений перезагрузите страницу.</p></noscript></section><!-- /tonko-news -->'''
 
 ids=['ss-clara','style-better-tailoring','outfit-pattern-walk','style-couple-city']
@@ -68,6 +69,8 @@ seed=json.dumps(news,ensure_ascii=False).replace('<','\\u003c')
 text=text.replace('<script src="news.js',f'<script id="news-seed" type="application/json">{seed}</script><script src="news-reader.js?v=20261116-12" defer></script><script src="news.js')
 text=re.sub(r'(news-reader\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261117-17',text)
 text=re.sub(r'(news\.(?:css|js))\?v=[^"\s]+',r'\1?v=20261117-17',text)
+news_version=sha256((ROOT/'news.js').read_bytes()).hexdigest()[:12]
+text=re.sub(r'news\.js\?v=[^"\s]+','news.js?v='+news_version,text)
 text=re.sub(r'<script src="publication-dates\.js[^\"]*"[^>]*></script>','',text)
 text=text.replace('</head>','<script src="publication-dates.js?v=20261117-17" defer></script></head>')
 p.write_text(text,encoding='utf-8')
@@ -75,6 +78,7 @@ p.write_text(text,encoding='utf-8')
 stories=[story(i) for i in published]
 fallback=re.sub(r'<main\b[^>]*>.*?</main>',lambda m:'<main id="content" class="portal-container news-archive"><p class="portal-eyebrow">Лента публикаций</p><h1>В фокусе чулочной моды.</h1><p class="publication-order">Сначала новые · «Новое» — публикации за последние 7 дней</p>'+''.join(stories)+'</main>',text,flags=re.S)
 fallback=re.sub(r'<script[^>]*(?:news-seed|news-reader\.js|news\.js)[^>]*>.*?</script>','',fallback,flags=re.S)
+fallback=re.sub(r'<script[^>]*(?:live-seed|live-sections\.js)[^>]*>.*?</script>|<link[^>]+href="live-sections\.css[^"]*"[^>]*>','',fallback,flags=re.S)
 fallback=re.sub(r'<title>.*?</title>','<title>Новости чулочной моды — ТОНКО</title>',fallback)
 (ROOT/'news.html').write_text(fallback,encoding='utf-8')
 for page in [ROOT/'journal.html',*ROOT.glob('read-*.html')]:

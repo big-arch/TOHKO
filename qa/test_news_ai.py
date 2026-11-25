@@ -86,12 +86,14 @@ class AITests(unittest.TestCase):
         with self.assertRaises(ValueError):handler.redirect_request(Request('https://example.org/a'),None,302,'Found',{},'https://evil.org/article')
         req=handler.redirect_request(Request('https://example.org/a'),None,302,'Found',{},'https://www.example.org/article')
         self.assertEqual(req.full_url,'https://www.example.org/article')
-    def test_ai_failure_does_not_block_rss_workflow(self):
+    def test_free_workflow_has_no_paid_provider_dependency(self):
         workflow=(Path(__file__).resolve().parents[1]/'.github/workflows/pages.yml').read_text(encoding='utf-8')
-        for name in ['Restore generated summaries','Generate new on-site summaries','Save generated summaries and request counters']:
-            stage=workflow.split('- name: '+name,1)[1].split('\n      - ',1)[0]
-            self.assertIn('continue-on-error: true',stage,name)
-        self.assertIn("steps.ai-cache.outcome == 'success'",workflow)
+        self.assertIn('python scripts/update-news.py --deployed',workflow)
+        self.assertIn('python scripts/build-live-sections.py',workflow)
+        stage=workflow.split('- name: Refresh existing article metadata and covers without paid AI',1)[1].split('\n      - ',1)[0]
+        self.assertIn("OPENAI_NEWS_ENABLED: 'false'",stage)
+        self.assertNotIn('secrets.OPENAI_API_KEY',workflow)
+        self.assertNotIn('actions/cache',workflow)
     def test_article_cover_must_come_from_its_publisher_not_a_logo(self):
         markup='<meta property="og:image" content="https://example.org/cover.jpg">'
         self.assertEqual(article_cover(markup,SOURCE,item())['src'],'https://example.org/cover.jpg')

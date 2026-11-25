@@ -33,13 +33,8 @@
       (failed?`Недоступно источников: ${failed} из ${data.sources.length}. `:'')+'Проверка по расписанию каждые 15 минут.';
     const queue=document.getElementById('news-queue');
     if(queue){
-      const backlog=data.backlog||[],failedItems=backlog.filter(i=>i.publication?.status==='failed');
-      queue.replaceChildren(node('p',`Готово: ${data.items.length}. В подготовке: ${backlog.length-failedItems.length}. Требуют повторной проверки: ${failedItems.length}.`));
-      if(backlog.length){
-        const reasons={source_unavailable:'источник временно недоступен',source_too_short:'в источнике мало текста',access_restricted:'издатель ограничил доступ',publisher_unresolved:'ищем прямую ссылку издателя',publisher_not_allowed:'не удалось подтвердить издателя',insufficient_facts:'недостаточно фактов для статьи',validation_failed:'пересказ не прошёл проверку',awaiting_source:'ожидает подготовки'};
-        const ul=node('ul');
-        backlog.forEach(i=>{const state=i.publication||{},retry=Date.parse(state.nextAttemptAt);ul.append(node('li',`${i.title} — ${reasons[state.reason]||(String(state.reason||'').startsWith('api_')?'сервис подготовки временно недоступен':'ожидает подготовки')}${Number.isFinite(retry)?`; повторная попытка после ${checkedFormat.format(new Date(retry))}`:''}.`));});queue.append(ul);
-      }
+      const backlog=data.backlog||[];
+      queue.replaceChildren(node('p',`Полных статей: ${data.items.length}. Обнаружено без пересказа: ${backlog.length}. Тематические анонсы доступны в подборке источников; новые AI-пересказы отключены.`));
     }
     const sources=document.getElementById('news-sources');sources.replaceChildren();
     data.sources.forEach(s=>{

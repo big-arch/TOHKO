@@ -3,6 +3,7 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  workflow_call:
   schedule:
     - cron: '9,24,39,54 * * * *'
 permissions:
@@ -21,6 +22,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: main
       - name: Install catalogue image dependency
         run: python -m pip install --disable-pip-version-check 'Pillow>=11.3,<13'
       - name: Restore the latest complete dated catalogue
@@ -32,37 +35,10 @@ jobs:
         run: python scripts/update-videos.py --deployed
       - name: Refresh fashion headlines
         run: python scripts/update-news.py --deployed
-      - name: Restore generated summaries
-        id: ai-cache
-        continue-on-error: true
-        uses: actions/cache/restore@v5
-        with:
-          path: .cache/news-ai-cache.json
-          key: tonko-news-ai-v1-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: tonko-news-ai-v1-
-      - name: Generate new on-site summaries
-        id: ai-news
-        if: ${{ steps.ai-cache.outcome == 'success' }}
-        continue-on-error: true
+      - name: Refresh existing article metadata and covers without paid AI
         env:
-          # Paid generation stays disabled while assistant work is paused.
           OPENAI_NEWS_ENABLED: 'false'
-        run: |
-          if [ -n "$OPENAI_API_KEY" ] && [ "$OPENAI_NEWS_ENABLED" = "true" ]; then
-            python -m pip install --disable-pip-version-check -r scripts/requirements-news.txt
-          fi
-          python scripts/enrich-news.py
-      - name: Save generated summaries and request counters
-        id: ai-cache-save
-        continue-on-error: true
-        if: ${{ always() && hashFiles('.cache/news-ai-cache.json') != '' }}
-        uses: actions/cache/save@v5
-        with:
-          path: .cache/news-ai-cache.json
-          key: tonko-news-ai-v1-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Report optional AI stage failures
-        if: ${{ always() && (steps.ai-cache.outcome == 'failure' || steps.ai-news.outcome == 'failure' || steps.ai-cache-save.outcome == 'failure') }}
-        run: echo '::warning::AI stage unavailable; publishing ready articles and retaining pending discoveries for retry.'
+        run: python scripts/enrich-news.py
       - name: Build news and packaging pages
         run: |
           python scripts/build-catalog-links.py
@@ -71,11 +47,14 @@ jobs:
           python scripts/build-videos.py
           python scripts/build-style-photos.py
           python scripts/build-home-news.py
+          python scripts/build-live-sections.py
           python scripts/link-catalog.py
           python scripts/build-assistant.py --inject
       # Recovery snapshots update data independently of generated HTML. Verify the built edition.
       - name: Verify content and assistant
         run: |
+          python -m unittest discover -s scripts/tests -v
+          python -m unittest qa.test_live_sections
           python -m unittest discover -s qa -p 'test_news*.py'
           node qa/test_video_memory.cjs
           node --test qa/test_assistant.cjs qa/test_assistant_cache.cjs qa/test_assistant14.cjs
