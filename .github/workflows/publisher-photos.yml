@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/publisher-photos.yml'
+      - '.github/workflows/pages.yml'
       - 'scripts/auto_content.py'
       - 'scripts/content-sources.json'
   workflow_dispatch:

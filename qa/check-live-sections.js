@@ -9,6 +9,18 @@ async (page) => {
   await context.route('**/*',r=>r.request().url().startsWith(base)?r.continue():r.abort());
   const p=await context.newPage();p.on('pageerror',e=>errors.push(e.message));
   try {
+    let release;
+    const loading=new Promise(resolve=>{release=resolve;});
+    await context.route('**/data/editorial-media.json',async r=>{await loading;await r.continue();});
+    await p.goto(base+'lookbook.html',{waitUntil:'domcontentloaded'});
+    assert(await p.locator('[data-gallery-filter="updates"]').isDisabled(),'filter waits for gallery data');
+    assert(await p.locator('#editorial-gallery').getAttribute('aria-busy')==='true','gallery exposes loading state');
+    release();await p.locator('#editorial-gallery .gallery-open').first().waitFor();
+    assert(await p.locator('[data-gallery-filter="updates"]').isEnabled(),'filter enabled after gallery data');
+    await p.locator('[data-gallery-filter="updates"]').click();
+    const photoCount=JSON.parse(await p.locator('#live-seed').textContent()).photos.length;
+    assert(await p.locator('#editorial-gallery .gallery-item').count()===photoCount,'first filter click after slow load is retained');
+    await context.unroute('**/data/editorial-media.json');
     for(const width of [1365,390,320]){
       await p.setViewportSize({width,height:900});
       for(const file of ['index.html','journal.html','men.html','lookbook.html']){

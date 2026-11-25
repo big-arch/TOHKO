@@ -8,11 +8,14 @@
 
   async function gallery() {
     const grid=$('#editorial-gallery'); if(!grid)return;
+    const filters=$$('[data-gallery-filter]');
+    filters.forEach(b=>b.disabled=true);grid.setAttribute('aria-busy','true');
+    $('#gallery-count').textContent='Загружаем фотографии…';
     const dialog=$('#editorial-lightbox'), full=$('#editorial-full-image');
     let media=[],shown=[],current=0,opener=null,activeFilter='all';
     let saved=new Set();
     try{const raw=JSON.parse(localStorage.getItem('tonko-photo-shelf-v1')||'[]');if(Array.isArray(raw))saved=new Set(raw.filter(x=>typeof x==='string'));}catch{}
-    const status=document.createElement('p');status.className='photo-save-status';status.setAttribute('role','status');$('.gallery-toolbar').append(status);
+    const status=$('.photo-save-status')||document.createElement('p');status.className='photo-save-status';status.setAttribute('role','status');$('.gallery-toolbar').append(status);
     const detailIds=new Set(['wolford-3','noq-lace','calzedonia-glitter','cdr-gloss','gabriella-arctic']);
     const savePhoto=id=>{
       const next=new Set(saved);next.has(id)?next.delete(id):next.add(id);
@@ -25,6 +28,7 @@
       media=(await response.json()).filter(p=>!['business','archive'].includes(p.category));
       saved=new Set([...saved].filter(id=>media.some(p=>p.id===id)));
     } catch {
+      grid.setAttribute('aria-busy','false');$('#gallery-count').textContent='Подборка временно недоступна.';
       grid.innerHTML='<p>Не удалось загрузить подборку. <button type="button" id="retry-gallery">Попробовать ещё раз</button></p>';
       $('#retry-gallery').onclick=gallery;return;
     }
@@ -56,7 +60,6 @@
         current=Number(b.dataset.photoIndex);opener=b;update();dialog.showModal();document.body.classList.add('editorial-modal-open');
       }));
     };
-    const filters=$$('[data-gallery-filter]');
     const initial=new URLSearchParams(location.search).get('filter');
     let selected=filters.find(b=>b.dataset.galleryFilter===initial)||filters[0];
     press(filters,selected);render(selected.dataset.galleryFilter);
@@ -78,6 +81,7 @@
     dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
     dialog.addEventListener('close',()=>{document.body.classList.remove('editorial-modal-open');(opener?.isConnected?opener:document.querySelector(`[data-gallery-filter="${CSS.escape(activeFilter)}"]`))?.focus({preventScroll:true});});
     dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();change(-1);}if(e.key==='ArrowRight'){e.preventDefault();change(1);}});
+    filters.forEach(b=>b.disabled=false);grid.setAttribute('aria-busy','false');
   }
   gallery();
 
