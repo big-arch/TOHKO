@@ -153,12 +153,15 @@ python scripts/build-home-news.py
 python scripts/optimize-images.py
 python scripts/build-live-sections.py
 python scripts/build-editorial-updates.py
+python scripts/build-journal-series.py
 python scripts/link-catalog.py
 python scripts/build-assistant.py --inject
 python scripts/check-site.py
 ```
 
 `build-assistant.py --inject` запускается последним из HTML-builders. Он идемпотентен. Для оптимизации фотографий нужен Pillow; готовые WebP включены в репозиторий.
+
+Две постоянные рубрики журнала и досье об индустрии собирает `build-journal-series.py` из шаблонов в `scripts/series/`. Наблюдения и снимки дневника остаются в браузере читателя. Для архивных выпусков файл `archive-objects.json` хранит музейные номера, источники фотографий, текст и подписи к деталям. На основе этих записей сборщик выпускает страницы и связывает предметы между собой.
 
 Проверки без внешней сети:
 

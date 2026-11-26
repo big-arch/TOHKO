@@ -1,0 +1,23 @@
+<article class="portal-container series-page">
+  <a class="series-back" href="journal.html#journal-series">← Журнал</a>
+  <header class="series-cover archive-cover">
+    <div class="series-cover-copy">
+      <p class="portal-eyebrow">Одна вещь из архива</p><h1>{{title}}</h1>
+      <p class="series-lead">{{lead}}</p><a class="series-action" href="#archive-viewer">Рассмотреть детали ↓</a>
+    </div>
+    <figure class="archive-hero-photo" id="archive-viewer" aria-label="Фотография музейного предмета">
+      <a class="archive-frame" data-object="{{key}}" href="{{archive_original}}" aria-label="Открыть полную фотографию музейной пары">{{archive_photo}}</a>
+      <div class="archive-choices" role="group" aria-label="Область фотографии" hidden>{{buttons}}</div>
+      <p id="archive-caption" aria-live="polite">{{whole_caption}}</p>
+      <figcaption>{{credit}} <a href="{{archive_original}}">Открыть полный кадр ↗</a></figcaption>
+    </figure>
+  </header>
+  <section class="series-spread archive-story" aria-labelledby="archive-detail-title">
+    <div><p class="portal-eyebrow">Карточка предмета</p><dl class="object-label">{{facts}}</dl></div>
+    <div class="series-reading"><h2 id="archive-detail-title">{{article_title}}</h2>
+      {{paragraphs}}
+      <p class="series-sources">{{sources}}</p>
+    </div>
+  </section>
+  <nav class="series-next" aria-label="Продолжить чтение">{{other_objects}}<a href="history.html">Хронология чулочной моды →</a></nav>
+</article>

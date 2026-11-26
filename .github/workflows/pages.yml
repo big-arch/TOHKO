@@ -51,6 +51,7 @@ jobs:
           python scripts/build-home-news.py
           python scripts/build-live-sections.py
           python scripts/build-editorial-updates.py
+          python scripts/build-journal-series.py
           python scripts/link-catalog.py
           python scripts/build-assistant.py --inject
       # Recovery snapshots update data independently of generated HTML. Verify the built edition.
@@ -60,6 +61,7 @@ jobs:
           python -m unittest qa.test_live_sections
           python -m unittest qa.test_free_news
           python -m unittest qa.test_guide_editorial
+          python -m unittest qa.test_journal_series
           python -m unittest discover -s qa -p 'test_news*.py'
           node qa/test_video_memory.cjs
           node --test qa/test_assistant.cjs qa/test_assistant_cache.cjs qa/test_assistant14.cjs

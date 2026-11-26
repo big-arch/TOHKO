@@ -1,0 +1,37 @@
+<div class="portal-container series-page">
+  <a class="series-back" href="journal.html#journal-series">← Журнал</a>
+  <header class="series-cover">
+    <div class="series-cover-copy">
+      <p class="portal-eyebrow">Дневник одной пары</p>
+      <h1>После пяти носок</h1>
+      <p class="series-lead">Утром колготки сидели хорошо. А к вечеру? Запомните, где оказался пояс, в какой обуви появились потёртости и что пережила первая затяжка.</p>
+      <a class="series-action" href="#wear-diary">Открыть мой дневник ↓</a>
+    </div>
+    <figure class="series-cover-photo wear-cover-photo">
+      {{wear_photo}}
+      <figcaption>Посадка пояса. Каталожная съёмка модели Individual 10. <a href="{{wear_credit}}">Wolford ↗</a></figcaption>
+    </figure>
+  </header>
+  <section class="series-spread" aria-labelledby="wear-method">
+    <div><p class="portal-eyebrow">Как наблюдать</p><h2 id="wear-method">Одна пара, две фотографии</h2></div>
+    <div class="series-reading">
+      <p>До первой носки выберите один ракурс. Можно положить пару на светлую ткань у окна и снять мысок вместе с пяткой. После пятого раза повторите кадр при том же свете и примерно с того же расстояния. Если поменяли обувь или стирали колготки между снимками, запишите это.</p>
+      <p>В конце каждого дня проведите пальцем по мыску, посмотрите на полотно у пятки и вспомните, приходилось ли поправлять пояс. «Слева у большого пальца вытянулась петля» расскажет о паре больше, чем общая оценка прочности.</p>
+      <aside class="series-aside"><h3>Что заметила читательница</h3><p>Покупательница Jacqueline L. рассказала, что после пяти носок не заметила изменений в своей паре Sheertex. Её отзыв приводит BuzzFeed. Обувь и режим стирки в нём не указаны. В своём дневнике можно зафиксировать и эти условия.</p><a href="https://www.buzzfeed.com/jenae_sitzes/winter-clothing-pieces-2022">Отзыв в подборке BuzzFeed, пункт 5 ↗</a></aside>
+    </div>
+  </section>
+  <section class="diary-panel" id="wear-diary" aria-labelledby="diary-title">
+    <p class="portal-eyebrow">Практика</p><h2 id="diary-title">Мой дневник</h2>
+    <p>Дайте паре имя. На каждую носку хватит даты и одного наблюдения. Записи и фотографии сохраняются в этом браузере на этом устройстве.</p>
+    <noscript><p>Для сохранения дневника включите JavaScript. Метод наблюдения и отзыв выше доступны для чтения.</p></noscript>
+    <form id="wear-form" hidden autocomplete="off">
+      <label class="diary-pair">Какая у вас пара?<input type="text" name="pair" maxlength="140" placeholder="Например, чёрные в горошек, 20 DEN, размер M"></label>
+      <div class="diary-progress"><strong id="wear-count">Заполнено 0 из 5</strong><progress id="wear-progress" max="5" value="0" aria-label="Заполненные носки"></progress></div>
+      <div class="diary-days">{{wear_days}}</div>
+      <div class="diary-photos">{{wear_uploads}}</div>
+      <div class="diary-actions"><button class="series-action" type="button" id="wear-export">Скачать дневник с фото</button><button class="series-quiet" type="button" id="wear-clear">Начать другую пару</button></div>
+      <p class="series-hint" role="status" id="wear-status"></p>
+    </form>
+  </section>
+  <nav class="series-next" aria-label="Продолжить чтение"><a href="guide.html#care">Как ухаживать за парой →</a><a href="one-from-the-archive.html">Одна вещь из архива →</a></nav>
+</div>
