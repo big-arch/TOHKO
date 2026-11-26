@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checkedAt": "2026-11-25T21:37:54Z",
+  "checkedAt": "2026-11-26T13:34:59Z",
   "lastChangedAt": "2026-11-25T21:12:20Z",
   "schedule": "Ежедневно около 09:17 по Москве",
   "sources": [
@@ -9,8 +9,8 @@
       "name": "Swedish Stockings",
       "url": "https://swedishstockings.com/blogs/journal.atom",
       "kind": "journal",
-      "checkedAt": "2026-11-25T21:37:54Z",
-      "lastSuccessAt": "2026-11-25T21:37:54Z",
+      "checkedAt": "2026-11-26T13:34:59Z",
+      "lastSuccessAt": "2026-11-26T13:34:59Z",
       "status": "ok",
       "error": null,
       "newCount": 0,
@@ -21,8 +21,8 @@
       "name": "Gabriella",
       "url": "https://www.gabriella.pl/blogs/gabriella.atom",
       "kind": "journal",
-      "checkedAt": "2026-11-25T21:37:54Z",
-      "lastSuccessAt": "2026-11-25T21:37:54Z",
+      "checkedAt": "2026-11-26T13:34:59Z",
+      "lastSuccessAt": "2026-11-26T13:34:59Z",
       "status": "ok",
       "error": null,
       "newCount": 0,
@@ -46,7 +46,7 @@
       "fingerprint": "0a23965a48ff2d09dd6d36eef3bb2d03b6f7c31e133e1c98a14f62ceac712b06",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z",
+      "checkedAt": "2026-11-26T13:34:59Z",
       "mediaId": "auto-cd5e7f6fb43d88fe"
     },
     {
@@ -65,7 +65,7 @@
       "fingerprint": "e822360183d5d1c418bbba97cbc64300fde8309fe031d21f57ba5c0c68dff8bd",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z",
+      "checkedAt": "2026-11-26T13:34:59Z",
       "mediaId": "auto-088e14598963e8f4"
     },
     {
@@ -84,7 +84,7 @@
       "fingerprint": "5fbf0aab0401db33e9466e92c2279b6a8b38a562c74301a06596d7f508913543",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z",
+      "checkedAt": "2026-11-26T13:34:59Z",
       "mediaId": "auto-2b477982eaf46a2c"
     },
     {
@@ -103,7 +103,7 @@
       "fingerprint": "aa2591f80e69d69ec2274d6b9971fa04b378311c3c84f62350924a575acb4faa",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z",
+      "checkedAt": "2026-11-26T13:34:59Z",
       "mediaId": "auto-191d11411e207d23"
     },
     {
@@ -122,7 +122,7 @@
       "fingerprint": "67adcb829e1ec45f91168208718d111755148b5876ecf5b6927c608a8f16f1b8",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z",
+      "checkedAt": "2026-11-26T13:34:59Z",
       "mediaId": "auto-656fd5b35ce49c63"
     },
     {
@@ -140,7 +140,7 @@
       "fingerprint": "b12f9fab5c1d73c57697a63add9d696500104df1b04b7b2d832ccc006efa393f",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "ec69a51c86814bde",
@@ -157,7 +157,7 @@
       "fingerprint": "4afe0fa51713c3150d3beabb7890f536bc517c3a7853359df9305332812f809a",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "fb9e23837e95c12e",
@@ -174,7 +174,7 @@
       "fingerprint": "af7cb48f05e2233303190cf962de85f331c04ac57c3390c0beb360c390e520db",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "bfd2f03ae301d568",
@@ -191,7 +191,7 @@
       "fingerprint": "ed4f5d4a64b682c8f45bdcd8cf02e2ef368e134fdd2cba6060fbe0bca0c5ecca",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "d4e8e16255104b16",
@@ -209,7 +209,7 @@
       "fingerprint": "5c9c9d26d82f34db088d2068796b8890c0f1c70c41d56ed070630ddb2de0b8b4",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z",
+      "checkedAt": "2026-11-26T13:34:59Z",
       "mediaId": "auto-d4e8e16255104b16"
     },
     {
@@ -228,7 +228,7 @@
       "fingerprint": "26bffcf388fe715f20b61acad98e27c1128b1d1a5af01444bf03d3fdec209352",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z",
+      "checkedAt": "2026-11-26T13:34:59Z",
       "mediaId": "auto-cafab334c6b39ce1"
     },
     {
@@ -247,7 +247,7 @@
       "fingerprint": "fc0592fe77a0c7e9c73be0fc9298c6e6789dfff12b5ebbb78831f5ce70c614fa",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z",
+      "checkedAt": "2026-11-26T13:34:59Z",
       "mediaId": "auto-086972bc05b4c428"
     },
     {
@@ -266,7 +266,7 @@
       "fingerprint": "132d0d6f8c27c3a442ad2352b28d08e2c2e385e129a9f4abdeaa376e7d394e0b",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z",
+      "checkedAt": "2026-11-26T13:34:59Z",
       "mediaId": "auto-e71b4b6271bd0ad2"
     },
     {
@@ -284,7 +284,7 @@
       "fingerprint": "63e84047e5168d46ae61fbd8629463f0aabce4739c8a6cb5ba0af984e0489f82",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "71f2a41a8d490424",
@@ -301,7 +301,7 @@
       "fingerprint": "ee8dabcc073ba5149e1f74090d69caaeab9e15b0696fd4f3d4ded2b60bf53179",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "7e3000a4ae753772",
@@ -318,7 +318,7 @@
       "fingerprint": "4e47749c827a212c46b110409d06ed697beee733b63c9603d1ddd0eb320b3659",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "ecfefa91acbb25c6",
@@ -336,7 +336,7 @@
       "fingerprint": "91161d169278d7b71a63eef09c241e957716f6c8c2a5a7791554dfc89f53feb2",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z",
+      "checkedAt": "2026-11-26T13:34:59Z",
       "mediaId": "auto-ecfefa91acbb25c6"
     },
     {
@@ -354,7 +354,7 @@
       "fingerprint": "1be5467dbb74d915677b6ba12cdeb57c0bc78b6a593b13894d63d6c9da9ee021",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "40f2838465682250",
@@ -371,7 +371,7 @@
       "fingerprint": "cb74a7960a9acf69d49987a3f36f154ef67da591006170ae18f7e1eb00ac60b4",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "6d993c552faf7a1d",
@@ -388,7 +388,7 @@
       "fingerprint": "bc7f59397ec44e0eb0bebeab8bf17af5776aaf6f702cea46da42a2c4dacd11ef",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "456f77b8a76349b5",
@@ -405,7 +405,7 @@
       "fingerprint": "77bfa18dd9335a55ea84868bb0dcd52b7696b9c70319b32df4309273f93035cd",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "e41511467a863f74",
@@ -422,7 +422,7 @@
       "fingerprint": "6983d4d91dfc508565842d84f9b1708aff13d79c03d1e021264b4132862bb555",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "11c995bf8463959a",
@@ -439,7 +439,7 @@
       "fingerprint": "15597ee1fea9744a84b0a0d60ecc0f5ad1cbf5ae974dad068238e0b784bd353e",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "82399bbfac24b170",
@@ -457,7 +457,7 @@
       "fingerprint": "a26c53680ce26a5f9f5cb9caa7bb3250e6e0a10be7fedc48235162071cac966f",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "930cfc0420d4f4b5",
@@ -474,7 +474,7 @@
       "fingerprint": "089f201ecd4aff24c9a1dda6045d81ad82edb9ab4040196949ed19f11683b373",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "3c3e9204bbe88a56",
@@ -491,7 +491,7 @@
       "fingerprint": "ae2f31f4ffb708d045a411972a0c17b02ab256aa0135ef226c724deaab47e504",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     },
     {
       "id": "864cec0e159dd086",
@@ -508,7 +508,7 @@
       "fingerprint": "8398a70f3caa23c391bbae5fd218c0d68021c8af191ef35c26040236719f5b1c",
       "firstSeenAt": "2026-11-25T21:04:51Z",
       "lastChangedAt": "2026-11-25T21:12:20Z",
-      "checkedAt": "2026-11-25T21:37:54Z"
+      "checkedAt": "2026-11-26T13:34:59Z"
     }
   ]
 }
