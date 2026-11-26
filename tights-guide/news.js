@@ -34,7 +34,7 @@
     const queue=document.getElementById('news-queue');
     if(queue){
       const backlog=data.backlog||[];
-      queue.replaceChildren(node('p',`Полных статей: ${data.items.length}. Обнаружено без пересказа: ${backlog.length}. Тематические анонсы доступны в подборке источников; новые AI-пересказы отключены.`));
+      queue.replaceChildren(node('p',`Полных статей: ${data.items.length}. Ожидают подготовки: ${backlog.length}. Новые обзоры готовятся бесплатно; все опубликованные статьи можно читать здесь.`));
     }
     const sources=document.getElementById('news-sources');sources.replaceChildren();
     data.sources.forEach(s=>{

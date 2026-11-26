@@ -17,14 +17,10 @@ def item(id='one', **extra):
 
 
 class LiveSections(unittest.TestCase):
-    def test_pending_discovery_has_source_link_and_is_not_falsely_ready(self):
+    def test_pending_discovery_is_not_published_as_an_external_article(self):
         source=item()
         data=live.prepare({'items':[source]}, {}, [])
-        self.assertFalse(data['items'][0]['ready'])
-        self.assertEqual(data['items'][0]['url'],source['url'])
-        self.assertEqual(data['items'][0]['publishedAt'],source['publishedAt'])
-        self.assertTrue(data['items'][0]['men'])
-        self.assertIn('Полный текст у источника',live.render_item(data['items'][0]))
+        self.assertEqual(data['items'],[])
 
     def test_existing_full_article_wins_dedup_and_keeps_on_site_reading(self):
         original=item(summary='A complete introduction with enough detail for readers.' * 5,
@@ -37,35 +33,35 @@ class LiveSections(unittest.TestCase):
         self.assertEqual(data['items'][0]['url'],'news.html#story-one')
 
     def test_women_does_not_match_men_and_unsafe_links_are_rejected(self):
-        source=item();source.update(title="Women's tights",sourceId='brand')
+        source=item(summary='A complete introduction with enough detail for readers.'*5,sections=[{'heading':'Details','paragraphs':['A detailed article about a fabric and a pair of tights. '*10]}]);source.update(title="Women's tights",sourceId='brand')
         malicious=item('bad');malicious['url']='javascript:alert(1)'
         data=live.prepare({'items':[source,malicious]}, {}, [])
         self.assertEqual(len(data['items']),1)
         self.assertFalse(data['items'][0]['men'])
 
     def test_same_title_from_aggregator_is_not_a_second_article(self):
-        direct=item()
+        direct=item(summary='A complete introduction with enough detail for readers.'*5,sections=[{'heading':'Details','paragraphs':['A detailed article about a fabric and a pair of tights. '*10]}])
         google=item('two');google['url']='https://news.google.com/articles/two'
         data=live.prepare({'items':[direct,google]}, {}, [])
         self.assertEqual(len(data['items']),1)
 
-    def test_google_redirect_is_labelled(self):
+    def test_unprepared_google_redirect_is_not_a_reading_destination(self):
         google=item();google['url']='https://news.google.com/articles/one'
         data=live.prepare({'items':[google]}, {}, [])
-        self.assertIn('Открыть через Google News',live.render_item(data['items'][0]))
+        self.assertEqual(data['items'],[])
 
     def test_untrusted_titles_are_escaped_and_source_excerpt_is_bounded(self):
-        source=item();source['title']='<img src=x onerror=alert(1)>';source['excerpt']='word ' * 90
+        source=item(summary='word '*90,sections=[{'heading':'Details','paragraphs':['A detailed article about a fabric and a pair of tights. '*10]}]);source['title']='<img src=x onerror=alert(1)>'
         data=live.prepare({'items':[source]}, {}, [])
         text=live.render_item(data['items'][0])
         self.assertIn('&lt;img',text)
         self.assertNotIn('<img src=x',text)
-        self.assertLessEqual(len(data['items'][0]['excerpt'].split()),18)
+        self.assertLessEqual(len(data['items'][0]['excerpt'].split()),35)
 
     def test_optional_photo_stage_does_not_replace_curated_images(self):
         data=live.prepare({'items':[item()]}, {}, [{'id':'manual','origin':'user'}])
         self.assertEqual(data['photos'],[])
-        self.assertIsNone(data['items'][0]['image'])
+        self.assertEqual(data['items'],[])
 
     def test_pipeline_checks_built_data_and_no_paid_news_stage(self):
         workflow=(ROOT/'.github/workflows/pages.yml').read_text(encoding='utf-8')

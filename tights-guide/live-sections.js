@@ -4,7 +4,7 @@
   let current,pending;
   const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text)e.textContent=text;if(cls)e.className=cls;return e;};
   const safeUrl=value=>{try{const u=new URL(value,location.href);return u.protocol==='https:'||(u.origin===location.origin&&u.protocol==='http:');}catch{return false;}};
-  const validate=data=>{if(data?.version!==1||!Array.isArray(data.items)||!Array.isArray(data.photos))throw Error('invalid data');data.items=data.items.filter(i=>typeof i.title==='string'&&typeof i.id==='string'&&safeUrl(i.url));return data;};
+  const validate=data=>{if(data?.version!==1||!Array.isArray(data.items)||!Array.isArray(data.photos))throw Error('invalid data');data.items=data.items.filter(i=>typeof i.title==='string'&&typeof i.id==='string'&&safeUrl(i.url)&&i.url.startsWith('news.html#story-')&&i.ready&&i.article?.summary&&Array.isArray(i.article.sections)&&i.article.sections.length);return data;};
   try{current=validate(JSON.parse(seed.textContent));}catch{return;}
   const dateFormat=new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'long',year:'numeric'});
   const checkFormat=new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit',timeZone:'Europe/Moscow'});
@@ -21,7 +21,7 @@
   }
   function render(view){
     const {section}=view,list=section.querySelector('.live-list');
-    const selected=current.items.filter(i=>(section.dataset.liveFeed!=='men'||i.men)&&(view.filter==='all'||(view.filter==='ready'?i.ready:!i.ready)));
+    const selected=current.items.filter(i=>(section.dataset.liveFeed!=='men'||i.men)&&(view.filter==='all'||(view.filter==='ru'?i.language==='ru':i.language!=='ru')));
     const fragment=document.createDocumentFragment();
     for(const item of selected.slice(0,view.limit)){
       const article=node('article',null,'live-item');article.dataset.liveItem=item.id;
@@ -34,11 +34,12 @@
       else if(Number.isFinite(stamp)){const t=node('time','Опубликовано '+dateFormat.format(stamp));t.dateTime=item.publishedAt;meta.append(t);}else meta.append(node('span','Дата публикации не указана'));
       const heading=node('h3'),title=node('a',item.title),link=node('a',item.ready?'Читать на ТОНКО →':item.via?'Открыть через Google News ↗':'Полный текст у источника ↗','live-link');
       for(const a of [title,link]){a.href=item.url;if(!item.ready){a.target='_blank';a.rel='noopener noreferrer';}}
+      for(const a of [title,link])a.addEventListener('click',event=>{if(window.TonkoReader&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey){event.preventDefault();window.TonkoReader.open(item.article);}});
       heading.append(title);article.append(meta,heading);
       if(item.excerpt){const p=node('p',item.excerpt);p.lang=item.ready?'ru':item.language||'en';article.append(p);}
       article.append(link);fragment.append(article);
     }
-    if(!selected.length)fragment.append(node('p','В этой подборке пока нет публикаций. Выберите «Все публикации».'));
+    if(!selected.length)fragment.append(node('p','В этой подборке пока нет публикаций. Выберите «Все материалы».'));
     list.replaceChildren(fragment);section.querySelector('.live-more').hidden=view.limit>=selected.length;
     section.querySelectorAll('[data-live-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.liveFilter===view.filter)));
   }
@@ -50,6 +51,8 @@
     render(view);
   }
   status();
+  const openFromUrl=()=>{const id=new URLSearchParams(location.search).get('news');const item=current.items.find(i=>i.id===id);if(item&&window.TonkoReader)window.TonkoReader.open(item.article,true);else if(!id)window.TonkoReader?.close();};
+  openFromUrl();addEventListener('popstate',openFromUrl);
   async function check(){
     if(document.hidden)return;
     try{

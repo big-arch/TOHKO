@@ -63,6 +63,7 @@ def story(item):
     words=len((brief+' '+' '.join(p for s in sections for p in s['paragraphs'])).split())
     length=f'{max(2,ceil(words/160))} мин чтения' if sections else 'Короткая новость'
     if item.get('ai'):length+=' · AI-пересказ'
+    if item.get('localSummary'):length+=' · Обзор на русском'
     body=''.join('<section><h3>'+H(s['heading'])+'</h3>'+''.join('<p>'+H(p)+'</p>' for p in s['paragraphs'])+'</section>' for s in sections)
     photo=item.get('illustration',{});visual=''
     if photo.get('src','').startswith(('assets/','https://')):
@@ -72,5 +73,6 @@ def story(item):
         visual=f'<figure class="reader-visual"><img src="{H(photo["src"])}" alt="{H(photo.get("alt",""))}"{dimensions} loading="lazy" decoding="async"><figcaption>{H(photo.get("caption",""))}{link("Источник фотографии",photo.get("source"),"reader-image-source")}</figcaption></figure>'
     credit='Разбор ТОНКО по указанным источникам. Рекомендации редакции отделены от сообщений изданий.' if sections else 'Короткий анонс из ленты источника. Полный текст издания здесь не перепечатывается.'
     if item.get('ai'):credit='Автоматический пересказ ТОНКО с помощью AI по тексту источника. Может содержать неточности; подробности и актуальные условия — в оригинале.'
+    if item.get('localSummary'):credit='Самостоятельный обзор ТОНКО по материалу указанного источника. Подготовлен на русском с помощью локальной модели; возможны неточности. Дата относится к оригинальной публикации.'
     refs=link('Первоисточник: '+item['source'],item.get('publisherUrl') or item['url'])+''.join(link(r['label'],r['url']) for r in item.get('references',[]))
     return f'''<article class="news-fallback" id="story-{H(item['id'])}"><div class="reader-article"><header class="reader-head"><p class="portal-eyebrow">ТОНКО / {'Разбор' if sections else 'Лента'}</p><p class="news-meta"><span>{H(item['source'])}</span>{publication_markup(item.get('publishedAt'))}<span>{length}</span></p><h2>{H(item.get('displayTitle') or item['title'])}</h2><p class="reader-excerpt">{H(brief)}</p></header><div class="news-story-layout">{visual}<div class="reader-copy">{body}<footer class="reader-credits"><p class="reader-credit">{H(credit)}</p>{refs}</footer></div></div><a class="news-return" href="index.html#fashion-news">← Вернуться к ленте</a></div></article>'''

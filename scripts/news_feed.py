@@ -149,7 +149,7 @@ def collect(sources, previous, fetch, now):
             retained={i['url']:i for i in items}
             for entry in entries:
                 old=retained.get(entry['url'],{})
-                for field in ('publisherUrl','publication','displayTitle','summary','sections','ai','illustration','references','checked'):
+                for field in ('publisherUrl','publication','displayTitle','summary','sections','ai','localSummary','illustration','references','checked'):
                     if field in old:entry[field]=old[field]
             # New feed values replace previous versions of the same story.
             urls={i['url'] for i in entries}

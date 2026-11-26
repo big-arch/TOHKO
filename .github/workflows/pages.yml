@@ -46,6 +46,7 @@ jobs:
           python scripts/build-packaging.py
           python scripts/build-videos.py
           python scripts/build-style-photos.py
+          python scripts/free_news.py --merge-only
           python scripts/build-home-news.py
           python scripts/build-live-sections.py
           python scripts/link-catalog.py
@@ -55,6 +56,7 @@ jobs:
         run: |
           python -m unittest discover -s scripts/tests -v
           python -m unittest qa.test_live_sections
+          python -m unittest qa.test_free_news
           python -m unittest discover -s qa -p 'test_news*.py'
           node qa/test_video_memory.cjs
           node --test qa/test_assistant.cjs qa/test_assistant_cache.cjs qa/test_assistant14.cjs

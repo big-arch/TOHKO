@@ -32,14 +32,25 @@ async (page) => {
           await section.locator('.live-filters:not([hidden])').waitFor();
           const audience=file==='men.html'?data.items.filter(i=>i.men):data.items;
           assert(await section.locator('.live-item').count()===Math.min(6,audience.length),file+' initial rows '+width);
-          const button=section.locator('[data-live-filter="ready"]');
+          const button=section.locator('[data-live-filter="translated"]');
           await button.focus();await p.keyboard.press('Enter');
           assert(await button.getAttribute('aria-pressed')==='true',file+' keyboard filter '+width);
-          const ready=audience.filter(i=>i.ready);
+          const ready=audience.filter(i=>i.language!=='ru');
           assert(await section.locator('.live-item').count()===Math.min(6,ready.length),file+' ready count '+width);
           assert(await section.locator('.live-item h3 a').evaluateAll(a=>a.every(e=>e.getAttribute('href').startsWith('news.html#story-'))),file+' full articles stay onsite '+width);
-          await section.locator('[data-live-filter="source"]').click();
-          assert(await section.locator('.live-item h3 a').evaluateAll(a=>a.every(e=>e.href.startsWith('https:')&&e.target==='_blank')),file+' source links explicit '+width);
+          const articleLink=section.locator('.live-item h3 a').first();
+          await articleLink.click();await p.locator('.news-reader[open]').waitFor();
+          assert(p.url().split('?')[0]===base+file,file+' opens reader without leaving page '+width);
+          assert(await p.locator('.news-reader .reader-copy section').count()>=2,file+' full Russian sections '+width);
+          assert(await p.locator('.news-reader .reader-excerpt').getAttribute('lang')==='ru',file+' Russian introduction '+width);
+          assert(await p.locator('.news-reader .reader-source').count()>0,file+' source attribution retained '+width);
+          await p.waitForFunction(()=>{const i=document.querySelector('.news-reader[open] .reader-visual img');return !i||(i.complete&&i.naturalWidth>0);});
+          assert(await p.locator('.news-reader').evaluate(e=>e.scrollWidth<=e.clientWidth+1),file+' reader fits '+width);
+          await p.keyboard.press('Escape');
+          assert(await articleLink.evaluate(e=>e===document.activeElement),file+' reader focus restored '+width);
+          await section.locator('[data-live-filter="ru"]').click();
+          assert(await section.locator('.live-item h3 a').evaluateAll(a=>a.every(e=>e.getAttribute('href').startsWith('news.html#story-')&&!e.target)),file+' Russian source cards also stay onsite '+width);
+          await section.locator('[data-live-filter="all"]').click();
           const more=section.locator('.live-more');
           if(await more.isVisible()){await more.click();assert(await section.locator('.live-item').count()>6,file+' more sources '+width);}
         }else{
@@ -64,7 +75,7 @@ async (page) => {
     const firstId=await p.locator('.live-item').first().getAttribute('data-live-item');
     const changed=JSON.parse(await p.locator('#live-seed').textContent());
     changed.checkedAt=new Date().toISOString();
-    changed.items.unshift({...changed.items[0],id:'qa-incoming',title:'QA only: incoming source publication'});
+    changed.items.unshift({...changed.items[0],id:'qa-incoming',title:'Проверка нового материала на русском'});
     await context.route('**/data/live-feed.json?*',r=>r.fulfill({json:changed}));
     await p.evaluate(()=>window.dispatchEvent(new Event('visibilitychange')));
     await p.locator('.live-refresh:not([hidden])').waitFor();
@@ -73,6 +84,11 @@ async (page) => {
     assert(await p.locator('.live-item').first().getAttribute('data-live-item')==='qa-incoming','incoming update applies on request');
     assert(await p.locator('[data-live-filter="all"]').evaluate(e=>e===document.activeElement),'incoming update restores focus');
     await context.unroute('**/data/live-feed.json?*');
+    const deepId=changed.items[1].id;
+    await p.goto(base+'journal.html?news='+deepId,{waitUntil:'domcontentloaded'});
+    await p.locator('.news-reader[open]').waitFor();
+    assert(await p.locator('.news-reader .reader-copy section').count()>=2,'direct article link opens complete reader');
+    await p.keyboard.press('Escape');
     await p.goto(base+'journal.html',{waitUntil:'domcontentloaded'});await p.locator('.live-section').scrollIntoViewIfNeeded();
     await p.screenshot({path:'C:/Users/big-a/Documents/Codex_мои_программы/TOHKO/qa/autonomy-journal-desktop.png'});
     await p.setViewportSize({width:390,height:844});
@@ -87,6 +103,11 @@ async (page) => {
     for(const file of ['index.html','journal.html','men.html','lookbook.html']){
       await q.goto(base+file,{waitUntil:'domcontentloaded'});
       assert(await q.locator(file==='lookbook.html'?'.live-photos img':'.live-item').count()>=3,file+' readable without JavaScript');
+      if(file!=='lookbook.html'){
+        const href=await q.locator('.live-item h3 a').first().getAttribute('href');
+        await q.goto(base+href,{waitUntil:'domcontentloaded'});
+        assert(await q.locator(':target .reader-copy section').count()>=2,file+' full article readable without JavaScript');
+      }
     }
   }finally{await nojs.close();}
   return {checks:checks.length,passed:checks,errors};

@@ -1,0 +1,78 @@
+name: Prepare Russian articles without paid APIs
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/free-articles.yml'
+      - 'scripts/free_news.py'
+      - 'qa/test_free_news.py'
+  schedule:
+    - cron: '42 * * * *'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: free-russian-articles
+  cancel-in-progress: false
+jobs:
+  prepare:
+    # Standard runners are free for public repositories. Do not silently bill a private fork.
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: python -m pip install --disable-pip-version-check trafilatura==2.0.0
+      - run: python -m unittest qa.test_free_news
+      - name: Collect fresh article candidates
+        run: python scripts/update-news.py --deployed
+      - uses: actions/cache@v4
+        with:
+          path: .cache/free-models
+          key: tonko-qwen3-instruct-3605803b-v1
+      - name: Prepare pinned local CPU model
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/tonko-llama" .cache/free-models
+          curl --fail --location --retry 2 --max-time 180 https://github.com/ggml-org/llama.cpp/releases/download/b12776/llama-b12776-bin-ubuntu-x64.tar.gz -o "$RUNNER_TEMP/tonko-llama/runtime.tar.gz"
+          echo "27e18f608c7cd1e2f86d70f91bde4299e795113c0065322f6339cbe5135e79c2  $RUNNER_TEMP/tonko-llama/runtime.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/tonko-llama/runtime.tar.gz" -C "$RUNNER_TEMP/tonko-llama"
+          model=.cache/free-models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf
+          if [ ! -f "$model" ]; then
+            curl --fail --location --retry 2 --max-time 360 https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/a06e946bb6b655725eafa393f4a9745d460374c9/Qwen3-4B-Instruct-2507-Q4_K_M.gguf -o "$model.tmp"
+            mv "$model.tmp" "$model"
+          fi
+          echo "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597  $model" | sha256sum --check
+          server="$(find "$RUNNER_TEMP/tonko-llama" -name llama-server -type f -print -quit)"
+          test -n "$server"
+          "$server" --model "$model" --alias qwen3-4b-instruct-2507 --host 127.0.0.1 --port 11435 --ctx-size 8192 --n-gpu-layers 0 --threads 2 --jinja --reasoning-budget 0 --no-webui > "$RUNNER_TEMP/tonko-model.log" 2>&1 &
+          for attempt in $(seq 1 40); do
+            if curl --fail --silent http://127.0.0.1:11435/health; then exit 0; fi
+            sleep 3
+          done
+          tail -30 "$RUNNER_TEMP/tonko-model.log"
+          exit 1
+      - name: Prepare bounded Russian editions and topic photographs
+        run: python scripts/free_news.py --engine llama --endpoint http://127.0.0.1:11435 --model qwen3-4b-instruct-2507 --limit 4 --seconds 900
+      - name: Save editions without overwriting concurrent content updates
+        run: |
+          git add tights-guide/data/free-articles.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'content: prepare Russian articles with a free local model'
+            git restore -- tights-guide/data/news.json
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+  publish:
+    needs: prepare
+    uses: ./.github/workflows/pages.yml

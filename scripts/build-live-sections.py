@@ -23,6 +23,9 @@ def prepare(news, publisher, media):
     candidates = sorted(news.get('items', []) + extras, key=lambda p: is_ready(p), reverse=True)
     photo_for_url = {p['source']: p for p in photos.values()}
     for p in candidates:
+        # A visible article always has its complete Russian edition on TONKO.
+        if not is_ready(p):
+            continue
         url = p.get('publisherUrl') or p.get('url', '')
         u = urlsplit(url)
         title = p.get('displayTitle') or p.get('title', '')
@@ -39,10 +42,15 @@ def prepare(news, publisher, media):
         if text:
             text = text.rstrip('.…') + '…'
         image = photo_for_url.get(url)
+        if p.get('illustration'):
+            photo=p['illustration']
+            image={'image':photo['src'],'alt':photo.get('alt',''),'width':photo.get('width',1000),
+                   'height':photo.get('height',750),'srcset':''}
         items.append({'id': p['id'], 'title': title, 'excerpt': text, 'source': p['source'],
                       'via': 'Google News' if u.hostname == 'news.google.com' else None,
                       'publishedAt': p.get('publishedAt'), 'language': p.get('language', 'en'),
                       'ready': ready, 'url': 'news.html#story-' + p['id'] if ready else url,
+                      'article': p,
                       'men': p.get('sourceId') == 'nylo' or bool(MEN.search(title + ' ' + (text or ''))),
                       'image': {'src': image['image'], 'alt': image['alt'], 'width': image['width'], 'height': image['height'], 'srcset': image.get('srcset', '')} if image else None})
     return {'version': 1, 'checkedAt': news.get('lastSuccessfulAt'), 'photoCheckedAt': publisher.get('checkedAt'),
@@ -59,7 +67,7 @@ def render_item(item):
         photo = f'<img src="{H(image["src"])}" alt="{H(image["alt"])}" width="{image["width"]}" height="{image["height"]}" loading="lazy" decoding="async" srcset="{H(image.get("srcset", ""))}" sizes="(max-width:700px) 90vw, 40vw">'
     return (f'<article class="live-item" data-live-item="{H(item["id"])}">{photo}<div class="live-meta"><span>{H(item["source"])}</span>{publication_markup(item["publishedAt"])}</div>'
             f'<h3><a href="{H(item["url"])}"{external}>{H(item["title"])}</a></h3>'
-            + (f'<p lang="{H(item["language"])}">{H(item["excerpt"])}</p>' if item['excerpt'] else '')
+            + (f'<p lang="ru">{H(item["excerpt"])}</p>' if item['excerpt'] else '')
             + f'<a class="live-link" href="{H(item["url"])}"{external}>{"Читать на ТОНКО →" if item["ready"] else "Открыть через Google News ↗" if item.get("via") else "Полный текст у источника ↗"}</a></article>')
 
 
@@ -67,10 +75,10 @@ def block(data, audience, title):
     items = [p for p in data['items'] if audience != 'men' or p['men']]
     return (f'<section class="portal-container live-section" data-live-feed="{audience}" id="live-{audience}">'
             f'<p class="portal-eyebrow">Обновляется из источников</p><h2>{H(title)}</h2>'
-            '<p class="live-intro">Новые публикации с исходными датами. Готовые разборы можно читать на ТОНКО, остальные материалы доступны у авторов.</p>'
+            '<p class="live-intro">Статьи и обзоры на русском. Открывайте и читайте здесь — источник указан под текстом.</p>'
             '<p class="live-status" role="status"></p><button type="button" class="live-refresh" hidden>Появились обновления. Показать</button>'
-            '<div class="live-filters" role="group" aria-label="Где читать" hidden><button type="button" data-live-filter="all" aria-pressed="true">Все публикации</button>'
-            '<button type="button" data-live-filter="ready" aria-pressed="false">Читать на ТОНКО</button><button type="button" data-live-filter="source" aria-pressed="false">У источников</button></div>'
+            '<div class="live-filters" role="group" aria-label="Источники материалов" hidden><button type="button" data-live-filter="all" aria-pressed="true">Все материалы</button>'
+            '<button type="button" data-live-filter="ru" aria-pressed="false">Российские источники</button><button type="button" data-live-filter="translated" aria-pressed="false">Зарубежные — по-русски</button></div>'
             '<div class="live-list">' + ''.join(render_item(p) for p in items[:6]) + '</div><button type="button" class="live-more" hidden>Ещё публикации</button>'
             '<noscript><p><a href="news.html">Полные статьи ТОНКО →</a>. Перезагрузите страницу для обновления подборки.</p></noscript></section>')
 
@@ -86,7 +94,7 @@ def build():
                '<p class="live-photo-status"></p><div class="live-photos">' + ''.join(
                    f'<figure><a href="lookbook.html?filter=updates#photo-{p["id"]}"><img src="{H(p["image"])}" alt="{H(p["alt"])}" width="{p["width"]}" height="{p["height"]}" loading="lazy" srcset="{H(p.get("srcset", ""))}" sizes="(max-width:700px) 45vw, 30vw"></a><figcaption>{H(p["author"])} · {publication_markup(p.get("publishedAt"))}</figcaption></figure>' for p in data['photos'][:3])
                + '</div><a class="live-link" href="lookbook.html?filter=updates#photo-collection">Все поступления →</a></section>')
-    sections = {'index.html': block(data, 'home', 'Свежие публикации источников'),
+    sections = {'index.html': block(data, 'home', 'Читайте на ТОНКО'),
                 'journal.html': block(data, 'journal', 'Новые публикации'),
                 'men.html': block(data, 'men', 'Новое о мужском гардеробе'), 'lookbook.html': gallery}
     seed = json.dumps(data, ensure_ascii=False).replace('<', '\\u003c')
@@ -117,6 +125,15 @@ def build():
         js = sha256((SITE / 'live-sections.js').read_bytes()).hexdigest()[:12]
         text = text.replace('</head>', f'<link rel="stylesheet" href="live-sections.css?v={css}"></head>')
         text = text.replace('</body>', f'<script id="live-seed" type="application/json">{seed}</script><script src="live-sections.js?v={js}" defer></script></body>')
+        if filename!='lookbook.html':
+            if 'src="publication-dates.js' not in text:
+                text=text.replace('</head>','<script src="publication-dates.js?v=20261117-17" defer></script></head>')
+            if 'href="news-reader.css' not in text:
+                text=text.replace('</head>','<link rel="stylesheet" href="news-reader.css?v=20261117-17"></head>')
+            if 'src="news-reader.js' not in text:
+                text=text.replace('<script id="live-seed"','<script src="news-reader.js" defer></script><script id="live-seed"')
+            version=sha256((SITE/'news-reader.js').read_bytes()).hexdigest()[:12]
+            text=re.sub(r'news-reader\.js(?:\?v=[^"\s]+)?','news-reader.js?v='+version,text)
         path.write_text(text, encoding='utf-8')
     version = sha256((SITE / 'editorial.js').read_bytes()).hexdigest()[:12]
     for path in SITE.glob('*.html'):
