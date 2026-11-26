@@ -35,6 +35,7 @@
     const credits=el('footer','','reader-credits');
     credits.append(el('p',item.ai?'Автоматический пересказ ТОНКО с помощью AI по тексту источника. Может содержать неточности; подробности и актуальные условия — в оригинале.':expanded?'Разбор ТОНКО по указанным источникам. Рекомендации редакции отделены от сообщений изданий.':'Короткий анонс из ленты источника. Полный текст издания здесь не перепечатывается.','reader-credit'));
     if(item.localSummary)credits.firstElementChild.textContent='Самостоятельный обзор ТОНКО по материалу указанного источника. Подготовлен на русском с помощью локальной модели; возможны неточности. Дата относится к оригинальной публикации.';
+    if(item.localSummary?.sourceExcerpt)credits.firstElementChild.append(' Обзор подготовлен по фрагменту длинного материала и не охватывает весь оригинал.');
     const source=link(`Первоисточник: ${item.source} ↗`,item.publisherUrl||item.url,'reader-source');if(source)credits.append(source);
     (item.references||[]).forEach(ref=>{const a=link(ref.label+' ↗',ref.url,'reader-source');if(a)credits.append(a);});
     if(item.via&&!item.publisherUrl)credits.append(el('p','Ссылка на первоисточник проходит через Google News.','reader-credit'));

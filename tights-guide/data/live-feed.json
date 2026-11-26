@@ -1,7 +1,7 @@
 {
   "version": 1,
   "checkedAt": "2026-11-25T21:25:40.120057Z",
-  "photoCheckedAt": "2026-11-25T21:37:54Z",
+  "photoCheckedAt": "2026-11-26T13:59:28Z",
   "sourcesFailed": 1,
   "items": [
     {
@@ -277,6 +277,76 @@
         "alt": "Колготки и кристаллы: материал для скульптуры",
         "width": 1600,
         "height": 900,
+        "srcset": ""
+      }
+    },
+    {
+      "id": "40a29ed336e3d01c",
+      "title": "NYLO 120D и Glamory Microman 100: различия в посадке и размерах",
+      "excerpt": "NYLO сопоставляет свои плотные колготки 120D с мужской моделью Glamory Microman 100. В сравнении важны не только значения DEN, но и пояс, конструкция и доступные размеры…",
+      "source": "NYLO Journal",
+      "via": null,
+      "publishedAt": "2026-11-18T15:43:42Z",
+      "language": "en",
+      "ready": true,
+      "url": "news.html#story-40a29ed336e3d01c",
+      "article": {
+        "id": "40a29ed336e3d01c",
+        "title": "120 denier tights for men: how the 120D compares with Glamory",
+        "url": "https://nylo.us/blogs/journal/120-denier-tights-for-men-120d-vs-glamory",
+        "excerpt": "Denier is the weight of the yarn, and at 120 denier our 120D Opaque Tights are the most opaque pair we make: matte black, fully footed, Tall only. Here the 120D sits beside Glamory's Microman 100, from each brand's own pages. More",
+        "publishedAt": "2026-11-18T15:43:42Z",
+        "sourceId": "nylo",
+        "source": "NYLO Journal",
+        "sourceSite": "https://nylo.us",
+        "via": null,
+        "language": "en",
+        "publication": {
+          "status": "ready"
+        },
+        "displayTitle": "NYLO 120D и Glamory Microman 100: различия в посадке и размерах",
+        "summary": "NYLO сопоставляет свои плотные колготки 120D с мужской моделью Glamory Microman 100. В сравнении важны не только значения DEN, но и пояс, конструкция и доступные размеры.",
+        "sections": [
+          {
+            "heading": "Две модели с матовой поверхностью",
+            "paragraphs": [
+              "По описанию NYLO, 120D — самая плотная пара в собственной линейке бренда: чёрные колготки с закрытой стопой и поясом около уровня пупка. Автор предлагает носить их под брюками или сочетать со свитером и жакетом.",
+              "Для Microman 100 публикация приводит сведения из карточки Glamory: матовая поверхность, более свободная передняя часть, плоские швы и усиленный верх. Это сравнение подготовлено одним из производителей, а не независимая проверка изделий."
+            ]
+          },
+          {
+            "heading": "Почему размер важнее одного числа DEN",
+            "paragraphs": [
+              "В материале за ноябрь 2026 года NYLO 120D представлены только в размере Tall — для роста 175–190 см и веса 70–91 кг. У Glamory указан ряд от M до 4XL, поэтому набор доступных вариантов шире.",
+              "Практический смысл сравнения — сначала определить желаемый вид полотна, затем сверить параметры с таблицей конкретной модели. Эти диапазоны относятся к описанным изделиям и дате публикации; переносить их на другие колготки нельзя."
+            ]
+          }
+        ],
+        "publisherUrl": "https://nylo.us/blogs/journal/120-denier-tights-for-men-120d-vs-glamory",
+        "localSummary": {
+          "model": "qwen3-4b-instruct-2507",
+          "generatedAt": "2026-11-26T13:45:31.371007Z",
+          "sourceWords": 970,
+          "sourceHash": "f90bf501293b05290b5a986aca3fcae33af637ee1936571a4ce4080aff9951b2",
+          "sourceLanguage": "en",
+          "sourceExcerpt": false,
+          "editorialReviewAt": "2026-11-26T14:03:39.186153+00:00"
+        },
+        "illustration": {
+          "src": "assets/style/style-nylo-jacket.webp",
+          "width": 1600,
+          "height": 1066,
+          "alt": "Студийная съёмка NYLO: чёрный жакет и прозрачные колготки.",
+          "source": "https://nylo.us/",
+          "caption": "Тематическая съёмка NYLO: Чёрный жакет и прозрачный слой. Это иллюстрация сочетания с одеждой, а не фотография всех моделей из обзора."
+        }
+      },
+      "men": true,
+      "image": {
+        "src": "assets/style/style-nylo-jacket.webp",
+        "alt": "Студийная съёмка NYLO: чёрный жакет и прозрачные колготки.",
+        "width": 1600,
+        "height": 1066,
         "srcset": ""
       }
     },
@@ -2074,6 +2144,76 @@
       }
     },
     {
+      "id": "4b907a75f38ed49c",
+      "title": "Колготки в чемодане: как NYLO советует защитить тонкую ткань",
+      "excerpt": "В дорожной памятке NYLO главное внимание уделено вещам, за которые цепляется тонкий трикотаж. Бренд предлагает отдельный мягкий мешочек на завязках и запасную пару…",
+      "source": "NYLO Journal",
+      "via": null,
+      "publishedAt": "2026-11-02T15:45:55Z",
+      "language": "en",
+      "ready": true,
+      "url": "news.html#story-4b907a75f38ed49c",
+      "article": {
+        "id": "4b907a75f38ed49c",
+        "title": "How to pack tights and sheer socks for a trip",
+        "url": "https://nylo.us/blogs/journal/how-to-pack-tights-and-sheer-socks-for-a-trip",
+        "excerpt": "Pack tights flat in a soft drawstring bag of their own, away from zips and hook-and-loop, with a spare pair and the gloves from your order. Sheer socks travel folded in their pairs, and a hotel sink with cold water handles the washing. More",
+        "publishedAt": "2026-11-02T15:45:55Z",
+        "sourceId": "nylo",
+        "source": "NYLO Journal",
+        "sourceSite": "https://nylo.us",
+        "via": null,
+        "language": "en",
+        "publication": {
+          "status": "ready"
+        },
+        "displayTitle": "Колготки в чемодане: как NYLO советует защитить тонкую ткань",
+        "summary": "В дорожной памятке NYLO главное внимание уделено вещам, за которые цепляется тонкий трикотаж. Бренд предлагает отдельный мягкий мешочек на завязках и запасную пару.",
+        "sections": [
+          {
+            "heading": "Отделить от застёжек и острых краёв",
+            "paragraphs": [
+              "Автор советует складывать колготки расправленными, со сведёнными штанинами, а носки — попарно, без скручивания в плотный комок. В мешочек можно положить запасную пару и перчатки для обращения с тонкой тканью.",
+              "Молния или липучка для такого мешочка не подходят: их детали могут зацепить полотно. В чемодане NYLO предлагает размещать его между сложенной одеждой, отдельно от пряжек, застёжек и углов зарядных устройств."
+            ]
+          },
+          {
+            "heading": "Уход во время поездки",
+            "paragraphs": [
+              "Для своих изделий бренд описывает ручную стирку в холодной воде без отбеливателя и сушку вдали от нагревателей. Речь идёт о рекомендациях NYLO; для другой пары нужно учитывать её собственный ярлык.",
+              "Количество автор сводит к простому набору: одна пара в носке, другая сохнет, третья остаётся запасной. Особенно деликатную модель предлагается держать отдельно. Такой подход помогает заранее продумать и упаковку, и замену, если в дороге появится повреждение."
+            ]
+          }
+        ],
+        "publisherUrl": "https://nylo.us/blogs/journal/how-to-pack-tights-and-sheer-socks-for-a-trip",
+        "localSummary": {
+          "model": "qwen3-4b-instruct-2507",
+          "generatedAt": "2026-11-26T13:45:31.371007Z",
+          "sourceWords": 935,
+          "sourceHash": "12cfefdd366375ec819ee80e19a0c7a7bdc92e7345c58999325b12d124b59885",
+          "sourceLanguage": "en",
+          "sourceExcerpt": false,
+          "editorialReviewAt": "2026-11-26T14:03:39.187027+00:00"
+        },
+        "illustration": {
+          "src": "assets/style/style-nylo-jacket.webp",
+          "width": 1600,
+          "height": 1066,
+          "alt": "Студийная съёмка NYLO: чёрный жакет и прозрачные колготки.",
+          "source": "https://nylo.us/",
+          "caption": "Тематическая съёмка NYLO: Чёрный жакет и прозрачный слой. Это иллюстрация сочетания с одеждой, а не фотография всех моделей из обзора."
+        }
+      },
+      "men": true,
+      "image": {
+        "src": "assets/style/style-nylo-jacket.webp",
+        "alt": "Студийная съёмка NYLO: чёрный жакет и прозрачные колготки.",
+        "width": 1600,
+        "height": 1066,
+        "srcset": ""
+      }
+    },
+    {
       "id": "401469c4e6dfb62c",
       "title": "От офисной обязанности к модному акценту: взгляд на историю колготок",
       "excerpt": "Bracatus сопоставляет разговоры о падении популярности колготок в начале 2000-х с их заметностью в моде середины 2020-х. Это авторская ретроспектива изменения роли вещи в гардеробе…",
@@ -2550,6 +2690,76 @@
         "alt": "A677 · мужской городской образ",
         "width": 500,
         "height": 750,
+        "srcset": ""
+      }
+    },
+    {
+      "id": "82b3204f4aaffadc",
+      "title": "Первая прозрачная пара: ориентиры из руководства NYLO для мужчин",
+      "excerpt": "NYLO предлагает начинать выбор прозрачных колготок с посадки и таблицы конкретной модели. В руководстве бренд объясняет различия между базовой 10D, более свободной Comfort Fit и другими вариантами своей линейки…",
+      "source": "NYLO Journal",
+      "via": null,
+      "publishedAt": "2026-10-19T06:03:28Z",
+      "language": "en",
+      "ready": true,
+      "url": "news.html#story-82b3204f4aaffadc",
+      "article": {
+        "id": "82b3204f4aaffadc",
+        "title": "How to wear tights for guys: choosing your first sheer pair",
+        "url": "https://nylo.us/blogs/journal/how-to-wear-tights-for-guys-first-pair",
+        "excerpt": "Sheer pantyhose made for men, sized by height and weight: at 5'7\" to 6'2\" and 145 to 210 lbs, our 10D Sheer Tights, a 10 denier knit woven with Lycra, is our usual first recommendation. For a broader build, 175 to 300 lbs at those heights, the Comfort Fit, Open front only. More",
+        "publishedAt": "2026-10-19T06:03:28Z",
+        "sourceId": "nylo",
+        "source": "NYLO Journal",
+        "sourceSite": "https://nylo.us",
+        "via": null,
+        "language": "en",
+        "publication": {
+          "status": "ready"
+        },
+        "displayTitle": "Первая прозрачная пара: ориентиры из руководства NYLO для мужчин",
+        "summary": "NYLO предлагает начинать выбор прозрачных колготок с посадки и таблицы конкретной модели. В руководстве бренд объясняет различия между базовой 10D, более свободной Comfort Fit и другими вариантами своей линейки.",
+        "sections": [
+          {
+            "heading": "Как бренд разделяет модели",
+            "paragraphs": [
+              "10D описана как прозрачная пара с мягким блеском, высокой посадкой и эластичным поясом. NYLO считает её обычной отправной точкой для покупателей, попадающих в указанный для модели диапазон роста и веса. Это рекомендация производителя о собственном ассортименте.",
+              "Comfort Fit в статье предназначена для более объёмного телосложения. Другие модели отличаются высотой пояса, поверхностью и конструкцией, поэтому одинаковое обозначение размера не заменяет проверку конкретной строки таблицы."
+            ]
+          },
+          {
+            "heading": "Примерка начинается с аккуратного обращения",
+            "paragraphs": [
+              "Перед надеванием автор советует убрать украшения и проверить ногти, затем собрать штанину до мыска и постепенно распределять ткань вверх по ноге. Тянуть изделие только за пояс не следует. В качестве простого сочетания предложены брюки.",
+              "Руководство отдельно отличает прозрачные колготки от спортивных тайтсов. Для оценки посадки, кроме роста и веса, оно предлагает учитывать длину ног, туловище и телосложение. Если диапазон не подходит или остаются сомнения, бренд рекомендует уточнить выбор до заказа."
+            ]
+          }
+        ],
+        "publisherUrl": "https://nylo.us/blogs/journal/how-to-wear-tights-for-guys-first-pair",
+        "localSummary": {
+          "model": "qwen3-4b-instruct-2507",
+          "generatedAt": "2026-11-26T13:45:31.371007Z",
+          "sourceWords": 1072,
+          "sourceHash": "a2bf1a8f4e1032aa6a38b4472fc296dc44a7cba7d2614c9aba2a50104b3c0aca",
+          "sourceLanguage": "en",
+          "sourceExcerpt": false,
+          "editorialReviewAt": "2026-11-26T14:03:39.187986+00:00"
+        },
+        "illustration": {
+          "src": "assets/style/style-nylo-white-shirt.webp",
+          "width": 1600,
+          "height": 1066,
+          "alt": "Студийная съёмка NYLO: белая рубашка и прозрачные колготки тёплого оттенка.",
+          "source": "https://nylo.us/",
+          "caption": "Тематическая съёмка NYLO: Белая рубашка и тёплый оттенок. Это иллюстрация сочетания с одеждой, а не фотография всех моделей из обзора."
+        }
+      },
+      "men": true,
+      "image": {
+        "src": "assets/style/style-nylo-white-shirt.webp",
+        "alt": "Студийная съёмка NYLO: белая рубашка и прозрачные колготки тёплого оттенка.",
+        "width": 1600,
+        "height": 1066,
         "srcset": ""
       }
     },

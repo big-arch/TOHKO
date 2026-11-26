@@ -3,6 +3,7 @@ from unittest.mock import patch
 import sys
 import unittest
 import copy
+import json
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 import free_news as free
@@ -11,6 +12,33 @@ SOURCE={'id':'example','site':'https://example.org','name':'Example'}
 
 
 class FreeNews(unittest.TestCase):
+    def test_editorial_pass_receives_source_and_draft_on_loopback(self):
+        reply={'choices':[{'finish_reason':'stop','message':{'content':'{"usable": false}'}}]}
+        with patch.object(free,'urlopen') as network:
+            network.return_value.__enter__.return_value.read.return_value=json.dumps(reply).encode()
+            free.ask_local({'title':'Tights','source':'Brand'},'Original source','model','http://127.0.0.1:11435','llama',draft={'usable':True,'summary':'draft'},timeout=115)
+            request=network.call_args.args[0];data=json.loads(request.data)
+            self.assertEqual(network.call_args.kwargs['timeout'],115)
+            self.assertEqual(data['messages'][0]['content'],free.REVIEW_INSTRUCTIONS)
+            context=json.loads(data['messages'][1]['content'])
+            self.assertEqual(context['SOURCE'],'Original source')
+            self.assertEqual(context['DRAFT']['summary'],'draft')
+
+    def test_known_translation_failures_are_not_published(self):
+        fields={'displayTitle':'Русский обзор моделей','summary':'Краткое русское описание изделия из источника.',
+                'sections':[{'heading':'Особенности','paragraphs':[]} ]}
+        for paragraph in ['Матовая ткань не отражает свет при обычном освещении.', 'Для мужчин в возрасте 170 см предлагают колготки с мягким поясом.']:
+            fields['sections'][0]['paragraphs']=[paragraph]
+            with patch.object(free,'validate_result',return_value=fields):
+                with self.assertRaises(ValueError):free.validate({},'170 cm')
+
+    def test_first_draft_cannot_be_merged_without_editorial_check(self):
+        draft={'id':'unreviewed','summary':'Русское вступление к обзору изделия. '*10,
+               'sections':[{'heading':'Детали','paragraphs':['Описание изделия и его особенностей по публикации производителя. '*10]}],
+               'localSummary':{'model':'model'}}
+        news={'items':[]};free.apply_saved(news,{'items':[draft]})
+        self.assertEqual(news['items'],[])
+
     def test_feed_uses_full_content_not_a_teaser(self):
         body='Useful source information about tights and construction. '*40
         xml=f'<rss xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><item><title>Tights</title><link>https://example.org/a</link><description>Only a headline.</description><content:encoded><![CDATA[<p>{body}</p>]]></content:encoded></item></channel></rss>'.encode()
@@ -56,7 +84,7 @@ class FreeNews(unittest.TestCase):
                  'sourceId':'example','source':'Example','publishedAt':'2026-11-01T00:00:00Z','language':'en',
                  'displayTitle':'Новый русский обзор конструкции колготок','summary':'Подробное вступление к самостоятельному обзору устройства и применения изделия.',
                  'sections':[{'heading':'Особенности конструкции','paragraphs':['Факты о конструкции изделия объяснены в отдельном русском обзоре. '*14]}],
-                 'localSummary':{'model':'local','generatedAt':'2026-11-26T00:00:00Z'}}
+                 'localSummary':{'model':'local','generatedAt':'2026-11-26T00:00:00Z','reviewPass':True}}
         with patch.object(free,'sources',return_value=[source]):
             result=free.apply_saved({'items':[]},{'items':[article]})
         self.assertEqual(len(result['items']),1)
