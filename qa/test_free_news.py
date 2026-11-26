@@ -39,6 +39,16 @@ class FreeNews(unittest.TestCase):
         news={'items':[]};free.apply_saved(news,{'items':[draft]})
         self.assertEqual(news['items'],[])
 
+    def test_polish_terms_cannot_be_written_in_cyrillic(self):
+        fields={'displayTitle':'Русский обзор моделей','summary':'Русское вступление к обзору материалов производителя.',
+                'sections':[{'heading':'Детали','paragraphs':[]}]}
+        for text in ['Пазнокти должны быть гладкими перед надеванием колготок.',
+                     'Ногавку сворачивают постепенно, не растягивая ткань.',
+                     'Колготки с коронками из новой коллекции подходят к платью.']:
+            fields['sections'][0]['paragraphs']=[text]
+            with patch.object(free,'validate_result',return_value=fields):
+                with self.assertRaises(ValueError):free.validate({},'paznokcie, nogawka, koronka')
+
     def test_feed_uses_full_content_not_a_teaser(self):
         body='Useful source information about tights and construction. '*40
         xml=f'<rss xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><item><title>Tights</title><link>https://example.org/a</link><description>Only a headline.</description><content:encoded><![CDATA[<p>{body}</p>]]></content:encoded></item></channel></rss>'.encode()
@@ -97,6 +107,22 @@ class FreeNews(unittest.TestCase):
         self.assertEqual(image['source'],'https://example.org/a')
         self.assertIn('из этой публикации',image['caption'])
         self.assertIsNone(free.illustration({'url':'https://example.org/b','title':'Unrelated event'},media))
+
+    def test_mens_first_pair_uses_a_clothed_mens_photo(self):
+        media=json.loads((free.DATA/'editorial-media.json').read_text(encoding='utf-8'))
+        for title in ['How to put on tights for men','120 denier tights for men']:
+            photo=free.illustration({'url':'https://nylo.us/example','sourceId':'nylo','title':title},media)
+            self.assertEqual(photo['src'],'assets/style/style-nylo-jacket.webp')
+
+    def test_opaque_article_does_not_use_a_ten_den_macro(self):
+        media=json.loads((free.DATA/'editorial-media.json').read_text(encoding='utf-8'))
+        photo=free.illustration({'url':'https://example.org/b','title':'Understanding 50 denier tights'},media)
+        self.assertNotIn('wolford-3',photo['src'])
+        self.assertIn('Тематическая',photo['caption'])
+
+    def test_collection_cannot_borrow_an_unrelated_brand_picture(self):
+        media=json.loads((free.DATA/'editorial-media.json').read_text(encoding='utf-8'))
+        self.assertIsNone(free.illustration({'url':'https://example.org/b','title':'50 Denier Tights Colour Collection'},media))
 
     def test_workflow_has_no_paid_secrets_and_requires_public_repository(self):
         text=(free.ROOT/'.github/workflows/free-articles.yml').read_text(encoding='utf8')

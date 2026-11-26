@@ -21,7 +21,7 @@ jobs:
     # Standard runners are free for public repositories. Do not silently bill a private fork.
     if: github.event.repository.private == false
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v6
         with:
@@ -37,7 +37,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: .cache/free-models
-          key: tonko-qwen3-instruct-3605803b-v1
+          key: tonko-qwen35-9b-03b74727-v1
       - name: Prepare pinned local CPU model
         shell: bash
         run: |
@@ -45,15 +45,15 @@ jobs:
           curl --fail --location --retry 2 --max-time 180 https://github.com/ggml-org/llama.cpp/releases/download/b12776/llama-b12776-bin-ubuntu-x64.tar.gz -o "$RUNNER_TEMP/tonko-llama/runtime.tar.gz"
           echo "27e18f608c7cd1e2f86d70f91bde4299e795113c0065322f6339cbe5135e79c2  $RUNNER_TEMP/tonko-llama/runtime.tar.gz" | sha256sum --check
           tar -xzf "$RUNNER_TEMP/tonko-llama/runtime.tar.gz" -C "$RUNNER_TEMP/tonko-llama"
-          model=.cache/free-models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf
+          model=.cache/free-models/Qwen3.5-9B-Q4_K_M.gguf
           if [ ! -f "$model" ]; then
-            curl --fail --location --retry 2 --max-time 360 https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/a06e946bb6b655725eafa393f4a9745d460374c9/Qwen3-4B-Instruct-2507-Q4_K_M.gguf -o "$model.tmp"
+            curl --fail --location --retry 2 --max-time 600 https://huggingface.co/unsloth/Qwen3.5-9B-GGUF/resolve/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-Q4_K_M.gguf -o "$model.tmp"
             mv "$model.tmp" "$model"
           fi
-          echo "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597  $model" | sha256sum --check
+          echo "03b74727a860a56338e042c4420bb3f04b2fec5734175f4cb9fa853daf52b7e8  $model" | sha256sum --check
           server="$(find "$RUNNER_TEMP/tonko-llama" -name llama-server -type f -print -quit)"
           test -n "$server"
-          "$server" --model "$model" --alias qwen3-4b-instruct-2507 --host 127.0.0.1 --port 11435 --ctx-size 6144 --n-gpu-layers 0 --threads "$(nproc)" --threads-batch "$(nproc)" --jinja --reasoning-budget 0 --no-webui > "$RUNNER_TEMP/tonko-model.log" 2>&1 &
+          "$server" --model "$model" --alias qwen3.5-9b --host 127.0.0.1 --port 11435 --ctx-size 6144 --parallel 1 --n-gpu-layers 0 --threads "$(nproc)" --threads-batch "$(nproc)" --jinja --reasoning-budget 0 --no-webui > "$RUNNER_TEMP/tonko-model.log" 2>&1 &
           for attempt in $(seq 1 40); do
             if curl --fail --silent http://127.0.0.1:11435/health; then exit 0; fi
             sleep 3
@@ -61,7 +61,7 @@ jobs:
           tail -30 "$RUNNER_TEMP/tonko-model.log"
           exit 1
       - name: Prepare bounded Russian editions and topic photographs
-        run: python scripts/free_news.py --engine llama --endpoint http://127.0.0.1:11435 --model qwen3-4b-instruct-2507 --limit 4 --seconds 900
+        run: python scripts/free_news.py --engine llama --endpoint http://127.0.0.1:11435 --model qwen3.5-9b --limit 1 --seconds 1200
       - name: Report local inference timings
         if: always()
         run: grep -E 'prompt eval time|eval time|total time|error:' "$RUNNER_TEMP/tonko-model.log" | tail -20 || true
