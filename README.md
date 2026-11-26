@@ -129,6 +129,14 @@ Workflow [Publish TONKO](https://github.com/big-arch/TOHKO/actions/workflows/pag
 
 ## Сборка и проверка
 
+### Мастерская выбора и живые авторские разборы · 26 ноября
+
+`guide.html` предлагает подбор по четырём ответам (108 сочетаний), сохранение выбора в этом браузере, сравнение реальных фотографий с подвижной границей и две короткие видеопетли Snag. Видео запускается по нажатию внутри страницы, не обращается к YouTube и не загружается заранее. Клавиатура управляет вариантами и ползунком; при reduced motion повтор по умолчанию выключен. При прокрутке за пределы кадра и переключении вкладки видео приостанавливается. Это ориентир для выбора, а не универсальная размерная или температурная таблица.
+
+Шесть авторских статей получили самостоятельные практические дополнения. При каждой публикации `build-editorial-updates.py` выбирает до трёх готовых русских обзоров по теме, с фотографией и полным чтением внутри ТОНКО. Неподготовленные заголовки и нерелевантные темы не попадают в подборку. «Последнее дополнение» основано на датах подготовки материалов; повторная сборка сама по себе не освежает дату. Основной авторский текст и исходные даты статей сохраняются. Новые примеры появятся, когда бесплатный процесс подготовит подходящие обзоры; проверка по расписанию не гарантирует новый материал каждый час.
+
+Источники новой мастерской — `build-guide-studio.py`, `guide-studio.js` и `guide-studio.css`. Автоматические дополнения — `build-editorial-updates.py`; его результат также записывается в `data/editorial-updates.json`. Эти два сборщика идемпотентны. После пересоздания базовых редакционных страниц нужно повторить оба этапа в порядке ниже.
+
 После изменения редакционных исходников:
 
 ```sh
@@ -139,9 +147,12 @@ python scripts/build-catalog.py
 python scripts/build-videos.py
 python scripts/build-packaging.py
 python scripts/build-style-photos.py
+python scripts/build-guide-studio.py
+python scripts/free_news.py --merge-only
 python scripts/build-home-news.py
 python scripts/optimize-images.py
 python scripts/build-live-sections.py
+python scripts/build-editorial-updates.py
 python scripts/link-catalog.py
 python scripts/build-assistant.py --inject
 python scripts/check-site.py
@@ -153,6 +164,7 @@ python scripts/check-site.py
 
 ```sh
 python -m unittest discover -s qa -p "test_news*.py"
+python -m unittest qa.test_free_news qa.test_live_sections qa.test_guide_editorial
 python -m unittest qa/test_assistant_build.py qa/test_video_feed.py qa/test_video15.py qa/test_video16.py qa/test_video17.py
 python -m unittest qa/test_exchange18.py qa/test_catalog18_links.py qa/test_catalog18_ui.py
 python -m unittest discover -s qa/catalog18-import -p "test_parser.py"

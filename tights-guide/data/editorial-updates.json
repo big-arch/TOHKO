@@ -1,0 +1,48 @@
+{
+  "light": {
+    "updatedAt": "2026-11-26",
+    "ids": [
+      "fb81cdf32b86500f",
+      "817f1252d8c75388"
+    ]
+  },
+  "patterns": {
+    "updatedAt": "2026-11-26",
+    "ids": [
+      "a1d9fbbdd67f650c",
+      "7c98f83e81c54f4e",
+      "191d11411e207d23"
+    ]
+  },
+  "construction": {
+    "updatedAt": "2026-11-26",
+    "ids": [
+      "ae6f7b26a5795e04",
+      "526906455127cce3",
+      "10c2e58a93d5b519"
+    ]
+  },
+  "product-card": {
+    "updatedAt": "2026-11-26",
+    "ids": [
+      "ae6f7b26a5795e04",
+      "a3db36de7de4297f",
+      "e91f3ab7c1d5c5c6"
+    ]
+  },
+  "making": {
+    "updatedAt": "2026-11-26",
+    "ids": [
+      "3a8926fce2caa891",
+      "d4e8e16255104b16",
+      "027ada4e3cdc30c2"
+    ]
+  },
+  "archive": {
+    "updatedAt": "2026-11-26",
+    "ids": [
+      "d97ca36124a1dd82",
+      "401469c4e6dfb62c"
+    ]
+  }
+}

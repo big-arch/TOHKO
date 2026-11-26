@@ -9,7 +9,9 @@ window.TONKO_JOURNAL = [
     "minutes": 3,
     "url": "read-light.html",
     "publishedAt": "2026-11-15",
-    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py"
+    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py",
+    "updatedAt": "2026-11-26",
+    "updateCount": 2
   },
   {
     "id": "patterns",
@@ -21,7 +23,9 @@ window.TONKO_JOURNAL = [
     "minutes": 2,
     "url": "read-patterns.html",
     "publishedAt": "2026-11-15",
-    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py"
+    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py",
+    "updatedAt": "2026-11-26",
+    "updateCount": 3
   },
   {
     "id": "construction",
@@ -33,7 +37,9 @@ window.TONKO_JOURNAL = [
     "minutes": 2,
     "url": "read-construction.html",
     "publishedAt": "2026-11-15",
-    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py"
+    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py",
+    "updatedAt": "2026-11-26",
+    "updateCount": 3
   },
   {
     "id": "product-card",
@@ -45,7 +51,9 @@ window.TONKO_JOURNAL = [
     "minutes": 3,
     "url": "read-product-card.html",
     "publishedAt": "2026-11-15",
-    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py"
+    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py",
+    "updatedAt": "2026-11-26",
+    "updateCount": 3
   },
   {
     "id": "making",
@@ -57,7 +65,9 @@ window.TONKO_JOURNAL = [
     "minutes": 3,
     "url": "read-making.html",
     "publishedAt": "2026-11-15",
-    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py"
+    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py",
+    "updatedAt": "2026-11-26",
+    "updateCount": 3
   },
   {
     "id": "archive",
@@ -69,6 +79,8 @@ window.TONKO_JOURNAL = [
     "minutes": 3,
     "url": "read-archive.html",
     "publishedAt": "2026-11-15",
-    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py"
+    "publicationDateSource": "Дата выпуска и статьи в a84eb33:scripts/build-experience.py",
+    "updatedAt": "2026-11-26",
+    "updateCount": 2
   }
 ];
