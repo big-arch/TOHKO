@@ -101,17 +101,17 @@ def ask_local(item, source_text, model, endpoint, engine='ollama'):
         raise ValueError('Only installed local model names are allowed')
     payload={'model':model,'system':INSTRUCTIONS,'prompt':json.dumps({'TITLE':item['title'],
              'AUTHOR':item['source'],'SOURCE':source_text},ensure_ascii=False),'stream':False,
-             'think':False,'format':SCHEMA,'options':{'temperature':.15,'num_ctx':8192,'num_predict':1600},
+             'think':False,'format':SCHEMA,'options':{'temperature':.15,'num_ctx':6144,'num_predict':1000},
              'keep_alive':'2m'}
     path='/api/generate'
     if engine=='llama':
         payload={'model':model,'messages':[{'role':'system','content':INSTRUCTIONS},
-                   {'role':'user','content':payload['prompt']}],'stream':False,'temperature':.15,'max_tokens':1600,
+                   {'role':'user','content':payload['prompt']}],'stream':False,'temperature':.15,'max_tokens':1000,
                  'chat_template_kwargs':{'enable_thinking':False},
                  'response_format':{'type':'json_schema','json_schema':{'name':'tonko_article','strict':True,'schema':SCHEMA}}}
         path='/v1/chat/completions'
     req=Request(endpoint.rstrip('/')+path,data=json.dumps(payload).encode(),headers={'Content-Type':'application/json'})
-    with urlopen(req,timeout=300) as response:raw=response.read(1000001)
+    with urlopen(req,timeout=600) as response:raw=response.read(1000001)
     if len(raw)>1000000:raise ValueError('Model response too large')
     result=json.loads(raw)
     if engine=='llama':
@@ -189,6 +189,8 @@ def run(args):
         if outages.get(item.get('sourceId'),0)>=2:continue
         previous=attempts.get(item['id'],{})
         if previous.get('executor',executor)==executor and date(previous.get('retryAt')) and date(previous['retryAt'])>now:continue
+        # Missing photographs should not consume the bounded text-processing slots.
+        if item.get('sourceId')!='google' and not illustration(item,media):continue
         processed+=1
         try:
             url,source=resolve_publisher(item,configs,fetch_publisher_url,now,resolution_cache)
@@ -209,12 +211,15 @@ def run(args):
                     raise
             if len(words(source_text))<140:raise ValueError('Source too short')
             if EXCLUDE.search(source_text[:1500]):raise ValueError('Excluded source')
+            excerpt=len(source_text)>10000
+            if excerpt:
+                source_text=source_text[:10000].rsplit(' ',1)[0]
             value=ask_local(item,source_text,args.model,args.endpoint,args.engine)
             fields=validate(value,source_text)
             record={k:copy.deepcopy(item[k]) for k in ('id','title','url','source','sourceId','sourceSite','via','language','publishedAt') if k in item}
             record.update(fields,publisherUrl=url,localSummary={'model':args.model,'generatedAt':iso(now),
                           'sourceWords':len(words(source_text)),'sourceHash':sha256(source_text.encode()).hexdigest(),
-                          'sourceLanguage':item.get('language','unknown')})
+                          'sourceLanguage':item.get('language','unknown'),'sourceExcerpt':excerpt})
             photo=illustration(record,media)
             if not photo:raise ValueError('No suitable verified photograph')
             record['illustration']=photo
