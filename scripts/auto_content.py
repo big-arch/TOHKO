@@ -317,12 +317,25 @@ def add_images(data, media, sources, site=SITE, fetcher=fetch):
     newest = sorted((x for x in auto.values() if x['id'] in referenced),
                     key=lambda x: (x.get('publishedAt') or '', x['id']), reverse=True)[:MAX_PHOTOS]
     kept = {x['id'] for x in newest}
+    # Leaving the rolling gallery must not break photographs in published articles.
+    # Keep original and responsive files even when their gallery record expires.
+    article_photos = set()
+    for registry in ('news.json', 'free-articles.json'):
+        path = site / 'data' / registry
+        if path.exists():
+            for article in json.loads(path.read_text(encoding='utf-8')).get('items', []):
+                if not article.get('summary') or not article.get('sections'):
+                    continue
+                match = re.fullmatch(r'assets/updates/(auto-[0-9a-f]{16})\.webp',
+                                     article.get('illustration', {}).get('src', ''))
+                if match:
+                    article_photos.add(match[1])
     # Remove only our own expired generated files, inside these two resolved folders.
     for folder in (site / 'assets/updates', site / 'assets/responsive'):
         base = folder.resolve()
         for path in folder.glob('auto-*.webp'):
             match = re.fullmatch(r'(auto-[0-9a-f]{16})(?:-\d+)?\.webp', path.name)
-            if match and match[1] not in kept and path.resolve().parent == base:
+            if match and match[1] not in kept | article_photos and path.resolve().parent == base:
                 path.unlink()
     for item in data['items']:
         if item.get('mediaId') not in kept:

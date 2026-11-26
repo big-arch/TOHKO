@@ -171,6 +171,25 @@ class Feeds(unittest.TestCase):
             self.assertFalse(expired.exists())
             self.assertEqual(manual.read_bytes(), b'user asset')
 
+    def test_expired_gallery_photo_survives_in_published_article(self):
+        import json
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for folder in ('assets/updates', 'assets/responsive', 'data'):
+                (root / folder).mkdir(parents=True)
+            original = root / 'assets/updates/auto-0000000000000000.webp'
+            preview = root / 'assets/responsive/auto-0000000000000000-640.webp'
+            original.write_bytes(b'published original'); preview.write_bytes(b'published preview')
+            (root / 'data/free-articles.json').write_text(json.dumps({'items': [{
+                'summary': 'Published introduction', 'sections': [{'heading': 'Facts'}],
+                'illustration': {'src': original.relative_to(root).as_posix()}}]}), encoding='utf-8')
+            media = [{'id': f'auto-{i:016x}', 'origin': 'feed', 'publishedAt': iso(NOW)} for i in range(49)]
+            items = [{'kind': 'journal', 'mediaId': m['id']} for m in media]
+            kept = add_images({'items': items, 'checkedAt': iso(NOW)}, media, [], root)
+            self.assertEqual(len(kept), 48)
+            self.assertTrue(original.exists())
+            self.assertTrue(preview.exists())
+
 
 if __name__ == '__main__':
     unittest.main()
