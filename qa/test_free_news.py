@@ -12,6 +12,14 @@ SOURCE={'id':'example','site':'https://example.org','name':'Example'}
 
 
 class FreeNews(unittest.TestCase):
+    def test_chafing_is_not_translated_as_scratching(self):
+        fields={'displayTitle':'Советы по уходу за одеждой','summary':'Бренд делится рекомендациями по обращению с антицарапающими шортами.',
+                'sections':[{'heading':'Бережное обращение','paragraphs':['Русское описание изделия с конкретными советами из публикации производителя.']}]}
+        with patch.object(free,'validate_result',return_value=fields):
+            checked=free.validate({},'Care for tights and anti-chafing shorts.')
+            self.assertIn('шортами от натирания',checked['summary'])
+            self.assertIn('антицарапающими',fields['summary'])
+            with self.assertRaises(ValueError):free.validate({},'Unrelated source without that term.')
     def test_editorial_pass_receives_source_and_draft_on_loopback(self):
         reply={'choices':[{'finish_reason':'stop','message':{'content':'{"usable": false}'}}]}
         with patch.object(free,'urlopen') as network:

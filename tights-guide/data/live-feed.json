@@ -3634,6 +3634,75 @@
       }
     },
     {
+      "id": "d19cb3bea96cd21b",
+      "title": "Уход за колготками Better Tights: как продлить жизнь изделиям",
+      "excerpt": "В памятке Better Tights собраны рекомендации по обращению с колготками, легинсами и шортами от натирания. Бренд уделяет основное внимание бережной стирке и защите тонкой ткани от зацепок…",
+      "source": "Better Tights",
+      "via": null,
+      "publishedAt": "2026-04-30T09:51:41Z",
+      "language": "en",
+      "ready": true,
+      "url": "news.html#story-d19cb3bea96cd21b",
+      "article": {
+        "id": "d19cb3bea96cd21b",
+        "title": "Hosiery Care Guide: How to Look After Your Tights",
+        "url": "https://www.bettertights.com/blogs/news/hosiery-care-guide-how-to-look-after-your-tights",
+        "excerpt": "Better Tights Care Tips for Long-Lasting, Durable & Sustainable Wear At b etter Tights , we design premium hosiery that blends durability, comfort, and sustainability . To help you get the most out of your tights, leggings, and anti-chafing shorts, proper care is essential.…",
+        "publishedAt": "2026-04-30T09:51:41Z",
+        "sourceId": "better",
+        "source": "Better Tights",
+        "sourceSite": "https://www.bettertights.com",
+        "via": null,
+        "language": "en",
+        "publication": {
+          "status": "ready"
+        },
+        "displayTitle": "Уход за колготками Better Tights: как продлить жизнь изделиям",
+        "summary": "В памятке Better Tights собраны рекомендации по обращению с колготками, легинсами и шортами от натирания. Бренд уделяет основное внимание бережной стирке и защите тонкой ткани от зацепок.",
+        "sections": [
+          {
+            "heading": "Рекомендации по стирке",
+            "paragraphs": [
+              "Производитель Better Tights настоятельно рекомендует ручную стирку в холодной воде с использованием мягкого моющего средства. При этом важно не скручивать и не выкручивать ткань, а стирать изделия отдельно от других вещей или вместе с аналогичными по цвету."
+            ]
+          },
+          {
+            "heading": "Машинная стирка и защита от повреждений",
+            "paragraphs": [
+              "Если машинная стирка неизбежна, автор советует помещать колготки в специальный мешок для белья или наволочку, выбирая деликатный режим и низкую температуру. Для предотвращения стрелок и зацепок необходимо избегать контакта с украшениями, молниями и острыми предметами, а также следить за состоянием ногтей."
+            ]
+          }
+        ],
+        "publisherUrl": "https://www.bettertights.com/blogs/news/hosiery-care-guide-how-to-look-after-your-tights",
+        "localSummary": {
+          "model": "qwen3.5-9b",
+          "generatedAt": "2026-11-26T14:26:33.983318Z",
+          "sourceWords": 260,
+          "sourceHash": "4ace37e1af2a6bae9cc624d80fe1580f89a139ffb11ade3c0481b673e335418f",
+          "sourceLanguage": "en",
+          "sourceExcerpt": false,
+          "reviewPass": true,
+          "editorialReviewAt": "2026-11-26T14:28:55.900327+00:00"
+        },
+        "illustration": {
+          "src": "assets/editorial/wolford-3.jpg",
+          "width": 1440,
+          "height": 1920,
+          "alt": "Крупный план тонкого полотна и верхней части Wolford Individual 10.",
+          "caption": "Тематическая иллюстрация: Individual 10 · фактура. Отдельная съёмка, не фотография события из статьи.",
+          "source": "https://us.wolford.com/en-us/individual-10-tights-18382.7005.L.html"
+        }
+      },
+      "men": false,
+      "image": {
+        "src": "assets/editorial/wolford-3.jpg",
+        "alt": "Крупный план тонкого полотна и верхней части Wolford Individual 10.",
+        "width": 1440,
+        "height": 1920,
+        "srcset": ""
+      }
+    },
+    {
       "id": "ecfefa91acbb25c6",
       "title": "Легинсы со штрипками: три детали образа в гиде Swedish Stockings",
       "excerpt": "Swedish Stockings посвятил отдельный гид модели Lia со штрипками. Бренд предлагает использовать облегающий силуэт и петлю под стопой как основу повседневного или более нарядного сочетания…",
